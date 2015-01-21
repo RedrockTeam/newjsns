@@ -15,3 +15,10 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('sb', function()
+{
+	return "213165156";
+});
+
+
