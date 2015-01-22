@@ -2,7 +2,7 @@
   "path": {
     "js": "app/views/**/*.js",
     "css": "app/views/**/*.css",
-    "image": "app/views/**/*.{png,jpg,gif}"
+    "image": "app/views/**/*.{jpg,png,gif}"
   },
   "depth": 2
 }
