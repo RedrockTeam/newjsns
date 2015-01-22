@@ -6,7 +6,8 @@
 module.exports = function (grunt) {
     //加载辅助模块
     var path = require('path'),
-        fs = require('fs');
+        fs = require('fs'),
+        _ = require('underscore');
     //读取配置文件
     var gConfig = grunt.file.readJSON('grunt.config.json'),
         paths = gConfig.path,
@@ -42,9 +43,12 @@ module.exports = function (grunt) {
         });
     })();
 
+    //加载任务列表
+    grunt.registerTask('default', 'watch');
+    
     //watch事件处理文件
     grunt.event.on('watch', function(type, src){
-        console.log('type:'+ type + 'src:' + src );
-        //todo
+
+        //
     });
 };
