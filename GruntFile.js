@@ -12,6 +12,9 @@ module.exports = function (grunt) {
     var gConfig = grunt.file.readJSON('grunt.config.json'),
         paths = gConfig.path,
         depth = gConfig.depth;
+    console.log(_.map(paths, function (path) {
+        return path;
+    }));
 
     //init
     grunt.initConfig({
@@ -45,10 +48,9 @@ module.exports = function (grunt) {
 
     //加载任务列表
     grunt.registerTask('default', 'watch');
-    
+
     //watch事件处理文件
     grunt.event.on('watch', function(type, src){
-
-        //
+        console.log(src + ':' + type );
     });
 };

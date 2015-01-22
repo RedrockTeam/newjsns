@@ -1,8 +1,8 @@
 {
   "path": {
-    "js": "app/viws/**/*.js",
-    "css": "app/viws/**/*.css",
-    "image": "app/viws/**/*.{png,jpg,gif}"
+    "js": "app/views/**/*.js",
+    "css": "app/views/**/*.css",
+    "image": "app/views/**/*.{png,jpg,gif}"
   },
   "depth": 2
 }
