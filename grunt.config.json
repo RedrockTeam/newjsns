@@ -1,8 +1,7 @@
 {
-  "path": {
-    "js": "app/views/**/*.js",
-    "css": "app/views/**/*.css",
-    "image": "app/views/**/*.{jpg,png,gif}"
-  },
-  "depth": 2
+    "js": ["app/views/**/*.js"],
+    "css": ["app/views/**/*.css"],
+    "image" : ["app/views/**/*.{jpg,png,gif}"],
+    "needTag": false,
+    "depth": 2
 }

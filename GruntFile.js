@@ -1,153 +1,292 @@
-/*@desc GruntFile
- *@date 2015/1/23
- *@author smelrain
+/**
+ * @desc grunt配置文件
+ * @new 避免每次操作全局压缩，目前只对修改的静态文件进行压缩操作
  */
 
-module.exports = function (grunt) {
-    //加载辅助模块
-    var path = require('path'),
-        _ = require('underscore');
+module.exports = function(grunt) {
+    var path = require("path"),
+        sep = path.sep;
 
-    //读取配置文件
-    var gConfig = grunt.file.readJSON('grunt.config.json'),
-        paths = gConfig.path,
-        depth = gConfig.depth;
-
-    //init
     grunt.initConfig({
-        watch: {
+        //读取配置文件信息
+        config: grunt.file.readJSON('grunt.config.json'),
+
+        //文件修改监控
+        watch : {
             options: {
                 spawn: false
             },
-            files: _.map(paths, function (path) {
-                return path;
-            })
+            files: ['<%= config.js %>', '<%= config.css %>', '<%= config.image %>']
+        },
+        uglify : {
+            buildall: {//任务三：按原文件结构压缩js文件夹内所有JS文件
+                files: [{
+                    expand:true,
+                    cwd:'public/js',//js目录下
+                    src:'**/*.js',//所有js文件
+                    dest: "public/js"//输出到此目录下
+                }]
+            }
+        },
+        cssmin: {
+            minify: {
+                expand: true,        // 启用下面的选项
+                cwd: 'public/css/',    // 指定待压缩的文件路径
+                src: ['*.css', '!*.min.css'],    // 匹配相对于cwd目录下的所有css文件(排除.min.css文件)
+                dest: 'public/css/',    // 生成的压缩文件存放的路径
+                ext: '.min.css'        // 生成的文件都使用.min.css替换原有扩展名，生成文件存放于dest指定的目录中
+            }
+        },
+
+        imagemin : {
+            static: {
+                files: [{
+                    expand: true,
+                    filter: 'isFile',
+                    src: ["app/views/**/*.{jpg,png,gif}"],
+                    dest: "public/images/",
+                    rename: function(dest,src){
+                        var lIndex = src.lastIndexOf("/");
+                        lIndex = lIndex == -1 ? 0 : lIndex+1;
+
+                        return dest + src.slice(lIndex);
+                    }
+                }]
+            }
         }
+
+
     });
 
-    //所有的插件配置
-    var extensions = function (type, src) {
-        return {
-            jshint: {  //js语法检测
+    //对watch插件的watch事件进行监听，进行针对处理
+    grunt.event.on("watch",function(type,src){
+        var data = grunt.config.data,
+            depth = data.config.depth || 1,
+            needTag = data.config.needTag || false,
+            imgDir = getDirPathFromSrc(src),
+            ext = getExtFromSrc(src),
+            isJ = ["js","json"].indexOf(ext) != -1,
+            isC = "css" === ext,
+            isJ_M ="js.map" === ext,
+            isC_M = "css.map" === ext,
+            isScss = "scss" === ext,
+            isLess = "less" === ext,
+            runMap = [];
+
+
+
+        if((isJ || isC) & needTag)
+        {
+            data.clean = {
+                build: {
+                    expand: true,
+                    filter: "isFile",
+                    src: getCleanDir(src,depth)
+                }
+            };
+
+            runMap.push("clean");
+        }
+
+
+        if(isJ)
+        {
+            data.jshint = {
                 options: {
-                    globals : {
+                    globals: {
                         jQuery: true,
                         console: true,
                         module: true
                     }
                 },
-                files : [src]
-            },
-            uglify : {   //压缩js
-                options : {
-                    banner : '/*' + src + 'was created by' + grunt.template.today('yyyy-mm-dd') + 'by redrock' + '*/'
-                },
-                build : {
-                    files : [{
-                        expand : true,
-                        dest : 'public/js/',
-                        src : src,
-                        rename : changeDest
-                    }]
+                files: [src]
+            };
+
+            data.uglify = {
+                compress: {
+                    options : {
+                        preserveComments : "all",
+                        mangle: false,
+                        beautify: true
+                    },
+                    files: [
+                        {
+                            expand: true,
+                            filter: 'isFile',
+                            src: src,
+                            rename: getPathFromDepth("public/js", src, depth,needTag)
+                        }
+                    ]
                 }
-            },
-            cssmin : {  //压缩css
-                build : {
-                    files : [{
-                        expand : true,
-                        src : src,
-                        dest : 'public/css/',
-                        rename : changeDest
-                    }]
-                }
-            },
-            imagemin : {   //压缩图片
-                static : {
-                    files : [{
-                        expand : true,
-                        src : src,
-                        dest : 'public/images/',
-                        rename : changeDest
-                    }]
-                }
-            }
-        };
-    };
+            };
 
-    //依赖包
-    var devNpms = [
-        "grunt-contrib-clean",
-        "grunt-contrib-copy",
-        "grunt-contrib-cssmin",
-        "grunt-contrib-imagemin",
-        "grunt-contrib-jshint",
-        "grunt-contrib-uglify",
-        "grunt-contrib-watch"
-    ];
-
-    //加载依赖包
-    (function () {
-        devNpms.forEach(function (npm) {
-            grunt.loadNpmTasks(npm);
-        });
-    })();
-
-    //加载任务列表
-    grunt.registerTask('default', 'watch');
-
-    //watch事件处理文件
-    grunt.event.on('watch', function (type, src) {
-            var isDir = grunt.file.isDir(src),
-                isFile = grunt.file.isFile(src),
-                tasks = [],
-                queenTasks = grunt.config.data;
-        console.log(isFile);
-        console.log(src);
-            if (isDir) {
-
-            } else if (isFile) {
-                var ext = path.extname(src),
-                    isJs = ['.js', '.json'].indexOf(ext) != -1,
-                    isCss = '.css' === ext,
-                    isImg = ['.png', '.gif', '.jpg'].indexOf(ext) != -1;
-                console.log(isImg);
-
-                if (isJs) {
-                    queenTasks.jshint = extensions(type, src).jshint;
-                    queenTasks.uglify = extensions(type, src).uglify;
-                    tasks.push('jshint', 'uglify');
-                }
-
-                if(isCss){
-                    queenTasks.cssmin = extensions(type, src).cssmin;
-                    tasks.push('cssmin');
-                }
-
-                if(isImg){
-                    queenTasks.imagemin = extensions(type, src).imagemin;
-                    tasks.push('imagemin');
-                    console.log('hahh');
-                }
-            }
-
-        grunt.task.run(tasks);
-    });
-
-    /*------- 辅助函数-----*/
-    //@desc 修改文件路径
-    //@param type,src
-    //return dest
-    function changeDest(dest, src){
-        var count = depth, //深度
-            iIndex;
-        console.log(src);
-
-        while(count--){
-            iIndex = src.indexOf('/');
-            src = src.slice(iIndex+1);
+//        runMap.push("jshint");
+            runMap.push("uglify");
         }
 
-        return dest + src;
+        if(isJ_M){
+            data.copy = {
+                main : {
+                    files : [
+                        {
+                            expand : true,
+                            filter: "isFile",
+                            src : src,
+                            rename : getPathFromDepth('public/css', src, depth)
+                        }
+                    ]
+                }
+            };
+        }
+
+        if(isC)
+        {
+            data.cssmin = {
+                compress: {
+                    files: [
+                        {
+                            expand: true,
+                            filter: 'isFile',
+                            src: src,
+                            rename: getPathFromDepth("public/css", src, depth)
+                        }]
+                }
+            };
+            runMap.push("cssmin");
+        }
+
+        if(isC_M || isLess || isScss){
+            var destSrc = getPathFromDepth("public/css", src, depth)();
+
+            data.copy = {
+                main : {
+                    files : [
+                        {
+                            filter: "isFile",
+                            src :  src,
+                            dest : destSrc,
+                            options: {
+                                process: function (content, srcpath) {
+                                    return content.replace(/[sad ]/g,"_");
+                                }
+                            }
+                        }
+                    ]
+                }
+            };
+
+            runMap.push("copy");
+        }
+
+        data.imagemin = {
+            static: {
+                files: [{
+                    expand: true,
+                    filter: 'isFile',
+                    src: [imgDir + "**/*.{jpg,png,gif}"],
+                    dest: "public/images/",
+                    rename: function(dest,src){
+                        var lIndex = src.lastIndexOf("/");
+                        lIndex = lIndex == -1 ? 0 : lIndex+1;
+
+                        return dest + src.slice(lIndex);
+                    }
+                }]
+            }
+        };
+        runMap.push("imagemin");
+
+        grunt.config.data = data;
+        grunt.task.run(runMap);
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
+    grunt.registerTask('default', ['watch']);
+
+    /**---------------下面是辅助函数，不要随意修改--------------**/
+    function getPathFromDepth(dest,src,depth,needTag)
+    {
+        return function(){
+            var i = depth,
+                path = src,
+                time = +new Date(),
+                iIndex,lIndex,tag;
+
+            console.log(sep);
+            //去除头尾的空格
+            src = src.replace(/^[\/\\]|[\/\\]$/g,'');
+
+            //根据编译深度进行目标路径截取
+            while(i--){
+                iIndex = src.indexOf(sep);
+
+                if(iIndex == -1){
+                    break;
+                }
+                src = src.slice(iIndex+1);
+
+            }
+
+            lIndex = src.lastIndexOf(".");
+
+            //拼接含有时间戳的目标路径
+            tag = needTag ? "-" + time : '';
+            src = src.slice(0,lIndex) + tag + src.slice(lIndex);
+
+            //console.log("dest + sep + src", dest + sep  + src);
+            return dest + sep + src;
+        }
     }
-    console.log('dsfuguy');
+
+    function getExtFromSrc(src)
+    {
+        var lIndex,
+            ext;
+
+        //去除多余干扰字符
+        src = src.replace(/[\/\\ ]+$/g,'');
+        lIndex = src.lastIndexOf(".");
+
+        ext = src.slice(lIndex + 1);
+
+        if(ext === "map"){
+            return src.slice(lIndex -3);
+        }
+        else if(lIndex != -1)
+        {
+            return ext;
+        }
+
+    }
+
+    function getDirPathFromSrc(src)
+    {
+        var lIndex;
+
+        //去除多余干扰字符
+        src = src.replace(/[\/\\ ]+$/g,'');
+        lIndex = src.lastIndexOf(sep);
+
+
+        return lIndex != -1 ? src.slice(0,lIndex+1) : "/";
+    }
+
+    function getCleanDir(src,depth)
+    {
+        var ext = getExtFromSrc(src),
+            dest = "public/" + ext;
+
+        src = src.replace(/[\/\\ ]+$/g,'');
+        src = getPathFromDepth(dest,src,depth)();
+        return src.split("-")[0] + "-*." + ext;
+
+    }
+
 };
