@@ -11,14 +11,44 @@
 |
 */
 
+#首页
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('layout/home');
 });
 
-Route::get('sb', function()
+#爱拍
+Route::get('/photos', function()
 {
-	return "213165156";
+	return View::make('layout/photos');
 });
 
+#格子
+Route::get('/grids', function()
+{
+    return View::make('layout/grids');
+});
 
+#文学
+Route::get('/literatrue', function()
+{
+    return View::make('layout/literatrue');
+});
+
+#读书影逝
+Route::get('/bookmovie', function()
+{
+    return View::make('layout/bookmovie');
+});
+
+#微视
+Route::get('/microview', function()
+{
+    return View::make('layout/microview');
+});
+
+#我话很多
+Route::get('/mywords', function()
+{
+    return View::make('layout/mywords');
+});
