@@ -14,7 +14,7 @@
 #首页
 Route::get('/', function()
 {
-	return View::make('layout/home');
+	return View::make('template.home.home');
 });
 
 #爱拍

@@ -2,27 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>home</title>
+<title>个人中心</title>
 <!--[if lt IE 9]>
 @yield("html5js")
 <![endif]-->
 @yield("css")
 </head>
-<body>
+
 {{--header--}}
-<header class="g-header">
-    @yield("header")
-</header>
+@yield("header")
 
 {{--container--}}
-<div class="g-container">
-    @yield("container")
-</div>
+@yield("container")
 
 {{--footer--}}
-<footer class="g-footer">
-    @yield("footer")
-</footer>
+@yield("footer")
+<body>
+<h1>个人中心</h1>
 </body>
 @yield("script")
 </html>
