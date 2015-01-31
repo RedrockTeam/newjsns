@@ -16,15 +16,15 @@
 
 {{--css--}}
 @section("css")
-    {{HTML::style("/css/lib/base.css")}}
-    {{HTML::style("/css/lib/function.css")}}
-    {{HTML::style("/css/template/home/home.css")}}
+    {{HTML::style("public/css/lib/base.css")}}
+    {{HTML::style("public/css/lib/function.css")}}
+    {{HTML::style("public/css/template/home/home.css")}}
 @stop
 
 {{--script--}}
 @section("html5js")
-    {{HTML::script("js/lib/html5shiv-printshiv.min.js")}}
+    {{HTML::script("public/js/lib/html5shiv-printshiv.min.js")}}
 @stop
 @section("script")
-    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/home/home.js")])}}
+    {{HTML::script("public/js/lib/require.js", ["data-main" => url("js/template/home/home.js")])}}
 @stop
