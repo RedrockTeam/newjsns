@@ -20,35 +20,47 @@ Route::get('/', function()
 #爱拍
 Route::get('/photos', function()
 {
-	return View::make('layout/photos');
+	return View::make('template.photos.photos');
 });
 
 #格子
 Route::get('/grids', function()
 {
-    return View::make('layout/grids');
+    return View::make('template.grids.grids');
 });
 
 #文学
 Route::get('/literatrue', function()
 {
-    return View::make('layout/literatrue');
+    return View::make('template.literatrue.literatrue');
+});
+
+#文学分页
+Route::get('/litera_sub', function()
+{
+    return View::make('template.litera_sub.litera_sub');
 });
 
 #读书影逝
 Route::get('/bookmovie', function()
 {
-    return View::make('layout/bookmovie');
+    return View::make('template.bookmovie.bookmovie');
 });
 
 #微视
-Route::get('/microview', function()
+Route::get('/micromovie', function()
 {
-    return View::make('layout/microview');
+    return View::make('template.micromovie.micromovie');
+});
+
+#微视分页
+Route::get('/microm_sub', function()
+{
+    return View::make('template.microm_sub.microm_sub');
 });
 
 #我话很多
 Route::get('/mywords', function()
 {
-    return View::make('layout/mywords');
+    return View::make('template.mywords.mywords');
 });

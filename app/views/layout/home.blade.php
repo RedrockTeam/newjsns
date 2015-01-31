@@ -9,10 +9,6 @@
 @yield("css")
 </head>
 <body>
-{{--header--}}
-<header class="g-header">
-    @yield("header")
-</header>
 
 {{--container--}}
 <div class="g-container">

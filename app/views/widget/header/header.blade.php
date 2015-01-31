@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Rain
- * Date: 2015/1/31
- * Time: 14:24
- */ 
+<div>header</div>
+@section("css")
+    @parent
+    {{HTML::style("public/css/widget/header/header.css")}}
+@stop

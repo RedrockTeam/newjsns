@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Rain
- * Date: 2015/1/31
- * Time: 14:24
- */ 
+<div>footer</div>
+@section("css")
+    @parent
+    {{HTML::style("public/css/widget/footer/footer.css")}}
+@stop
