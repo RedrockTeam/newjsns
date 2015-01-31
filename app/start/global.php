@@ -63,8 +63,10 @@ App::error(function(Exception $exception, $code)
         default:
             return Response::make('404', 404);
     }
+
 }
 });
+
 
 /*
 |--------------------------------------------------------------------------
