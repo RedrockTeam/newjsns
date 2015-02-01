@@ -70,3 +70,20 @@ Route::get('/personal', function()
 {
     return View::make('template.personal.personal');
 });
+
+
+
+
+
+
+
+
+
+
+/**
+ * 后台路由
+ */
+Route::get('/haha', function()
+{
+    return haha();
+});
