@@ -59,8 +59,14 @@ Route::get('/microm_sub', function()
     return View::make('template.microm_sub.microm_sub');
 });
 
-#我话很多(暂时不能用)
-Route::get('/mywords', function()
+#我话很多
+Route::get('/discuss', function()
 {
-    return View::make('template.mywords.mywords');
+    return View::make('template.discuss.discuss');
+});
+
+#个人中心
+Route::get('/personal', function()
+{
+    return View::make('template.personal.personal');
 });

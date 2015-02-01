@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>爱拍</title>
+<title>文学</title>
+<!--[if lt IE 9]>
+@yield("html5js")
+<![endif]-->
+@yield("css")
 </head>
 <body>
-<h1>爱拍</h1>
+{{--top_bar--}}
+<div class="g-top_bar">
+    @yield("top_bar")
+</div>
+
+{{--header--}}
+<header class="g-header">
+    @yield("header")
+</header>
+
+{{--container--}}
+<div class="g-container">
+    @yield("container")
+</div>
+
+{{--footer--}}
+<footer class="g-footer">
+    @yield("footer")
+</footer>
+<div class="g-go g-go_top">
+    @yield("go_top")
+</div>
+
 </body>
+@yield("script")
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>个人中心</title>
+<title>我话很多</title>
 <!--[if lt IE 9]>
 @yield("html5js")
 <![endif]-->
@@ -11,7 +11,7 @@
 <body>
 {{--top_bar--}}
 <div class="g-top_bar">
-    @yield("personal_tabs")
+    @yield("top_bar")
 </div>
 
 {{--header--}}
