@@ -23,7 +23,7 @@ Route::get('/photos', function()
 	return View::make('template.photos.photos');
 });
 
-#格子
+#格子(暂时不能用)
 Route::get('/grids', function()
 {
     return View::make('template.grids.grids');
@@ -59,7 +59,7 @@ Route::get('/microm_sub', function()
     return View::make('template.microm_sub.microm_sub');
 });
 
-#我话很多
+#我话很多(暂时不能用)
 Route::get('/mywords', function()
 {
     return View::make('template.mywords.mywords');

@@ -26,9 +26,5 @@
     {{HTML::script("public/js/lib/html5shiv-printshiv.min.js")}}
 @stop
 @section("script")
-<<<<<<< HEAD
     {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/home/home.js")])}}
-=======
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("js/template/home/home.js")])}}
->>>>>>> 1254935a8260904b116e8ccd09c2d249aac923b3
 @stop
