@@ -4,6 +4,7 @@ class Group extends Eloquent {
 
 	
 	protected $table = 'group';
+	protected $fillable = array('uid', 'type_id');
 
 	public function get_type()
 	{

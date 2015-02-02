@@ -24,7 +24,7 @@ class LiteratureController extends BaseController{
         }
         else
         {
-            return Response::make('403',403);//Response::view?
+            return Response::make('你的权限不够',403);//以后改Response::view
         }
     }
 
