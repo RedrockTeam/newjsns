@@ -72,20 +72,21 @@ Route::get('/personal', function()
 });
 
 
-
-
-
-
-Route::get('index', 'home.HomeController@index');
-
-
+//TODO:array('before' => 'auth')=>false;
+/**
+ * 前台功能性路由
+ */
+Route::group(array('prefix' => 'home', /*'before' => 'auth'*/), function()
+{
+   Route::get('test', array('as' => 'home/test','uses' => 'LiteratureController@test'));
+});
 
 /**
  * 后台路由
  */
-Route::group(array('prefix' => 'admin'), function()
+Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
 {
-
+    //后台首页
     Route::get('index', 'HomeController@index');
 
 });
