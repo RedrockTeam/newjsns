@@ -76,14 +76,16 @@ Route::get('/personal', function()
 
 
 
-
+Route::get('index', 'home.HomeController@index');
 
 
 
 /**
  * 后台路由
  */
-Route::get('/haha', function()
+Route::group(array('prefix' => 'admin'), function()
 {
-    return haha();
+
+    Route::get('index', 'HomeController@index');
+
 });
