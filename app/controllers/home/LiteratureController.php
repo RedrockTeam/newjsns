@@ -10,8 +10,8 @@ class LiteratureController extends BaseController{
 
     //发表文章
     public function createpassage(){
-        $data = Input::all();
-        if (!is_null($data)){
+        if (verify_permission()){
+            $data = Input::all();
             $literature = Literature::create($data);
             $insertedId = $literature->id;
             $type_id = $data['type_id'];
