@@ -3,5 +3,5 @@
  * @desc 返回顶部
  */
 define(['jquery'], function($){
-    console.log('go_top init');
+
 });

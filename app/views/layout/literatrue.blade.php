@@ -28,7 +28,7 @@
 <footer class="g-footer">
     @yield("footer")
 </footer>
-<div class="g-go g-go_top">
+<div class="g-go_top">
     @yield("go_top")
 </div>
 
