@@ -29,9 +29,21 @@ class LiteratureController extends BaseController{
     }
 
     public function test(){
+        $currentRoute = Route::currentRouteName();
+        $uid = Session::get('uid');
+        $uid = 1;
+        $type = Group::find(1);
 
-//        $currentRoute = Route::currentRouteName();
-//        echo $currentRoute;
+        return $type->get_type;
+
+
+//        foreach($permission['path'] as $path){
+//            if($currentRoute == $path){
+//                return 'ok';
+//            }
+//        }
+//        return 'gg';
+
     }
 
 
