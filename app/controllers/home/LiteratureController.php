@@ -29,7 +29,9 @@ class LiteratureController extends BaseController{
     }
 
     public function test(){
-       return verify_permission();
+
+//        $currentRoute = Route::currentRouteName();
+//        echo $currentRoute;
     }
 
 

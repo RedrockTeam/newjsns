@@ -18,7 +18,7 @@ return array(
     'Literature' => $baseDir . '/app/models/Literature.php',
     'LiteratureController' => $baseDir . '/app/controllers/home/LiteratureController.php',
     'Log' => $baseDir . '/app/models/Log.php',
-    'Micmovie' => $baseDir . '/app/models/Micmovie.php',
+    'Micmovie' => $baseDir . '/app/models/Micromovie.php',
     'Mywork' => $baseDir . '/app/models/Mywork.php',
     'Navigation' => $baseDir . '/app/models/Navigation.php',
     'Permission' => $baseDir . '/app/models/Permission.php',
