@@ -80,7 +80,7 @@ Route::get('/personal', function()
 
 
 //不需权限
-Route::group(array('prefix' => 'home', 'before' => 'test'), function()
+Route::group(array('prefix' => 'home'), function()
 {
     Route::get('test1', array('as' => 'home/test','uses' => 'LiteratureController@test'));//test
 
@@ -104,7 +104,7 @@ Route::group(array('prefix' => 'home', 'before' => 'test'), function()
 
 
 //需权限 TODO:array('before' => 'auth')=>false;
-Route::group(array('prefix' => 'home', /*'before' => 'auth'*/), function()
+Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
 {
 
     Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => ''));//ajax文学发表评论

@@ -89,8 +89,9 @@ Route::filter('csrf', function()
 	}
 });
 
-//Route::filter('test', function()
-//{
-//	$currentRoute = Route::currentRouteName();
-//	echo $currentRoute;
-//});
+Route::filter('verify_permission', function()
+{
+	if(!verify_permission()){
+		return Response::make('403', 403);
+	}
+});

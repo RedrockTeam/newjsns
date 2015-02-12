@@ -3,7 +3,7 @@
 class Routelist extends Eloquent {
 
 	
-	protected $table = 'route';
+	protected $table = 'routelist';
 	protected $fillable = array('name', 'path');
 
 }
