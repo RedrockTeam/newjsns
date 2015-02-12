@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-02 22:29:47
+Date: 2015-02-12 20:38:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,26 +31,6 @@ CREATE TABLE `album` (
 
 -- ----------------------------
 -- Records of album
--- ----------------------------
-
--- ----------------------------
--- Table structure for chat
--- ----------------------------
-DROP TABLE IF EXISTS `chat`;
-CREATE TABLE `chat` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` text COLLATE utf8_unicode_ci,
-  `uid` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `love_num` int(11) DEFAULT NULL,
-  `comment_num` int(11) DEFAULT NULL,
-  `status` int(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Records of chat
 -- ----------------------------
 
 -- ----------------------------
@@ -143,10 +123,10 @@ CREATE TABLE `log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for micmovie
+-- Table structure for micromovie
 -- ----------------------------
-DROP TABLE IF EXISTS `micmovie`;
-CREATE TABLE `micmovie` (
+DROP TABLE IF EXISTS `micromovie`;
+CREATE TABLE `micromovie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text COLLATE utf8_unicode_ci,
   `author` text COLLATE utf8_unicode_ci,
@@ -161,7 +141,7 @@ CREATE TABLE `micmovie` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
--- Records of micmovie
+-- Records of micromovie
 -- ----------------------------
 
 -- ----------------------------
@@ -196,10 +176,32 @@ CREATE TABLE `navigation` (
 -- ----------------------------
 INSERT INTO `navigation` VALUES ('1', 'literature', '文学', '00000000000');
 INSERT INTO `navigation` VALUES ('2', 'photos', '爱拍', '00000000000');
-INSERT INTO `navigation` VALUES ('3', 'recommend', '读书逝影', '00000000000');
-INSERT INTO `navigation` VALUES ('4', 'micmovie', '微视', '00000000000');
-INSERT INTO `navigation` VALUES ('5', 'varies', '格子', '00000000000');
-INSERT INTO `navigation` VALUES ('6', 'chat', '话多', '00000000000');
+INSERT INTO `navigation` VALUES ('3', 'recommend', '读书影逝', '00000000000');
+INSERT INTO `navigation` VALUES ('4', 'micromovie', '微视', '00000000000');
+INSERT INTO `navigation` VALUES ('5', 'original', '原味', '00000000000');
+
+-- ----------------------------
+-- Table structure for original
+-- ----------------------------
+DROP TABLE IF EXISTS `original`;
+CREATE TABLE `original` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) DEFAULT NULL,
+  `title` text COLLATE utf8_unicode_ci,
+  `introduce` text COLLATE utf8_unicode_ci,
+  `author` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `uid` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `love_num` int(11) DEFAULT NULL,
+  `comment_num` int(11) DEFAULT NULL,
+  `status` int(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of original
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for permission
@@ -328,16 +330,3 @@ CREATE TABLE `user_type` (
 -- Records of user_type
 -- ----------------------------
 INSERT INTO `user_type` VALUES ('1', '网站开发者');
-
--- ----------------------------
--- Table structure for varies
--- ----------------------------
-DROP TABLE IF EXISTS `varies`;
-CREATE TABLE `varies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Records of varies
--- ----------------------------
