@@ -5,10 +5,13 @@ class Group extends Eloquent {
 	
 	protected $table = 'group';
 	protected $fillable = array('uid', 'type_id');
+	public $timestamps = false;
+	protected $primaryKey = 'uid';
 
-	public function get_type()
+
+	public function route()
 	{
-		return $this->hasMany('permission', 'type_id', 'type_id');
+		return $this->hasManyThrough('routelist', 'permission', 'type_id', 'id');
 	}
 
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 文学模块控制器
  * User: Lich
@@ -29,8 +30,7 @@ class LiteratureController extends BaseController{
     }
 
     public function test(){
-       return verify_permission();
+        return 'ok';
     }
-
 
 }

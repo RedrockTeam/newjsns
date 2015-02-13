@@ -288,14 +288,55 @@ Route::get('/personal', function()
 });
 
 
-//TODO:array('before' => 'auth')=>false;
+
 /**
  * 前台功能性路由
  */
-Route::group(array('prefix' => 'home', /*'before' => 'auth'*/), function()
+
+
+
+//不需权限
+Route::group(array('prefix' => 'home'), function()
 {
-   Route::get('test', array('as' => 'home/test','uses' => 'LiteratureController@test'));
+    Route::get('test1', array('as' => 'home/test','uses' => 'LiteratureController@test'));//test
+
+    Route::get('literatrue', array('as' => 'home/literatrue','uses' => 'LiteratureController@test'));//ajax获取排序文学及分页
+    Route::get('literatrue/comment', array('as' => 'home/literatrue/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
+
+    Route::get('photos', array('as' => 'home/photos','uses' => 'LiteratureController@test'));//ajax获取排序图片及分页
+    Route::get('photos/comment', array('as' => 'home/photos/comment','uses' => 'LiteratureController@test'));//ajax获取图片评论
+
+    Route::get('micromovie', array('as' => 'home/micromovie','uses' => 'LiteratureController@test'));//ajax获取排序微视及分页
+    Route::get('micromovie/comment', array('as' => 'home/micromovie/comment','uses' => 'LiteratureController@test'));//ajax获取微视评论
+
+    Route::get('original', array('as' => 'home/original','uses' => 'LiteratureController@test'));//ajax获取原味页面
+    Route::get('original/comment', array('as' => 'home/original/comment','uses' => 'LiteratureController@test'));//ajax获取原味评论
+
+    Route::get('recommend', array('as' => 'home/recommend','uses' => 'LiteratureController@test'));//ajax获取排序读书影逝及分页
+    Route::get('recommend/comment', array('as' => 'home/recommend/comment','uses' => 'LiteratureController@test'));//ajax获取读书影逝评论
+
+
 });
+
+
+//需权限 TODO:array('before' => 'auth')=>false;
+Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
+{
+
+    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => ''));//ajax文学发表评论
+
+    Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => ''));//ajax图片发表评论
+
+    Route::post('comment/micromovie', array('as' => 'home/comment/micromovie','uses' => ''));//ajax微视发表评论
+
+    Route::post('comment/original', array('as' => 'home/comment/original','uses' => ''));//ajax原味发表评论
+
+    Route::post('comment/recommend', array('as' => 'home/comment/recommend','uses' => ''));//ajax读书影逝发表评论
+
+});
+
+
+
 
 /**
  * 后台路由

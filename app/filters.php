@@ -88,3 +88,10 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('verify_permission', function()
+{
+	if(!verify_permission()){
+		return Response::make('403', 403);
+	}
+});

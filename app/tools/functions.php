@@ -8,12 +8,14 @@ function haha(){
 function verify_permission(){
 	$currentRoute = Route::currentRouteName();
 	$uid = Session::get('uid');
-	$type = Group::find($uid);
-	$permission	= $type->get_type();
-	foreach($permission['path'] as $path){
-		if($currentRoute == $path){
+	$uid = 1;
+	$permission = Group::find($uid)->route;
+
+	foreach($permission as $path){
+		if($currentRoute == $path['path']){
 			return true;
 		}
 	}
 	return false;
+
 }
