@@ -8,11 +8,11 @@ class Comment extends Eloquent {
 
 	//获取评论
 	public static function findComment($type_id, $work_id, $page){
-
+		$skip = 2*($page-1);
 		$data['cz'] = Comment::where('type_id', '=', $type_id)
 				->where('work_id', '=', $work_id)
 				->where('status', '=', '1')
-				->skip($page-1)
+				->skip($skip)
 				->limit(2)
 				->get();
 		foreach($data['cz'] as $v){
