@@ -28,6 +28,9 @@
 <footer class="g-footer">
     @yield("footer")
 </footer>
+<div class="g-go_top">
+    @yield("go_top")
+</div>
 </body>
 @yield("script")
 </html>

@@ -7,17 +7,20 @@ require.config({
     shim : {
         'underscore' : {
             exports : '_'
-        }
+        },
+        'jquery.sliderBox' : ['jquery']
     },
     paths : {
-        jquery : 'jquery',
-        port : '../template/literatrue/port',
-        litera_list : '../widget/litera_list/litera_list',
-        go_top : '../widget/go_top/go_top'
+        'jquery' : 'jquery',
+        'port' : '../template/literatrue/port',
+        'litera_list' : '../widget/litera_list/litera_list',
+        'go_top' : '../widget/go_top/go_top',
+        'jquery.sliderBox' : './jquery.sliderBox',
+        'slider' : '../widget/litera_recom_slider/litera_recom_slider'
     }
 });
 
 //加载依赖项
-define(['litera_list', 'go_top'], function(){
+define(['litera_list', 'go_top', 'slider'], function(){
     console.log('literatrue init');
 });

@@ -2,6 +2,7 @@
 .g-top_bar{
     width: 100%;
     background:#fefefe ;
+    cursor: pointer;
     background-image: -ms-linear-gradient(top, #fefefe, #fdfdfd); /* OPERA */
     background-image: -o-linear-gradient(top, #fefefe, #fdfdfd); /* IE 10 */
     background-image: -moz-linear-gradient(top, #fefefe, #fdfdfd); /* Firefox */

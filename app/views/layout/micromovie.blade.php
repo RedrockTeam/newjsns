@@ -20,7 +20,7 @@
 </header>
 
 {{--container--}}
-<div class="g-container">
+<div class="g-container f-cb">
     @yield("container")
 </div>
 

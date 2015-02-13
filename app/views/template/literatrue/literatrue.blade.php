@@ -16,12 +16,26 @@
 
 {{--container--}}
 @section("container")
-    <div class="m-menu">
-        <div class="u-sort">散文</div>
-        <div class="u-tag">最热</div>
-        <div class="u-upload">我要上传</div>
+    <div class="m-litera_recom f-cb">
+        <h4 class="u-recom_title"><span>精选推荐</span></h4>
+        <div class="g-litera_recom_slider f-fl">
+            @include("widget.litera_recom_slider.litera_recom_slider")
+        </div>
+        <div class="g-litera_recom-list f-fr">
+            @include("widget.litera_recom_list.litera_recom_list")
+        </div>
     </div>
-    @include("widget.litera_list.litera_list")
+    <div class="m-litera_articles">
+        <h4 class="u-articles_title"><span>文学</span></h4>
+        <ul class="u-menus f-cb">
+            <li><a href="">小说</a></li>
+            <li><a href="">经管</a></li>
+            <li><a href="">童话</a></li>
+            <li><a href="">宠物</a></li>
+            <li><a href="">我要上传</a></li>
+        </ul>
+        @include("widget.litera_list.litera_list")
+    </div>
 @stop
 
 {{--go_top--}}
