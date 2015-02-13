@@ -9,9 +9,30 @@
 
 class LiteratureController extends BaseController{
 
+    //文学首页
+    public static function literatureIndex(){
+            $data = Literature::where('status', '=', '1')->orderBy('id', 'desc')->paginate(5);
+            return $data;
+    }
+
+    //文章详情页
+    public static function detailPassage(){
+        $id = Input::all();
+        $passage_id = $id['passage_id'];
+        $type_id = $id['type_id'];
+        $passage = Literature::find($passage_id);
+        $comment = Comment::findComment($type_id, $passage_id, 1);
+        $data = array(
+            'passage' => $passage,
+            'comment' => $comment,
+        );
+
+        return View::make('test')->with('users', $comment);
+    }
+
+
     //发表文章
-    public function createpassage(){
-        if (verify_permission()){
+    public function createPassage(){
             $data = Input::all();
             $literature = Literature::create($data);
             $insertedId = $literature->id;
@@ -22,15 +43,11 @@ class LiteratureController extends BaseController{
             );
             Mywork::create($user_work);
             return Redirect::back();
-        }
-        else
-        {
-            return Response::make('你的权限不够',403);//以后改Response::view
-        }
     }
 
+
     public function test(){
-        return 'ok';
+      return  Comment::findComment(1, 1, 1);
     }
 
 }

@@ -49,13 +49,13 @@
 		method = 'get';
 		URL = 'home/literatrue/comment';
 		DATA =  { passage_id:'1', page:'1' };  
-		returnData = {"cz":[{"username":"xxx", "uid":"1", "content":"xxxxx", "head_pic":"http://xxxx", "time":"xxxx"}], 
+		returnData = {"cz":[{"username":"xxx", "uid":"1", "content":"xxxxx", "head_pic":"http://xxxx", "time":"xxxx", "praise":"32"}],
 							"lzl":[
 									{"from_uid":"1", "from_name":"xxx", "to_uid":"2", "to_name":"xxx", "content":"xxx" },
 									{"from_uid":"1", "from_name":"xxx", "to_uid":"2", "to_name":"xxx", "content":"xxx" },
 									{"from_uid":"1", "from_name":"xxx", "to_uid":"2", "to_name":"xxx", "content":"xxx" }
 									], 
-						"praise":"32","success":"true", "output":"xxxxxx" 
+						"success":"true", "output":"xxxxxx"
 					};
 		
 		

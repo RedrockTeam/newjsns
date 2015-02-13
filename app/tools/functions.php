@@ -10,12 +10,10 @@ function verify_permission(){
 	$uid = Session::get('uid');
 	$uid = 1;
 	$permission = Group::find($uid)->route;
-
 	foreach($permission as $path){
 		if($currentRoute == $path['path']){
 			return true;
 		}
 	}
 	return false;
-
 }

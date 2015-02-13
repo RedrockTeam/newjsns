@@ -77,13 +77,11 @@ Route::get('/personal', function()
  * 前台功能性路由
  */
 
-
+Route::get('test', array('as' => 'home/test','uses' => 'LiteratureController@test'));//test
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
 {
-    Route::get('test1', array('as' => 'home/test','uses' => 'LiteratureController@test'));//test
-
     Route::get('literatrue', array('as' => 'home/literatrue','uses' => 'LiteratureController@test'));//ajax获取排序文学及分页
     Route::get('literatrue/comment', array('as' => 'home/literatrue/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
 
@@ -107,7 +105,7 @@ Route::group(array('prefix' => 'home'), function()
 Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
 {
 
-    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => ''));//ajax文学发表评论
+
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => ''));//ajax图片发表评论
 
@@ -116,6 +114,11 @@ Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/)
     Route::post('comment/original', array('as' => 'home/comment/original','uses' => ''));//ajax原味发表评论
 
     Route::post('comment/recommend', array('as' => 'home/comment/recommend','uses' => ''));//ajax读书影逝发表评论
+
+    //文学路由
+    Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
+
+    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => ''));//ajax文学发表评论
 
 });
 
