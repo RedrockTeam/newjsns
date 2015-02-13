@@ -27,7 +27,7 @@ class LiteratureController extends BaseController{
             'comment' => $comment,
         );
 
-        return View::make('test')->with('users', $comment);
+        return View::make('test')->with('data', $data);//TODO:template
     }
 
 
@@ -44,7 +44,6 @@ class LiteratureController extends BaseController{
             Mywork::create($user_work);
             return Redirect::back();
     }
-
 
     public function test(){
       return  Comment::findComment(1, 1, 1);
