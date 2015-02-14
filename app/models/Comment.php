@@ -6,7 +6,7 @@ class Comment extends Eloquent {
 	protected $table = 'comment';
 	protected $fillable = array('type_id', 'content', 'from', 'to', 'read_status', 'created_at', 'updated_at', 'status');
 
-	//获取评论
+	//获取评论 TODO:users表中id为该应用的uid, uid为学号
 	public static function findComment($type_id, $work_id, $page){
 		$skip = 2*($page-1);
 		$data['cz'] = Comment::where('comment.type_id', '=', $type_id)

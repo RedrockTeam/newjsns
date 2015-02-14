@@ -21,8 +21,7 @@ class PhotosController extends BaseController {
                 array('photo' => $v),
                 array('photo' => 'required|image|between:1,10240')
             );
-            if ($validator->fails())
-            {
+            if ($validator->fails()) {
                 return Redirect::to('test')->withInput()->withErrors($validator);
             }
 
