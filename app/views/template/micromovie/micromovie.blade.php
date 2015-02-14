@@ -17,14 +17,21 @@
 
 {{--container--}}
 @section("container")
-    <div class="m-but">
-        <div class="u-sort">排行</div>
-        <div class="u-upload">我要上传</div>
-    </div>
-    <div class="g-left">
+    <h4 class="u-micro_title"><span>精选推荐</span></h4>
+    <ul class="m-but f-cb">
+        <li class="s-active"><a href="">人像</a></li>
+        <li><a href="">风景</a></li>
+        <li><a href="">lEMO</a></li>
+        <li><a href="">宠物</a></li>
+        <li><a href="">观念</a></li>
+        <li><a href="">其他</a></li>
+        <li><a href="">最热</a></li>
+        <li><a href="">我要上传</a></li>
+    </ul>
+    <div class="g-left f-fl ">
         @include("widget.microm_list.microm_list")
     </div>
-    <div class="g-right">
+    <div class="g-right f-fr">
         @include("widget.microm_topic.microm_topic")
     </div>
 @stop

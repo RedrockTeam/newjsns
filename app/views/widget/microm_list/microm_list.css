@@ -1,3 +1,124 @@
 /*created by redrock*/
-p{}
-body{}
+.m-movie_lists{
+    margin-bottom: 66px;
+}
+.m-movie_lists .u-m_show_img {
+    width: 218px;
+    height: 130px;
+    float: left;
+    margin-right: 10px;
+}
+.m-movie_lists .u-movie_item {
+    padding: 18px 0;
+    border-bottom: 1px solid #efefef;
+}
+.m-movie_lists .u-movie_item:first-child{
+    padding-top: 0;
+}
+.m-movie_lists .u-m_info{
+    width: 446px;
+}
+.m-movie_lists .u-m_info .u-m_info_h h5{
+    color: #6784ff;
+    font-size: 14px;
+    float: left;
+    margin-right: 10px;
+}
+.m-movie_lists .u-m_info{
+    float: left;
+}
+.m-movie_lists .u-m_info .u-m_info_h .u-movie_stars{
+    float: left;
+}
+.m-movie_lists .u-m_info .u-m_info_h .u-movie_stars li{
+    float: left;
+    width: 12px;
+    height: 12px;
+    background: url("../../../images/litera_t_icons.png") no-repeat left -276px;
+}
+.m-movie_lists .u-m_info .u-m_info_h .u-movie_stars li.s-star_half{
+    background: url("../../../images/litera_t_icons.png") no-repeat left -294px;
+}
+
+.m-movie_lists .u-m_info .u-m_info_b span{
+    color: #999999;
+    font-size: 12px;
+    line-height: 23px;
+}
+ .m-movie_lists .u-m_info .u-m_intro{
+    width: 452px;
+    height: 65px;
+    overflow: hidden;
+    color: #333333;
+    font-size: 12px;
+    line-height: 23px;
+}
+.m-movie_lists .u-m_info .u-m_user_action{
+    margin-top: 16px;
+}
+.m-movie_lists .u-m_info .u-m_user_action{
+    float: right;
+}
+.m-movie_lists .u-m_info .u-share,.m-movie_lists .u-m_info .show_movie-comments, .m-movie_lists .u-m_info .show_movie_love{
+    float: left;
+}
+.m-movie_lists .u-m_info .show_movie-comments a, .m-movie_lists .u-m_info .u-share a{
+    text-decoration: none;
+}
+.m-movie_lists .u-m_info .show_movie_love,.m-movie_lists .u-m_info .show_movie-comments, .m-movie_lists .u-m_info .u-share {
+    color: #666666;
+    text-decoration: none;
+    font-size: 12px;
+    padding-left: 20px;
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    background: url("../../../images/litera_t_icons.png") no-repeat left -115px;
+    cursor: pointer;
+    margin-left: 13px;
+}
+.m-movie_lists .u-m_info .show_movie_love {
+    background-position: left -160px;
+    cursor: pointer;
+}
+.m-movie_lists .u-m_info .u-share{
+    background-position: left -243px;
+}
+.m-movie_lists .u-page_tabs{
+    margin-top: 35px;
+}
+.m-movie_lists .u-page_tabs li {
+    float: left;
+    margin-right: 20px;
+}
+
+.m-movie_lists .u-page_tabs li:last-child {
+    float: right;
+    margin-right: 0;
+}
+
+.m-movie_lists .u-page_tabs li:last-child a {
+    width: 104px;
+}
+
+.m-movie_lists .u-page_tabs li a {
+    display: block;
+    width: 33px;
+    height: 33px;
+    background: #dddddd;
+    text-align: center;
+    line-height: 33px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.m-movie_lists .u-page_tabs li.s-active a {
+    background: #999999;
+    color: #ffffff;
+}
+
+.m-movie_lists .u-page_tabs li.s-omit a {
+    background: none;
+    width: 37px;
+    line-height: 52px;
+}

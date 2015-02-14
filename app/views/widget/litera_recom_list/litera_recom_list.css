@@ -1,0 +1,22 @@
+/*created by redrock*/
+.m-recom_lists {
+    width: 245px;
+    height: 300px;
+    overflow: hidden;
+    font-family: "microsoft yahei";
+    font-size: 14px;
+    line-height: 25px;
+}
+.m-recom_lists li{
+    width: 245px;
+    overflow: hidden;
+}
+.m-recom_lists li span {
+    color: #ff7b52;
+    float: left;
+}
+.m-recom_lists li a {
+    color: #333333;
+    float: left;
+    text-decoration: none;
+}
