@@ -29,6 +29,4 @@ class Comment extends Eloquent {
 		$data['output'] = '成功';
 		return $data;
 	}
-
-
 }
