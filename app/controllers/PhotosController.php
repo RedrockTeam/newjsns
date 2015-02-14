@@ -7,34 +7,38 @@ class PhotosController extends BaseController {
 
 	public function index()
 	{
-		return View::make('test');
+        $message = 1;
+		return View::make('test')->with('message', $message);
 	}
 
 	public function upload(){
         $file = Input::file('photo');
-
         foreach($file as $v){
+            if($v==null) {
+                continue;
+            }
             $validator = Validator::make(
                 array('photo' => $v),
                 array('photo' => 'required|image|between:1,10240')
             );
             if ($validator->fails())
             {
-                $messages = $validator->messages();
-                foreach ($messages->all() as $message)
-                {
-                    echo $message;
-                }
+                return Redirect::to('test')->withInput()->withErrors($validator);
             }
 
         }
 
         foreach($file as $v){
+            if($v==null) {
+                continue;
+            }
             $type = $v->getClientOriginalExtension();
-            $name = md5(microtime()).'.'.$type;
-            $getimg = JitImage::source($v)->get();
-            $newfile = $getimg->fit(10, 10);
-            $newfile->move('public/uploads', $name);
+            $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $img = Image::make($v);
+            $newimg = $img->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $newimg->save($name);
         }
 	}
 
