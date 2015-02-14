@@ -34,11 +34,17 @@ class PhotosController extends BaseController {
             }
             $type = $v->getClientOriginalExtension();
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
             $img = Image::make($v);
+            $img0 = Image::make($v);
+            $originalimg = $img0->resize(1366, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $newimg->save($name);
+            $originalimg->save($originalname);
         }
 	}
 
