@@ -5,12 +5,14 @@
 
 class PhotosController extends BaseController {
 
-	public function index()
+	//爱拍首页
+    public function photoIndex()
 	{
         $message = 1;
 		return View::make('test')->with('message', $message);
 	}
 
+    //上传
 	public function upload(){
         $file = Input::file('photo');
         foreach($file as $v){
@@ -26,7 +28,6 @@ class PhotosController extends BaseController {
             }
 
         }
-
         foreach($file as $v){
             if($v==null) {
                 continue;

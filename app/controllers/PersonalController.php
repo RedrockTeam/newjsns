@@ -5,6 +5,7 @@
 
 class PersonalController extends BaseController {
 
+    //个人中心首页
 	public static function index(){
             $uid = Session::get('uid');
             $work = Mywork::where('uid', '=', $uid)->get();
