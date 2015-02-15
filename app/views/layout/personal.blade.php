@@ -9,18 +9,8 @@
 @yield("css")
 </head>
 <body>
-{{--top_bar--}}
-<div class="g-top_bar">
-    @yield("personal_tabs")
-</div>
-
-{{--header--}}
-<header class="g-header">
-    @yield("header")
-</header>
-
 {{--container--}}
-<div class="g-container">
+<div class="g-container f-cb">
     @yield("container")
 </div>
 

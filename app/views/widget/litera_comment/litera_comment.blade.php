@@ -4,16 +4,21 @@
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
             <aside class="u-comment_detail">
-                <span class="u-user_name">{{$czcomment['username']}}</span>
+                <span class="u-user_name" value="{{$czcomment['id']}}">{{$czcomment['username']}}</span>
                 <p class="u-user_content"> {{$czcomment['content']}}</p>
                @foreach($data['comment']['lzl'][$key] as $v)
                 <div class="s-reply_items">
-                    <span class="u-user_name">{{$v['from_name']}}</span>
+                    <span class="u-user_name" value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
                     <span class="u-reply_tag">回复</span>
-                    <span class="u-user_name">{{$v['to_name']}}</span>
+                    <span class="u-user_name" value="{{$v['to_uid']}}">{{$v['to_name']}}</span>
                     <span class="u-reply_content">{{$v['content']}}</span>
-                </div>
                 @endforeach
+                </div>
+                    <div class="u-user_action">
+                        <span value="{{$czcomment['id']}}>赞</span>
+                        <span value="{{$czcomment['id']}}>回复</span>
+                        <span>{{$czcomment['time']}}</span>
+                    </div>
             </aside>
         </div>
     @endforeach

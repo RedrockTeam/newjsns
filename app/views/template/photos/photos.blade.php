@@ -16,11 +16,17 @@
 
 {{--container--}}
 @section("container")
-    <div class="m-menu">
-        <div class="u-sort">风景</div>
-        <div class="u-tag">最热</div>
-        <div class="u-upload">我要上传</div>
-    </div>
+    <h4 class="u-photos_title"><span>爱拍</span></h4>
+    <ul class="m-but f-cb">
+        <li class="s-active"><a href="">人像</a></li>
+        <li><a href="">风景</a></li>
+        <li><a href="">lEMO</a></li>
+        <li><a href="">宠物</a></li>
+        <li><a href="">观念</a></li>
+        <li><a href="">其他</a></li>
+        <li><a href="">最热</a></li>
+        <li><a href="">我要上传</a></li>
+    </ul>
     @include("widget.photos_list.photos_list")
 @stop
 

@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+/*-------------------------------------------------blade 测试---------------------*/
 #首页
 Route::get('/', function()
 {
@@ -20,6 +20,64 @@ Route::get('/', function()
 #爱拍
 Route::get('/photos', function()
 {
+    $data = [
+        "photos_lists" => [
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ],
+            [
+                "ph_show_icon" => "",
+                "ph_name" => "大一寝室",
+                "ph_love_count" => 20,
+                "ph_comment_count" => 30
+            ]
+        ]
+    ];
 	return View::make('template.photos.photos');
 });
 
@@ -149,10 +207,11 @@ Route::get('/litera_sub', function()
             'article_author' => '树上村树',                  //文章作者
             'article_content' => '<b>这是文章内容</b><br/><b>两个人分手了，最悲伤的可能是一条狗。2013年的夏天，有天下班，大雨滂沱，我开车路过雁南路，看见我的小闺蜜段思思和她的古牧芭蕾在她家小区门口的站牌那拉锯战。段思思要拉芭蕾回家，而芭蕾不肯，赖死赖活趴倒在站牌底下，一人一狗，形同角力。大雨里，段思思终于受不了，撒手把狗绳松开，蹲在芭蕾身旁边，哭得不成人形。我在车里看着她们，缓缓开离，没有停车。段思思那一刻的脆弱不想被尴尬撞破，她那一刻难能放任的哭泣也并不需要被打扰。我知道，芭蕾是在等周子恺。</b>'//文章内容,由html标签组成,
         ],
-        'article_comments' =>[                       //第一层评论
+        'article_comments' =>[                       //第一层评论h
             [
                 'user_icon' => '',                  //用户头像路径
                 'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
                 'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
                 'user_replys' =>[                  //第二层评论
                     [
@@ -166,13 +225,13 @@ Route::get('/litera_sub', function()
             [
                 'user_icon' => '',                  //用户头像路径
                 'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
                 'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
                 'user_replys' =>[                  //第二层评论
                     [
                         'uesr_icon' => '',             // 用户头像路径
                         'user_name' => '村里没有蛋黄派', //用户姓名
                         'reply_to_name' => '哈哈哈',    //回复的姓名
-                        'user_comment'=> '你自己语文没学好吧',  //用户评论
                         'reply_content'=> '你自己'            //用户评论
                     ]
                 ]
@@ -180,13 +239,13 @@ Route::get('/litera_sub', function()
             [
                 'user_icon' => '',                  //用户头像路径
                 'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
                 'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
                 'user_replys' =>[                  //第二层评论
                     [
                         'uesr_icon' => '',             // 用户头像路径
                         'user_name' => '村里没有蛋黄派', //用户姓名
                         'reply_to_name' => '哈哈哈',    //回复的姓名
-                        'user_comment'=> '你自己语文没学好吧',  //用户评论
                         'reply_content'=> '你自己'            //用户评论
                     ]
                 ]
@@ -194,13 +253,13 @@ Route::get('/litera_sub', function()
             [
                 'user_icon' => '',                  //用户头像路径
                 'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
                 'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
                 'user_replys' =>[                  //第二层评论
                     [
                         'uesr_icon' => '',             // 用户头像路径
                         'user_name' => '村里没有蛋黄派', //用户姓名
                         'reply_to_name' => '哈哈哈',    //回复的姓名
-                        'user_comment'=> '你自己语文没学好吧',  //用户评论
                         'reply_content'=> '你自己'            //用户评论
                     ]
                 ]
@@ -218,7 +277,116 @@ Route::get('/litera_sub', function()
 #读书影逝
 Route::get('/bookmovie', function()
 {
-    return View::make('template.bookmovie.bookmovie');
+    $data = [
+        "bkmv_lists" => [
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ],
+            [   "bkmv_icon_src" => "",
+                "bkmv_name" => "好想为你做便当",
+                "love_count" => 20,
+                "comment_count" => 25
+            ]
+        ],
+        "page_info" => [
+            "show_pages_length" => 5,
+            "page_start" => 4,
+            "active_page" => 9
+        ]
+    ];
+    return View::make('template.bookmovie.bookmovie')->with($data);
 });
 
 #微视
@@ -272,22 +440,254 @@ Route::get('/micromovie', function()
 #微视分页
 Route::get('/microm_sub', function()
 {
-    return View::make('template.microm_sub.microm_sub');
+    $data = [
+        "microm_intro" => [
+            "movie_name" => "山鬼",       //影片名称
+            "movie_stars" => 4.5,        //影片星级
+            "movie_author" => "倚窗听风", //影片作者
+            "movie_date" => "2014-05-06", //影片创作时间
+            "movie_detail" => "最近我从淘宝买什么都不顺。比如买透明手机壳，背后却有两个头皮屑似的的小白点，擦不去也抠不掉，套在黑色手机上，看都不顺眼。又比如买胸罩，颜色大小倒是合适的，可就是搭扣下缘走线有点硬，穿上后，感觉像有一枚不服帖的标签在后背来回硌应着。退换货一是麻烦，再是也剪了标。不要，多少又有点弃之可惜。我对着电脑上的一件天蓝色毛呢大衣，始终没勇气按下购买键。但要是迈开双腿进商场逛，一想我就先腿软了总是不自觉对她产生几分没来由的恭敬。" //影片详细信息
+
+        ],
+        "microm_hot" =>[
+            [
+                "movie_icon_src" =>"",
+                "movie_name" => "兄妹",
+                "love_count" => 20
+            ],
+            [
+                "movie_icon_src" =>"",
+                "movie_name" => "最佳损友",
+                "love_count" => 20
+            ]
+        ],
+        "movie_comments" =>[
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'user_icon' => '',                    // 用户头像路径
+                        'user_name' => '村里没有蛋黄派',        //用户姓名
+                        'reply_to_name' => '哈哈哈',              //回复的姓名
+                        'reply_content'=> '你自己',             //用户评论
+                    ]
+                ]
+            ],
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'uesr_icon' => '',             // 用户头像路径
+                        'user_name' => '村里没有蛋黄派', //用户姓名
+                        'reply_to_name' => '哈哈哈',    //回复的姓名
+                        'reply_content'=> '你自己',            //用户评论
+                    ]
+                ]
+            ],
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'uesr_icon' => '',             // 用户头像路径
+                        'user_name' => '村里没有蛋黄派', //用户姓名
+                        'reply_to_name' => '哈哈哈',    //回复的姓名
+                        'reply_content'=> '你自己',            //用户评论
+                    ]
+                ]
+            ],
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'uesr_icon' => '',             // 用户头像路径
+                        'user_name' => '村里没有蛋黄派', //用户姓名
+                        'reply_to_name' => '哈哈哈',    //回复的姓名
+                        'reply_content'=> '你自己',            //用户评论
+                    ]
+                ]
+            ]
+
+        ],
+        "page_info" => [
+            "show_pages_length" => 5,
+            "page_start" => 4,
+            "active_page" => 9
+        ]
+    ];
+    return View::make('template.microm_sub.microm_sub')->with($data);
 });
 
-#我话很多
-Route::get('/discuss', function()
+#读书影逝分页
+Route::get('/bkmv_sub', function()
 {
-    return View::make('template.discuss.discuss');
+    $data = [
+        "main_info" => [
+            "bkmv_name" => "祈祷落幕时",
+            "bkmv_icon_src" => "",
+            "bkmv_stars" => 4.5,
+        ],
+        "sec_info" => [
+            "作者" => "东野圭吾",
+            "价格" => "南海出版公司",
+            "原标题" => "祈りの幕が下りる时",
+            "译者" => "岱科",
+            "出版日期" => "2015-1",
+            "页数" => 296,
+            "定价" => "36.59元"
+        ],
+        "bkmv_grief_intro" => "<h1>这里是简介</h1> <p>一个女人在廉价公寓里被杀，租公寓的人失去了踪影。房间里没有任何生的气息，住在里面似乎随时准备迎接死亡。案发现场找到了一本挂历，上面按月份写有东京十二座桥的名字。刑警加贺恭一郎顿时呆住：同样的东西也曾在他母亲的遗物中出现过。</p>",
+        "bkmv_comments" => [
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'user_icon' => '',                    // 用户头像路径
+                        'user_name' => '村里没有蛋黄派',        //用户姓名
+                        'reply_to_name' => '哈哈哈',              //回复的姓名
+                        'reply_content'=> '你自己',             //用户评论
+                    ]
+                ]
+            ],
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'uesr_icon' => '',             // 用户头像路径
+                        'user_name' => '村里没有蛋黄派', //用户姓名
+                        'reply_to_name' => '哈哈哈',    //回复的姓名
+                        'reply_content'=> '你自己',            //用户评论
+                    ]
+                ]
+            ],
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'uesr_icon' => '',             // 用户头像路径
+                        'user_name' => '村里没有蛋黄派', //用户姓名
+                        'reply_to_name' => '哈哈哈',    //回复的姓名
+                        'reply_content'=> '你自己',            //用户评论
+                    ]
+                ]
+            ],
+            [
+                'user_icon' => '',                  //用户头像路径
+                'user_name' => '村里没有巧克力',      //用户姓名
+                'comment_date' => '2014-05-06',           //评论时间
+                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
+                'user_replys' =>[                  //第二层评论
+                    [
+                        'uesr_icon' => '',             // 用户头像路径
+                        'user_name' => '村里没有蛋黄派', //用户姓名
+                        'reply_to_name' => '哈哈哈',    //回复的姓名
+                        'reply_content'=> '你自己',            //用户评论
+                    ]
+                ]
+            ]
+        ],
+        "page_info" => [
+            "show_pages_length" => 5,
+            "page_start" => 4,
+            "active_page" => 9
+        ],
+        "bkmv_recoms" => [
+            [
+                "main_info" =>[
+                    "bkmv_icon_src" =>"",
+                    "bkmv_name" => "兄妹",
+                ],
+                "sec_info" => [
+                    "热门书评" => "《好想为你做便当》这本书不错..."
+                ]
+            ],
+            [
+                "main_info" =>[
+                    "bkmv_icon_src" =>"",
+                    "bkmv_name" => "兄妹",
+                ],
+                "sec_info" => [
+                    "热门书评" => "《好想为你做便当》这本书不错..."
+                ]
+            ]
+        ]
+    ];
+    return View::make('template.bkmv_sub.bkmv_sub')->with($data);
 });
 
 #个人中心
 Route::get('/personal', function()
 {
-    return View::make('template.personal.personal');
+    $data = [
+        "user_info" => [
+            "main_info" => [
+                "user_name" => "村里没有巧克力",
+                "user_motto" => "一个没啥天赋却依旧学设计的白痴",
+                "user_show_icon" => ""
+            ],
+            "sec_info" => [
+                "生日" => "1994-8-15",
+                "星座" => "处女座",
+                "婚姻状况" => "单身",
+                "邮箱" => "123456789@qq.com"
+            ]
+        ],
+        "user_history" => [
+            "his_date" => "2014-06-08",
+            "his_content" => "<b>记录</b>"
+        ]
+    ];
+    return View::make('template.personal.personal')->with($data);
 });
 
+/*------------------------------ajax 测试---------------------------------*/
+Route::get('/get_photos', function(){
+    $data = [
+        "success" => true,
+        "output" => [
+            [
+                "img_src" => [''],
+                "img_name" => "大学寝室",
+                "img_comment_count" => 20,
+                "img_love_count" => 20
+            ],
+            [
+                "img_src" => [''],
+                "img_name" => "大学寝室",
+                "img_comment_count" => 20,
+                "img_love_count" => 20
+            ],
+            [
+                "img_src" => [''],
+                "img_name" => "大学寝室",
+                "img_comment_count" => 20,
+                "img_love_count" => 20
+            ]
+        ]
+    ];
 
+    return Response::json($data);
+});
 
 /**
  * 前台功能性路由

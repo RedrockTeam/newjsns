@@ -17,11 +17,12 @@
 
 {{--container--}}
 @section("container")
-    <div class="g-left">
+    <div class="g-left f-fl">
         @include("widget.microm_play.microm_play")
+        @include("widget.microm_intro.microm_intro")
         @include("widget.microm_comment.microm_comment")
     </div>
-    <div class="g-right">
+    <div class="g-right f-fr">
         @include("widget.microm_hot.microm_hot")
     </div>
 @stop

@@ -26,10 +26,11 @@
     float: left;
     margin-right: 10px;
 }
-.m-but li a{
+.m-but li a {
     color: #666666;
     font-size: 14px;
     text-decoration: none;
+    font-family: "microsoft yahei";
 }
 .m-but li.s-active a{
     color: #333333;

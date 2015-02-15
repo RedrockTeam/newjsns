@@ -1,3 +1,4 @@
+{{--微视列表--}}
 <div class="m-movie_lists">
     @for($i = 0; $i < count($movie_info); $i++)
         <div class="u-movie_item f-cb">
