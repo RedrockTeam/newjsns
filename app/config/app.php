@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Thapp\JitImage\JitImageServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
 	),
 
@@ -191,6 +192,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'JitImage' 			=> 'Thapp\JitImage\Facades\JitImage',
+        'Image'             => 'Intervention\Image\Facades\Image',
 
 	),
 
