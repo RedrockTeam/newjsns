@@ -1,7 +1,7 @@
 /*created by redrock*/
 .m-litera_comment .u-comment_item {
     border-bottom: 1px dashed #dddddd;
-    padding-bottom: 40px;
+    padding-bottom: 11px;
     margin-top: 20px;
 }
 .m-litera_comment .u-comment_item .u-show_user_icon {
@@ -34,6 +34,16 @@
 .m-litera_comment .u-comment_item .u-reply_content {
     color: #333333;
     font-size: 12px;
+}
+.m-litera_comment .u-comment_item .u-user_action {
+    font-size: 14px;
+    float: right;
+    color: #999999;
+    margin-top: 12px;
+}
+.m-litera_comment .u-comment_item .u-user_action span {
+    display: inline-block;
+    cursor: pointer;
 }
 .m-litera_comment .u-page_tabs{
     margin: 48px 0 27px;

@@ -1,13 +1,4 @@
 @extends("layout.personal")
-{{--top_bar--}}
-@section("personal_tabs")
-    @include("widget.personal_tabs.personal_tabs")
-@stop
-
-{{--header--}}
-@section("header")
-    @include("widget.header.header")
-@stop
 
 {{--footer--}}
 @section("footer")
@@ -16,10 +7,11 @@
 
 {{--container--}}
 @section("container")
-    <div class="m-info">
+    <div class="g-left f-fl">
         @include("widget.personal_info.personal_info")
     </div>
-    <div class="m-history">
+    <div class="g-right f-fr">
+        @include("widget.personal_tabs.personal_tabs")
         @include("widget.personal_history.personal_history")
     </div>
 @stop

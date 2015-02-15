@@ -1,5 +1,5 @@
 /**
- * Created by redrock on 2015/2/1.
+ * Created by redrock on 2015/2/14.
  */
 //配置require.config
 require.config({
@@ -11,12 +11,12 @@ require.config({
     },
     paths : {
         jquery : 'jquery',
-        port : '../template/discuss/port',
-        discuss_list : '../widget/discuss_list/discuss_list',
+        port : '../template/bkmv_sub/port',
+        bkmv_sub_comment : '../widget/bkmv_sub_comment/bkmv_sub_comment)',
         go_top : '../widget/go_top/go_top'
     }
 });
 //加载依赖项
-define(['discuss_list', 'go_top'], function(){
-    console.log('discuss init');
+define(['bkmv_sub_comment', 'go_top'], function(){
+    console.log('bkmv_sub init');
 });

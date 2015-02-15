@@ -1,2 +1,6 @@
 /*created by redrock*/
-p{}
+.g-container{
+    width: 960px;
+    margin: 42px auto 35px;
+}
+.g-left{}

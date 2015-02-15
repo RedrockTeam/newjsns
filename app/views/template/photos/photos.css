@@ -1,3 +1,37 @@
 /*created by redrock*/
-p{}
-a{}
+.g-container{
+    width: 960px;
+    margin: 20px auto 0;
+    position: relative;
+}
+.u-photos_title{
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+.u-photos_title span{
+    color: #ff894f;
+    font-size: 16px;
+    border-bottom: 1px solid #ff894f;
+    padding: 8px 0 8px;
+    padding-left: 26px;
+    background: url("../../../images/litera_t_icons.png") no-repeat left -193px;
+}
+.m-but{
+    margin: 20px 0 12px;
+}
+
+.m-but li{
+    float: left;
+    margin-right: 10px;
+}
+.m-but li a{
+    color: #666666;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: "microsoft yahei";
+}
+.m-but li.s-active a{
+    color: #333333;
+}

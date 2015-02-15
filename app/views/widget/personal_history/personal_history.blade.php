@@ -1,4 +1,6 @@
-<div>personal_history</div>
+<div class="m-personal_his">
+    
+</div>
 
 @section("css")
     @parent

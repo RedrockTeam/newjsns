@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>我话很多</title>
+<title>读书影逝</title>
 <!--[if lt IE 9]>
 @yield("html5js")
 <![endif]-->
@@ -20,7 +20,7 @@
 </header>
 
 {{--container--}}
-<div class="g-container">
+<div class="g-container f-cb">
     @yield("container")
 </div>
 

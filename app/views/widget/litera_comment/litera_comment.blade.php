@@ -3,7 +3,7 @@
     @for($i = 0; $i < count($article_comments); $i++)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$article_comments[$i]['user_icon']}}" alt=""/>
-            <aside class="u-comment_detail">
+            <aside class="u-comment_detail f-cb">
                 <span class="u-user_name">{{$article_comments[$i]['user_name']}}</span>
                 <p class="u-user_content"> {{$article_comments[$i]['user_comment']}}</p>
                 @for($j = 0; $j < count($article_comments[$i]['user_replys']); $j++)
@@ -12,6 +12,11 @@
                     <span class="u-reply_tag">回复</span>
                     <span class="u-user_name">{{$article_comments[$i]['user_replys'][$j]['reply_to_name']}}</span>
                     <span class="u-reply_content">{{$article_comments[$i]['user_replys'][$j]['reply_content']}}</span>
+                </div>
+                <div class="u-user_action">
+                    <span>赞</span>
+                    <span>回复</span>
+                    <span>{{$article_comments[$i]['comment_date']}}</span>
                 </div>
                 @endfor
             </aside>

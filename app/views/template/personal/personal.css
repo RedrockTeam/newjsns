@@ -1,2 +1,9 @@
 /*created by redrock*/
-p{}
+.g-container{
+    width: 960px;
+    margin: 0 auto 70px;
+}
+.g-right{
+    width: 622px;
+    height: 200px;
+}

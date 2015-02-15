@@ -17,16 +17,18 @@
 
 {{--container--}}
 @section("container")
+    <h4 class="u-bkmv_title"><span>读书影逝</span></h4>
     <div class="m-menu">
-        <div class="u-sort-book">读书</div>
-        <div class="u-sort-movie">影逝</div>
+        <div class="u-sort-movie f-pr">电影 <span class="s-tangle"></span></div>
+        <div class="u-sort-hot">最热</div>
+        <div class="u-upload">我要上传</div>
     </div>
-    <div class="g-left">
+    <div class="g-left f-fl">
         @include("widget.bookm_list.bookm_list")
     </div>
-    <div class="g-right">
+    <div class="g-right f-fr">
         @include("widget.bookm_topic.bookm_topic")
-        @include("widget.bookm_comments.bookm_comments")
+{{--        @include("widget.bookm_comments.bookm_comments")--}}
     </div>
 @stop
 
