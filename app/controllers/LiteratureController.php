@@ -10,8 +10,10 @@
 class LiteratureController extends BaseController{
 
     //文学首页
-    public static function literatureIndex(){
-            $data = Literature::where('status', '=', '1')->orderBy('id', 'desc')->paginate(5);
+    public function literatureIndex(){
+            $data = Literature::find(1);
+            $data->user;
+            $data->navigation;
             return $data;
     }
 
@@ -21,13 +23,13 @@ class LiteratureController extends BaseController{
         $passage_id = $id['passage_id'];
         $type_id = $id['type_id'];
         $passage = Literature::find($passage_id);
+        $passage->user;
         $comment = Comment::findComment($type_id, $passage_id, 1);
         $data = array(
             'passage' => $passage,
             'comment' => $comment,
         );
-
-        return View::make('test')->with('data', $data);//TODO:template
+        return View::make('template.litera_sub.litera_sub')->with('data', $data);
     }
 
 

@@ -9,9 +9,8 @@ class Group extends Eloquent {
 	protected $primaryKey = 'uid';
 
 
-	public function route()
-	{
-		return $this->hasManyThrough('routelist', 'permission', 'type_id', 'id');
+	public function route(){
+		return $this->hasManyThrough('Routelist', 'permission', 'type_id', 'id');
 	}
 
 
