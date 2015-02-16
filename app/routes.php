@@ -619,7 +619,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array('as' => 'home/test','uses' => 'MicromovieController@micromovieIndex'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'LiteratureController@test'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限

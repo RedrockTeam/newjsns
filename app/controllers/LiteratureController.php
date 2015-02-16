@@ -48,7 +48,17 @@ class LiteratureController extends BaseController{
     }
 
     public function test(){
-      return  Comment::findComment(1, 1, 1);
+
+        $currentRoute = Route::currentRouteName();
+        $uid = Session::get('uid');
+        $uid = 1;
+        $permission = Group::find($uid)->routelists;
+        foreach($permission as $path){
+            if($currentRoute == $path['path']){
+                return 'ok';
+            }
+        }
+        return 'gg';
     }
 
 }
