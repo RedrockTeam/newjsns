@@ -1,0 +1,26 @@
+/*created by redrock*/
+.m-micro_tags .u-tag_tip{
+    font-size: 14px;
+    color: #333333;
+}
+.m-micro_tags dl{
+    border-bottom: 1px solid  #dddddd;
+    padding: 8px 0;
+}
+.m-micro_tags dl:last-child{
+    border-bottom: none;
+}
+.m-micro_tags dt, .m-micro_tags dd{
+    line-height: 26px;
+    float: left;
+}
+.m-micro_tags dt{
+    font-size: 14px;
+    color: #ff894f;
+    margin-right: 19px;
+}
+.m-micro_tags dd{
+    font-size: 12px;
+    color: #666666;
+    margin-right: 14px;
+}

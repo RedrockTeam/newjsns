@@ -3,3 +3,6 @@
 .env.php
 .idea/
 /app/config/database.php
+node_modules/
+.settings/
+/public/uploads/

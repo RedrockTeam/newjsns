@@ -1,0 +1,21 @@
+/*created by redrock*/
+.g-top_bar{
+    width: 100%;
+    background:#fefefe ;
+    cursor: pointer;
+    background-image: -ms-linear-gradient(top, #fefefe, #fdfdfd); /* OPERA */
+    background-image: -o-linear-gradient(top, #fefefe, #fdfdfd); /* IE 10 */
+    background-image: -moz-linear-gradient(top, #fefefe, #fdfdfd); /* Firefox */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fefefe), color-stop(1, #fdfdfd)); /* Saf4+, Chrome */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#fdfdfd', GradientType='0'); /* IE 9 -*/
+}
+.g-top_bar_wrapper{
+    width: 960px;
+    margin: 0 auto;
+    padding: 11px;
+}
+
+.g-top_bar_wrapper .u-login_register {
+    color: #999999;
+    font-size: 12px;
+}

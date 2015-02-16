@@ -1,0 +1,7 @@
+{
+    "js": ["app/views/**/*.js"],
+    "css": ["app/views/**/*.css"],
+    "image" : ["app/views/**/*.{jpg,png,gif}"],
+    "needTag": false,
+    "depth": 2
+}

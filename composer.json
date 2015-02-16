@@ -7,7 +7,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"barryvdh/laravel-ide-helper": "~1.11",
-		"thapp/jitimage": "0.1.*"
+		"thapp/jitimage": "0.1.*",
+		"intervention/image": "2.0.15"
 	},
 	"autoload": {
 		"classmap": [

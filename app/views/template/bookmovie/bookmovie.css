@@ -1,0 +1,42 @@
+/*created by redrock*/
+.g-container{
+    width: 960px;
+    margin: 30px auto;
+}
+.g-container .u-bkmv_title {
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+.g-container .u-bkmv_title span{
+    color: #ff894f;
+    font-size: 16px;
+    border-bottom: 1px solid #ff894f;
+    padding: 8px 0 8px;
+    padding-left: 26px;
+    background: url("../../../images/litera_t_icons.png") no-repeat left -317px;
+}
+.g-left{
+    width: 638px;
+}
+.m-menu .u-sort-hot, .m-menu .u-sort-movie, .m-menu .u-upload {
+    width: 80px;
+    height: 28px;
+    background: #75c366;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    line-height: 28px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.m-menu .u-sort-movie .s-tangle{
+    content: "";
+    border-width: 7px;
+    border-style: solid;
+    position: absolute;
+    right: 5px;
+    top: 11px;
+    border-color: #ffffff transparent transparent;
+}
