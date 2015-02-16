@@ -25,6 +25,11 @@ class Comment extends Eloquent {
 				->select('content', 'from_user.id as from_uid', 'from_user.username as from_name', 'to_user.id as to_uid', 'to_user.username as to_name')
 				->get();
 		}
+        //机智的分页???
+        $data['page'] = Comment::where('comment.type_id', '=', $type_id)
+            ->where('comment.work_id', '=', $work_id)
+            ->where('comment.status', '=', '1')->paginate(2);
+        $data['page']->setBaseUrl('#');
 		$data['success'] = 'true';
 		$data['output'] = '成功';
 		return $data;
