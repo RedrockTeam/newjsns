@@ -12,9 +12,9 @@ function verify_permission(){
     $permission = Group::find($uid)->routelists;
     foreach($permission as $path){
         if($currentRoute == $path['path']){
-            return 'ok';
+            return true;
         }
     }
-    return 'gg';
+    return false;
 }
 
