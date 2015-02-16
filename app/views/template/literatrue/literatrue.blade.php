@@ -42,6 +42,11 @@
 @section("go_top")
     @include("widget.go_top.go_top")
 @stop
+{{--login_box--}}
+@section("login_box")
+    @include("widget.login_box.login_box")
+@stop
+
 {{--css--}}
 @section("css")
     {{HTML::style("public/css/lib/base.css")}}

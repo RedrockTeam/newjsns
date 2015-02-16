@@ -2,12 +2,12 @@
     <div class="m-header f-cb">
         <div class="u-h_logo f-fl"></div>
         <ul class="u-h_nav f-fr">
-            <li><a href="">首页</a></li>
-            <li><a href="">文学</a></li>
-            <li><a href="">爱拍</a></li>
-            <li><a href="">读书·影逝</a></li>
-            <li><a href="">微视</a></li>
-            <li><a href="">原味</a></li>
+            <li><a href="/">首页</a></li>
+            <li><a href="/literatrue">文学</a></li>
+            <li><a href="/photos">爱拍</a></li>
+            <li><a href="/bookmovie">读书·影逝</a></li>
+            <li><a href="/micromovie">微视</a></li>
+            <li><a href="/original">原味</a></li>
         </ul>
     </div>
 </div>

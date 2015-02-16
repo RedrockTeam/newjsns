@@ -11,7 +11,7 @@
                 </div>
                 <p class="u-content-omit">
                     <a href="">{{$litera_comments_items[$i]['content']}}</a>
-                    <div class="u-litera_user_action">
+                    <div class="u-litera_user_action f-cb">
                         <div class="show_litera-comments"><a href="{{$litera_comments_items[$i]['comments_expand_link']}}">({{$litera_comments_items[$i]['comments_count']}})</a></div>
                         <div class="show_litera_love">({{$litera_comments_items[$i]['love_count']}})</div>
                     </div>

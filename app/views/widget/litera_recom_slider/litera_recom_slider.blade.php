@@ -1,9 +1,9 @@
 <div class="slideBox js-slider">
     <ul class="items">
         <li><a href="" title="测试标题一"></a><img src="public/images/1.png" alt=""/></li>
-        <li><a href="" title="测试标题一"></a><img src="public/images/2.png" alt=""/></li>
-        <li><a href="" title="测试标题一"></a><img src="public/images/1.png" alt=""/></li>
-        <li><a href="" title="测试标题一"></a><img src="public/images/2.png" alt=""/></li>
+        <li><a href="" title="测试标题二"></a><img src="public/images/2.png" alt=""/></li>
+        <li><a href="" title="测试标题三"></a><img src="public/images/1.png" alt=""/></li>
+        <li><a href="" title="测试标题四"></a><img src="public/images/2.png" alt=""/></li>
     </ul>
 </div>
 @section("css")

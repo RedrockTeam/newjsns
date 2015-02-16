@@ -28,8 +28,14 @@
 <footer class="g-footer">
     @yield("footer")
 </footer>
+
+{{--widget 返回顶部--}}
 <div class="g-go_top">
     @yield("go_top")
+</div>
+{{--widget 登陆框--}}
+<div class="g-login_box js-login_box">
+    @yield("login_box")
 </div>
 
 </body>

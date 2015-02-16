@@ -23,6 +23,10 @@
 <div class="g-container f-cb">
     @yield("container")
 </div>
+{{--widget 登陆框--}}
+<div class="g-login_box js-login_box">
+    @yield("login_box")
+</div>
 
 {{--footer--}}
 <footer class="g-footer">

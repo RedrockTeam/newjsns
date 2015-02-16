@@ -15,10 +15,17 @@
     @yield("container")
 </div>
 
+
 {{--footer--}}
 <footer class="g-footer">
     @yield("footer")
 </footer>
+
+{{--widget 登陆框--}}
+<div class="g-login_box js-login_box">
+    @yield("login_box")
+</div>
+
 </body>
 @yield("script")
 </html>

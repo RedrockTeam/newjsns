@@ -14,7 +14,7 @@
 .m-home_square .u-squares {
     position: absolute;
     width: 844px;
-    height: 415px;
+    height: 417px;
     display: table;
     left: 0;
     top: 40px;
@@ -27,21 +27,33 @@
     vertical-align: middle;
     height: 146px;
     border-radius: 6px;
+    transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
 }
-.m-home_square .u-squares .u-square_item a{
+.m-home_square .u-squares .u-square_item .s-wrap{
     display: block;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
     border-radius: 6px;
+    transition: background 1s;
     -webkit-transition: background 1s;
+    -moz-transition: background 1s;
+    -ms-transition: background 1s;
 }
-.m-home_square .u-squares .u-square_item a:hover{
+.m-home_square .u-squares .u-square_item a {
+    text-decoration: none;
+}
+.m-home_square .u-squares .u-square_item .s-wrap:hover{
     background: rgba(0,0,0,1);
 }
 .m-home_square .u-squares .u-square_item .u-title {
+    transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
     width: 100%;
     position: absolute;
     top: 55px;

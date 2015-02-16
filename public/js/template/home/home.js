@@ -9,9 +9,10 @@ require.config({
     paths: {
         jquery: "jquery",
         port: "../template/home/port",
-        square: "../widget/square"
+        square: "../widget/square",
+        login_box: "../widget/login_box/login_box"
     }
 }), //加载项目依赖项
-define([ "square/square" ], function() {
+define([ "square/square", "login_box" ], function() {
     console.log("home init");
 });

@@ -9,6 +9,11 @@
     @include("widget.footer.footer")
 @stop
 
+{{--login_box--}}
+@section("login_box")
+    @include("widget.login_box.login_box")
+@stop
+
 {{--container--}}
 @section("container")
     @include("widget.square.square")

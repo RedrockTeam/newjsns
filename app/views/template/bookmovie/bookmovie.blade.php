@@ -28,8 +28,11 @@
     </div>
     <div class="g-right f-fr">
         @include("widget.bookm_topic.bookm_topic")
-{{--        @include("widget.bookm_comments.bookm_comments")--}}
     </div>
+@stop
+{{--login_box--}}
+@section("login_box")
+    @include("widget.login_box.login_box")
 @stop
 
 {{--go_top--}}

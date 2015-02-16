@@ -17,68 +17,238 @@ Route::get('/', function()
 	return View::make('template.home.home');
 });
 
+#原味
+Route::get('/original', function(){
+    $data = [
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
+        "print_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ],
+        "opera_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ],
+        "song_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ],
+        "model_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ]
+    ];
+
+    return View::make('template.original.original')->with($data);
+});
+
 #爱拍
 Route::get('/photos', function()
 {
     $data = [
-        "photos_lists" => [
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+        "ph_lists" => [
+            "fir_col" => [
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+            "sec_col" => [
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+            "thir_col" => [
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+            "four_col" => [
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ]
         ]
     ];
-	return View::make('template.photos.photos');
+	return View::make('template.photos.photos')->with($data);
 });
 
 #格子(暂时不能用)
@@ -664,25 +834,50 @@ Route::get('/personal', function()
 Route::get('/get_photos', function(){
     $data = [
         "success" => true,
-        "output" => [
+        "isDrain" => false,
+        "data" => [
             [
-                "img_src" => [''],
-                "img_name" => "大学寝室",
-                "img_comment_count" => 20,
-                "img_love_count" => 20
+                "img_src" => ['public/images/test_1.png'],
+                "img_name" => "三张",
+                "comment_count" => 20,
+                "love_count" => 20
             ],
             [
-                "img_src" => [''],
-                "img_name" => "大学寝室",
-                "img_comment_count" => 20,
-                "img_love_count" => 20
+                "img_src" => ['public/images/test_2.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
             ],
             [
-                "img_src" => [''],
-                "img_name" => "大学寝室",
-                "img_comment_count" => 20,
-                "img_love_count" => 20
-            ]
+                "img_src" => ['public/images/test_3.png'],
+                "img_name" => "一张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_2.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_1.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_3.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_1.png', 'public/images/test_2.png'],
+                "img_name" => "三张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
         ]
     ];
 
