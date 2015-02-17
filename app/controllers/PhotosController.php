@@ -5,12 +5,14 @@
 
 class PhotosController extends BaseController {
 
-	public function index()
+	//爱拍首页
+    public function photoIndex()
 	{
         $message = 1;
 		return View::make('test')->with('message', $message);
 	}
 
+    //上传
 	public function upload(){
         $file = Input::file('photo');
         foreach($file as $v){
@@ -22,11 +24,10 @@ class PhotosController extends BaseController {
                 array('photo' => 'required|image|between:1,10240')
             );
             if ($validator->fails()) {
-                return Redirect::to('test')->withInput()->withErrors($validator);
+                return Redirect::back()->withInput()->withErrors($validator);
             }
 
         }
-
         foreach($file as $v){
             if($v==null) {
                 continue;

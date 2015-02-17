@@ -8,10 +8,9 @@ class Group extends Eloquent {
 	public $timestamps = false;
 	protected $primaryKey = 'uid';
 
-
-	public function route()
-	{
-		return $this->hasManyThrough('routelist', 'permission', 'type_id', 'id');
+    //多对多获取已授权路由
+	public function routelists(){
+		return $this->belongsToMany('Routelist', 'permission', 'type_id', 'path_id');
 	}
 
 
