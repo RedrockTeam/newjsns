@@ -258,117 +258,10 @@ Route::get('/grids', function()
 });
 
 #文学
-Route::get('/literatrue', function()
-{
-    $data = [
-        "litera_recom_items" => [
-            [
-                "title" => "俯视",
-                "content" => "一步之遥翻拍"
-            ],
-            [
-                "title" => "文学",
-                "content" => "有些事一辈子也不会做了"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "阳光下的泡沫"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "一步之遥翻拍"
-            ],
-            [
-                "title" => "文学",
-                "content" => "有些事一辈子也不会做了"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "阳光下的泡沫"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "一步之遥翻拍"
-            ],
-            [
-                "title" => "文学",
-                "content" => "有些事一辈子也不会做了"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "阳光下的泡沫"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "一步之遥翻拍"
-            ],
-            [
-                "title" => "文学",
-                "content" => "有些事一辈子也不会做了"
-            ],
-            [
-                "title" => "俯视",
-                "content" => "阳光下的泡沫"
-            ]
-        ],
-        "litera_comments_items" => [
-            [
-                "comments_img_src" =>"",
-                "title" => "篮球的记忆",
-                "author" => "文/倚窗听风",
-                "content" => "又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。 “没事吧！”“对不起啊，同学。”“要不你下去休息了脑袋，昏沉沉地倒了下去。 阿斯“没事吧！”“对不起啊，同学。”“要不你下去休息",
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ],
-            [
-                "comments_img_src" =>"",
-                "title" => "篮球的记忆",
-                "author" => "文/倚窗听风",
-                "content" => "又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。 “没事吧！”“对不起啊，同学。”“要不你下去休息了脑袋，昏沉沉地倒了下去。 阿斯“没事吧！”“对不起啊，同学。”“要不你下去休息",
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ],
-            [
-                "comments_img_src" =>"",
-                "title" => "篮球的记忆",
-                "author" => "文/倚窗听风",
-                "content" => "又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。 “没事吧！”“对不起啊，同学。”“要不你下去休息了脑袋，昏沉沉地倒了下去。 阿斯“没事吧！”“对不起啊，同学。”“要不你下去休息",
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ],
-            [
-                "comments_img_src" =>"",
-                "title" => "篮球的记忆",
-                "author" => "文/倚窗听风",
-                "content" => "又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。 “没事吧！”“对不起啊，同学。”“要不你下去休息了脑袋，昏沉沉地倒了下去。 阿斯“没事吧！”“对不起啊，同学。”“要不你下去休息",
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ],
-            [
-                "comments_img_src" =>"",
-                "title" => "篮球的记忆",
-                "author" => "文/倚窗听风",
-                "content" => "又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。 “没事吧！”“对不起啊，同学。”“要不你下去休息了脑袋，昏沉沉地倒了下去。 阿斯“没事吧！”“对不起啊，同学。”“要不你下去休息",
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ]
-        ],
-        "page_info" => [
-            "show_pages_length" => 5,
-            "page_start" => 4,
-            "active_page" => 9
-        ]
-    ];
-    return View::make('template.literatrue.literatrue')->with($data);
-});
+Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
 
 #文学分页
-Route::get('litera_sub', 'LiteratureController@detailPassage');
+Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
 
 #读书影逝
 Route::get('bookmovie', function()
@@ -814,7 +707,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'LiteratureController@test'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'LiteratureController@literatureIndex'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限

@@ -11,10 +11,17 @@ class LiteratureController extends BaseController{
 
     //文学首页
     public function literatureIndex(){
-            $data = Literature::find(1);
-            $data->user;
-            $data->navigation;
-            return $data;
+        $id = Navigation::find(1)->hasManyson;
+        $literature = new Literature();
+        $data['passagelist'] = $literature->getPassage($id);
+        $data['recommend_list'] = $literature::where('status', '=', '1')
+                                            ->join('navigation', 'literature.type_id', '=', 'navigation.id')
+                                            ->orderBy('love_num', 'desc')
+                                            ->limit(12)
+                                            ->select('literature.id as id', 'literature.type_id as type_id', 'type', 'title', 'cover')
+                                            ->get();
+        $data['navigation'] = $id;
+        return View::make('template.literatrue.literatrue')->with('data', $data);
     }
 
     //文章详情页
@@ -49,16 +56,6 @@ class LiteratureController extends BaseController{
 
     public function test(){
 
-        $currentRoute = Route::currentRouteName();
-        $uid = Session::get('uid');
-        $uid = 1;
-        $permission = Group::find($uid)->routelists;
-        foreach($permission as $path){
-            if($currentRoute == $path['path']){
-                return 'ok';
-            }
-        }
-        return 'gg';
     }
 
 }

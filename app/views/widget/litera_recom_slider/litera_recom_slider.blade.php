@@ -1,9 +1,8 @@
 <div class="slideBox js-slider">
     <ul class="items">
-        <li><a href="" title="测试标题一"></a><img src="public/images/1.png" alt=""/></li>
-        <li><a href="" title="测试标题二"></a><img src="public/images/2.png" alt=""/></li>
-        <li><a href="" title="测试标题三"></a><img src="public/images/1.png" alt=""/></li>
-        <li><a href="" title="测试标题四"></a><img src="public/images/2.png" alt=""/></li>
+        @for($i = 0; $i < 4; ++$i)
+        <li><a href="litera_sub?passage_id={{$data['recommend_list'][$i]['id']}}&type_id={{$data['recommend_list'][$i]['type_id']}}" title="{{$data['recommend_list'][$i]['title']}}"></a><img src="{{$data['recommend_list'][$i]['cover']}}" alt=""/></li>
+        @endfor
     </ul>
 </div>
 @section("css")

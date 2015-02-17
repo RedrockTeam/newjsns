@@ -45,6 +45,8 @@ class PhotosController extends BaseController {
             });
             $newimg->save($name);
             $originalimg->save($originalname);
+            $newimg->destroy();
+            $originalimg->destroy();
         }
 	}
 
