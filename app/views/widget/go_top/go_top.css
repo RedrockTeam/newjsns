@@ -5,6 +5,7 @@
     left: 50%;
     margin-left: 520px;
     cursor: pointer;
+    z-index: 0;
 }
 .go_top{
     width: 44px;

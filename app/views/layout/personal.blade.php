@@ -10,17 +10,17 @@
 </head>
 <body>
 {{--container--}}
-<div class="g-container f-cb">
+<section class="g-container f-cb">
     @yield("container")
-</div>
+</section>
 
 {{--footer--}}
 <footer class="g-footer">
     @yield("footer")
 </footer>
-<div class="g-go g-go_top">
+<section class="g-go g-go_top">
     @yield("go_top")
-</div>
+</section>
 
 </body>
 @yield("script")

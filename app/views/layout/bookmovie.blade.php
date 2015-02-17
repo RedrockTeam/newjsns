@@ -10,9 +10,9 @@
 </head>
 <body>
 {{--top_bar--}}
-<div class="g-top_bar">
+<section class="g-top_bar">
     @yield("top_bar")
-</div>
+</section>
 
 {{--header--}}
 <header class="g-header">
@@ -20,21 +20,21 @@
 </header>
 
 {{--container--}}
-<div class="g-container f-cb">
+<section class="g-container f-cb">
     @yield("container")
-</div>
+</section>
 
 {{--footer--}}
 <footer class="g-footer">
     @yield("footer")
 </footer>
-<div class="g-go g-go_top">
+<section class="g-go g-go_top">
     @yield("go_top")
-</div>
+</section>
 {{--widget 登陆框--}}
-<div class="g-login_box js-login_box">
+<section class="g-login_box js-login_box">
     @yield("login_box")
-</div>
+</section>
 
 </body>
 @yield("script")

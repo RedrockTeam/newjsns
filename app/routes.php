@@ -20,6 +20,7 @@ Route::get('/', function()
 #原味
 Route::get('/original', function(){
     $data = [
+        "page" => "original",
         "user_info" => [
             "user_name" => "李金鑫",
             "user_id" => "oijinxin_16@@@##1322%$^%"
@@ -141,6 +142,11 @@ Route::get('/original', function(){
 Route::get('/photos', function()
 {
     $data = [
+        "page" => "photos",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "ph_lists" => [
             "fir_col" => [
                 [
@@ -261,6 +267,11 @@ Route::get('/grids', function()
 Route::get('/literatrue', function()
 {
     $data = [
+        "page" => "literatrue",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "litera_recom_items" => [
             [
                 "title" => "俯视",
@@ -448,6 +459,11 @@ Route::get('/litera_sub', function()
 Route::get('/bookmovie', function()
 {
     $data = [
+        "page" => "bookmovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "bkmv_lists" => [
             [   "bkmv_icon_src" => "",
                 "bkmv_name" => "好想为你做便当",
@@ -563,6 +579,11 @@ Route::get('/bookmovie', function()
 Route::get('/micromovie', function()
 {
     $data = [
+        "page" => "micromovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         'movie_info' => [
             [
                 'movie_chow_icon' => '',      //影片图片
@@ -611,6 +632,11 @@ Route::get('/micromovie', function()
 Route::get('/microm_sub', function()
 {
     $data = [
+        "page" => "micromovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "microm_intro" => [
             "movie_name" => "山鬼",       //影片名称
             "movie_stars" => 4.5,        //影片星级
@@ -703,6 +729,11 @@ Route::get('/microm_sub', function()
 Route::get('/bkmv_sub', function()
 {
     $data = [
+        "page" => "bookmovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "main_info" => [
             "bkmv_name" => "祈祷落幕时",
             "bkmv_icon_src" => "",

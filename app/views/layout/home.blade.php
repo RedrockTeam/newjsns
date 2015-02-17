@@ -11,9 +11,9 @@
 <body>
 
 {{--container--}}
-<div class="g-container">
+<section class="g-container">
     @yield("container")
-</div>
+</section>
 
 
 {{--footer--}}
@@ -22,9 +22,9 @@
 </footer>
 
 {{--widget 登陆框--}}
-<div class="g-login_box js-login_box">
+<section class="g-login_box js-login_box">
     @yield("login_box")
-</div>
+</section>
 
 </body>
 @yield("script")
