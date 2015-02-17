@@ -36,7 +36,7 @@
     font-family: "microsoft yahei";
 }
 
-.g-header_wrapper .u-h_nav li a:hover, .g-header_wrapper .u-h_nav li.s-active{
+.g-header_wrapper .u-h_nav li a:hover, .g-header_wrapper .u-h_nav li.s-active a{
     background: #70c85c;
     color: #ffffff;
     box-shadow: 0 -1px 0 #209b3b;

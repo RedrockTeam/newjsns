@@ -1,9 +1,4 @@
 @extends("layout.home")
-{{--header--}}
-@section("header")
-    @include("widget.header.header")
-@stop
-
 {{--footer--}}
 @section("footer")
     @include("widget.footer.footer")
