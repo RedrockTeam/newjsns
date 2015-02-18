@@ -9,10 +9,12 @@ require.config({
         port : '../template/photos/port',
         photos_list : '../widget/photos_list/photos_list',
         go_top : '../widget/go_top/go_top',
-        underscore : 'underscore'
+        load_img : '../widget/photos_list/load_img',
+        underscore : 'underscore',
+        login_box : '../widget/login_box/login_box'
     }
 });
 //加载依赖项
-define(['photos_list', 'go_top'], function(){
+define(['photos_list', 'go_top', 'load_img', 'login_box'], function(){
     console.log('photos init');
 });

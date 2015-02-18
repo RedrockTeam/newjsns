@@ -1,12 +1,12 @@
 @extends("layout.home")
-{{--header--}}
-@section("header")
-    @include("widget.header.header")
-@stop
-
 {{--footer--}}
 @section("footer")
     @include("widget.footer.footer")
+@stop
+
+{{--login_box--}}
+@section("login_box")
+    @include("widget.login_box.login_box")
 @stop
 
 {{--container--}}

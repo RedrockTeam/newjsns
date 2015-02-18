@@ -1,12 +1,55 @@
 /*created by redrock*/
 .m-photos_lists{
     width: 100%;
-    height: 600px;
 }
-.m-photos_lists .s-load{
+.s-load{
     display: block;
     width: 60px;
     height: 60px;
-    margin: 100px auto 0;
+    margin: 0px auto;
     background: url("../../../images/load.gif") no-repeat center center;
+}
+.m-photos_lists .g-ph_item{
+    width: 222px;
+    float: left;
+    margin-right: 22px;
+}
+.m-photos_lists .u-ph_item{
+    margin-bottom: 20px;
+    background: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.2);
+    text-align: center;
+    border: 1px solid #dddddd;
+    padding-bottom: 9px;
+    overflow: hidden;
+}
+.m-photos_lists .g-ph_item:last-child{
+    margin-right: 0;
+}
+.m-photos_lists .u-ph_item img{
+    display: block;
+    margin: 8px auto;
+}
+
+.m-photos_lists .u-user_action{
+    float: right;
+}
+.m-photos_lists .u-user_action .u-show_comments, .m-photos_lists .u-user_action .u-show_love{
+    float: left;
+    margin-right: 13px;
+}
+.m-photos_lists .u-user_action .u-show_comments a, .m-photos_lists .u-user_action .u-show_love {
+    color: #666666;
+    text-decoration: none;
+    font-size: 12px;
+    padding-left: 20px;
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    background: url("../../../images/litera_t_icons.png") no-repeat left -115px;
+}
+.m-photos_lists .u-user_action .u-show_love {
+    background-position: left -160px;
+    cursor: pointer;
 }

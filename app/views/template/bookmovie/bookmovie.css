@@ -20,16 +20,19 @@
 .g-left{
     width: 638px;
 }
-.m-menu .u-sort-hot, .m-menu .u-sort-movie, .m-menu .u-upload {
+.m-menu li{
+    display: inline-block;
+}
+.m-menu a {
+    display: block;
     width: 80px;
     height: 28px;
     background: #75c366;
-    display: inline-block;
     font-size: 14px;
     text-align: center;
     line-height: 28px;
     color: #ffffff;
-    cursor: pointer;
+    text-decoration: none;
 }
 .m-menu .u-sort-movie .s-tangle{
     content: "";
@@ -39,4 +42,16 @@
     right: 5px;
     top: 11px;
     border-color: #ffffff transparent transparent;
+}
+
+/*登陆框遮罩*/
+.g-login_box{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    z-index: -1;
 }

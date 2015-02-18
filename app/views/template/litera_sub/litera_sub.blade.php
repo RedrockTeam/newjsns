@@ -21,6 +21,11 @@
     @include("widget.litera_comment.litera_comment")
 @stop
 
+{{--login_box--}}
+@section("login_box")
+    @include("widget.login_box.login_box")
+@stop
+
 {{--go_top--}}
 @section("go_top")
     @include("widget.go_top.go_top")

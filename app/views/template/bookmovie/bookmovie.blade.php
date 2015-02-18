@@ -18,18 +18,21 @@
 {{--container--}}
 @section("container")
     <h4 class="u-bkmv_title"><span>读书影逝</span></h4>
-    <div class="m-menu">
-        <div class="u-sort-movie f-pr">电影 <span class="s-tangle"></span></div>
-        <div class="u-sort-hot">最热</div>
-        <div class="u-upload">我要上传</div>
-    </div>
+    <menu class="m-menu">
+        <li class="u-sort-movie f-pr"><a href="">电影</a> <span class="s-tangle"></span></li>
+        <li class="u-sort-hot"><a href="">最热</a></li>
+        <li class="u-upload"><a href="">我要上传</a></li>
+    </menu>
     <div class="g-left f-fl">
         @include("widget.bookm_list.bookm_list")
     </div>
     <div class="g-right f-fr">
         @include("widget.bookm_topic.bookm_topic")
-{{--        @include("widget.bookm_comments.bookm_comments")--}}
     </div>
+@stop
+{{--login_box--}}
+@section("login_box")
+    @include("widget.login_box.login_box")
 @stop
 
 {{--go_top--}}

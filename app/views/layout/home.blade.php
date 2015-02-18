@@ -11,14 +11,21 @@
 <body>
 
 {{--container--}}
-<div class="g-container">
+<section class="g-container">
     @yield("container")
-</div>
+</section>
+
 
 {{--footer--}}
 <footer class="g-footer">
     @yield("footer")
 </footer>
+
+{{--widget 登陆框--}}
+<section class="g-login_box js-login_box">
+    @yield("login_box")
+</section>
+
 </body>
 @yield("script")
 </html>

@@ -22,7 +22,7 @@
 
 		method = 'get';
 		URL = 'home/literature';
-		DATA =  { type_order:'1', hot_order:'1' , 'page':'2' };  //type_order文章类别(0为全部), 文章热度(0为不按热度排, 1相反), 其余类型请求页面时会渲染进去
+		DATA =  { type_id:'1'};  //type_order文章类别(0为全部), 其余类型请求页面时会渲染进去
 		returnData = {
 						"content":[
 									{"title":"balabala","cover":"http:\/\/xxxx","author":"balabala","introduce":"balabala","comment_num":"1","love_num":"1","type_id":"1","passage_id":"1"},

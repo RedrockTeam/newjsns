@@ -17,68 +17,244 @@ Route::get('/', function()
 	return View::make('template.home.home');
 });
 
+#原味
+Route::get('/original', function(){
+    $data = [
+        "page" => "original",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
+        "print_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ],
+        "opera_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ],
+        "song_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ],
+        "model_lists" => [
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ],
+            [
+                "icon_src" => "",
+                "link_src" => "",
+                "name" => "马云和阿里帝国"
+            ]
+        ]
+    ];
+
+    return View::make('template.original.original')->with($data);
+});
+
 #爱拍
 Route::get('/photos', function()
 {
     $data = [
-        "photos_lists" => [
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+        "page" => "photos",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
+        "ph_lists" => [
+            "fir_col" => [
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+            "sec_col" => [
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+            "thir_col" => [
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
-            ],
-            [
-                "ph_show_icon" => "",
-                "ph_name" => "大一寝室",
-                "ph_love_count" => 20,
-                "ph_comment_count" => 30
+            "four_col" => [
+                [
+                    "img_src" => ['public/images/test_3.png'],
+                    "img_name" => "一张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "三张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ],
+                [
+                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
+                    "img_name" => "两张",
+                    "comment_count" => 20,
+                    "love_count" => 20
+                ]
             ]
         ]
     ];
-	return View::make('template.photos.photos');
+	return View::make('template.photos.photos')->with($data);
 });
 
 #格子(暂时不能用)
@@ -88,9 +264,17 @@ Route::get('/grids', function()
 });
 
 #文学
+<<<<<<< HEAD
+Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
+=======
 Route::get('/literatrue', function()
 {
     $data = [
+        "page" => "literatrue",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "litera_recom_items" => [
             [
                 "title" => "俯视",
@@ -196,14 +380,20 @@ Route::get('/literatrue', function()
     ];
     return View::make('template.literatrue.literatrue')->with($data);
 });
+>>>>>>> dfa32ca47b036ab3236a920e67ac5d25cb104280
 
 #文学分页
-Route::get('litera_sub', 'LiteratureController@detailPassage');
+Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
 
 #读书影逝
 Route::get('bookmovie', function()
 {
     $data = [
+        "page" => "bookmovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "bkmv_lists" => [
             [   "bkmv_icon_src" => "",
                 "bkmv_name" => "好想为你做便当",
@@ -319,6 +509,11 @@ Route::get('bookmovie', function()
 Route::get('micromovie', function()
 {
     $data = [
+        "page" => "micromovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         'movie_info' => [
             [
                 'movie_chow_icon' => '',      //影片图片
@@ -367,6 +562,11 @@ Route::get('micromovie', function()
 Route::get('/microm_sub', function()
 {
     $data = [
+        "page" => "micromovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "microm_intro" => [
             "movie_name" => "山鬼",       //影片名称
             "movie_stars" => 4.5,        //影片星级
@@ -459,6 +659,11 @@ Route::get('/microm_sub', function()
 Route::get('/bkmv_sub', function()
 {
     $data = [
+        "page" => "bookmovie",
+        "user_info" => [
+            "user_name" => "李金鑫",
+            "user_id" => "oijinxin_16@@@##1322%$^%"
+        ],
         "main_info" => [
             "bkmv_name" => "祈祷落幕时",
             "bkmv_icon_src" => "",
@@ -590,25 +795,50 @@ Route::get('/personal', function()
 Route::get('/get_photos', function(){
     $data = [
         "success" => true,
-        "output" => [
+        "isDrain" => false,
+        "data" => [
             [
-                "img_src" => [''],
-                "img_name" => "大学寝室",
-                "img_comment_count" => 20,
-                "img_love_count" => 20
+                "img_src" => ['public/images/test_1.png'],
+                "img_name" => "三张",
+                "comment_count" => 20,
+                "love_count" => 20
             ],
             [
-                "img_src" => [''],
-                "img_name" => "大学寝室",
-                "img_comment_count" => 20,
-                "img_love_count" => 20
+                "img_src" => ['public/images/test_2.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
             ],
             [
-                "img_src" => [''],
-                "img_name" => "大学寝室",
-                "img_comment_count" => 20,
-                "img_love_count" => 20
-            ]
+                "img_src" => ['public/images/test_3.png'],
+                "img_name" => "一张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_2.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_1.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_3.png'],
+                "img_name" => "两张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
+            [
+                "img_src" => ['public/images/test_1.png', 'public/images/test_2.png'],
+                "img_name" => "三张",
+                "comment_count" => 20,
+                "love_count" => 20
+            ],
         ]
     ];
 
@@ -619,7 +849,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'LiteratureController@test'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'LiteratureController@literatureIndex'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限

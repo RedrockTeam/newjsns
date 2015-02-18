@@ -15,7 +15,16 @@
     padding: 11px;
 }
 
-.g-top_bar_wrapper .u-login_register {
+.g-top_bar_wrapper .u-login_register, .g-top_bar_wrapper .u-info a{
     color: #999999;
     font-size: 12px;
+    font-family: "microsoft yahei";
+}
+.g-top_bar_wrapper .u-info{
+    color: #000000;
+    font-size: 12px;
+    font-family: "arial";
+}
+.g-top_bar_wrapper .u-info a{
+    text-decoration: none;
 }
