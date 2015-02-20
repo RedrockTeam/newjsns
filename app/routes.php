@@ -139,7 +139,7 @@ Route::get('/original', function(){
 });
 
 #爱拍
-Route::get('/photos', function()
+Route::get('photos', function()
 {
     $data = [
         "page" => "photos",
