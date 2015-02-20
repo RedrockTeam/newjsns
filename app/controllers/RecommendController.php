@@ -10,8 +10,7 @@ class RecommendController extends BaseController {
         $data['navigation'] = $id;
         $data['recommendlist'] = Recommend::getRecommend($id);
         $data['tags'] = Recommend::getTags($id);
-        return  $data['tags'];
-		//return View::make('template.bookmovie.bookmovie');
+		return View::make('template.bookmovie.bookmovie')->with('data', $data);
 	}
 
 }
