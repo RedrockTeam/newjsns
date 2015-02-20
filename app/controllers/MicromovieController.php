@@ -11,7 +11,6 @@ class MicromovieController extends BaseController {
         $data['navigation'] = $id;
         $data['micromovielist'] = Micromovie::getMicromovie($id);
         $data['tags'] = Micromovie::getTags($id);
-        //return $data;
         return View::make('template.micromovie.micromovie')->with('data',$data);
 	}
 

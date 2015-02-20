@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-20 19:53:53
+Date: 2015-02-20 22:19:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,17 +22,24 @@ DROP TABLE IF EXISTS `album`;
 CREATE TABLE `album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
   `album_name` text COLLATE utf8_unicode_ci,
   `album_cover` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `comment_num` int(11) DEFAULT NULL,
+  `love_num` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of album
 -- ----------------------------
-INSERT INTO `album` VALUES ('1', '1', 'test', null, '2015-02-17 16:58:26', '2015-02-17 16:58:29');
+INSERT INTO `album` VALUES ('1', '1', null, 'test', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('2', '1', null, 'test1', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('3', '1', null, 'test2', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('4', '1', null, 'test3', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
 
 -- ----------------------------
 -- Table structure for collection
@@ -152,6 +159,7 @@ CREATE TABLE `log` (
 DROP TABLE IF EXISTS `micromovie`;
 CREATE TABLE `micromovie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
   `author` text COLLATE utf8_unicode_ci,
   `uid` int(11) DEFAULT NULL,
@@ -168,12 +176,12 @@ CREATE TABLE `micromovie` (
 -- ----------------------------
 -- Records of micromovie
 -- ----------------------------
-INSERT INTO `micromovie` VALUES ('1', 'test1', 'qwer1', '1', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
-INSERT INTO `micromovie` VALUES ('2', 'test1', 'qwer2', '1', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
-INSERT INTO `micromovie` VALUES ('3', 'test1', 'qwer3', '1', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
-INSERT INTO `micromovie` VALUES ('4', 'test1', 'qwer4', '1', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
-INSERT INTO `micromovie` VALUES ('5', 'test1', 'qwer5', '1', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
-INSERT INTO `micromovie` VALUES ('6', 'test1', 'qwer6', '1', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
+INSERT INTO `micromovie` VALUES ('1', '14', 'test1', 'qwer1', '1', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
+INSERT INTO `micromovie` VALUES ('2', '15', 'test2', 'qwer2', '1', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
+INSERT INTO `micromovie` VALUES ('3', '14', 'test3', 'qwer3', '1', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
+INSERT INTO `micromovie` VALUES ('4', '15', 'test4', 'qwer4', '1', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
+INSERT INTO `micromovie` VALUES ('5', '14', 'test5', 'qwer5', '1', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
+INSERT INTO `micromovie` VALUES ('6', '15', 'test6', 'qwer6', '1', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
 
 -- ----------------------------
 -- Table structure for mywork
@@ -201,7 +209,7 @@ CREATE TABLE `navigation` (
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `father_id` int(11) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of navigation
@@ -217,6 +225,10 @@ INSERT INTO `navigation` VALUES ('8', '23', '人像', '00000000001');
 INSERT INTO `navigation` VALUES ('9', null, '毛概', '00000000003');
 INSERT INTO `navigation` VALUES ('10', null, '马列', '00000000003');
 INSERT INTO `navigation` VALUES ('11', null, '邓小平理论', '00000000003');
+INSERT INTO `navigation` VALUES ('12', null, '漫画', '00000000002');
+INSERT INTO `navigation` VALUES ('13', null, '风景', '00000000002');
+INSERT INTO `navigation` VALUES ('14', null, '微电影', '00000000004');
+INSERT INTO `navigation` VALUES ('15', null, '导演', '00000000004');
 
 -- ----------------------------
 -- Table structure for original
@@ -278,7 +290,6 @@ INSERT INTO `permission` VALUES ('16', '1', '16');
 DROP TABLE IF EXISTS `photos`;
 CREATE TABLE `photos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_id` int(11) DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
   `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `original_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -290,11 +301,12 @@ CREATE TABLE `photos` (
   `love_num` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of photos
 -- ----------------------------
+INSERT INTO `photos` VALUES ('1', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-02-20 20:21:56', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for recommend
@@ -391,17 +403,17 @@ CREATE TABLE `tags` (
 -- ----------------------------
 -- Records of tags
 -- ----------------------------
-INSERT INTO `tags` VALUES ('1', '9', '1', 'ccc');
-INSERT INTO `tags` VALUES ('2', '10', '2', 'ttt');
-INSERT INTO `tags` VALUES ('3', '9', null, 'sd');
-INSERT INTO `tags` VALUES ('4', '11', null, 'sdf');
-INSERT INTO `tags` VALUES ('5', '9', null, 'sdf4');
-INSERT INTO `tags` VALUES ('6', '10', null, 'vc');
-INSERT INTO `tags` VALUES ('7', '11', null, 'ewrf');
-INSERT INTO `tags` VALUES ('8', '9', null, 'b');
-INSERT INTO `tags` VALUES ('9', '9', null, 'we');
-INSERT INTO `tags` VALUES ('10', '10', null, 'wefr');
-INSERT INTO `tags` VALUES ('11', '11', null, 'eg');
+INSERT INTO `tags` VALUES ('1', '14', '1', 'ccc');
+INSERT INTO `tags` VALUES ('2', '15', '2', 'ttt');
+INSERT INTO `tags` VALUES ('3', '14', null, 'sd');
+INSERT INTO `tags` VALUES ('4', '14', null, 'sdf');
+INSERT INTO `tags` VALUES ('5', '15', null, 'sdf4');
+INSERT INTO `tags` VALUES ('6', '15', null, 'vc');
+INSERT INTO `tags` VALUES ('7', '15', null, 'ewrf');
+INSERT INTO `tags` VALUES ('8', '14', null, 'b');
+INSERT INTO `tags` VALUES ('9', '15', null, 'we');
+INSERT INTO `tags` VALUES ('10', '15', null, 'wefr');
+INSERT INTO `tags` VALUES ('11', '14', null, 'eg');
 
 -- ----------------------------
 -- Table structure for users
