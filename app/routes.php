@@ -257,11 +257,6 @@ Route::get('/photos', function()
 	return View::make('template.photos.photos')->with($data);
 });
 
-#格子(暂时不能用)
-Route::get('/grids', function()
-{
-    return View::make('template.grids.grids');
-});
 
 #文学
 Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
@@ -734,7 +729,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'LiteratureController@literatureIndex'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'RecommendController@RecommendIndex'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限

@@ -12,9 +12,8 @@ class LiteratureController extends BaseController{
     //文学首页
     public function literatureIndex(){
         $id = Navigation::find(1)->hasManyson;
-        $literature = new Literature();
-        $data['passagelist'] = $literature->getPassage($id);
-        $data['recommend_list'] = $literature::where('status', '=', '1')
+        $data['passagelist'] = Literature::getPassage($id);
+        $data['recommend_list'] = Literature::where('status', '=', '1')
                                             ->join('navigation', 'literature.type_id', '=', 'navigation.id')
                                             ->orderBy('love_num', 'desc')
                                             ->limit(12)
