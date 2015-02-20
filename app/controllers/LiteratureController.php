@@ -28,9 +28,10 @@ class LiteratureController extends BaseController{
         $id = Input::all();
         $passage_id = $id['passage_id'];
         $type_id = $id['type_id'];
+        $page = isset($id['page'])? $id['page']:1;
         $passage = Literature::find($passage_id);
         $passage->user;
-        $comment = Comment::findComment($type_id, $passage_id, 1);
+        $comment = Comment::findComment($type_id, $passage_id, $page);
         $data = array(
             'passage' => $passage,
             'comment' => $comment,
