@@ -26,7 +26,6 @@ class RecommendController extends BaseController {
             'comment' => $comment,
             'recommend'=>$recommend,
         );
-        //return $data;
         return View::make('template.bkmv_sub.bkmv_sub')->with('data', $data);
     }
 

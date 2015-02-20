@@ -266,7 +266,7 @@ Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureControl
 Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
 
 #读书影逝
-Route::get('bookmovie', array('as' => 'bookmovie', 'uses' =>'RecommendController@RecommendIndex'));
+Route::get('bookmovie', array('as' => 'bookmovie', 'uses' =>'RecommendController@recommendIndex'));
 
 #微视
 Route::get('micromovie', function()
@@ -322,7 +322,7 @@ Route::get('micromovie', function()
 });
 
 #微视分页
-Route::get('/microm_sub', function()
+Route::get('microm_sub', function()
 {
     $data = [
         "page" => "micromovie",
@@ -504,7 +504,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'RecommendController@recommendDetail'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'MicromovieController@micromovieIndex'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限
