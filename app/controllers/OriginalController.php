@@ -1,7 +1,4 @@
 <?php
-/**
- * 渲染后台模板
- */
 
 class OriginalController extends BaseController {
 

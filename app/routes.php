@@ -269,9 +269,7 @@ Route::group(array('prefix' => 'home'), function()
 Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
 {
 
-
-
-    Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => ''));//ajax图片发表评论
+    Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => ''));//ajax爱拍发表评论
 
     Route::post('comment/micromovie', array('as' => 'home/comment/micromovie','uses' => ''));//ajax微视发表评论
 

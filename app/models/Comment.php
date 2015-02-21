@@ -5,6 +5,7 @@ class Comment extends Eloquent {
 	
 	protected $table = 'comment';
 	protected $fillable = array('type_id', 'content', 'from', 'to', 'read_status', 'created_at', 'updated_at', 'status');
+    private   $rules;
 
 	//获取评论 TODO:users表中id为该应用的uid, users表里的uid为学号
 	public static function findComment($type_id, $work_id, $page){
@@ -37,4 +38,46 @@ class Comment extends Eloquent {
 		$data['output'] = '成功';
 		return $data;
 	}
+
+    //发表评论
+    public function comment($type_id, $work_id, $content=null, $to=0, $father_id=0){
+        $data = array(
+            'type_id' => $type_id,
+            'work_id' => $work_id,
+            'content' => $content,
+            'from'    => Session::get('uid'),
+            'to'      => $to,
+            'father_id'=>$father_id,
+            'read_status'=>0,
+            'praise'  => 0,
+            'love_num'=> 0,
+            'status'  => 1,
+        );
+        $this->rules = array(
+            'type_id' => 'required|numeric',
+            'work_id' => 'required|numeric',
+            'content' => 'required',
+            'from'    => 'required',
+            'to'      => 'required|numeric',
+            'father_id'=>'required|numeric',
+            'read_status'=>'required|numeric',
+            'praise'  => 'required|numeric',
+            'love_num'=> 'required|numeric',
+            'status'  => 'required|numeric',
+        );
+        $validator = Validator::make(
+            $data,
+            $this->rules
+        );
+        if($validator->fails()){
+            $error = array();
+            return $error;
+        }
+        else{
+            Comment::create($data);
+            $success = array();
+            return $success;
+        }
+    }
+
 }
