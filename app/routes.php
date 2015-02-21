@@ -12,131 +12,12 @@
 */
 /*-------------------------------------------------blade 测试---------------------*/
 #首页
-Route::get('/', function()
-{
+Route::get('/', function() {
 	return View::make('template.home.home');
 });
 
 #原味
-Route::get('original', function(){
-    $data = [
-        "page" => "original",
-        "user_info" => [
-            "user_name" => "李金鑫",
-            "user_id" => "oijinxin_16@@@##1322%$^%"
-        ],
-        "print_lists" => [
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ]
-        ],
-        "opera_lists" => [
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ]
-        ],
-        "song_lists" => [
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ]
-        ],
-        "model_lists" => [
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ],
-            [
-                "icon_src" => "",
-                "link_src" => "",
-                "name" => "马云和阿里帝国"
-            ]
-        ]
-    ];
-
-    return View::make('template.original.original')->with($data);
-});
+Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
 
 #爱拍
 Route::get('photos', function()
@@ -257,7 +138,6 @@ Route::get('photos', function()
 	return View::make('template.photos.photos')->with($data);
 });
 
-
 #文学
 Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
 
@@ -268,13 +148,14 @@ Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureContro
 #读书影逝
 Route::get('bookmovie', array('as' => 'bookmovie', 'uses' =>'RecommendController@recommendIndex'));
 
+#读书影逝分页
+Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
+
 #微视
 Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieIndex'));
 
-Route::get('microm_sub', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieDetail'));
-
-#读书影逝分页
-Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
+#微视分页
+Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
 #个人中心
 Route::get('/personal', function()
@@ -359,7 +240,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'MicromovieController@micromovieDetail'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'OriginalController@originalIndex'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限
