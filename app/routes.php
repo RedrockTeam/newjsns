@@ -141,12 +141,11 @@ Route::get('photos', function()
 #文学
 Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
 
-
 #文学分页
 Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
 
 #读书影逝
-Route::get('bookmovie', array('as' => 'bookmovie', 'uses' =>'RecommendController@recommendIndex'));
+Route::get('bookmovie', array('as' => 'recommend', 'uses' =>'RecommendController@recommendIndex'));
 
 #读书影逝分页
 Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
@@ -240,8 +239,10 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::post('test', array( 'as' => 'home/test','uses' => 'CommentController@comment'));//test
-Route::post('upload', array('uses' => 'PhotosController@upload'));
+Route::get('test', array( 'as' => 'home/test','uses' => 'PersonalController@personalIndex'));//test
+Route::get('upload', function(){
+    return route('recommend');
+});
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
@@ -269,18 +270,18 @@ Route::group(array('prefix' => 'home'), function()
 Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
 {
 
-    Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => ''));//ajax爱拍发表评论
+    Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 
-    Route::post('comment/micromovie', array('as' => 'home/comment/micromovie','uses' => ''));//ajax微视发表评论
+    Route::post('comment/micromovie', array('as' => 'home/comment/micromovie','uses' => 'CommentController@comment'));//ajax微视发表评论
 
-    Route::post('comment/original', array('as' => 'home/comment/original','uses' => ''));//ajax原味发表评论
+    Route::post('comment/original', array('as' => 'home/comment/original','uses' => 'CommentController@comment'));//ajax原味发表评论
 
-    Route::post('comment/recommend', array('as' => 'home/comment/recommend','uses' => ''));//ajax读书影逝发表评论
+    Route::post('comment/recommend', array('as' => 'home/comment/recommend','uses' => 'CommentController@comment'));//ajax读书影逝发表评论
 
     //文学路由
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
 
-    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => ''));//ajax文学发表评论
+    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => 'CommentController@comment'));//ajax文学发表评论
 
 });
 
