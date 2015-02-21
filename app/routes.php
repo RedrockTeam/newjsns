@@ -240,7 +240,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'OriginalController@originalIndex'));//test
+Route::post('test', array( 'as' => 'home/test','uses' => 'CommentController@comment'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限

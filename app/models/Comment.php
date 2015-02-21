@@ -4,7 +4,7 @@ class Comment extends Eloquent {
 
 	
 	protected $table = 'comment';
-	protected $fillable = array('type_id', 'content', 'from', 'to', 'read_status', 'created_at', 'updated_at', 'status');
+	protected $fillable = array('work_id', 'type_id', 'content', 'from', 'to', 'praise', 'father_id', 'love_num','read_status', 'created_at', 'updated_at', 'status');
     private   $rules;
 
 	//获取评论 TODO:users表中id为该应用的uid, users表里的uid为学号
@@ -39,13 +39,13 @@ class Comment extends Eloquent {
 		return $data;
 	}
 
-    //发表评论
-    public function comment($type_id, $work_id, $content=null, $to=0, $father_id=0){
+    //发表评论 TODO:删死数据
+    public function addComment($type_id, $work_id, $content=null, $to=0, $father_id=0){
         $data = array(
             'type_id' => $type_id,
             'work_id' => $work_id,
             'content' => $content,
-            'from'    => Session::get('uid'),
+            'from'    => /*Session::get('uid')*/1,
             'to'      => $to,
             'father_id'=>$father_id,
             'read_status'=>0,
@@ -70,13 +70,17 @@ class Comment extends Eloquent {
             $this->rules
         );
         if($validator->fails()){
-            $error = array();
-            return $error;
+            $error = array('gg');
+            return $validator->messages();
         }
         else{
-            Comment::create($data);
-            $success = array();
-            return $success;
+            if(Comment::create($data)){
+                $success = array('ok');
+                return $success;
+            }
+            else{
+                return 'gg1';
+            }
         }
     }
 
