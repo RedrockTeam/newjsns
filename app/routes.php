@@ -18,7 +18,7 @@ Route::get('/', function()
 });
 
 #原味
-Route::get('/original', function(){
+Route::get('original', function(){
     $data = [
         "page" => "original",
         "user_info" => [
@@ -269,154 +269,9 @@ Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureContro
 Route::get('bookmovie', array('as' => 'bookmovie', 'uses' =>'RecommendController@recommendIndex'));
 
 #微视
-Route::get('micromovie', function()
-{
-    $data = [
-        "page" => "micromovie",
-        "user_info" => [
-            "user_name" => "李金鑫",
-            "user_id" => "oijinxin_16@@@##1322%$^%"
-        ],
-        'movie_info' => [
-            [
-                'movie_chow_icon' => '',      //影片图片
-                'movie_name' => '山鬼',       //影片名字
-                'movie_stars' => 3.5,          //影片星级  0.5为半分
-                'movie_author' => '倚窗听风', //影片作者
-                'movie_date' => '2014-12-6', //影片创作时间
-                'movie_intro' => '又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。“没事吧！”...',  //影片简介
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ],
-            [
-                'movie_chow_icon' => '',      //影片图片
-                'movie_name' => '山鬼',       //影片名字
-                'movie_stars' => 3.5,          //影片星级  0.5为半分
-                'movie_author' => '倚窗听风', //影片作者
-                'movie_date' => '2014-12-6', //影片创作时间
-                'movie_intro' => '又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。“没事吧！”...',  //影片简介
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ],
-            [
-                'movie_chow_icon' => '',      //影片图片
-                'movie_name' => '山鬼',       //影片名字
-                'movie_stars' => 3.5,          //影片星级  0.5为半分
-                'movie_author' => '倚窗听风', //影片作者
-                'movie_date' => '2014-12-6', //影片创作时间
-                'movie_intro' => '又一次挺着我的大肚皮踏上篮球场，倔强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来强地不承认，我的青春已经所剩无几。缓慢的跑动，几乎不离开地面的跳跃，终于让飞来的皮球击中了脑袋，昏沉沉地倒了下去。“没事吧！”...',  //影片简介
-                "comments_count" => 32,
-                "comments_expand_link" => "",
-                "love_count" => 50
-            ]
-        ],
-        'page_info' => [
-            "show_pages_length" => 5,
-            "page_start" => 4,
-            "active_page" => 9
-        ]
-    ];
-    return View::make('template.micromovie.micromovie')->with($data);
-});
+Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieIndex'));
 
-#微视分页
-Route::get('microm_sub', function()
-{
-    $data = [
-        "page" => "micromovie",
-        "user_info" => [
-            "user_name" => "李金鑫",
-            "user_id" => "oijinxin_16@@@##1322%$^%"
-        ],
-        "microm_intro" => [
-            "movie_name" => "山鬼",       //影片名称
-            "movie_stars" => 4.5,        //影片星级
-            "movie_author" => "倚窗听风", //影片作者
-            "movie_date" => "2014-05-06", //影片创作时间
-            "movie_detail" => "最近我从淘宝买什么都不顺。比如买透明手机壳，背后却有两个头皮屑似的的小白点，擦不去也抠不掉，套在黑色手机上，看都不顺眼。又比如买胸罩，颜色大小倒是合适的，可就是搭扣下缘走线有点硬，穿上后，感觉像有一枚不服帖的标签在后背来回硌应着。退换货一是麻烦，再是也剪了标。不要，多少又有点弃之可惜。我对着电脑上的一件天蓝色毛呢大衣，始终没勇气按下购买键。但要是迈开双腿进商场逛，一想我就先腿软了总是不自觉对她产生几分没来由的恭敬。" //影片详细信息
-
-        ],
-        "microm_hot" =>[
-            [
-                "movie_icon_src" =>"",
-                "movie_name" => "兄妹",
-                "love_count" => 20
-            ],
-            [
-                "movie_icon_src" =>"",
-                "movie_name" => "最佳损友",
-                "love_count" => 20
-            ]
-        ],
-        "movie_comments" =>[
-            [
-                'user_icon' => '',                  //用户头像路径
-                'user_name' => '村里没有巧克力',      //用户姓名
-                'comment_date' => '2014-05-06',           //评论时间
-                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
-                'user_replys' =>[                  //第二层评论
-                    [
-                        'user_icon' => '',                    // 用户头像路径
-                        'user_name' => '村里没有蛋黄派',        //用户姓名
-                        'reply_to_name' => '哈哈哈',              //回复的姓名
-                        'reply_content'=> '你自己',             //用户评论
-                    ]
-                ]
-            ],
-            [
-                'user_icon' => '',                  //用户头像路径
-                'user_name' => '村里没有巧克力',      //用户姓名
-                'comment_date' => '2014-05-06',           //评论时间
-                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
-                'user_replys' =>[                  //第二层评论
-                    [
-                        'uesr_icon' => '',             // 用户头像路径
-                        'user_name' => '村里没有蛋黄派', //用户姓名
-                        'reply_to_name' => '哈哈哈',    //回复的姓名
-                        'reply_content'=> '你自己',            //用户评论
-                    ]
-                ]
-            ],
-            [
-                'user_icon' => '',                  //用户头像路径
-                'user_name' => '村里没有巧克力',      //用户姓名
-                'comment_date' => '2014-05-06',           //评论时间
-                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
-                'user_replys' =>[                  //第二层评论
-                    [
-                        'uesr_icon' => '',             // 用户头像路径
-                        'user_name' => '村里没有蛋黄派', //用户姓名
-                        'reply_to_name' => '哈哈哈',    //回复的姓名
-                        'reply_content'=> '你自己',            //用户评论
-                    ]
-                ]
-            ],
-            [
-                'user_icon' => '',                  //用户头像路径
-                'user_name' => '村里没有巧克力',      //用户姓名
-                'comment_date' => '2014-05-06',           //评论时间
-                'user_comment' => '在地铁上看完了第二个故事，故事的结局几乎是很快速地扫过。不敢一字一句地仔细体会，时隔多久，在看书的时候，让我要忍住眼泪呢？穿越时间和空间的感动，从印刷体中所表达出来的情感，在真真切切地感受着。',  //用户评论内容
-                'user_replys' =>[                  //第二层评论
-                    [
-                        'uesr_icon' => '',             // 用户头像路径
-                        'user_name' => '村里没有蛋黄派', //用户姓名
-                        'reply_to_name' => '哈哈哈',    //回复的姓名
-                        'reply_content'=> '你自己',            //用户评论
-                    ]
-                ]
-            ]
-
-        ],
-        "page_info" => [
-            "show_pages_length" => 5,
-            "page_start" => 4,
-            "active_page" => 9
-        ]
-    ];
-    return View::make('template.microm_sub.microm_sub')->with($data);
-});
+Route::get('microm_sub', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieDetail'));
 
 #读书影逝分页
 Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
@@ -504,7 +359,7 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'MicromovieController@micromovieIndex'));//test
+Route::get('test', array( 'as' => 'home/test','uses' => 'MicromovieController@micromovieDetail'));//test
 Route::post('upload', array('uses' => 'PhotosController@upload'));
 
 //不需权限

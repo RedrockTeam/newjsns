@@ -1,14 +1,14 @@
 <div class="m-microm_hot">
     <h4>热门电影</h4>
-    @for($i = 0; $i < count($microm_hot); $i++)
+    @foreach($data['hot'] as $hot)
         <div class="u-movie_item f-cb">
-            <img src="{{$microm_hot[$i]['movie_icon_src']}}" alt="" class="f-fl"/>
+            <img src="{{$hot['cover_url']}}" alt="" class="f-fl"/>
             <aside class="u-movie_info f-fl">
-                <h5 class="u-movie_hot_name">{{$microm_hot[$i]['movie_name']}}</h5>
-                <p class="u-love_hot_count">点赞数:{{$microm_hot[$i]['love_count']}}</p>
+                <h5 class="u-movie_hot_name">{{$hot['title']}}</h5>
+                <p class="u-love_hot_count">点赞数:{{$hot['love_num']}}</p>
             </aside>
         </div>
-    @endfor
+    @endforeach
 </div>
 @section("css")
     @parent
