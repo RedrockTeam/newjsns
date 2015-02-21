@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-20 22:19:25
+Date: 2015-02-21 16:16:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -75,7 +75,7 @@ CREATE TABLE `comment` (
   `love_num` int(11) DEFAULT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of comment
@@ -90,6 +90,8 @@ INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-1
 INSERT INTO `comment` VALUES ('8', '1', '9', 'ewfefw1', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('9', '1', '9', 'ewfefw2', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('10', '1', '9', 'ewfefw3', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
+INSERT INTO `comment` VALUES ('11', '1', '14', 'gse', '1', '0', '1', '1', '2015-02-21 15:12:48', '2015-02-21 15:12:52', '0', '1', '1');
+INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-02-21 15:13:12', '11', '12', '1');
 
 -- ----------------------------
 -- Table structure for group
@@ -161,8 +163,10 @@ CREATE TABLE `micromovie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
+  `cover_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `author` text COLLATE utf8_unicode_ci,
   `uid` int(11) DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `introduce` text COLLATE utf8_unicode_ci,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -176,12 +180,12 @@ CREATE TABLE `micromovie` (
 -- ----------------------------
 -- Records of micromovie
 -- ----------------------------
-INSERT INTO `micromovie` VALUES ('1', '14', 'test1', 'qwer1', '1', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
-INSERT INTO `micromovie` VALUES ('2', '15', 'test2', 'qwer2', '1', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
-INSERT INTO `micromovie` VALUES ('3', '14', 'test3', 'qwer3', '1', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
-INSERT INTO `micromovie` VALUES ('4', '15', 'test4', 'qwer4', '1', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
-INSERT INTO `micromovie` VALUES ('5', '14', 'test5', 'qwer5', '1', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
-INSERT INTO `micromovie` VALUES ('6', '15', 'test6', 'qwer6', '1', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
+INSERT INTO `micromovie` VALUES ('1', '14', 'test1', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer1', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
+INSERT INTO `micromovie` VALUES ('2', '15', 'test2', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer2', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
+INSERT INTO `micromovie` VALUES ('3', '14', 'test3', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer3', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
+INSERT INTO `micromovie` VALUES ('4', '15', 'test4', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer4', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
+INSERT INTO `micromovie` VALUES ('5', '14', 'test5', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer5', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
+INSERT INTO `micromovie` VALUES ('6', '15', 'test6', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer6', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
 
 -- ----------------------------
 -- Table structure for mywork
@@ -237,6 +241,8 @@ DROP TABLE IF EXISTS `original`;
 CREATE TABLE `original` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
+  `cover_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
   `introduce` text COLLATE utf8_unicode_ci,
   `author` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
