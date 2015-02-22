@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-21 16:16:42
+Date: 2015-02-22 17:08:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,12 +49,14 @@ CREATE TABLE `collection` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
   `work_id` int(11) DEFAULT NULL,
+  `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of collection
 -- ----------------------------
+INSERT INTO `collection` VALUES ('1', '6', '1', '1');
 
 -- ----------------------------
 -- Table structure for comment
@@ -75,7 +77,7 @@ CREATE TABLE `comment` (
   `love_num` int(11) DEFAULT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of comment
@@ -83,15 +85,17 @@ CREATE TABLE `comment` (
 INSERT INTO `comment` VALUES ('1', '1', '6', '1', '1', '0', '1', '1', '2015-02-13 18:10:06', '2015-02-13 18:10:09', '0', '1', '1');
 INSERT INTO `comment` VALUES ('2', '1', '6', '2', '1', '0', '1', '1', '2015-02-13 18:10:33', '2015-02-13 18:10:36', '0', '1', '1');
 INSERT INTO `comment` VALUES ('3', '1', '6', '3', '1', '0', '1', '1', '2015-02-13 18:10:49', '2015-02-13 18:10:52', '0', '1', '1');
-INSERT INTO `comment` VALUES ('7', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '1', '1', '1');
+INSERT INTO `comment` VALUES ('7', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '1', '1', '1');
 INSERT INTO `comment` VALUES ('4', '1', '6', '4', '1', '2', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '1', '1', '1');
-INSERT INTO `comment` VALUES ('5', '1', '6', '4', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-02-13 19:22:38', '1', '1', '1');
-INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '2', '1', '1');
+INSERT INTO `comment` VALUES ('5', '1', '6', '7', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-02-22 15:30:42', '1', '1', '1');
+INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '2', '1', '1');
 INSERT INTO `comment` VALUES ('8', '1', '9', 'ewfefw1', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('9', '1', '9', 'ewfefw2', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('10', '1', '9', 'ewfefw3', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('11', '1', '14', 'gse', '1', '0', '1', '1', '2015-02-21 15:12:48', '2015-02-21 15:12:52', '0', '1', '1');
-INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-02-21 15:13:12', '11', '12', '1');
+INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-02-22 15:30:42', '11', '12', '1');
+INSERT INTO `comment` VALUES ('13', '1', '6', 'asdfgvawegvaer', '1', '0', '1', null, '2015-02-21 19:59:48', '2015-02-22 15:07:46', null, null, '1');
+INSERT INTO `comment` VALUES ('14', '1', '6', 'asdfgvawegvaer', '1', '1', '1', '0', '2015-02-21 20:01:41', '2015-02-22 15:30:42', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for group
@@ -197,11 +201,14 @@ CREATE TABLE `mywork` (
   `work_id` int(11) DEFAULT NULL,
   `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of mywork
 -- ----------------------------
+INSERT INTO `mywork` VALUES ('1', '6', '1', '1');
+INSERT INTO `mywork` VALUES ('2', '7', '2', '1');
+INSERT INTO `mywork` VALUES ('3', '14', '1', '1');
 
 -- ----------------------------
 -- Table structure for navigation
@@ -213,7 +220,7 @@ CREATE TABLE `navigation` (
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `father_id` int(11) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of navigation
@@ -223,16 +230,19 @@ INSERT INTO `navigation` VALUES ('2', 'photos', '爱拍', '00000000000');
 INSERT INTO `navigation` VALUES ('3', 'recommend', '读书影逝', '00000000000');
 INSERT INTO `navigation` VALUES ('4', 'micromovie', '微视', '00000000000');
 INSERT INTO `navigation` VALUES ('5', 'original', '原味', '00000000000');
-INSERT INTO `navigation` VALUES ('6', 'wq', '散文', '00000000001');
-INSERT INTO `navigation` VALUES ('7', 'qwe', '风景', '00000000001');
-INSERT INTO `navigation` VALUES ('8', '23', '人像', '00000000001');
-INSERT INTO `navigation` VALUES ('9', null, '毛概', '00000000003');
-INSERT INTO `navigation` VALUES ('10', null, '马列', '00000000003');
-INSERT INTO `navigation` VALUES ('11', null, '邓小平理论', '00000000003');
-INSERT INTO `navigation` VALUES ('12', null, '漫画', '00000000002');
-INSERT INTO `navigation` VALUES ('13', null, '风景', '00000000002');
-INSERT INTO `navigation` VALUES ('14', null, '微电影', '00000000004');
-INSERT INTO `navigation` VALUES ('15', null, '导演', '00000000004');
+INSERT INTO `navigation` VALUES ('6', 'literature', '散文', '00000000001');
+INSERT INTO `navigation` VALUES ('7', 'literature', '风景', '00000000001');
+INSERT INTO `navigation` VALUES ('8', 'literature', '人像', '00000000001');
+INSERT INTO `navigation` VALUES ('9', 'recommend', '毛概', '00000000003');
+INSERT INTO `navigation` VALUES ('10', 'recommend', '马列', '00000000003');
+INSERT INTO `navigation` VALUES ('11', 'recommend', '邓小平理论', '00000000003');
+INSERT INTO `navigation` VALUES ('12', 'photos', '漫画', '00000000002');
+INSERT INTO `navigation` VALUES ('13', 'photos', '风景', '00000000002');
+INSERT INTO `navigation` VALUES ('14', 'micromovie', '微电影', '00000000004');
+INSERT INTO `navigation` VALUES ('15', 'micromovie', '导演', '00000000004');
+INSERT INTO `navigation` VALUES ('16', 'original', '音乐', '00000000005');
+INSERT INTO `navigation` VALUES ('17', 'original', '书法', '00000000005');
+INSERT INTO `navigation` VALUES ('18', 'original', '舞蹈', '00000000005');
 
 -- ----------------------------
 -- Table structure for original
@@ -253,11 +263,15 @@ CREATE TABLE `original` (
   `comment_num` int(11) DEFAULT NULL,
   `status` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of original
 -- ----------------------------
+INSERT INTO `original` VALUES ('1', '16', null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `original` VALUES ('2', '17', null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `original` VALUES ('3', '18', null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `original` VALUES ('4', '16', null, null, null, null, null, null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for permission
@@ -443,7 +457,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '1', 'admin', '1', '1', null, null, null, null, null, '1');
+INSERT INTO `users` VALUES ('1', '1', 'admin', '1', '1', 'erg', '234', null, null, null, '1');
 INSERT INTO `users` VALUES ('2', '2', 'test', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
