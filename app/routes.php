@@ -157,29 +157,7 @@ Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieControl
 Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
 #个人中心
-Route::get('/personal', function()
-{
-    $data = [
-        "user_info" => [
-            "main_info" => [
-                "user_name" => "村里没有巧克力",
-                "user_motto" => "一个没啥天赋却依旧学设计的白痴",
-                "user_show_icon" => ""
-            ],
-            "sec_info" => [
-                "生日" => "1994-8-15",
-                "星座" => "处女座",
-                "婚姻状况" => "单身",
-                "邮箱" => "123456789@qq.com"
-            ]
-        ],
-        "user_history" => [
-            "his_date" => "2014-06-08",
-            "his_content" => "<b>记录</b>"
-        ]
-    ];
-    return View::make('template.personal.personal')->with($data);
-});
+Route::get('personal', array('as' => 'personal', 'uses' =>'PersonalController@personalIndex'));
 
 /*------------------------------ajax 测试---------------------------------*/
 Route::get('/get_photos', function(){
