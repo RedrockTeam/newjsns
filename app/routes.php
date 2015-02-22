@@ -217,7 +217,9 @@ Route::get('/get_photos', function(){
  * 前台功能性路由
  */
 
-Route::get('test', array( 'as' => 'home/test','uses' => 'PersonalController@personalIndex'));//test
+Route::get('test', function(){
+    return View::make('admin.header');
+});//test
 Route::get('upload', function(){
     return route('recommend');
 });
