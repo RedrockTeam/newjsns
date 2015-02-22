@@ -11,7 +11,7 @@ class Mywork extends Eloquent {
     public function hasallFather(){
         return $this->hasOne('Navigation', 'id', 'type_id');
     }
-    //取个人作品
+    //根据work_id和type_id取作品
     public static function getPersonalWorks($work_id){
         foreach($work_id as $id){
             $table = $id->hasallFather;
