@@ -218,7 +218,7 @@ Route::get('/get_photos', function(){
  */
 
 Route::get('test', function(){
-    return View::make('admin.header');
+    return View::make('admin.literature');
 });//test
 Route::get('upload', function(){
     return route('recommend');
