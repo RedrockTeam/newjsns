@@ -25,7 +25,7 @@
                     <span>{{$micromovie['created_at']}}</span>
                 </div>
                 <p class="u-m_intro">
-                    {{$micromovie['introduce']}}
+                    {{str_limit($micromovie['introduce'], '250', '......')}}
                 </p>
                 <div class="u-m_user_action">
                     <div class="u-share"><a href=""></a></div>
