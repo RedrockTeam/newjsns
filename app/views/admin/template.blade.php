@@ -32,7 +32,6 @@
                         </button>
                         <a class="navbar-brand" href="#">锦瑟南山后台管理</a>
                     </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
@@ -41,6 +40,7 @@
                             <li><a href="#">微视模块管理</a></li>
                             <li><a href="#">读书影逝模块管理</a></li>
                             <li><a href="#">原味模块管理</a></li>
+                            <li><a href="#">评论模块管理</a></li>
                             <li><a href="#">用户管理</a></li>
                             <li><a href="#">系统管理</a></li>
                         </ul>
@@ -53,15 +53,12 @@
             </nav>
     </div>
     {{--main--}}
-
         <div class="row">
             {{--二级导航--}}
-            <div class="col-md-2 sidebar">@yield('s_nav')</div>
+            <div class="col-sm-3 col-md-2 sidebar">@yield('s_nav')</div>
             {{--内容--}}
-            <div class="col-md-10 main">@yield('content')</div>
+            <div class="col-sm-9 col-md-10 main">@yield('content')</div>
         </div>
-
-
     {{--footer--}}
     <div class="row"><div class="col-md-12"></div>
 </div>
