@@ -8,8 +8,18 @@ class PhotosController extends BaseController {
 	//爱拍首页
     public function photoIndex()
 	{
-        $message = 1;
-		return View::make('test')->with('message', $message);
+        $input = Input::all();
+        $type_id = isset($input['type_id'])?($input['type_id']>0?$input['type_id']:2):2;
+
+        if($type_id == 2){
+            $id = Navigation::find(2)->hasManyson;
+            $data = Literature::getAlbum($id);
+        }
+        else{
+            $data = Literature::getAlbum(array('id'=>$type_id));
+        }
+
+        return $data;
 	}
 
     //上传

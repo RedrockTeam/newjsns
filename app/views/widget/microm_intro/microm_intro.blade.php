@@ -2,14 +2,14 @@
     <div class="u-intro_h f-cb">
         <div class="u-intro_l f-fl">
             <div class="u-intro_n_s f-cb">
-                <h5 class="f-fl">{{$microm_intro['movie_name']}}</h5>
+                <h5 class="f-fl">{{$data['movie']['title']}}</h5>
                 <ul class="u-movie_stars f-cb f-fl">
-                 @if( ($microm_intro['movie_stars'] / 0.5) % 2 == 0 )
-                     @for($j = 0; $j < ($microm_intro['movie_stars'] / 0.5) / 2; $j++)
+                 @if( ($data['movie']['star'] / 0.5) % 2 == 0 )
+                     @for($j = 0; $j < ($data['movie']['star'] / 0.5) / 2; $j++)
                             <li class="s-star_all"></li>
                         @endfor
                     @else
-                        @for($j = 0; $j < ( ( ($microm_intro['movie_stars']) - 0.5 )  / 0.5) / 2; $j++)
+                        @for($j = 0; $j < ( ( ($data['movie']['star']) - 0.5 )  / 0.5) / 2; $j++)
                             <li class="s-star_all"></li>
                         @endfor
                         <li class="s-star_half"></li>
@@ -17,8 +17,8 @@
                 </ul>
             </div>
             <div class="u-m_info_b">
-                <span>影片作者:{{$microm_intro['movie_author']}}</span>
-                <span>{{$microm_intro['movie_date']}}</span>
+                <span>影片作者:{{$data['movie']['author']}}</span>
+                <span>{{$data['movie']['created_at']}}</span>
             </div>
         </div>
         <div class="u-intro_r f-fr">
@@ -28,7 +28,7 @@
     </div>
     <div class="u-intro_detail">
         <h4>剧情简介</h4>
-        <p>{{$microm_intro['movie_detail']}}</p>
+        <p>{{$data['movie']['introduce']}}</p>
     </div>
 </article>
 @section("css")

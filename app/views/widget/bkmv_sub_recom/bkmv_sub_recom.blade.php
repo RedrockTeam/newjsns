@@ -1,18 +1,17 @@
 <div class="m-bkmv_recom">
-    <h4>热门电影</h4>
-    @for($i = 0; $i < count($bkmv_recoms); $i++)
+    <h4>其他推荐</h4>
+    @foreach($data['recommend'] as $recommend)
         <div class="u-bk_item f-cb">
-            <img src="{{$bkmv_recoms[$i]['main_info']['bkmv_icon_src']}}" alt="" class="f-fl"/>
+            <img src="{{$recommend['cover_url']}}" alt="" class="f-fl"/>
             <aside class="u-movie_info f-fl">
-                <h5 class="u-movie_hot_name">{{$bkmv_recoms[$i]['main_info']['bkmv_name']}}</h5>
+                <h5 class="u-movie_hot_name">{{$recommend['title']}}</h5>
                 <ul>
-                    @foreach($bkmv_recoms[$i]['sec_info'] as $key => $value)
-                        <li><span>{{$key}}:</span><span>{{$value}}</span></li>
-                    @endforeach
+                    <li><span>作者:</span><span>{{$recommend['author']}}</span></li>
+
                 </ul>
             </aside>
         </div>
-    @endfor
+    @endforeach
 </div>
 
 @section("css")

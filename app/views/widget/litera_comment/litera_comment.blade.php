@@ -6,14 +6,18 @@
             <aside class="u-comment_detail">
                 <span class="u-user_name" value="{{$czcomment['id']}}">{{$czcomment['username']}}</span>
                 <p class="u-user_content"> {{$czcomment['content']}}</p>
-               @foreach($data['comment']['lzl'][$key] as $v)
+               @if(isset($data['comment']['lzl'][$key]))
+                @foreach($data['comment']['lzl'][$key] as $v)
                 <div class="s-reply_items">
                     <span class="u-user_name" value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
                     <span class="u-reply_tag">回复</span>
                     <span class="u-user_name" value="{{$v['to_uid']}}">{{$v['to_name']}}</span>
                     <span class="u-reply_content">{{$v['content']}}</span>
-                @endforeach
                 </div>
+                @endforeach
+                @else
+                @endif
+
                     <div class="u-user_action">
                         <span value="{{$czcomment['id']}}>赞</span>
                         <span value="{{$czcomment['id']}}>回复</span>
@@ -33,7 +37,6 @@
             {{--<li @if($page_info['active_page'] == $page_info['show_pages_length'] + $page_info['page_start']) class="s-active"   @endif><a href="">{{$page_info['show_pages_length'] + $page_info['page_start']}}</a></li>--}}
         {{--@endif--}}
         <li>{{$data['comment']['page']->appends(array('type_id' => $data['passage']['type_id'], 'passage_id' => $data['passage']['id']))->links()}}</li>
-        {{--<li><a href="">下一页</a></li>--}}
     </ul>
 
     {{--发表评论部分--}}

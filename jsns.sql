@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-15 21:04:37
+Date: 2015-02-22 17:08:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,16 +22,24 @@ DROP TABLE IF EXISTS `album`;
 CREATE TABLE `album` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
   `album_name` text COLLATE utf8_unicode_ci,
   `album_cover` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `comment_num` int(11) DEFAULT NULL,
+  `love_num` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of album
 -- ----------------------------
+INSERT INTO `album` VALUES ('1', '1', null, 'test', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('2', '1', null, 'test1', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('3', '1', null, 'test2', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('4', '1', null, 'test3', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
 
 -- ----------------------------
 -- Table structure for collection
@@ -41,12 +49,14 @@ CREATE TABLE `collection` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
   `work_id` int(11) DEFAULT NULL,
+  `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of collection
 -- ----------------------------
+INSERT INTO `collection` VALUES ('1', '6', '1', '1');
 
 -- ----------------------------
 -- Table structure for comment
@@ -67,7 +77,7 @@ CREATE TABLE `comment` (
   `love_num` int(11) DEFAULT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of comment
@@ -75,9 +85,17 @@ CREATE TABLE `comment` (
 INSERT INTO `comment` VALUES ('1', '1', '6', '1', '1', '0', '1', '1', '2015-02-13 18:10:06', '2015-02-13 18:10:09', '0', '1', '1');
 INSERT INTO `comment` VALUES ('2', '1', '6', '2', '1', '0', '1', '1', '2015-02-13 18:10:33', '2015-02-13 18:10:36', '0', '1', '1');
 INSERT INTO `comment` VALUES ('3', '1', '6', '3', '1', '0', '1', '1', '2015-02-13 18:10:49', '2015-02-13 18:10:52', '0', '1', '1');
+INSERT INTO `comment` VALUES ('7', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '1', '1', '1');
 INSERT INTO `comment` VALUES ('4', '1', '6', '4', '1', '2', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '1', '1', '1');
-INSERT INTO `comment` VALUES ('5', '1', '6', '4', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-02-13 19:22:38', '1', '1', '1');
-INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '2', '1', '1');
+INSERT INTO `comment` VALUES ('5', '1', '6', '7', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-02-22 15:30:42', '1', '1', '1');
+INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '2', '1', '1');
+INSERT INTO `comment` VALUES ('8', '1', '9', 'ewfefw1', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
+INSERT INTO `comment` VALUES ('9', '1', '9', 'ewfefw2', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
+INSERT INTO `comment` VALUES ('10', '1', '9', 'ewfefw3', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
+INSERT INTO `comment` VALUES ('11', '1', '14', 'gse', '1', '0', '1', '1', '2015-02-21 15:12:48', '2015-02-21 15:12:52', '0', '1', '1');
+INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-02-22 15:30:42', '11', '12', '1');
+INSERT INTO `comment` VALUES ('13', '1', '6', 'asdfgvawegvaer', '1', '0', '1', null, '2015-02-21 19:59:48', '2015-02-22 15:07:46', null, null, '1');
+INSERT INTO `comment` VALUES ('14', '1', '6', 'asdfgvawegvaer', '1', '1', '1', '0', '2015-02-21 20:01:41', '2015-02-22 15:30:42', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for group
@@ -104,6 +122,7 @@ CREATE TABLE `literature` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
+  `cover` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `content` mediumtext COLLATE utf8_unicode_ci,
   `uid` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -112,12 +131,18 @@ CREATE TABLE `literature` (
   `love_num` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of literature
 -- ----------------------------
-INSERT INTO `literature` VALUES ('1', '6', 'title', '简介\r\n\r\n从哪里开始\r\nLaravel 哲学\r\n\r\n从哪里开始\r\n\r\n学习一门框架既令人生畏，又令人兴奋。为了提供平稳的学习体验，我们尝试为Laravel创建了清晰简明的文档。下面列出了推荐的阅读顺序：\r\n\r\n安装 和 配置\r\n路由\r\n请求与输入\r\n视图与响应\r\n控制器\r\n通过阅读这些文档，你应该能够掌握Laravel框架对于基本请求/响应的处理。下一步你可能希望阅读 配置数据库, 查询构造器, 以及 Eloquent ORM。或者你想要了解 身份验证和安全 以便在你的应用中实现用户登录功能。\r\n\r\n\r\nLaravel哲学\r\n\r\nLaravel是一套web应用开发框架，它具有富于表达性且简洁的语法。我们相信，开发过程应该是愉悦、创造性的体验。Laravel努力剔除开发过程中的痛苦，因此我们提供了验证（authentication）、路由（routing）、session和缓存（caching）等开发过程中经常用到的工具或功能。\r\n\r\nLaravel的目标是给开发者创造一个愉快的开发过程，并且不牺牲应用的功能性。快乐的开发者才能创造最棒的代码！为了这个目的，我们博取众框架之长处集中到Laravel中，这些框架甚至是基于Ruby on Rails、ASP.NET MVC、和Sinatra等开发语言或工具的。\r\n\r\nLaravel是易于理解并且强大的，它提供了强大的工具用以开发大型、健壮的应用。杰出的IoC、数据库迁移工具和紧密集成的单元测试支持，这些工具赋予你构建任何应用的能力。\r\n\r\n译者：王赛 （Bootstrap中文网）', '1', '2015-02-15 15:06:41', '2015-02-15 15:06:44', '1', '1', '1');
+INSERT INTO `literature` VALUES ('1', '6', 'title1', 'public/uploads/1.png', 'sdhgfdhbfd', '1', '2015-02-15 15:06:41', '2015-02-15 15:06:44', '15', '14', '1');
+INSERT INTO `literature` VALUES ('2', '7', 'title2', 'public/uploads/2.png', '324', '2', '2015-02-17 21:50:32', '2015-02-15 15:06:44', '15', '13', '1');
+INSERT INTO `literature` VALUES ('3', '6', 'title3', 'public/uploads/1.png', 'sdfsd', '1', '2015-02-17 21:50:36', '2015-02-15 15:06:44', '1', '13', '1');
+INSERT INTO `literature` VALUES ('4', '8', 'title4', 'public/uploads/2.png', '234', '2', '2015-02-17 21:50:44', '2015-02-15 15:06:44', '14', '17', '1');
+INSERT INTO `literature` VALUES ('5', '6', 'title5', 'public/uploads/1.png', '4576', '1', '2015-02-17 21:50:47', '2015-02-15 15:06:44', '14', '133', '1');
+INSERT INTO `literature` VALUES ('6', '7', 'title6', 'public/uploads/2.png', '介绍\r\n\r\nLaravel 的 Eloquent ORM 提供了漂亮、简洁的 ActiveRecord 实现来和数据库的互动。 每个数据库表会和一个对应的「模型」互动。\r\n\r\n在开始之前，记得把 app/config/database.php 里的数据库连接配置好。\r\n\r\n\r\n基本用法\r\n\r\n我们先从建立一个 Eloquent 模型开始。模型通常放在 app/models 目录下，但是您可以将它们放在任何地方，只要能通过 composer.json 被自动载入。\r\n\r\n定义一个 Eloquent 模型\r\n\r\nclass User extends Eloquent {}\r\n注意我们并没有告诉 Eloquent User 模型会使用哪个数据库表。若没有特别指定，系统会默认自动对应名称为「类名称的小写复数形态」的数据库表。所以，在上面的例子中， Eloquent 会假设 User 将把数据存在 users 数据库表。可以在类里定义 table 属性自定义要对应的数据库表。\r\n\r\nclass User extends Eloquent {\r\n\r\n    protected $table = \'my_users\';\r\n\r\n}\r\n注意： Eloquent 也会假设每个数据库表都有一个字段名称为 id 的主键。您可以在类里定义 primaryKey 属性来重写。同样的，您也可以定义 connection 属性，指定模型连接到专属的数据库连接。\r\n定义好模型之后，您就可以从数据库表新增及获取数据了。注意在默认情况下，在数据库表里需要有 updated_at 和 created_at 两个字段。如果您不想设定或自动更新这两个字段，则将类里的 $timestamps 属性设为 false即可。\r\n\r\n取出所有模型数据\r\n\r\n$users = User::all();\r\n根据主键取出一条数据\r\n\r\n$user = User::find(1);\r\n\r\nvar_dump($user->name);', '2', '2015-02-17 21:50:50', '2015-02-15 15:06:44', '14', '16', '1');
+INSERT INTO `literature` VALUES ('7', '6', 'title7', 'public/uploads/1.png', '介绍\r\n\r\n数据库查询构造器 (query builder) 提供方便流畅的接口来建立、执行数据库查询语法。在您的应用程序里面，它可以被使用在大部分的数据 库操作，而且它在所有支持的数据库系统上都可以执行。\r\n\r\n注意: Laravel 查询构造器使用 PDO 参数绑定，以保护应用程序免于SQL注入攻击 (SQL injection)，因此传入的参数不需过滤额外的特殊字符串。\r\n\r\nSelects\r\n\r\n从数据库表中取得所有的数据列\r\n\r\n$users = DB::table(\'users\')->get();\r\n\r\nforeach ($users as $user)\r\n{\r\n    var_dump($user->name);\r\n}\r\n从数据库表中取得单一数据列\r\n\r\n$user = DB::table(\'users\')->where(\'name\', \'John\')->first();\r\n\r\nvar_dump($user->name);\r\n从数据库表中取得单一数据列的单一字段\r\n\r\n$name = DB::table(\'users\')->where(\'name\', \'John\')->pluck(\'name\');\r\n取得单一字段值的列表\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\');\r\n这个方法将会回传含有数据库表 role 的 title 字段值的数组。您也可以通过下面的方法，为回传的数组指定自定义键值。\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\', \'name\');', '1', '2015-02-17 21:50:56', '2015-02-15 15:06:44', '16', '16', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -140,9 +165,12 @@ CREATE TABLE `log` (
 DROP TABLE IF EXISTS `micromovie`;
 CREATE TABLE `micromovie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
+  `cover_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `author` text COLLATE utf8_unicode_ci,
   `uid` int(11) DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `introduce` text COLLATE utf8_unicode_ci,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -156,12 +184,12 @@ CREATE TABLE `micromovie` (
 -- ----------------------------
 -- Records of micromovie
 -- ----------------------------
-INSERT INTO `micromovie` VALUES ('1', 'test1', 'qwer1', '1', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
-INSERT INTO `micromovie` VALUES ('2', 'test1', 'qwer2', '1', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
-INSERT INTO `micromovie` VALUES ('3', 'test1', 'qwer3', '1', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
-INSERT INTO `micromovie` VALUES ('4', 'test1', 'qwer4', '1', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
-INSERT INTO `micromovie` VALUES ('5', 'test1', 'qwer5', '1', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
-INSERT INTO `micromovie` VALUES ('6', 'test1', 'qwer6', '1', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
+INSERT INTO `micromovie` VALUES ('1', '14', 'test1', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer1', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
+INSERT INTO `micromovie` VALUES ('2', '15', 'test2', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer2', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
+INSERT INTO `micromovie` VALUES ('3', '14', 'test3', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer3', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
+INSERT INTO `micromovie` VALUES ('4', '15', 'test4', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer4', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
+INSERT INTO `micromovie` VALUES ('5', '14', 'test5', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer5', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
+INSERT INTO `micromovie` VALUES ('6', '15', 'test6', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer6', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
 
 -- ----------------------------
 -- Table structure for mywork
@@ -173,11 +201,14 @@ CREATE TABLE `mywork` (
   `work_id` int(11) DEFAULT NULL,
   `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of mywork
 -- ----------------------------
+INSERT INTO `mywork` VALUES ('1', '6', '1', '1');
+INSERT INTO `mywork` VALUES ('2', '7', '2', '1');
+INSERT INTO `mywork` VALUES ('3', '14', '1', '1');
 
 -- ----------------------------
 -- Table structure for navigation
@@ -189,7 +220,7 @@ CREATE TABLE `navigation` (
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `father_id` int(11) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of navigation
@@ -199,9 +230,19 @@ INSERT INTO `navigation` VALUES ('2', 'photos', '爱拍', '00000000000');
 INSERT INTO `navigation` VALUES ('3', 'recommend', '读书影逝', '00000000000');
 INSERT INTO `navigation` VALUES ('4', 'micromovie', '微视', '00000000000');
 INSERT INTO `navigation` VALUES ('5', 'original', '原味', '00000000000');
-INSERT INTO `navigation` VALUES ('6', 'wq', '散文', '00000000001');
-INSERT INTO `navigation` VALUES ('7', 'qwe', '风景', '00000000004');
-INSERT INTO `navigation` VALUES ('8', '23', '人像', '00000000004');
+INSERT INTO `navigation` VALUES ('6', 'literature', '散文', '00000000001');
+INSERT INTO `navigation` VALUES ('7', 'literature', '风景', '00000000001');
+INSERT INTO `navigation` VALUES ('8', 'literature', '人像', '00000000001');
+INSERT INTO `navigation` VALUES ('9', 'recommend', '毛概', '00000000003');
+INSERT INTO `navigation` VALUES ('10', 'recommend', '马列', '00000000003');
+INSERT INTO `navigation` VALUES ('11', 'recommend', '邓小平理论', '00000000003');
+INSERT INTO `navigation` VALUES ('12', 'photos', '漫画', '00000000002');
+INSERT INTO `navigation` VALUES ('13', 'photos', '风景', '00000000002');
+INSERT INTO `navigation` VALUES ('14', 'micromovie', '微电影', '00000000004');
+INSERT INTO `navigation` VALUES ('15', 'micromovie', '导演', '00000000004');
+INSERT INTO `navigation` VALUES ('16', 'original', '音乐', '00000000005');
+INSERT INTO `navigation` VALUES ('17', 'original', '书法', '00000000005');
+INSERT INTO `navigation` VALUES ('18', 'original', '舞蹈', '00000000005');
 
 -- ----------------------------
 -- Table structure for original
@@ -210,6 +251,8 @@ DROP TABLE IF EXISTS `original`;
 CREATE TABLE `original` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
+  `cover_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
   `introduce` text COLLATE utf8_unicode_ci,
   `author` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -220,11 +263,15 @@ CREATE TABLE `original` (
   `comment_num` int(11) DEFAULT NULL,
   `status` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of original
 -- ----------------------------
+INSERT INTO `original` VALUES ('1', '16', null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `original` VALUES ('2', '17', null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `original` VALUES ('3', '18', null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `original` VALUES ('4', '16', null, null, null, null, null, null, null, null, null, null, '1');
 
 -- ----------------------------
 -- Table structure for permission
@@ -233,9 +280,9 @@ DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
-  `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of permission
@@ -255,6 +302,7 @@ INSERT INTO `permission` VALUES ('12', '1', '12');
 INSERT INTO `permission` VALUES ('13', '1', '13');
 INSERT INTO `permission` VALUES ('14', '1', '14');
 INSERT INTO `permission` VALUES ('15', '1', '15');
+INSERT INTO `permission` VALUES ('16', '1', '16');
 
 -- ----------------------------
 -- Table structure for photos
@@ -262,7 +310,6 @@ INSERT INTO `permission` VALUES ('15', '1', '15');
 DROP TABLE IF EXISTS `photos`;
 CREATE TABLE `photos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_id` int(11) DEFAULT NULL,
   `title` text COLLATE utf8_unicode_ci,
   `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `original_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -274,11 +321,12 @@ CREATE TABLE `photos` (
   `love_num` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of photos
 -- ----------------------------
+INSERT INTO `photos` VALUES ('1', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-02-20 20:21:56', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for recommend
@@ -289,17 +337,45 @@ CREATE TABLE `recommend` (
   `type_id` int(11) DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cover_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `works_infomation` text COLLATE utf8_unicode_ci,
+  `star` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `works_introduce` text COLLATE utf8_unicode_ci,
+  `author` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `publish` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `original_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `interpreter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  `page_num` int(11) DEFAULT NULL,
   `comment_num` int(11) DEFAULT NULL,
   `love_num` int(11) DEFAULT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of recommend
 -- ----------------------------
+INSERT INTO `recommend` VALUES ('1', '9', '222', '21', '2.5', '2r2fr1', 'Lich', '1', 'ert', '3w', 'Lich', '2015-02-20 18:45:00', '123', '11', '11', '1');
+INSERT INTO `recommend` VALUES ('2', '10', '324', '324', '3.3', '43tg', 'Lich', '2', 'rf', 'tfe', 'Lich', '2015-02-20 18:45:03', '213', '11', '22', '1');
+INSERT INTO `recommend` VALUES ('3', '9', '3254', '324', '4', 'gd', 'Lich', '3', 'dsf', '4edv', 'Lich', '2015-02-20 18:45:10', '214', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('4', '10', '3254', '324', '2', 'gd', 'Lich', '32', 'sdf', '4e', 'Lich', '2015-02-20 18:45:13', '325', '22', '34', '1');
+INSERT INTO `recommend` VALUES ('5', '11', '3254', '324', '2', 'gd', 'Lich', '432', 'sgvsd', '4rd', 'Lich', '2015-02-20 18:45:08', '436', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('6', '9', '3254', '324', '1', 'gd', 'Lich', '543', 'weg', 'tr', 'Lich', '2015-02-20 18:45:19', '234', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('7', '10', '3254', '324', '1', 'gd', 'Lich', '7654', 'ds', 'freh', 'Lich', '2015-02-20 18:45:16', '34', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('8', '11', '3254', '324', '2', 'gd', 'Lich', '4563', 'dfs', 're', 'Lich', '2015-02-20 18:45:22', '235', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('9', '9', 'sdf', 'dsfg', '3', '3434g', 'Lich', '23', 'gdfs', 'erh', 'Lich', '2015-02-20 18:45:24', '436', '454', '325', '1');
+INSERT INTO `recommend` VALUES ('10', '11', '3254', '324', '4', 'gd', 'Lich', '4', 'sdfg', 'we', 'Lich', '2015-02-20 18:45:05', '436', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('11', '10', '3254', '324', '5', 'gd', 'Lich', '324', 'dfg', 'hr4', 'Lich', '2015-02-20 18:45:27', '436', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('12', '9', 'dsf', 'sdf', '2', 'dfb', 'Lich', '32', 'fg', '4e', 'Lich', '2015-02-20 18:45:30', '643', '22', '44', '1');
+INSERT INTO `recommend` VALUES ('13', '11', '3254', '324', '2', 'gd', 'Lich', '4', 'fg', 'e4', 'Lich', '2015-02-20 18:45:32', '56', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('14', '11', '3254', '324', '3', 'gd', 'Lich', '324', 'dsfg', 'hhb4e', 'Lich', '2015-02-20 18:45:35', '43545435', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('15', '9', '3254', '324', '1', 'gd', 'Lich', '34', 'df', 'tr', 'Lich', '2015-02-20 18:45:41', '34', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('16', '11', '3254', '324', '4', 'gd', 'Lich', '32', 'ds', 'r4', 'Lich', '2015-02-20 18:45:38', '53453', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('17', '9', '3254', '324', '4', 'gd', 'Lich', '23', 'r', 'tr', 'Lich', '2015-02-20 18:45:44', '45', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('18', '10', '3254', '324', '5', 'gd', 'Lich', '32', 'sdf', 'trf', 'Lich', '2015-02-20 18:45:46', '345', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('19', '11', '3254', '324', '2', 'gd', 'Lich', '3', 'reg', 'tfrj', 'Lich', '2015-02-20 18:45:50', '543', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('20', '9', '20', '20', '3', '20', 'Lich', '32', 'reg', 'trjr4t', 'Lich', '2015-02-20 18:45:54', '435', '20', '20', '1');
+INSERT INTO `recommend` VALUES ('21', '10', '3254', '324', '4', 'gd', 'Lich', '3', 'sdf', 't', 'Lich', '2015-02-20 18:45:56', '345', '22', '33', '1');
 
 -- ----------------------------
 -- Table structure for routelist
@@ -310,7 +386,7 @@ CREATE TABLE `routelist` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of routelist
@@ -330,6 +406,7 @@ INSERT INTO `routelist` VALUES ('12', '获取原味页面', 'home/original');
 INSERT INTO `routelist` VALUES ('13', '获取原味评论', 'home/original/comment');
 INSERT INTO `routelist` VALUES ('14', '获取排序读书影逝及分页', 'home/recommend');
 INSERT INTO `routelist` VALUES ('15', '获取读书影逝评论', 'home/recommend/comment');
+INSERT INTO `routelist` VALUES ('16', 'test', 'home/test');
 
 -- ----------------------------
 -- Table structure for tags
@@ -341,13 +418,22 @@ CREATE TABLE `tags` (
   `work_id` int(11) DEFAULT NULL,
   `tag` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of tags
 -- ----------------------------
-INSERT INTO `tags` VALUES ('1', '7', '1', 'ccc');
-INSERT INTO `tags` VALUES ('2', '8', '2', 'ttt');
+INSERT INTO `tags` VALUES ('1', '14', '1', 'ccc');
+INSERT INTO `tags` VALUES ('2', '15', '2', 'ttt');
+INSERT INTO `tags` VALUES ('3', '14', null, 'sd');
+INSERT INTO `tags` VALUES ('4', '14', null, 'sdf');
+INSERT INTO `tags` VALUES ('5', '15', null, 'sdf4');
+INSERT INTO `tags` VALUES ('6', '15', null, 'vc');
+INSERT INTO `tags` VALUES ('7', '15', null, 'ewrf');
+INSERT INTO `tags` VALUES ('8', '14', null, 'b');
+INSERT INTO `tags` VALUES ('9', '15', null, 'we');
+INSERT INTO `tags` VALUES ('10', '15', null, 'wefr');
+INSERT INTO `tags` VALUES ('11', '14', null, 'eg');
 
 -- ----------------------------
 -- Table structure for users
@@ -371,7 +457,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '1', 'admin', '1', '1', null, null, null, null, null, '1');
+INSERT INTO `users` VALUES ('1', '1', 'admin', '1', '1', 'erg', '234', null, null, null, '1');
 INSERT INTO `users` VALUES ('2', '2', 'test', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
