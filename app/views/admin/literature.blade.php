@@ -12,42 +12,43 @@
 
 
 @section('content')
-
-<div class="row">
     <div class="row"><div class="col-md-12"><h1>文章管理</h1></div></div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>类型</th>
-                            <th>标题</th>
-                            <th>作者</th>
-                            <th>状态</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($data as $value)
-                        <tr>
-                            <td>{{$value['id']}}</td>
-                            <td>{{$value['navigation']['type']}}</td>
-                            <td>{{$value['title']}}</td>
-                            <td>{{$value['user']['username']}}</td>
-                            <td>{{$value['status']==0?'冻结':'正常';}}</td>
-                            <td>
-                                <span><button class="btn btn-xs btn-success">冻结</button></span>
-                                <span><button class="btn btn-xs btn-danger">恢复</button></span>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>类型</th>
+                                    <th>标题</th>
+                                    <th>作者</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($data as $value)
+                                <tr>
+                                    <td>{{$value['id']}}</td>
+                                    <td>{{$value['navigation']['type']}}</td>
+                                    <td>{{$value['title']}}</td>
+                                    <td>{{$value['user']['username']}}</td>
+                                    <td>{{$value['status']==0?'冻结':'正常';}}</td>
+                                    <td>
+                                        <span><button class="btn btn-xs btn-success">冻结</button></span>
+                                        <span><button class="btn btn-xs btn-danger">恢复</button></span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="row"><div class="col-md-12">{{$data->links()}}</div></div>
+            <div class="row">
+                <div class="col-md-12">{{$data->links()}}</div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <form class="navbar-form" role="search">
@@ -69,7 +70,4 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 @stop
