@@ -13,7 +13,7 @@
     <div class="navigation">
         <div class="row">
             <div class="col-md-6">
-               <div class="row"><div class="col-md-12"><h2>一级导航添加</h2></div></div>
+               <div class="row"><div class="col-md-12"><h2>一级导航管理</h2></div></div>
                 <div class="row">
                     <div class="col-md-10">
                         <div class="input-group">
@@ -26,7 +26,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="row"><div class="col-md-12"><h2>二级导航添加</h2></div></div>
+
+                <div class="row"><div class="col-md-12"><h2>二级导航管理</h2></div></div>
+
                 <div class="row">
                     <div class="col-md-8">
                         <div class="col-xs-4">
@@ -41,13 +43,10 @@
                         <div class="col-xs-6">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="二级导航名称...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">添加</button>
-                            </span>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">添加</button>
+                                </span>
                             </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <button type="button" class="btn btn-danger">删除</button>
                         </div>
                     </div>
                 </div>

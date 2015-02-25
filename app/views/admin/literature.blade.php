@@ -51,23 +51,121 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form class="navbar-form" role="search">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                选择搜索类型
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">按文章名搜索</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">按文章ID搜索</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">按昵称搜索</a></li>
-                            </ul>
-                        </div>
+                    <div class="navbar-form" role="search">
+                        <select class="form-control">
+                            <option value="1">按文章id搜索</option>
+                            <option value="2">按文章标题搜索</option>
+                            <option value="3">按作者搜索</option>
+                        </select>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search">
                         </div>
-                        <button type="submit" class="btn btn-default">搜索</button>
-                    </form>
+                        <button type="submit" class="btn btn-default" id="search">搜索</button>
+                    </div>
                 </div>
             </div>
+@stop
+
+@section('myscript')
+    <script>
+        function compare(status){
+            return (status==0)?'冻结':'正常';
+        }
+        $("#search").on('click', function(){
+            var search_type = $('select.form-control').val();
+            var search_content = $('input.form-control').val();
+            if(search_content.length==0){
+                alert('搜索内容不能为空!');
+            }
+            $.ajax({
+                url: "{{route('admin/literature/search')}}",
+
+                type: 'post',
+
+                data:{"search_type":search_type, "search_content":search_content},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data.status == 200){
+                        $("tbody").remove();
+                        $('thead').after("<tbody></tbody>");
+                        for(var i = 0; i < data.data.length; i++){
+                            $('tbody').append(
+                            "<tr>" +
+                                "<td>"+data.data[i].id+"</td>" +
+                                "<td>"+data.data[i].navigation.type+"</td>" +
+                                "<td>"+data.data[i].title+"</td>" +
+                                "<td>"+data.data[i].user.username+"</td>" +
+                                "<td>"+compare(data.data[i].status)+"</td>" +
+                                "<td>" +
+                                    "<span>" +
+                                        "<button class='btn btn-xs btn-danger'>冻结</button>" +
+                                    "</span>" +
+                                    "<span>" +
+                                        "<button class='btn btn-xs btn-success'>恢复</button>" +
+                                    "</span>" +
+                                "</td>" +
+                            "</tr>")
+                        }
+                    }
+                }
+            });
+        });
+
+        $('table').on('click', '.btn.btn-xs.btn-danger', function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/literature/manage')}}",
+
+                type: 'post',
+
+                data:{"operator_id":0, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data == 200){
+                        var a = button.parent().parent().prev().html("冻结");
+                    }
+                }
+            });
+        });
+
+        $('table').on('click', '.btn.btn-xs.btn-success', function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/literature/manage')}}",
+
+                type: 'post',
+
+                data:{"operator_id":1, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data == 200){
+                        var a = button.parent().parent().prev().html("正常");
+                    }
+                }
+            });
+        });
+    </script>
 @stop

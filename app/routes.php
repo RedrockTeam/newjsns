@@ -273,6 +273,9 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
 {
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
     Route::get('literature', array('as' => 'admin/literature','uses' => 'LiteraturemanageController@index'));//文学模块
+    Route::post('literature/search', array('as' => 'admin/literature/search','uses' => 'LiteraturemanageController@search'));//文学模块
+    Route::post('literature/manage', array('as' => 'admin/literature/manage','uses' => 'LiteraturemanageController@manage'));//文学模块
+
     Route::get('photos', array('as' => 'admin/photos','uses' => 'PhotosmanageController@index'));//爱拍模块
     Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'MicromoviemanageController@index'));//微视模块
     Route::get('recommend', array('as' => 'admin/recommend','uses' => 'RecommendmanageController@index'));//读书影逝模块
