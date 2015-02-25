@@ -60,7 +60,7 @@
     <div class="group" style="display: none">
         <div class="row">
             <h1>添加用户组</h1>
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="input-group">
                       <input type="text" class="form-control" placeholder="用户组名称...">
                       <span class="input-group-btn">
@@ -71,7 +71,7 @@
         </div>
         <div class="row">
             <h1>删除用户组</h1>
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="col-xs-6">
                     <select class="form-control ">
                         <option>1</option>
