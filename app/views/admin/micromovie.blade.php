@@ -5,14 +5,14 @@
 @section('s_nav')
 
     <ul class="nav nav-sidebar text-center nav-pills nav-stacked">
-        <li class="active"><a href="">文章管理</a></li>
+        <li class="active"><a href="">微视管理</a></li>
     </ul>
 
 @stop
 
 
 @section('content')
-    <div class="row"><div class="col-md-12"><h1>文章管理</h1></div></div>
+    <div class="row"><div class="col-md-12"><h1>微视管理</h1></div></div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
@@ -28,26 +28,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($data as $value)
                                 <tr>
-                                    <td>{{$value['id']}}</td>
-                                    <td>{{$value['navigation']['type']}}</td>
-                                    <td>{{$value['title']}}</td>
-                                    <td>{{$value['user']['username']}}</td>
-                                    <td>{{$value['status']==0?'冻结':'正常';}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td>
                                         <span><button class="btn btn-xs btn-danger">冻结</button></span>
                                         <span><button class="btn btn-xs btn-success">恢复</button></span>
                                     </td>
                                 </tr>
-                            @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">{{$data->links()}}</div>
+                <div class="col-md-12"></div>
             </div>
             <div class="row">
                 <div class="col-md-12">

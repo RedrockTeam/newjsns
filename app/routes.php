@@ -271,17 +271,15 @@ Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/)
  */
 Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
 {
-
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
     Route::get('literature', array('as' => 'admin/literature','uses' => 'LiteraturemanageController@index'));//文学模块
-    Route::get('photos', array('as' => 'admin/photos','uses' => 'PhotomanageController@index'));//爱拍模块
-    Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'PhotomanageController@index'));//微视模块
-    Route::get('recommend', array('as' => 'admin/recommend','uses' => 'Recommend@index'));//读书影逝模块
-    Route::get('original', array('as' => 'admin/original','uses' => 'Original@index'));//原味模块
-    Route::get('comment', array('as' => 'admin/comment','uses' => 'Comment@index'));//评论模块
+    Route::get('photos', array('as' => 'admin/photos','uses' => 'PhotosmanageController@index'));//爱拍模块
+    Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'MicromoviemanageController@index'));//微视模块
+    Route::get('recommend', array('as' => 'admin/recommend','uses' => 'RecommendmanageController@index'));//读书影逝模块
+    Route::get('original', array('as' => 'admin/original','uses' => 'OriginalmanageController@index'));//原味模块
+    Route::get('comment', array('as' => 'admin/comment','uses' => 'CommentmanageController@index'));//评论模块
     Route::get('user', array('as' => 'admin/user','uses' => 'UsermanageController@index'));//用户模块
     Route::get('system', array('as' => 'admin/system','uses' => 'SystemmanageController@index'));//系统模块
-
 });
 
 
