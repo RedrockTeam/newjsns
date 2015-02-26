@@ -23,18 +23,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <span><button class="btn btn-xs btn-danger">冻结</button></span>
-                                <span><button class="btn btn-xs btn-success">恢复</button></span>
-                            </td>
-                        </tr>
+                        @foreach($data as $comment)
+                            <tr>
+                                <td>{{$comment['id']}}</td>
+                                <td>{{$comment['content']}}</td>
+                                <td>{{$comment['user']['username']}}</td>
+                                <td>{{$comment['status']==0?'冻结':'正常';}}</td>
+                                <td>
+                                    <span><button class="btn btn-xs btn-danger">冻结</button></span>
+                                    <span><button class="btn btn-xs btn-success">恢复</button></span>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="row">
+                <div class="col-md-12">{{$data->links()}}</div>
             </div>
         </div>
     </div>

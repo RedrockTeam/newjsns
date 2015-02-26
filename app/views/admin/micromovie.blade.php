@@ -28,24 +28,26 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($data as $v)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$v['id']}}</td>
+                                    <td>{{$v['navigation']['type']}}</td>
+                                    <td>{{$v['title']}}</td>
+                                    <td>{{$v['user']['username']}}</td>
+                                    <td>{{$v['status']==0?'冻结':'正常';}}</td>
                                     <td>
                                         <span><button class="btn btn-xs btn-danger">冻结</button></span>
                                         <span><button class="btn btn-xs btn-success">恢复</button></span>
                                     </td>
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12"></div>
+                <div class="col-md-12">{{$data->links()}}</div>
             </div>
             <div class="row">
                 <div class="col-md-12">

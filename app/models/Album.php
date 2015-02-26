@@ -6,6 +6,11 @@ class Album extends Eloquent {
 	protected $table = 'album';
 	protected $fillable = array('uid', 'album_name', 'created_at', 'updated_at');
 
+    //获取用户名
+    public function user(){
+        return $this->hasOne('User', 'id', 'uid');
+    }
+
     //获取封面
     public function cover(){
         return $this->hasOne('Photos', 'album_cover', 'id');
