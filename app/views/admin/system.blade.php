@@ -5,6 +5,7 @@
     <ul class="nav nav-sidebar text-center nav-pills nav-stacked">
         <li id="nav" class="active"><a href="#">导航管理</a></li>
         <li id="route" ><a href="#">路由管理</a></li>
+        <li><a href="#">S SH(test)</a></li>
     </ul>
 @stop
 
@@ -33,11 +34,9 @@
                     <div class="col-md-8">
                         <div class="col-xs-4">
                             <select class="form-control ">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                @foreach($data['navigation'] as $nav)
+                                <option value="{{$nav['id']}}">{{$nav['type']}}</option>
+                                    @endforeach
                             </select>
                         </div>
                         <div class="col-xs-6">
@@ -75,11 +74,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <select class="form-control ">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            @foreach($data['routelist'] as $route)
+                                <option value="{{$route['id']}}">{{$route['path']}} | {{$route['name']}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -102,14 +99,16 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($data['routelist'] as $route)
                         <tr>
-                            <td></td>
-                            <td><div class="col-md-4"><input type="text" class="form-control" placeholder=""></div></td>
-                            <td><div class="col-md-4"><input type="text" class="form-control" placeholder=""></div></td>
+                            <td>{{$route['id']}}</td>
+                            <td><div class="col-md-4"><input type="text" class="form-control" value="{{$route['path']}}"></div></td>
+                            <td><div class="col-md-4"><input type="text" class="form-control" value="{{$route['name']}}"></div></td>
                             <td>
                                 <span><button class="btn btn-xs btn-warning">修改</button></span>
                             </td>
                         </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

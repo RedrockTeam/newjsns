@@ -7,6 +7,10 @@ class Permission extends Eloquent {
 	protected $fillable = array('type_id', 'path');
 	public $timestamps = false;
 
+    public function routelist(){
+        return $this->hasMany('Routelist', 'id', 'path_id');
+    }
+
 
 
 }

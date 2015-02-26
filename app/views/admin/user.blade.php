@@ -26,31 +26,30 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-xs-6 ">
-                                    <select class="form-control ">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
+                        @foreach($data['user'] as $key => $user)
+                            <tr>
+                                <td>{{$user['id']}}</td>
+                                <td>{{$user['uid']}}</td>
+                                <td>{{$user['username']}}</td>
+                                <td>{{$user['status']==0?'冻结':'正常';}}</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-6 ">
+                                        <select class="form-control ">
+                                            @foreach($data['rolelist'] as $role)
+                                                <option value="{{$role['id']}}" {{$user['getType'][0]['id']==$role['id']?'selected="selected"':''}} >{{$role['name']}}</option>
+                                            @endforeach
+                                        </select>
+                                        </div>
                                     </div>
-                                </div>
-
-                            </td>
-                            <td>
-                                <span><button class="btn btn-xs btn-warning">修改</button></span>
-                                <span><button class="btn btn-xs btn-danger">冻结</button></span>
-                                <span><button class="btn btn-xs btn-success">恢复</button></span>
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                    <span><button class="btn btn-xs btn-warning">修改</button></span>
+                                    <span><button class="btn btn-xs btn-danger">冻结</button></span>
+                                    <span><button class="btn btn-xs btn-success">恢复</button></span>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -74,11 +73,9 @@
             <div class="col-md-8">
                 <div class="col-xs-6">
                     <select class="form-control ">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    @foreach($data['rolelist'] as $role)
+                        <option value="{{$role['id']}}"}} >{{$role['name']}}</option>
+                    @endforeach
                     </select>
                 </div>
                 <div class="col-xs-6">
@@ -89,24 +86,23 @@
     </div>
     {{--权限管理--}}
     <div class="auth" style="display: none">
+        @foreach($data['rolelist'] as $key => $role)
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-xs-12">
                          <h2>
                              <span>用户组:</span>
-                             <span>hhh</span>
+                             <span>{{$role['name']}}</span>
                          </h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
                             <select class="form-control ">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                @foreach($data['routelist'] as $route)
+                                    <option value="{{$route['id']}}">{{$route['path']}} | {{$route['name']}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-xs-8">
@@ -127,18 +123,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <span><button class="btn btn-xs btn-danger">删除</button></span>
-                            </td>
-                        </tr>
+                         @foreach($data['grouplist'][$key] as $list)
+                            <tr>
+                                <td>{{$list['id']}}</td>
+                                <td>{{$list['path']}}</td>
+                                <td>{{$list['name']}}</td>
+                                <td>
+                                    <span><button class="btn btn-xs btn-danger">删除</button></span>
+                                </td>
+                            </tr>
+                         @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
+        @endforeach
         </div>
 @stop
 

@@ -7,4 +7,8 @@ class User_type extends Eloquent {
 	protected $fillable = array('name');
 	public $timestamps = false;
 
+    //多对多获取已授权路由
+    public function routelists(){
+        return $this->belongsToMany('Routelist', 'permission', 'type_1id', 'id');
+    }
 }
