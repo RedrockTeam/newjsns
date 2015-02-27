@@ -280,7 +280,11 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
     Route::get('photos', array('as' => 'admin/photos','uses' => 'PhotosmanageController@index'));//爱拍模块
 
     Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'MicromoviemanageController@index'));//微视模块
+
     Route::get('recommend', array('as' => 'admin/recommend','uses' => 'RecommendmanageController@index'));//读书影逝模块
+    Route::post('recommend/manage', array('as' => 'admin/recommend/manage','uses' => 'RecommendmanageController@manage'));//读书影逝模块
+    Route::post('recommend/add', array('as' => 'admin/recommend/add','uses' => 'RecommendmanageController@add'));//读书影逝模块
+
     Route::get('original', array('as' => 'admin/original','uses' => 'OriginalmanageController@index'));//原味模块
 
     Route::get('comment', array('as' => 'admin/comment','uses' => 'CommentmanageController@index'));//评论模块

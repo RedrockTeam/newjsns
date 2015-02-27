@@ -36,7 +36,6 @@ class PhotosController extends BaseController {
             if ($validator->fails()) {
                 return Redirect::back()->withInput()->withErrors($validator);
             }
-
         }
         foreach($file as $v){
             if($v==null) {
