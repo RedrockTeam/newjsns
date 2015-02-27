@@ -27,4 +27,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasOne('Navigation', 'id', 'type_id');
     }
 
+    public function getType(){
+        return $this->belongsToMany('User_type', 'group', 'uid', 'type_id');
+    }
+
 }

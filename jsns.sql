@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-22 17:08:09
+Date: 2015-02-28 01:06:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,10 +36,10 @@ CREATE TABLE `album` (
 -- ----------------------------
 -- Records of album
 -- ----------------------------
-INSERT INTO `album` VALUES ('1', '1', null, 'test', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
-INSERT INTO `album` VALUES ('2', '1', null, 'test1', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
-INSERT INTO `album` VALUES ('3', '1', null, 'test2', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
-INSERT INTO `album` VALUES ('4', '1', null, 'test3', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('1', '1', '12', 'test', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('2', '1', '13', 'test1', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('3', '1', '13', 'test2', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('4', '1', '12', 'test3', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
 
 -- ----------------------------
 -- Table structure for collection
@@ -88,14 +88,14 @@ INSERT INTO `comment` VALUES ('3', '1', '6', '3', '1', '0', '1', '1', '2015-02-1
 INSERT INTO `comment` VALUES ('7', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '1', '1', '1');
 INSERT INTO `comment` VALUES ('4', '1', '6', '4', '1', '2', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '1', '1', '1');
 INSERT INTO `comment` VALUES ('5', '1', '6', '7', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-02-22 15:30:42', '1', '1', '1');
-INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '2', '1', '1');
+INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-28 00:19:54', '2', '1', '1');
 INSERT INTO `comment` VALUES ('8', '1', '9', 'ewfefw1', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('9', '1', '9', 'ewfefw2', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('10', '1', '9', 'ewfefw3', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('11', '1', '14', 'gse', '1', '0', '1', '1', '2015-02-21 15:12:48', '2015-02-21 15:12:52', '0', '1', '1');
 INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-02-22 15:30:42', '11', '12', '1');
 INSERT INTO `comment` VALUES ('13', '1', '6', 'asdfgvawegvaer', '1', '0', '1', null, '2015-02-21 19:59:48', '2015-02-22 15:07:46', null, null, '1');
-INSERT INTO `comment` VALUES ('14', '1', '6', 'asdfgvawegvaer', '1', '1', '1', '0', '2015-02-21 20:01:41', '2015-02-22 15:30:42', '0', '0', '1');
+INSERT INTO `comment` VALUES ('14', '1', '6', 'asdfgvawegvaer', '1', '1', '1', '0', '2015-02-21 20:01:41', '2015-02-28 00:19:49', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for group
@@ -106,13 +106,14 @@ CREATE TABLE `group` (
   `uid` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of group
 -- ----------------------------
 INSERT INTO `group` VALUES ('1', '1', '1');
 INSERT INTO `group` VALUES ('2', '2', '2');
+INSERT INTO `group` VALUES ('4', '3', '3');
 
 -- ----------------------------
 -- Table structure for literature
@@ -136,13 +137,13 @@ CREATE TABLE `literature` (
 -- ----------------------------
 -- Records of literature
 -- ----------------------------
-INSERT INTO `literature` VALUES ('1', '6', 'title1', 'public/uploads/1.png', 'sdhgfdhbfd', '1', '2015-02-15 15:06:41', '2015-02-15 15:06:44', '15', '14', '1');
-INSERT INTO `literature` VALUES ('2', '7', 'title2', 'public/uploads/2.png', '324', '2', '2015-02-17 21:50:32', '2015-02-15 15:06:44', '15', '13', '1');
+INSERT INTO `literature` VALUES ('1', '6', 'title1', 'public/uploads/1.png', 'sdhgfdhbfd', '1', '2015-02-15 15:06:41', '2015-02-26 00:08:08', '15', '14', '1');
+INSERT INTO `literature` VALUES ('2', '7', 'title2', 'public/uploads/2.png', '324', '2', '2015-02-17 21:50:32', '2015-02-25 23:33:15', '15', '13', '1');
 INSERT INTO `literature` VALUES ('3', '6', 'title3', 'public/uploads/1.png', 'sdfsd', '1', '2015-02-17 21:50:36', '2015-02-15 15:06:44', '1', '13', '1');
 INSERT INTO `literature` VALUES ('4', '8', 'title4', 'public/uploads/2.png', '234', '2', '2015-02-17 21:50:44', '2015-02-15 15:06:44', '14', '17', '1');
 INSERT INTO `literature` VALUES ('5', '6', 'title5', 'public/uploads/1.png', '4576', '1', '2015-02-17 21:50:47', '2015-02-15 15:06:44', '14', '133', '1');
-INSERT INTO `literature` VALUES ('6', '7', 'title6', 'public/uploads/2.png', '介绍\r\n\r\nLaravel 的 Eloquent ORM 提供了漂亮、简洁的 ActiveRecord 实现来和数据库的互动。 每个数据库表会和一个对应的「模型」互动。\r\n\r\n在开始之前，记得把 app/config/database.php 里的数据库连接配置好。\r\n\r\n\r\n基本用法\r\n\r\n我们先从建立一个 Eloquent 模型开始。模型通常放在 app/models 目录下，但是您可以将它们放在任何地方，只要能通过 composer.json 被自动载入。\r\n\r\n定义一个 Eloquent 模型\r\n\r\nclass User extends Eloquent {}\r\n注意我们并没有告诉 Eloquent User 模型会使用哪个数据库表。若没有特别指定，系统会默认自动对应名称为「类名称的小写复数形态」的数据库表。所以，在上面的例子中， Eloquent 会假设 User 将把数据存在 users 数据库表。可以在类里定义 table 属性自定义要对应的数据库表。\r\n\r\nclass User extends Eloquent {\r\n\r\n    protected $table = \'my_users\';\r\n\r\n}\r\n注意： Eloquent 也会假设每个数据库表都有一个字段名称为 id 的主键。您可以在类里定义 primaryKey 属性来重写。同样的，您也可以定义 connection 属性，指定模型连接到专属的数据库连接。\r\n定义好模型之后，您就可以从数据库表新增及获取数据了。注意在默认情况下，在数据库表里需要有 updated_at 和 created_at 两个字段。如果您不想设定或自动更新这两个字段，则将类里的 $timestamps 属性设为 false即可。\r\n\r\n取出所有模型数据\r\n\r\n$users = User::all();\r\n根据主键取出一条数据\r\n\r\n$user = User::find(1);\r\n\r\nvar_dump($user->name);', '2', '2015-02-17 21:50:50', '2015-02-15 15:06:44', '14', '16', '1');
-INSERT INTO `literature` VALUES ('7', '6', 'title7', 'public/uploads/1.png', '介绍\r\n\r\n数据库查询构造器 (query builder) 提供方便流畅的接口来建立、执行数据库查询语法。在您的应用程序里面，它可以被使用在大部分的数据 库操作，而且它在所有支持的数据库系统上都可以执行。\r\n\r\n注意: Laravel 查询构造器使用 PDO 参数绑定，以保护应用程序免于SQL注入攻击 (SQL injection)，因此传入的参数不需过滤额外的特殊字符串。\r\n\r\nSelects\r\n\r\n从数据库表中取得所有的数据列\r\n\r\n$users = DB::table(\'users\')->get();\r\n\r\nforeach ($users as $user)\r\n{\r\n    var_dump($user->name);\r\n}\r\n从数据库表中取得单一数据列\r\n\r\n$user = DB::table(\'users\')->where(\'name\', \'John\')->first();\r\n\r\nvar_dump($user->name);\r\n从数据库表中取得单一数据列的单一字段\r\n\r\n$name = DB::table(\'users\')->where(\'name\', \'John\')->pluck(\'name\');\r\n取得单一字段值的列表\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\');\r\n这个方法将会回传含有数据库表 role 的 title 字段值的数组。您也可以通过下面的方法，为回传的数组指定自定义键值。\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\', \'name\');', '1', '2015-02-17 21:50:56', '2015-02-15 15:06:44', '16', '16', '1');
+INSERT INTO `literature` VALUES ('6', '7', 'title6', 'public/uploads/2.png', '介绍\r\n\r\nLaravel 的 Eloquent ORM 提供了漂亮、简洁的 ActiveRecord 实现来和数据库的互动。 每个数据库表会和一个对应的「模型」互动。\r\n\r\n在开始之前，记得把 app/config/database.php 里的数据库连接配置好。\r\n\r\n\r\n基本用法\r\n\r\n我们先从建立一个 Eloquent 模型开始。模型通常放在 app/models 目录下，但是您可以将它们放在任何地方，只要能通过 composer.json 被自动载入。\r\n\r\n定义一个 Eloquent 模型\r\n\r\nclass User extends Eloquent {}\r\n注意我们并没有告诉 Eloquent User 模型会使用哪个数据库表。若没有特别指定，系统会默认自动对应名称为「类名称的小写复数形态」的数据库表。所以，在上面的例子中， Eloquent 会假设 User 将把数据存在 users 数据库表。可以在类里定义 table 属性自定义要对应的数据库表。\r\n\r\nclass User extends Eloquent {\r\n\r\n    protected $table = \'my_users\';\r\n\r\n}\r\n注意： Eloquent 也会假设每个数据库表都有一个字段名称为 id 的主键。您可以在类里定义 primaryKey 属性来重写。同样的，您也可以定义 connection 属性，指定模型连接到专属的数据库连接。\r\n定义好模型之后，您就可以从数据库表新增及获取数据了。注意在默认情况下，在数据库表里需要有 updated_at 和 created_at 两个字段。如果您不想设定或自动更新这两个字段，则将类里的 $timestamps 属性设为 false即可。\r\n\r\n取出所有模型数据\r\n\r\n$users = User::all();\r\n根据主键取出一条数据\r\n\r\n$user = User::find(1);\r\n\r\nvar_dump($user->name);', '2', '2015-02-17 21:50:50', '2015-02-26 00:08:32', '14', '16', '1');
+INSERT INTO `literature` VALUES ('7', '6', 'title7', 'public/uploads/1.png', '介绍\r\n\r\n数据库查询构造器 (query builder) 提供方便流畅的接口来建立、执行数据库查询语法。在您的应用程序里面，它可以被使用在大部分的数据 库操作，而且它在所有支持的数据库系统上都可以执行。\r\n\r\n注意: Laravel 查询构造器使用 PDO 参数绑定，以保护应用程序免于SQL注入攻击 (SQL injection)，因此传入的参数不需过滤额外的特殊字符串。\r\n\r\nSelects\r\n\r\n从数据库表中取得所有的数据列\r\n\r\n$users = DB::table(\'users\')->get();\r\n\r\nforeach ($users as $user)\r\n{\r\n    var_dump($user->name);\r\n}\r\n从数据库表中取得单一数据列\r\n\r\n$user = DB::table(\'users\')->where(\'name\', \'John\')->first();\r\n\r\nvar_dump($user->name);\r\n从数据库表中取得单一数据列的单一字段\r\n\r\n$name = DB::table(\'users\')->where(\'name\', \'John\')->pluck(\'name\');\r\n取得单一字段值的列表\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\');\r\n这个方法将会回传含有数据库表 role 的 title 字段值的数组。您也可以通过下面的方法，为回传的数组指定自定义键值。\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\', \'name\');', '1', '2015-02-17 21:50:56', '2015-02-28 00:01:36', '16', '16', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -220,7 +221,7 @@ CREATE TABLE `navigation` (
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `father_id` int(11) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of navigation
@@ -243,6 +244,37 @@ INSERT INTO `navigation` VALUES ('15', 'micromovie', '导演', '00000000004');
 INSERT INTO `navigation` VALUES ('16', 'original', '音乐', '00000000005');
 INSERT INTO `navigation` VALUES ('17', 'original', '书法', '00000000005');
 INSERT INTO `navigation` VALUES ('18', 'original', '舞蹈', '00000000005');
+INSERT INTO `navigation` VALUES ('19', 'literature', '666', '00000000001');
+INSERT INTO `navigation` VALUES ('20', 'literature', '213', '00000000001');
+INSERT INTO `navigation` VALUES ('21', 'literature', '防辐射', '00000000001');
+INSERT INTO `navigation` VALUES ('22', 'literature', 'fsd', '00000000001');
+INSERT INTO `navigation` VALUES ('23', 'literature', '+++', '00000000001');
+INSERT INTO `navigation` VALUES ('24', 'test', 'test', '00000000000');
+INSERT INTO `navigation` VALUES ('25', 'micromovie', 'qew', '00000000004');
+INSERT INTO `navigation` VALUES ('26', 'test', '1`', '00000000024');
+INSERT INTO `navigation` VALUES ('27', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('28', 'qwe', 'wq', '00000000000');
+INSERT INTO `navigation` VALUES ('29', 'literature', 'dfsf', '00000000001');
+INSERT INTO `navigation` VALUES ('30', 'literature', '234', '00000000001');
+INSERT INTO `navigation` VALUES ('31', 'literature', '234234', '00000000001');
+INSERT INTO `navigation` VALUES ('32', 'literature', 'svsd', '00000000001');
+INSERT INTO `navigation` VALUES ('33', 'literature', 'sdfsd', '00000000001');
+INSERT INTO `navigation` VALUES ('34', 'literature', 'wer', '00000000001');
+INSERT INTO `navigation` VALUES ('35', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('36', 'literature', 'qwe', '00000000001');
+INSERT INTO `navigation` VALUES ('37', 'literature', '123', '00000000001');
+INSERT INTO `navigation` VALUES ('38', 'literature', 'dfs', '00000000001');
+INSERT INTO `navigation` VALUES ('39', 'literature', 'sfd', '00000000001');
+INSERT INTO `navigation` VALUES ('40', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('41', 'literature', 'qwe', '00000000001');
+INSERT INTO `navigation` VALUES ('42', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('43', 'literature', '123', '00000000001');
+INSERT INTO `navigation` VALUES ('44', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('45', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('46', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('47', 'literature', 'sdf', '00000000001');
+INSERT INTO `navigation` VALUES ('48', 'literature', 'asdasd', '00000000001');
+INSERT INTO `navigation` VALUES ('49', 'literature', 'asd', '00000000001');
 
 -- ----------------------------
 -- Table structure for original
@@ -282,7 +314,7 @@ CREATE TABLE `permission` (
   `type_id` int(11) DEFAULT NULL,
   `path_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of permission
@@ -303,6 +335,9 @@ INSERT INTO `permission` VALUES ('13', '1', '13');
 INSERT INTO `permission` VALUES ('14', '1', '14');
 INSERT INTO `permission` VALUES ('15', '1', '15');
 INSERT INTO `permission` VALUES ('16', '1', '16');
+INSERT INTO `permission` VALUES ('18', '2', '1');
+INSERT INTO `permission` VALUES ('23', '3', '1');
+INSERT INTO `permission` VALUES ('24', '3', '5');
 
 -- ----------------------------
 -- Table structure for photos
@@ -350,7 +385,7 @@ CREATE TABLE `recommend` (
   `love_num` int(11) DEFAULT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of recommend
@@ -376,6 +411,8 @@ INSERT INTO `recommend` VALUES ('18', '10', '3254', '324', '5', 'gd', 'Lich', '3
 INSERT INTO `recommend` VALUES ('19', '11', '3254', '324', '2', 'gd', 'Lich', '3', 'reg', 'tfrj', 'Lich', '2015-02-20 18:45:50', '543', '22', '33', '1');
 INSERT INTO `recommend` VALUES ('20', '9', '20', '20', '3', '20', 'Lich', '32', 'reg', 'trjr4t', 'Lich', '2015-02-20 18:45:54', '435', '20', '20', '1');
 INSERT INTO `recommend` VALUES ('21', '10', '3254', '324', '4', 'gd', 'Lich', '3', 'sdf', 't', 'Lich', '2015-02-20 18:45:56', '345', '22', '33', '1');
+INSERT INTO `recommend` VALUES ('35', '11', null, 'public/uploads/2da646a715826258f699ba281bc04986.png', null, 'xzcvxz', null, null, null, null, null, null, null, null, null, '0');
+INSERT INTO `recommend` VALUES ('36', '10', 'test', 'public/uploads/9b90a0110a111e8af195a22413601494.png', '0', '12rfwed', 'me', '123', 'ddsd', 'rgv2w4e', '3wefgv2q', '0000-00-00 00:00:00', '123', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for routelist
@@ -386,7 +423,7 @@ CREATE TABLE `routelist` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of routelist
@@ -406,7 +443,9 @@ INSERT INTO `routelist` VALUES ('12', '获取原味页面', 'home/original');
 INSERT INTO `routelist` VALUES ('13', '获取原味评论', 'home/original/comment');
 INSERT INTO `routelist` VALUES ('14', '获取排序读书影逝及分页', 'home/recommend');
 INSERT INTO `routelist` VALUES ('15', '获取读书影逝评论', 'home/recommend/comment');
-INSERT INTO `routelist` VALUES ('16', 'test', 'home/test');
+INSERT INTO `routelist` VALUES ('16', 'test1我去', 'home/test1');
+INSERT INTO `routelist` VALUES ('22', 'test', null);
+INSERT INTO `routelist` VALUES ('21', 'test', null);
 
 -- ----------------------------
 -- Table structure for tags
@@ -443,22 +482,22 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) DEFAULT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type_id` int(11) DEFAULT NULL,
   `head` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `introduce` text COLLATE utf8_unicode_ci,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `update_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `remember_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '1', 'admin', '1', '1', 'erg', '234', null, null, null, '1');
-INSERT INTO `users` VALUES ('2', '2', 'test', null, null, null, null, null, null, null, null);
+INSERT INTO `users` VALUES ('1', '1', 'admin', '1', 'erg', '234', null, null, null, '1');
+INSERT INTO `users` VALUES ('2', '2', 'test', null, null, null, null, null, null, '1');
+INSERT INTO `users` VALUES ('3', '3', 'test1', '', '', '', '0000-00-00 00:00:00', '2015-02-28 00:11:01', '', '1');
 
 -- ----------------------------
 -- Table structure for user_type
@@ -468,9 +507,11 @@ CREATE TABLE `user_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of user_type
 -- ----------------------------
+INSERT INTO `user_type` VALUES ('2', '管理员');
+INSERT INTO `user_type` VALUES ('3', '普通用户');
 INSERT INTO `user_type` VALUES ('1', '网站开发者');

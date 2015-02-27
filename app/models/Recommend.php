@@ -4,7 +4,8 @@ class Recommend extends Eloquent {
 
 	
 	protected $table = 'recommend';
-	protected $fillable = array('type_id', 'cover_url', 'works_infomation', 'works_introduce', 'status');
+	protected $fillable = array('type_id', 'cover_url', 'works_infomation', 'works_introduce', 'status', 'title', 'star', 'author', 'price', 'publish', 'original_title', 'interpreter', 'time', 'page_num', 'comment_num', 'love_num');
+    public $timestamps = false;
 
     //获取推荐类型
     public function navigation(){

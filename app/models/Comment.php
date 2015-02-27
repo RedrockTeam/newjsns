@@ -7,6 +7,11 @@ class Comment extends Eloquent {
 	protected $fillable = array('work_id', 'type_id', 'content', 'from', 'to', 'praise', 'father_id', 'love_num','read_status', 'created_at', 'updated_at', 'status');
     private   $rules;
 
+    //获取用户名
+    public function user(){
+        return $this->hasOne('User', 'id', 'from');
+    }
+
 	//获取评论 TODO:users表中id为该应用的uid, users表里的uid为学号
 	public static function findComment($type_id, $work_id, $page){
 		$skip = 2*($page-1);

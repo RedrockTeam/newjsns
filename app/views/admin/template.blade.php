@@ -37,7 +37,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li {{Route::currentRouteName()=='admin/literature'?'class="active"':'';}}><a href="{{route('admin/literature')}}">文学模块管理<span class="sr-only">(current)</span></a></li>
-                            <li {{Route::currentRouteName()=='admin/photo'?'class="active"':'';}}><a href="{{route('admin/photo')}}">爱拍模块管理</a></li>
+                            <li {{Route::currentRouteName()=='admin/photos'?'class="active"':'';}}><a href="{{route('admin/photos')}}">爱拍模块管理</a></li>
                             <li {{Route::currentRouteName()=='admin/micromovie'?'class="active"':'';}}><a href="{{route('admin/micromovie')}}">微视模块管理</a></li>
                             <li {{Route::currentRouteName()=='admin/recommend'?'class="active"':'';}}><a href="{{route('admin/recommend')}}">读书影逝模块管理</a></li>
                             <li {{Route::currentRouteName()=='admin/original'?'class="active"':'';}}><a href="{{route('admin/original')}}">原味模块管理</a></li>
@@ -73,5 +73,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+@yield('myscript')
 </body>
 </html>
