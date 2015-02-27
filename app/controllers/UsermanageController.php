@@ -34,7 +34,24 @@ class UsermanageController extends BaseController{
     //改变用户组
     public function editgroup(){
         $input =Input::all();
-        Group::where('uid', '=', $input['uid'])->update(array('type_id' => $input['type_id'])); $info = '成功';
+        Group::where('uid', '=', $input['uid'])->update(array('type_id' => $input['type_id']));
+        $info = '成功';
         return Redirect::back()->withErrors($info, 'editgroup');
+    }
+
+    //删除授权路由
+    public function delroute(){
+        $input = Input::all();
+        Permission::where('type_id', '=', $input['role_id'])->where('path_id', '=', $input['id'])->delete();
+        $info = '成功';
+        return Redirect::back()->withErrors($info, 'route');
+    }
+
+    //授权路由
+    public function addroute(){
+        $input = Input::all();
+        Permission::create($input);
+        $info = '成功';
+        return Redirect::back()->withErrors($info, 'route');
     }
 }

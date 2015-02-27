@@ -4,7 +4,7 @@ class Permission extends Eloquent {
 
 	
 	protected $table = 'permission';
-	protected $fillable = array('type_id', 'path');
+	protected $fillable = array('type_id', 'path_id');
 	public $timestamps = false;
 
     public function routelist(){

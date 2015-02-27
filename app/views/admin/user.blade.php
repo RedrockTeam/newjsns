@@ -58,11 +58,12 @@
                                 </td>
                                 <td>
                                     <span><input type="submit" class="btn btn-xs btn-warning" value="修改" ></span>
+                            </form>
                                     <span><button class="btn btn-xs btn-danger">冻结</button></span>
                                     <span><button class="btn btn-xs btn-success">恢复</button></span>
                                 </td>
                             </tr>
-                            </form>
+
                             @endforeach
                         </tbody>
                     </table>
@@ -107,7 +108,7 @@
                         </select>
                     </div>
                     <div class="col-xs-6">
-                     <input type="submit" class="btn btn-danger" value="删除">
+                     <input type="submit" class="btn btn-danger del" value="删除">
                     </div>
                 </div>
             </form>
@@ -116,6 +117,17 @@
     </div>
     {{--权限管理--}}
     <div class="auth" style="display: none">
+        @if($errors)
+            @foreach ($errors->route->all() as $error)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <strong>{{$error}}</strong>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
         @foreach($data['rolelist'] as $key => $role)
             <div class="row">
                 <div class="col-md-12">
@@ -128,16 +140,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4">
-                            <select class="form-control ">
-                                @foreach($data['routelist'] as $route)
-                                    <option value="{{$route['id']}}">{{$route['path']}} | {{$route['name']}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-xs-8">
-                            <button type="button" class="btn btn-success">添加</button>
-                        </div>
+                        <form class="form-horizontal" action="{{route('admin/user/addroute')}}" method="post">
+                            <div class="col-xs-4">
+                                <input type="hidden" name="type_id" value="{{$role['id']}}"/>
+                                <select class="form-control" name="path_id">
+                                    @foreach($data['routelist'] as $route)
+                                        <option value="{{$route['id']}}">{{$route['path']}} | {{$route['name']}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xs-8">
+                                <input type="submit" class="btn btn-success add" value="添加">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -154,14 +169,18 @@
                         </thead>
                         <tbody>
                          @foreach($data['grouplist'][$key] as $list)
-                            <tr>
-                                <td>{{$list['id']}}</td>
-                                <td>{{$list['path']}}</td>
-                                <td>{{$list['name']}}</td>
-                                <td>
-                                    <span><button class="btn btn-xs btn-danger">删除</button></span>
-                                </td>
-                            </tr>
+                             <form class="form-horizontal" action="{{route('admin/user/delroute')}}" method="post">
+                                <tr>
+                                    <input type="hidden" name="role_id" value="{{$role['id']}}"/>
+                                    <td>{{$list['id']}}</td>
+                                    <input type="hidden" name="id" value="{{$list['id']}}"/>
+                                    <td>{{$list['path']}}</td>
+                                    <td>{{$list['name']}}</td>
+                                    <td>
+                                        <span><input class="btn btn-xs btn-danger del" type="submit" value="删除"></span>
+                                    </td>
+                                </tr>
+                             </form>
                          @endforeach
                         </tbody>
                     </table>
@@ -198,7 +217,7 @@
             $('.user').css('display', 'none');
         });
 
-        $('table').on('click', '.btn.btn-xs.btn-btn-danger',function(){
+        $('.btn.btn-xs.btn-danger').bind('click',function(){
             var button = $(this);
             var id = button.parent().parent().parent().children(":first").html();
             var path = button.parent().parent().parent().children(":first").next().children(":first").children(":first").val();
