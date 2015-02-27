@@ -282,7 +282,9 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
     Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'MicromoviemanageController@index'));//微视模块
     Route::get('recommend', array('as' => 'admin/recommend','uses' => 'RecommendmanageController@index'));//读书影逝模块
     Route::get('original', array('as' => 'admin/original','uses' => 'OriginalmanageController@index'));//原味模块
+
     Route::get('comment', array('as' => 'admin/comment','uses' => 'CommentmanageController@index'));//评论模块
+    Route::post('comment/manage', array('as' => 'admin/comment/manage','uses' => 'CommentmanageController@manage'));//评论模块
 
     Route::get('user', array('as' => 'admin/user','uses' => 'UsermanageController@index'));//用户模块
     Route::post('user/addgroup', array('as' => 'admin/user/addgroup','uses' => 'UsermanageController@addgroup'));//用户模块

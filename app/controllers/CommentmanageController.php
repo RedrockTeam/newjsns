@@ -7,4 +7,13 @@ class CommentmanageController extends BaseController{
         }
         return View::make('admin.comment')->with('data', $data);
     }
+
+    //评论管理
+    public function manage(){
+        $input = Input::all();
+        $status = $input['oprator_id'];
+        $id = $input['id'];
+        Comment::where('id', '=', $id)->update(array('status' => $status));
+        return $data = '200';
+    }
 }

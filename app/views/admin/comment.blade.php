@@ -43,29 +43,60 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form class="navbar-form" role="search">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                        选择搜索类型
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">按文章名搜索</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">按文章ID搜索</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">按昵称搜索</a></li>
-                    </ul>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
-        </div>
-    </div>
 
+
+@stop
+
+@section('myscript')
+    <script>
+        $('.btn.btn-xs.btn-danger').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/comment/manage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":0, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().html("冻结");
+                    }
+                }
+            });
+        });
+
+        $('.btn.btn-xs.btn-success').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/comment/manage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":1, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().html("正常");
+                    }
+                }
+            });
+        });
+    </script>
 @stop
