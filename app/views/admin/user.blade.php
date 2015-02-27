@@ -220,14 +220,12 @@
         $('.btn.btn-xs.btn-danger').bind('click',function(){
             var button = $(this);
             var id = button.parent().parent().parent().children(":first").html();
-            var path = button.parent().parent().parent().children(":first").next().children(":first").children(":first").val();
-            var name = button.parent().parent().parent().children(":first").next().next().children(":first").children(":first").val();
             $.ajax({
-                url: "{{route('admin/system/editroute')}}",
+                url: "{{route('admin/user/manage')}}",
 
                 type: 'post',
 
-                data:{"id":id, "path":path, "name":name},
+                data:{"oprator_id":0, "id":id},
 
                 dataType: 'json',
 
@@ -238,7 +236,32 @@
                 success: function(data){
 
                     if(data==200){
-                        alert('ok');
+                        button.parent().parent().prev().prev().html("冻结");
+                    }
+                }
+            });
+        });
+
+        $('.btn.btn-xs.btn-success').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/user/manage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":1, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().prev().html("正常");
                     }
                 }
             });

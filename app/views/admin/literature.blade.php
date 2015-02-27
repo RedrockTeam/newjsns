@@ -137,7 +137,7 @@
                 success: function(data){
 
                     if(data == 200){
-                        var a = button.parent().parent().prev().html("冻结");
+                         button.parent().parent().prev().html("冻结");
                     }
                 }
             });
@@ -162,7 +162,7 @@
                 success: function(data){
 
                     if(data == 200){
-                        var a = button.parent().parent().prev().html("正常");
+                        button.parent().parent().prev().html("正常");
                     }
                 }
             });

@@ -54,4 +54,13 @@ class UsermanageController extends BaseController{
         $info = '成功';
         return Redirect::back()->withErrors($info, 'route');
     }
+
+    //用户状态
+    public function manage(){
+        $input = Input::all();
+        $status = $input['oprator_id'];
+        $id = $input['id'];
+        User::where('id', '=', $id)->update(array('status' => $status));
+        return $data = '200';
+    }
 }

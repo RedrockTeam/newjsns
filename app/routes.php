@@ -290,6 +290,7 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
     Route::post('user/editgroup', array('as' => 'admin/user/editgroup','uses' => 'UsermanageController@editgroup'));//用户模块
     Route::post('user/delroute', array('as' => 'admin/user/delroute','uses' => 'UsermanageController@delroute'));//用户模块
     Route::post('user/addroute', array('as' => 'admin/user/addroute','uses' => 'UsermanageController@addroute'));//用户模块
+    Route::post('user/manage', array('as' => 'admin/user/manage','uses' => 'UsermanageController@manage'));//用户模块
 
     Route::get('system', array('as' => 'admin/system','uses' => 'SystemmanageController@index'));//系统模块
     Route::post('system/addnav', array('as' => 'admin/system/addnav','uses' => 'SystemmanageController@addnav'));//系统模块添加导航
