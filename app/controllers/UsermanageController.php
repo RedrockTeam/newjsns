@@ -12,4 +12,29 @@ class UsermanageController extends BaseController{
         }
         return View::make('admin.user')->with('data', $data);
     }
+
+    //添加用户组
+    public function addgroup(){
+        $input = Input::all();
+        User_type::create($input);
+        $info = '成功';
+        return Redirect::back()->withErrors($info, 'group');
+    }
+
+    //del 用户组
+    public function delgroup(){
+        $input = Input::all();
+        $id = $input['id'];
+        User_type::destroy($id);
+        Permission::where('type_id', '=', $id)->delete();
+        $info = '成功';
+        return Redirect::back()->withErrors($info, 'group');
+    }
+
+    //改变用户组
+    public function editgroup(){
+        $input =Input::all();
+        Group::where('uid', '=', $input['uid'])->update(array('type_id' => $input['type_id'])); $info = '成功';
+        return Redirect::back()->withErrors($info, 'editgroup');
+    }
 }

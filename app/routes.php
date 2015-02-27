@@ -283,7 +283,11 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
     Route::get('recommend', array('as' => 'admin/recommend','uses' => 'RecommendmanageController@index'));//读书影逝模块
     Route::get('original', array('as' => 'admin/original','uses' => 'OriginalmanageController@index'));//原味模块
     Route::get('comment', array('as' => 'admin/comment','uses' => 'CommentmanageController@index'));//评论模块
+
     Route::get('user', array('as' => 'admin/user','uses' => 'UsermanageController@index'));//用户模块
+    Route::post('user/addgroup', array('as' => 'admin/user/addgroup','uses' => 'UsermanageController@addgroup'));//用户模块
+    Route::post('user/delgroup', array('as' => 'admin/user/delgroup','uses' => 'UsermanageController@delgroup'));//用户模块
+    Route::post('user/editgroup', array('as' => 'admin/user/editgroup','uses' => 'UsermanageController@editgroup'));//用户模块
 
     Route::get('system', array('as' => 'admin/system','uses' => 'SystemmanageController@index'));//系统模块
     Route::post('system/addnav', array('as' => 'admin/system/addnav','uses' => 'SystemmanageController@addnav'));//系统模块添加导航
