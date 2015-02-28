@@ -6,7 +6,14 @@ class MicromoviemanageController extends BaseController{
             $v->user;
             $v->navigation;
         }
-//        return $data;
         return View::make('admin.micromovie')->with('data', $data);
+    }
+
+    public function manage(){
+        $input = Input::all();
+        $status = $input['oprator_id'];
+        $id = $input['id'];
+        Micromovie::where('id', '=', $id)->update(array('status' => $status));
+        return $data = '200';
     }
 }
