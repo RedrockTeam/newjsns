@@ -14,7 +14,7 @@
             <%}%>
         <%}%>
         <div class="u-action"><a class="u-show_comments">(<%= data.comment_count%>)</a><a class="u-show_love">(<%= data.love_count%>)</a></div>
-     </div>;
+     </div>
 </script>
 @section("css")
     @parent
