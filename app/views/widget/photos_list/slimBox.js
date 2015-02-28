@@ -88,7 +88,6 @@
         options.loop = options.loop && (images.length > 1);
         return changeImage(startImage);
     };
-
     /*
      options:	Optional options object, see jQuery.slimbox()
      linkMapper:	Optional function taking a link DOM element and an index as arguments and returning an array containing 2 elements:
@@ -108,9 +107,6 @@
         };
 
         var links, self = this;
-        self.on('click', function(){
-            alert(132321);
-        });
         return self.on('click', '.js-open_box',function(ev) {
             ev.preventDefault();
             // Build the list of images that will be displayed

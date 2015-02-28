@@ -158,9 +158,7 @@
             return !0;
         };
         var links, self = this;
-        return self.on("click", function() {
-            alert(132321);
-        }), self.on("click", ".js-open_box", function(ev) {
+        return self.on("click", ".js-open_box", function(ev) {
             ev.preventDefault(), // Build the list of images that will be displayed
             links = self.find(".js-link");
             var filteredLinks, length, link = this, startIndex = 0, i = 0;
