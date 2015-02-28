@@ -1,7 +1,7 @@
 <ul class="m-recom_lists">
-    @for($i=0; $i < count($litera_recom_items); $i++)
-        <li><span>[{{$litera_recom_items[$i]["title"]}}]</span><a href="">{{$litera_recom_items[$i]["content"]}}</a></li>
-    @endfor
+    @foreach($data['recommend_list'] as $value)
+        <li><span>[{{$value["type"]}}]</span><a href="">{{$value["title"]}}</a></li>
+    @endforeach
 </ul>
 @section("css")
     @parent

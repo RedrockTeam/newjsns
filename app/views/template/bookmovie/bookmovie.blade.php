@@ -19,7 +19,14 @@
 @section("container")
     <h4 class="u-bkmv_title"><span>读书影逝</span></h4>
     <menu class="m-menu">
-        <li class="u-sort-movie f-pr"><a href="">电影</a> <span class="s-tangle"></span></li>
+
+        <li class="u-sort-movie f-pr">
+            @foreach($data['navigation'] as $nav)
+                <a href="{{$nav['id']}}">{{$nav['type']}}</a>
+            @endforeach
+                <span class="s-tangle"></span>
+        </li>
+
         <li class="u-sort-hot"><a href="">最热</a></li>
         <li class="u-upload"><a href="">我要上传</a></li>
     </menu>

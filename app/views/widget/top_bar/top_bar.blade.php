@@ -1,6 +1,6 @@
 <div class="g-top_bar_wrapper f-cb">
-    @if($user_info["user_name"])
-        <div class="f-fr u-info" data-user_id="{{$user_info["user_id"]}}">
+    @if(isset($user_info["user_name"]))
+        <div class="f-fr u-info" data-user_id="">
             hello!<a href=""> {{$user_info["user_name"]}}</a>
             <a href="">注销</a>
         </div>

@@ -3,6 +3,7 @@
         <i class="u-h_logo f-fl"></i>
         <ul class="u-h_nav f-fr">
             <li><a href="/">首页</a></li>
+            <?php $page = Route::currentRouteName();?>
             <li @if($page == "literatrue") class="s-active"@endif ><a href="/literatrue">文学</a></li>
             <li @if($page == "photos") class="s-active"@endif ><a href="/photos">爱拍</a></li>
             <li @if($page == "bookmovie") class="s-active"@endif ><a href="/bookmovie">读书·影逝</a></li>

@@ -6,7 +6,7 @@
 class HomeController extends BaseController {
 
 	public function index(){
-		return View::make('admin.pages.index');
+		return View::make('admin.index');
 	}
 
 }
