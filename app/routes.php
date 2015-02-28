@@ -286,6 +286,8 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
     Route::post('literature/manage', array('as' => 'admin/literature/manage','uses' => 'LiteraturemanageController@manage'));//文学模块
 
     Route::get('photos', array('as' => 'admin/photos','uses' => 'PhotosmanageController@index'));//爱拍模块
+    Route::post('photos/albummanage', array('as' => 'admin/photos/albummanage','uses' => 'PhotosmanageController@albummanage'));//爱拍模块
+    Route::post('photos/photomanage', array('as' => 'admin/photos/photomanage','uses' => 'PhotosmanageController@photomanage'));//爱拍模块
 
     Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'MicromoviemanageController@index'));//微视模块
     Route::post('micromovie/manage', array('as' => 'admin/micromovie/manage','uses' => 'MicromoviemanageController@manage'));//微视模块

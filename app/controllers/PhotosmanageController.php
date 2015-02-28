@@ -14,7 +14,23 @@ class PhotosmanageController extends BaseController{
             'album' => $album,
             'photos'=> $photos,
         );
-//        return $album;
         return View::make('admin.photos')->with('data', $data);
+    }
+
+    public function albummanage(){
+        $input = Input::all();
+        $id = $input['id'];
+        $status = $input['oprator_id'];
+        Album::where('id', '=', $id)->update(array('status' => $status));
+        Photos::where('album_id', '=', $id)->update(array('status' => $status));
+        return $data = '200';
+    }
+
+    public function photomanage(){
+        $input = Input::all();
+        $id = $input['id'];
+        $status = $input['oprator_id'];
+        Photos::where('id', '=', $id)->update(array('status' => $status));
+        return $data = '200';
     }
 }

@@ -34,8 +34,8 @@
                                 <td>{{$album['user']['username']}}</td>
                                 <td>{{$album['status']==0?'冻结':'正常';}}</td>
                                 <td>
-                                    <span><button class="btn btn-xs btn-danger">冻结</button></span>
-                                    <span><button class="btn btn-xs btn-success">恢复</button></span>
+                                    <span><button class="btn btn-xs btn-danger albumbutton">冻结</button></span>
+                                    <span><button class="btn btn-xs btn-success albumbutton">恢复</button></span>
                                 </td>
                             </tr>
                         @endforeach
@@ -70,10 +70,10 @@
                                 <td>{{$photo['id']}}</td>
                                 <td>{{$photo['findFather']['album_name']}}</td>
                                 <td>{{$photo['title']}}</td>
-                                <td>{{$album['status']==0?'冻结':'正常';}}</td>
+                                <td>{{$photo['status']==0?'冻结':'正常';}}</td>
                                 <td>
-                                    <span><button class="btn btn-xs btn-danger">冻结</button></span>
-                                    <span><button class="btn btn-xs btn-success">恢复</button></span>
+                                    <span><button class="btn btn-xs btn-danger photobutton">冻结</button></span>
+                                    <span><button class="btn btn-xs btn-success photobutton">恢复</button></span>
                                 </td>
                             </tr>
                         @endforeach
@@ -102,6 +102,106 @@
             $('#album').attr('class', 'active');
             $('.photo').css('display', 'none');
             $('.album').css('display', 'block');
+        });
+
+        $('.btn.btn-xs.btn-danger.albumbutton').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/photos/albummanage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":0, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().html("冻结");
+                    }
+                }
+            });
+        });
+
+        $('.btn.btn-xs.btn-success.albumbutton').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/photos/albummanage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":1, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().html("正常");
+                    }
+                }
+            });
+        });
+
+        $('.btn.btn-xs.btn-danger.photobutton').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/photos/photomanage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":0, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().html("冻结");
+                    }
+                }
+            });
+        });
+
+        $('.btn.btn-xs.btn-success.photobutton').bind('click',function(){
+            var button = $(this);
+            var id = button.parent().parent().parent().children(":first").html();
+            $.ajax({
+                url: "{{route('admin/photos/photomanage')}}",
+
+                type: 'post',
+
+                data:{"oprator_id":1, "id":id},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data==200){
+                        button.parent().parent().prev().html("正常");
+                    }
+                }
+            });
         });
     </script>
 @stop
