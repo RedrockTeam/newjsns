@@ -12,14 +12,17 @@ class PhotosController extends BaseController {
 
     //爱拍获取更多图片
     public function get_photos(){
-        $data['data'] = Album::where('album.status', '=', '1')->join('photos', 'album.album_cover', '=', 'photos.id')->select('album.id', 'photos.url as img_src', 'album.album_name as img_name', 'album.comment_num as comment_count', 'album.love_num as love_count')->paginate(5);
-        foreach($data['data'] as $v){
+        $data = Album::where('album.status', '=', '1')->join('photos', 'album.album_cover', '=', 'photos.id')->select('album.id', 'photos.url as img_src', 'album.album_name as img_name', 'album.comment_num as comment_count', 'album.love_num as love_count')->paginate(5);
+        foreach($data as $v){
             $v->imgDetail;
         }
-        $data['success'] = true;
-        $data['isDrain'] = false;
-        $data['img_type'] = 'album';
-        return $data['data'];
+        $info = array(
+            'success' => true,
+            'isDrain' => false,
+            'img_type'=> 'album',
+            'data' => $data,
+        );
+        return $info['data'];
     }
 
     //上传
