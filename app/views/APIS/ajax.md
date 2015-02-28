@@ -39,12 +39,26 @@ true_output : {         //正确输出
     data : [             //格式：数组
         {                //格式：json
             "img_type" : "single/album" //图片类型 single为单张图片 album为相册类型
-            "img_id"   : ""             //图片的id 作为后来获取相册图片用
+            "img_id"   : ""             //图片的id 作为后来点赞用
             "img_src" : ""              //图片/相册封面 路径
             "img_desc" : ""             //图片/相册 描述
             "img_name" : ""             //图片/相册 名称
             "love_count" : 1            //图片/相册（总） 点赞数
-            "comment_count" : 1         //图片/相册(总) 评论数
+            "comment_count" : 1         //图片/相册(总) 评论数,
+            "img_detail" : {            //如果图片为相册形式的话，存入相册图片的信息
+                   [
+                        "img_src" : 'public/images/test_2.png',
+                        "img_id" : "123545854+6",
+                        "img_desc" : "第一相册第一图片"
+                    ],
+                    [
+                        "img_src" : 'public/images/test_2.png',
+                        "img_id" : "123545854+6",
+                        "img_desc" : "第一相册第二图片"
+                    ],
+
+
+            }
         }
     ]
 }
