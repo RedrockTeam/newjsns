@@ -17,8 +17,8 @@
 
 {{--container--}}
 @section("container")
-    {{--@include("widget.litera_content.litera_content")
-    @include("widget.litera_comment.litera_comment")--}}
+    @include("widget.litera_content.litera_content")
+    @include("widget.litera_comment.litera_comment")
 @stop
 
 {{--login_box--}}
