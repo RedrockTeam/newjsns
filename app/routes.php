@@ -45,66 +45,7 @@ Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@
 
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 /*------------------------------ajax 测试---------------------------------*/
-//Route::get('get_photos', function(){
-//    $data = [
-//        "success" => true,
-//        "isDrain" => false,
-//        "data" => [
-//            [   "img_type" => "single",
-//                "img_src" => 'public/images/test_1.png',
-//                "img_id" => "201320142015",
-//                "img_desc" => "第一张图片描述",
-//                "img_name" => "第一张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20,
-//            ],
-//            [   "img_type" => "single",
-//                "img_src" => 'public/images/test_2.png',
-//                "img_id" => "201320142019",
-//                "img_name" => "第二张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20
-//            ],
-//            [   "img_type" => "album",
-//                "img_src" => 'public/images/test_1.png',
-//                "id" => "20142015124",
-//                "img_name" => "第一个相册",
-//                "comment_count" => 20,
-//                "love_count" => 20,
-//                "img_detail" =>[
-//                    [
-//                        "img_src" => 'public/images/test_3.png',
-//                        "img_id" => "123545854+6",
-//                        "img_desc" => "第一相册第一图片"
-//                    ],
-//                    [
-//                        "img_src" => 'public/images/test_2.png',
-//                        "img_id" => "123545854+6",
-//                        "img_desc" => "第一相册第一图片"
-//                    ]
-//                ]
-//            ],
-//            [
-//                "img_type" => "single",
-//                "img_src" => 'public/images/test_1.png',
-//                "img_id" => "201320142050",
-//                "img_name" => "第四张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20
-//            ],
-//            [
-//                "img_type" => "single",
-//                "img_src" => 'public/images/test_2.png',
-//                "img_id" => "201320142050",
-//                "img_name" => "第四张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20
-//            ]
-//        ]
-//    ];
-//
-//    return Response::json($data);
-//});
+
 
 /**
  * 前台功能性路由
