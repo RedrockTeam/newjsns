@@ -12,9 +12,7 @@
 */
 /*-------------------------------------------------blade 测试---------------------*/
 #首页
-Route::get('/', function() {
-	return View::make('template.home.home');
-});
+Route::get('/', array('as' => 'index', 'uses' => 'IndexController@index'));
 
 #原味
 Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
@@ -43,6 +41,9 @@ Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieControl
 #个人中心
 Route::get('personal', array('as' => 'personal', 'uses' =>'PersonalController@personalIndex'));
 
+Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
+
+Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 /*------------------------------ajax 测试---------------------------------*/
 //Route::get('get_photos', function(){
 //    $data = [
@@ -109,7 +110,7 @@ Route::get('personal', array('as' => 'personal', 'uses' =>'PersonalController@pe
  * 前台功能性路由
  */
 
-Route::get('get_photos', 'PhotosController@get_photos');//test
+Route::get('test', function () {});//test
 Route::get('upload', function(){
     return route('recommend');
 });
@@ -132,6 +133,8 @@ Route::group(array('prefix' => 'home'), function()
     Route::get('recommend', array('as' => 'home/recommend','uses' => 'LiteratureController@test'));//ajax获取排序读书影逝及分页
     Route::get('recommend/comment', array('as' => 'home/recommend/comment','uses' => 'LiteratureController@test'));//ajax获取读书影逝评论
 
+    Route::post('register', array('as' => 'home/register','uses' => 'LoginController@register'));
+    Route::post('login', array('as' => 'home/login','uses' => 'LoginController@login'));
 
 });
 
@@ -161,7 +164,7 @@ Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/)
 /**
  * 后台路由
  */
-Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), function()
 {
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
 
