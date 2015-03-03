@@ -6,21 +6,24 @@
 class PhotosController extends BaseController {
 
 	//爱拍首页
-    public function photoIndex()
-	{
-        $input = Input::all();
-        $type_id = isset($input['type_id'])?($input['type_id']>0?$input['type_id']:2):2;
-
-        if($type_id == 2){
-            $id = Navigation::find(2)->hasManyson;
-            $data = Literature::getAlbum($id);
-        }
-        else{
-            $data = Literature::getAlbum(array('id'=>$type_id));
-        }
-
-        return $data;
+    public function photoIndex(){
+        return View::make('template.photos.photos');
 	}
+
+    //爱拍获取更多图片
+    public function get_photos(){
+        $data = Album::where('album.status', '=', '1')->join('photos', 'album.album_cover', '=', 'photos.id')->select('album.id', 'photos.url as img_src', 'album.album_name as img_name', 'album.comment_num as comment_count', 'album.love_num as love_count')->paginate(5);
+        foreach($data as $v){
+            $v->imgDetail;
+        }
+        $info = array(
+            'success' => true,
+            'isDrain' => false,
+            'img_type'=> 'album',
+            'data' => $data,
+        );
+        return $info['data'];
+    }
 
     //上传
 	public function upload(){

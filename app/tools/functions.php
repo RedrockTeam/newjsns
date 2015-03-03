@@ -8,7 +8,6 @@ function haha(){
 function verify_permission(){
     $currentRoute = Route::currentRouteName();
     $uid = Session::get('uid');
-    $uid = 1;
     $permission = Group::find($uid)->routelists;
     foreach($permission as $path){
         if($currentRoute == $path['path']){

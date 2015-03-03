@@ -1,45 +1,150 @@
 /*created by redrock*/
-.m-photos_lists{
+/*---------------------plugin slimbox css ---------------*/
+/* SLIMBOX */
+
+#lbOverlay {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
     width: 100%;
-}
-.s-load{
-    display: block;
-    width: 60px;
-    height: 60px;
-    margin: 0px auto;
-    background: url("../../../images/load.gif") no-repeat center center;
-}
-.m-photos_lists .g-ph_item{
-    width: 222px;
-    float: left;
-    margin-right: 22px;
-}
-.m-photos_lists .u-ph_item{
-    margin-bottom: 20px;
-    background: #ffffff;
-    border-radius: 3px;
-    box-shadow: 0 0 7px rgba(0,0,0,0.2);
-    text-align: center;
-    border: 1px solid #dddddd;
-    padding-bottom: 9px;
-    overflow: hidden;
-}
-.m-photos_lists .g-ph_item:last-child{
-    margin-right: 0;
-}
-.m-photos_lists .u-ph_item img{
-    display: block;
-    margin: 8px auto;
+    height: 100%;
+    background-color: #000;
+    cursor: pointer;
 }
 
-.m-photos_lists .u-user_action{
-    float: right;
+#lbCenter, #lbBottomContainer {
+    position: absolute;
+    z-index: 9999;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: -70px;
 }
-.m-photos_lists .u-user_action .u-show_comments, .m-photos_lists .u-user_action .u-show_love{
+
+.lbLoading {
+    background: #fff url('../../../images/loading.gif') no-repeat center;
+}
+
+#lbImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 10px solid #fff;
+    background-repeat: no-repeat;
+}
+
+#lbPrevLink, #lbNextLink {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    outline: none;
+}
+
+#lbPrevLink {
+    left: 0;
+}
+
+#lbPrevLink:hover {
+    background: transparent url('../../../images/prevlabel.gif') no-repeat 0 15%;
+}
+
+#lbNextLink {
+    right: 0;
+}
+
+#lbNextLink:hover {
+    background: transparent url('../../../images/nextlabel.gif') no-repeat 100% 15%;
+}
+
+#lbBottom {
+    font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #666;
+    line-height: 1.4em;
+    text-align: left;
+    border: 10px solid #fff;
+    border-top-style: none;
+}
+
+#lbCloseLink {
+    display: block;
+    float: right;
+    width: 20px;
+    height: 22px;
+    background: rgba(0, 0, 0, 0) url('../../../images/closelabel.gif') no-repeat right;
+    margin: 5px 0;
+    outline: none;
+}
+
+#lbCaption, #lbNumber {
+    padding: 5px 0;
+    font-size: 15px;
+    margin: 0 10px;
+}
+
+#lbCaption {
+    font-size: 14px;
+    padding: 10px 0px;
+    line-height: 1.7em;
+    text-indent: 2em;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px #D8D8D8;
+}
+
+/*----------------------waterfall-----------*/
+/* 瀑布流样式 */
+.waterfall{overflow:hidden;zoom:1;width:100%;}
+.wf_inner{margin:15px auto;}
+.wf_col{position:relative;min-height:473px;_height:473px;}
+.wf_item{
+    box-sizing:border-box;width:222px;
+    border:1px solid #d2d2d2;box-shadow:5px 3px 3px rgba(221,221,221,.32);color:#565656;
+    float:left;overflow:hidden;zoom:1;
+    position:absolute;
+}
+.wf_item_inner{margin:15px;}
+.wf_item .thumb{background:#E9E9E9;position:relative;display:block;overflow:hidden;font-size:0;}
+.wf_item .thumb_img{width:100%;max-width:100%;-ms-interpolation-mode:bicubic;/*解决IE7缩放图片会失真*/}
+.wf_item .title{height:27px;margin:7px 0 0;color:#538700;font-size:17px;font-family:\5FAE\8F6F\96C5\9ED1;}
+.wf_item .title a{color:#060;}
+.wf_item .desc{word-wrap:break-word;word-break:break-all;color:#888;}
+.wf_result{height:32px;line-height:32px;margin-top:15px;text-align:center;color:#666;}
+.wf_loading{background:url(../../../images/loading.gif) center center no-repeat;}
+#backTop{cursor:pointer;width:38px;height:38px;background:url(../../../images/backTop.gif) no-repeat 0 -39px; display: none}
+#backTop:hover {
+    background-position: 0 0;
+}
+.wf_item .thumb:hover .u-name{
+    bottom: 0;
+}
+.u-name {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 28px;
+    color: #ffffff;
+    font-size: 14px;
+    background: rgba(0,0,0,0.8);
+    text-indent: 1em;
+    transition: bottom 0.5s;
+    -webkit-transition: bottom 0.5s;
+    -moz-transition: bottom 0.5s;
+    -o-transition: bottom 0.5s;
+    -ms-transition: bottom 0.5s;
+}
+.u-action{
+    float: right;
+    margin: 10px 0 10px;
+}
+.u-action .u-show_comments, .u-action .u-show_love{
     float: left;
     margin-right: 13px;
+    cursor: pointer;
 }
-.m-photos_lists .u-user_action .u-show_comments a, .m-photos_lists .u-user_action .u-show_love {
+.u-action .u-show_comments, .u-action .u-show_love {
     color: #666666;
     text-decoration: none;
     font-size: 12px;
@@ -49,7 +154,8 @@
     line-height: 18px;
     background: url("../../../images/litera_t_icons.png") no-repeat left -115px;
 }
-.m-photos_lists .u-user_action .u-show_love {
+.u-action .u-show_love {
     background-position: left -160px;
     cursor: pointer;
 }
+

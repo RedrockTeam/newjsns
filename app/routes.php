@@ -12,131 +12,13 @@
 */
 /*-------------------------------------------------blade 测试---------------------*/
 #首页
-Route::get('/', function() {
-	return View::make('template.home.home');
-});
+Route::get('/', array('as' => 'index', 'uses' => 'IndexController@index'));
 
 #原味
 Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
 
 #爱拍
-Route::get('photos', function()
-{
-    $data = [
-        "page" => "photos",
-        "user_info" => [
-            "user_name" => "李金鑫",
-            "user_id" => "oijinxin_16@@@##1322%$^%"
-        ],
-        "ph_lists" => [
-            "fir_col" => [
-                [
-                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "三张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_3.png'],
-                    "img_name" => "一张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ]
-            ],
-            "sec_col" => [
-                [
-                    "img_src" => ['public/images/test_3.png'],
-                    "img_name" => "一张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "三张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ]
-            ],
-            "thir_col" => [
-                [
-                    "img_src" => ['public/images/test_3.png'],
-                    "img_name" => "一张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "三张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ]
-            ],
-            "four_col" => [
-                [
-                    "img_src" => ['public/images/test_3.png'],
-                    "img_name" => "一张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_1.png', 'public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "三张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ],
-                [
-                    "img_src" => ['public/images/test_2.png', 'public/images/test_3.png'],
-                    "img_name" => "两张",
-                    "comment_count" => 20,
-                    "love_count" => 20
-                ]
-            ]
-        ]
-    ];
-	return View::make('template.photos.photos')->with($data);
-});
+Route::get('photos', array('as' => 'photos', 'uses' => 'PhotosController@photoIndex'));
 
 #文学
 Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
@@ -159,65 +41,76 @@ Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieControl
 #个人中心
 Route::get('personal', array('as' => 'personal', 'uses' =>'PersonalController@personalIndex'));
 
-/*------------------------------ajax 测试---------------------------------*/
-Route::get('/get_photos', function(){
-    $data = [
-        "success" => true,
-        "isDrain" => false,
-        "data" => [
-            [
-                "img_src" => ['public/images/test_1.png'],
-                "img_name" => "三张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-            [
-                "img_src" => ['public/images/test_2.png'],
-                "img_name" => "两张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-            [
-                "img_src" => ['public/images/test_3.png'],
-                "img_name" => "一张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-            [
-                "img_src" => ['public/images/test_2.png'],
-                "img_name" => "两张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-            [
-                "img_src" => ['public/images/test_1.png'],
-                "img_name" => "两张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-            [
-                "img_src" => ['public/images/test_3.png'],
-                "img_name" => "两张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-            [
-                "img_src" => ['public/images/test_1.png', 'public/images/test_2.png'],
-                "img_name" => "三张",
-                "comment_count" => 20,
-                "love_count" => 20
-            ],
-        ]
-    ];
+Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
 
-    return Response::json($data);
-});
+Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
+/*------------------------------ajax 测试---------------------------------*/
+//Route::get('get_photos', function(){
+//    $data = [
+//        "success" => true,
+//        "isDrain" => false,
+//        "data" => [
+//            [   "img_type" => "single",
+//                "img_src" => 'public/images/test_1.png',
+//                "img_id" => "201320142015",
+//                "img_desc" => "第一张图片描述",
+//                "img_name" => "第一张图片",
+//                "comment_count" => 20,
+//                "love_count" => 20,
+//            ],
+//            [   "img_type" => "single",
+//                "img_src" => 'public/images/test_2.png',
+//                "img_id" => "201320142019",
+//                "img_name" => "第二张图片",
+//                "comment_count" => 20,
+//                "love_count" => 20
+//            ],
+//            [   "img_type" => "album",
+//                "img_src" => 'public/images/test_1.png',
+//                "id" => "20142015124",
+//                "img_name" => "第一个相册",
+//                "comment_count" => 20,
+//                "love_count" => 20,
+//                "img_detail" =>[
+//                    [
+//                        "img_src" => 'public/images/test_3.png',
+//                        "img_id" => "123545854+6",
+//                        "img_desc" => "第一相册第一图片"
+//                    ],
+//                    [
+//                        "img_src" => 'public/images/test_2.png',
+//                        "img_id" => "123545854+6",
+//                        "img_desc" => "第一相册第一图片"
+//                    ]
+//                ]
+//            ],
+//            [
+//                "img_type" => "single",
+//                "img_src" => 'public/images/test_1.png',
+//                "img_id" => "201320142050",
+//                "img_name" => "第四张图片",
+//                "comment_count" => 20,
+//                "love_count" => 20
+//            ],
+//            [
+//                "img_type" => "single",
+//                "img_src" => 'public/images/test_2.png',
+//                "img_id" => "201320142050",
+//                "img_name" => "第四张图片",
+//                "comment_count" => 20,
+//                "love_count" => 20
+//            ]
+//        ]
+//    ];
+//
+//    return Response::json($data);
+//});
 
 /**
  * 前台功能性路由
  */
 
-Route::get('test', 'LiteraturemanageController@index');//test
+Route::get('test', function () {});//test
 Route::get('upload', function(){
     return route('recommend');
 });
@@ -240,6 +133,8 @@ Route::group(array('prefix' => 'home'), function()
     Route::get('recommend', array('as' => 'home/recommend','uses' => 'LiteratureController@test'));//ajax获取排序读书影逝及分页
     Route::get('recommend/comment', array('as' => 'home/recommend/comment','uses' => 'LiteratureController@test'));//ajax获取读书影逝评论
 
+    Route::post('register', array('as' => 'home/register','uses' => 'LoginController@register'));
+    Route::post('login', array('as' => 'home/login','uses' => 'LoginController@login'));
 
 });
 
@@ -269,7 +164,7 @@ Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/)
 /**
  * 后台路由
  */
-Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), function()
 {
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
 
@@ -278,8 +173,11 @@ Route::group(array('prefix' => 'admin',/* 'before' => 'auth'*/), function()
     Route::post('literature/manage', array('as' => 'admin/literature/manage','uses' => 'LiteraturemanageController@manage'));//文学模块
 
     Route::get('photos', array('as' => 'admin/photos','uses' => 'PhotosmanageController@index'));//爱拍模块
+    Route::post('photos/albummanage', array('as' => 'admin/photos/albummanage','uses' => 'PhotosmanageController@albummanage'));//爱拍模块
+    Route::post('photos/photomanage', array('as' => 'admin/photos/photomanage','uses' => 'PhotosmanageController@photomanage'));//爱拍模块
 
     Route::get('micromovie', array('as' => 'admin/micromovie','uses' => 'MicromoviemanageController@index'));//微视模块
+    Route::post('micromovie/manage', array('as' => 'admin/micromovie/manage','uses' => 'MicromoviemanageController@manage'));//微视模块
 
     Route::get('recommend', array('as' => 'admin/recommend','uses' => 'RecommendmanageController@index'));//读书影逝模块
     Route::post('recommend/manage', array('as' => 'admin/recommend/manage','uses' => 'RecommendmanageController@manage'));//读书影逝模块

@@ -4,26 +4,27 @@
         <div class="u-movie_item f-cb">
             <img src="" alt="" class="u-m_show_img"/>
             <aside class="u-m_info">
-                <div class="u-m_info_h f-cb">
-                    <h5>{{$micromovie['title']}}</h5>
-                    <ul class="u-movie_stars">
-
-                    @if( ($micromovie['star'] / 0.5) % 2 == 0 )
-                        @for($j = 0; $j < ($micromovie['star'] / 0.5) / 2; $j++)
-                            <li class="s-star_all"></li>
-                        @endfor
-                    @else
-                        @for($j = 0; $j < ( ( ($micromovie['star']) - 0.5 )  / 0.5) / 2; $j++)
-                            <li class="s-star_all"></li>
-                        @endfor
-                        <li class="s-star_half"></li>
-                    @endif
-                    </ul>
-                </div>
-                <div class="u-m_info_b">
-                    <span>影片作者:{{$micromovie['author']}}</span>
-                    <span>{{$micromovie['created_at']}}</span>
-                </div>
+                <a href="{{route('microm_sub')}}?type_id={{$micromovie['type_id']}}&passage_id={{$micromovie['id']}}">
+                    <div class="u-m_info_h f-cb">
+                        <h5>{{$micromovie['title']}}</h5>
+                        <ul class="u-movie_stars">
+                        @if( ($micromovie['star'] / 0.5) % 2 == 0 )
+                            @for($j = 0; $j < ($micromovie['star'] / 0.5) / 2; $j++)
+                                <li class="s-star_all"></li>
+                            @endfor
+                        @else
+                            @for($j = 0; $j < ( ( ($micromovie['star']) - 0.5 )  / 0.5) / 2; $j++)
+                                <li class="s-star_all"></li>
+                            @endfor
+                            <li class="s-star_half"></li>
+                        @endif
+                        </ul>
+                    </div>
+                    <div class="u-m_info_b">
+                        <span>影片作者:{{$micromovie['author']}}</span>
+                        <span>{{$micromovie['created_at']}}</span>
+                    </div>
+                </a>
                 <p class="u-m_intro">
                     {{str_limit($micromovie['introduce'], '250', '......')}}
                 </p>

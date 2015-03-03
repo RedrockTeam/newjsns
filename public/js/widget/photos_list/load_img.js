@@ -2,64 +2,43 @@
  * Created by redrock on 2015/2/15.
  */
 //爱拍列表
-define([ "jquery", "underscore" ], function($, _) {
+define([ "jquery", "underscore", "port" ], function($, _, port) {
     $(function() {
-        function judge() {
-            var $window = $(window), $document = $(document), winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
-            closeToBottom = $window.scrollTop() + winHeight > $document.height() - 100, maxH = filterMaxHeight($imgWrappers).height(), maxLimited = maxH - ($window.scrollTop() + winHeight) > 200;
-            (closeToBottom || maxLimited) && (getImgs(getMin()), $loadGif.css("display", "block"));
+        //$(window).on('scroll', judge);
+        /*--------------internal function----------*/
+        function init() {
+            //init
+            $(window).scrollTop() > 0 && $("html,body").animate({
+                scrollTop: 0
+            }), getImg();
         }
-        //筛选最高的一个
-        //return $dom
-        function filterMaxHeight($dom) {
-            var $return = $dom.eq(0);
-            return $dom.each(function(i, ele) {
-                $return.height() < $(ele).height() && ($return = $(ele));
-            }), $return;
-        }
-        //计算高度最低的ul
-        function getMin() {
-            var $minUl = $imgWrappers.eq(0);
-            return $imgWrappers.each(function(i, ele) {
-                $minUl.height() > $(ele).height() && ($minUl = $(ele));
-            }), $minUl;
-        }
-        //获取图片
-        function getImgs($wrapper) {
-            //ajax请求
+        function getImg() {
+            function dealRequest(res) {
+                //成功后的处理
+                res.success ? /*var html = _.template($temp.html())({data: res.data[0]});
+                    $loadGif.before(html);*/
+                render(res.data) : res.errMsg && alert(res.errMsg);
+            }
+            //获取图片
             $.ajax({
-                url: "/get_photos",
+                url: port.get_img,
                 method: "GET",
-                success: function(res) {
-                    res.success && !res.isDrain && dealData(res.data, $wrapper);
-                }
+                success: dealRequest
             });
         }
-        //处理到来的数据
-        function dealData(data, $wrapper) {
-            var render = _.template($temp.html())({
-                data: data
-            });
-            $wrapper.append(render), $wrapper.find("img").on("load", function() {
-                resetImgHeight($(this));
-            });
-        }
-        //处理图片大小
-        function resetImgHeight($img) {
-            $img.css({
-                width: "206px",
-                height: 206 * ($img.height() / $img.width()) + "px"
+        function render() {
+            function parseData() {
+            }
+            var action, li, img = new Image();
+            $loadGif.before($([ action = $('<div class="u-user_action f-cb"/>').append($([ $('<div class="u-show_comments"/>')[0], $('<div class="u-show_love"/>')[0] ]))[0], li = $('<li class="u-ph_item f-cb"/>')[0] ])), 
+            $(action).append($([])), img.onload = parseData, $(img).attr({
+                src: ""
             });
         }
-        var $imgWrappers = ($(".js-outer_photo"), $(".js-outer_photo .g-ph_item")), $loadGif = $(".js-load_gif"), $temp = $("#js-photo_temp");
-        $imgWrappers.find("img").on("load", function() {
-            resetImgHeight($(this));
-        }), $imgWrappers.find("img").each(function(i, ele) {
-            resetImgHeight($(ele));
-        }), //检测是否没在顶部
-        $(window).scrollTop() > 0 && $("html,body").animate({
-            scrollTop: 0
-        }), //页面滚动事件处理
-        $(document).on("scroll", judge);
+        {
+            var $loadGif = ($(".js-outer_photo"), $(".js-load_gif"));
+            $("#js-photo_temp"), new Image();
+        }
+        init();
     });
 });
