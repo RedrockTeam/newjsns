@@ -81,7 +81,7 @@ Route::group(array('prefix' => 'home'), function()
 
 
 //需权限 TODO:array('before' => 'auth')=>false;
-Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
+Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
