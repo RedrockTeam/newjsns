@@ -96,7 +96,6 @@ Route::filter('verify_permission', function() {
         }
     }
     else{
-        return Auth::viaRemember();
         if(!verify_permission()){
             return Response::make('403', 403);
         }
