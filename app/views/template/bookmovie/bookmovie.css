@@ -22,6 +22,8 @@
 }
 .m-menu li{
     display: inline-block;
+    height: 28px;
+    overflow: hidden;
 }
 .m-menu a {
     display: block;
