@@ -25,16 +25,7 @@
     @endforeach
 
     {{--切换页面--}}
-    <ul class="u-page_tabs f-cb">
-        {{--@if($page_info['show_pages_length'] > 4)--}}
-            {{--@for($i = $page_info['page_start']; $i < $page_info['page_start'] + 4; $i++)--}}
-                {{--<li @if($page_info['active_page'] == $i) class="s-active"   @endif><a href="">{{$i}}</a></li>--}}
-            {{--@endfor--}}
-            {{--<li class="s-omit"><a href="">......</a></li>--}}
-            {{--<li @if($page_info['active_page'] == $page_info['show_pages_length'] + $page_info['page_start']) class="s-active"   @endif><a href="">{{$page_info['show_pages_length'] + $page_info['page_start']}}</a></li>--}}
-        {{--@endif--}}
-        <li>{{$data['passagelist']->links()}}</li>
-    </ul>
+    {{$data['passagelist']->links()}}
 
 </div>
 
