@@ -4,6 +4,8 @@
     font-size: 12px;
     background: #333333;
     padding: 56px 0 45px;
+    position: fixed;
+    bottom: 0;
 }
 
 .g-footer .g-footer_wrapper {
