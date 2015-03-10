@@ -136,6 +136,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), f
     Route::post('user/delroute', array('as' => 'admin/user/delroute','uses' => 'UsermanageController@delroute'));//用户模块
     Route::post('user/addroute', array('as' => 'admin/user/addroute','uses' => 'UsermanageController@addroute'));//用户模块
     Route::post('user/manage', array('as' => 'admin/user/manage','uses' => 'UsermanageController@manage'));//用户模块
+    Route::post('user/search', array('as' => 'admin/user/search','uses' => 'UsermanageController@search'));//用户模块
 
     Route::get('system', array('as' => 'admin/system','uses' => 'SystemmanageController@index'));//系统模块
     Route::post('system/addnav', array('as' => 'admin/system/addnav','uses' => 'SystemmanageController@addnav'));//系统模块添加导航
