@@ -5,36 +5,22 @@ class SshController extends BaseController {
     //自主命令
     public function getCommand(){
         $input = Input::all();
-        $command = explode($input, ';');
-        SSH::run($command, function($line) {
-            return $line.PHP_EOL;
-        });
+        $command = explode(';', $input['input']);   
+        SSH::run($command);
+    return Redirect::back();
     }
 
     //pull当前项目
     public function gitPull(){
-        $this->pullcommand = array(
-            'cd /var/www',
-            'git pull jsns dev',
+      $this->pullcommand = array(
+            'cd /var/www/jsns',
+            'git pull newjsns dev',
         );
-        if(SSH::run($this->pullcommand)){
-            $data = array(
-                'status' => '200',
-                'info' => 'ok',
-            );
-            return $data;
-        }
-        else{
-            $data = array(
-                'status' => '500',
-                'info' => 'GG',
-            );
-            return $data;
-        }
-
+        SSH::run($this->pullcommand);
+    return Redirect::back();
+       
+    
     }
-
-    //
 
 
 }
