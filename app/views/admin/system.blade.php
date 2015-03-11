@@ -5,7 +5,7 @@
     <ul class="nav nav-sidebar text-center nav-pills nav-stacked">
         <li id="nav" class="active"><a href="#">导航管理</a></li>
         <li id="route" ><a href="#">路由管理</a></li>
-        <li id="ssh"><a href="#">S SH(test)</a></li>
+        <li id="ssh"><a href="#">S SH</a></li>
     </ul>
 @stop
 
