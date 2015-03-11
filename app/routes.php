@@ -143,8 +143,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), f
     Route::post('system/addroute', array('as' => 'admin/system/addroute','uses' => 'SystemmanageController@addroute'));//系统模块添加路由
     Route::post('system/delroute', array('as' => 'admin/system/delroute','uses' => 'SystemmanageController@delroute'));//系统模块删除路由
     Route::post('system/editroute', array('as' => 'admin/system/editroute','uses' => 'SystemmanageController@editroute'));//系统模块修改路由
-    Route::post('system/getCommand', array('as' => 'admin/system/getCommand','uses' => 'SystemmanageController@getCommand'));//系统模块修改路由
-    Route::post('system/gitPull', array('as' => 'admin/system/gitPull','uses' => 'SystemmanageController@gitPull'));//系统模块修改路由
+    Route::post('system/getCommand', array('as' => 'admin/system/getCommand','uses' => 'SshController@getCommand'));//系统模块修改路由
+    Route::post('system/gitPull', array('as' => 'admin/system/gitPull','uses' => 'SshController@gitPull'));//系统模块修改路由
 
 
 });
