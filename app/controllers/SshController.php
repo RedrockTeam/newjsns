@@ -15,7 +15,7 @@ class SshController extends BaseController {
     public function gitPull(){
         $this->pullcommand = array(
             'cd /var/www',
-            'git pull jsns master',
+            'git pull jsns dev',
         );
         if(SSH::run($this->pullcommand)){
             $data = array(
