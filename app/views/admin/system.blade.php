@@ -151,7 +151,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>自主命令</h4>
-                <form class="form-horizontal" action="{{route('admin/system/getCommand')}}" method="post">
+                <form class="form-horizontal" action="{{route('admin/ssh/getCommand')}}" method="post">
                    <div class="col-md-6"><input type="text" class="form-control" name="input"></div>
                     <input type="submit" class="btn btn-warning"/>
                 </form>
@@ -161,7 +161,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>pull</h4>
-                <form class="form-horizontal" action="{{route('admin/system/gitPull')}}" method="post">
+                <form class="form-horizontal" action="{{route('admin/ssh/gitPull')}}" method="post">
                     <input type="submit" class="btn btn-warning"/>
                 </form>
             </div>
