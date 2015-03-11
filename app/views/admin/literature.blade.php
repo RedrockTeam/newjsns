@@ -3,11 +3,9 @@
 
 {{--二级导航--}}
 @section('s_nav')
-
     <ul class="nav nav-sidebar text-center nav-pills nav-stacked">
         <li class="active"><a href="">文章管理</a></li>
     </ul>
-
 @stop
 
 

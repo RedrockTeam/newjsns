@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>文学</title>
+<title>爱拍</title>
 <!--[if lt IE 9]>
 @yield("html5js")
 <![endif]-->

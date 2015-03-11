@@ -89,9 +89,16 @@ Route::filter('csrf', function()
 	}
 });
 
-Route::filter('verify_permission', function()
-{
-	if(!verify_permission()){
-		return Response::make('403', 403);
-	}
+Route::filter('verify_permission', function() {
+    if(Auth::check()){
+        if(!verify_permission()){
+            return Response::make('403', 403);
+        }
+    }
+    else{
+        if(!verify_permission()){
+            return Response::make('403', 403);
+        }
+    }
+
 });

@@ -39,7 +39,7 @@ class LoginController extends BaseController
              $nickname = User::where('uid', '=', $input['username'])->first();
              Session::put('nickname', $nickname['username']);
              Session::put('uid', $nickname['id']);
-             return Redirect::to('/');
+             return Redirect::back();
          }
         else{
             return 'error';

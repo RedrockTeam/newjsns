@@ -46,8 +46,8 @@
                             <li {{Route::currentRouteName()=='admin/system'?'class="active"':'';}}><a href="{{route('admin/system')}}">系统管理</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">用户名</a></li>
-                            <li><a href="#">注销</a></li>
+                            <li><a href="#">{{Session::get('nickname')}}</a></li>
+                            <li><a href="{{route('logout')}}">注销</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->

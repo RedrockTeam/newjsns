@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2015-02-28 01:06:47
+Date: 2015-03-11 17:13:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,15 +31,43 @@ CREATE TABLE `album` (
   `love_num` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of album
 -- ----------------------------
-INSERT INTO `album` VALUES ('1', '1', '12', 'test', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
-INSERT INTO `album` VALUES ('2', '1', '13', 'test1', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
-INSERT INTO `album` VALUES ('3', '1', '13', 'test2', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
-INSERT INTO `album` VALUES ('4', '1', '12', 'test3', '1', '2015-02-17 16:58:26', '2015-02-17 16:58:29', '12', '22', '1');
+INSERT INTO `album` VALUES ('1', '1', '12', 'test', '1', '2015-02-17 16:58:26', '2015-03-01 00:07:16', '12', '22', '1');
+INSERT INTO `album` VALUES ('0', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('7', '1', '12', '4', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '337', '1');
+INSERT INTO `album` VALUES ('6', '1', '12', '3', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '223', '33', '1');
+INSERT INTO `album` VALUES ('2', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('8', '1', '12', '5', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('9', '1', '12', '6', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '332', '1');
+INSERT INTO `album` VALUES ('10', '1', '12', '7', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '222', '33', '1');
+INSERT INTO `album` VALUES ('11', '1', '12', '8', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '332', '1');
+INSERT INTO `album` VALUES ('12', '1', '12', '9', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '223', '33', '1');
+INSERT INTO `album` VALUES ('13', '1', '12', '10', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('14', '1', '12', '11', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '3321', '1');
+INSERT INTO `album` VALUES ('15', '1', '12', '12', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '220', '33', '1');
+INSERT INTO `album` VALUES ('16', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('17', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('18', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('19', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('20', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('21', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('22', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('23', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('24', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('25', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('26', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('27', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('28', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('29', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('30', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('31', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('32', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('33', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
+INSERT INTO `album` VALUES ('34', '1', '12', 'test1', '1', '2015-03-01 01:23:03', '2015-03-01 01:23:06', '22', '33', '1');
 
 -- ----------------------------
 -- Table structure for collection
@@ -85,17 +113,17 @@ CREATE TABLE `comment` (
 INSERT INTO `comment` VALUES ('1', '1', '6', '1', '1', '0', '1', '1', '2015-02-13 18:10:06', '2015-02-13 18:10:09', '0', '1', '1');
 INSERT INTO `comment` VALUES ('2', '1', '6', '2', '1', '0', '1', '1', '2015-02-13 18:10:33', '2015-02-13 18:10:36', '0', '1', '1');
 INSERT INTO `comment` VALUES ('3', '1', '6', '3', '1', '0', '1', '1', '2015-02-13 18:10:49', '2015-02-13 18:10:52', '0', '1', '1');
-INSERT INTO `comment` VALUES ('7', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-22 15:30:42', '1', '1', '1');
+INSERT INTO `comment` VALUES ('7', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-03-11 16:26:09', '1', '1', '1');
 INSERT INTO `comment` VALUES ('4', '1', '6', '4', '1', '2', '1', '1', '2015-02-13 19:22:07', '2015-02-13 19:22:09', '1', '1', '1');
-INSERT INTO `comment` VALUES ('5', '1', '6', '7', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-02-22 15:30:42', '1', '1', '1');
-INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-02-28 00:19:54', '2', '1', '1');
+INSERT INTO `comment` VALUES ('5', '1', '6', '7', '2', '1', '1', '1', '2015-02-13 19:22:35', '2015-03-11 16:26:09', '1', '1', '1');
+INSERT INTO `comment` VALUES ('6', '1', '6', '6', '1', '1', '1', '1', '2015-02-13 19:22:07', '2015-03-11 16:26:09', '2', '1', '1');
 INSERT INTO `comment` VALUES ('8', '1', '9', 'ewfefw1', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('9', '1', '9', 'ewfefw2', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('10', '1', '9', 'ewfefw3', '1', '0', '1', '1', '2015-02-20 19:15:51', '2015-02-20 19:15:53', '0', '2', '1');
 INSERT INTO `comment` VALUES ('11', '1', '14', 'gse', '1', '0', '1', '1', '2015-02-21 15:12:48', '2015-02-21 15:12:52', '0', '1', '1');
-INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-02-22 15:30:42', '11', '12', '1');
+INSERT INTO `comment` VALUES ('12', '1', '14', 'fff', '1', '1', '1', '1', '2015-02-21 15:13:10', '2015-03-11 16:26:09', '11', '12', '1');
 INSERT INTO `comment` VALUES ('13', '1', '6', 'asdfgvawegvaer', '1', '0', '1', null, '2015-02-21 19:59:48', '2015-02-22 15:07:46', null, null, '1');
-INSERT INTO `comment` VALUES ('14', '1', '6', 'asdfgvawegvaer', '1', '1', '1', '0', '2015-02-21 20:01:41', '2015-02-28 00:19:49', '0', '0', '1');
+INSERT INTO `comment` VALUES ('14', '1', '6', 'asdfgvawegvaer', '1', '1', '1', '0', '2015-02-21 20:01:41', '2015-03-11 16:26:09', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for group
@@ -106,13 +134,13 @@ CREATE TABLE `group` (
   `uid` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of group
 -- ----------------------------
 INSERT INTO `group` VALUES ('1', '1', '1');
-INSERT INTO `group` VALUES ('2', '2', '2');
+INSERT INTO `group` VALUES ('5', '2', '1');
 INSERT INTO `group` VALUES ('4', '3', '3');
 
 -- ----------------------------
@@ -140,10 +168,10 @@ CREATE TABLE `literature` (
 INSERT INTO `literature` VALUES ('1', '6', 'title1', 'public/uploads/1.png', 'sdhgfdhbfd', '1', '2015-02-15 15:06:41', '2015-02-26 00:08:08', '15', '14', '1');
 INSERT INTO `literature` VALUES ('2', '7', 'title2', 'public/uploads/2.png', '324', '2', '2015-02-17 21:50:32', '2015-02-25 23:33:15', '15', '13', '1');
 INSERT INTO `literature` VALUES ('3', '6', 'title3', 'public/uploads/1.png', 'sdfsd', '1', '2015-02-17 21:50:36', '2015-02-15 15:06:44', '1', '13', '1');
-INSERT INTO `literature` VALUES ('4', '8', 'title4', 'public/uploads/2.png', '234', '2', '2015-02-17 21:50:44', '2015-02-15 15:06:44', '14', '17', '1');
+INSERT INTO `literature` VALUES ('4', '8', 'title4', 'public/uploads/2.png', '234', '2', '2015-02-17 21:50:44', '2015-03-10 18:47:37', '14', '17', '1');
 INSERT INTO `literature` VALUES ('5', '6', 'title5', 'public/uploads/1.png', '4576', '1', '2015-02-17 21:50:47', '2015-02-15 15:06:44', '14', '133', '1');
 INSERT INTO `literature` VALUES ('6', '7', 'title6', 'public/uploads/2.png', '介绍\r\n\r\nLaravel 的 Eloquent ORM 提供了漂亮、简洁的 ActiveRecord 实现来和数据库的互动。 每个数据库表会和一个对应的「模型」互动。\r\n\r\n在开始之前，记得把 app/config/database.php 里的数据库连接配置好。\r\n\r\n\r\n基本用法\r\n\r\n我们先从建立一个 Eloquent 模型开始。模型通常放在 app/models 目录下，但是您可以将它们放在任何地方，只要能通过 composer.json 被自动载入。\r\n\r\n定义一个 Eloquent 模型\r\n\r\nclass User extends Eloquent {}\r\n注意我们并没有告诉 Eloquent User 模型会使用哪个数据库表。若没有特别指定，系统会默认自动对应名称为「类名称的小写复数形态」的数据库表。所以，在上面的例子中， Eloquent 会假设 User 将把数据存在 users 数据库表。可以在类里定义 table 属性自定义要对应的数据库表。\r\n\r\nclass User extends Eloquent {\r\n\r\n    protected $table = \'my_users\';\r\n\r\n}\r\n注意： Eloquent 也会假设每个数据库表都有一个字段名称为 id 的主键。您可以在类里定义 primaryKey 属性来重写。同样的，您也可以定义 connection 属性，指定模型连接到专属的数据库连接。\r\n定义好模型之后，您就可以从数据库表新增及获取数据了。注意在默认情况下，在数据库表里需要有 updated_at 和 created_at 两个字段。如果您不想设定或自动更新这两个字段，则将类里的 $timestamps 属性设为 false即可。\r\n\r\n取出所有模型数据\r\n\r\n$users = User::all();\r\n根据主键取出一条数据\r\n\r\n$user = User::find(1);\r\n\r\nvar_dump($user->name);', '2', '2015-02-17 21:50:50', '2015-02-26 00:08:32', '14', '16', '1');
-INSERT INTO `literature` VALUES ('7', '6', 'title7', 'public/uploads/1.png', '介绍\r\n\r\n数据库查询构造器 (query builder) 提供方便流畅的接口来建立、执行数据库查询语法。在您的应用程序里面，它可以被使用在大部分的数据 库操作，而且它在所有支持的数据库系统上都可以执行。\r\n\r\n注意: Laravel 查询构造器使用 PDO 参数绑定，以保护应用程序免于SQL注入攻击 (SQL injection)，因此传入的参数不需过滤额外的特殊字符串。\r\n\r\nSelects\r\n\r\n从数据库表中取得所有的数据列\r\n\r\n$users = DB::table(\'users\')->get();\r\n\r\nforeach ($users as $user)\r\n{\r\n    var_dump($user->name);\r\n}\r\n从数据库表中取得单一数据列\r\n\r\n$user = DB::table(\'users\')->where(\'name\', \'John\')->first();\r\n\r\nvar_dump($user->name);\r\n从数据库表中取得单一数据列的单一字段\r\n\r\n$name = DB::table(\'users\')->where(\'name\', \'John\')->pluck(\'name\');\r\n取得单一字段值的列表\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\');\r\n这个方法将会回传含有数据库表 role 的 title 字段值的数组。您也可以通过下面的方法，为回传的数组指定自定义键值。\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\', \'name\');', '1', '2015-02-17 21:50:56', '2015-02-28 00:01:36', '16', '16', '1');
+INSERT INTO `literature` VALUES ('7', '6', 'title7', 'public/uploads/1.png', '介绍\r\n\r\n数据库查询构造器 (query builder) 提供方便流畅的接口来建立、执行数据库查询语法。在您的应用程序里面，它可以被使用在大部分的数据 库操作，而且它在所有支持的数据库系统上都可以执行。\r\n\r\n注意: Laravel 查询构造器使用 PDO 参数绑定，以保护应用程序免于SQL注入攻击 (SQL injection)，因此传入的参数不需过滤额外的特殊字符串。\r\n\r\nSelects\r\n\r\n从数据库表中取得所有的数据列\r\n\r\n$users = DB::table(\'users\')->get();\r\n\r\nforeach ($users as $user)\r\n{\r\n    var_dump($user->name);\r\n}\r\n从数据库表中取得单一数据列\r\n\r\n$user = DB::table(\'users\')->where(\'name\', \'John\')->first();\r\n\r\nvar_dump($user->name);\r\n从数据库表中取得单一数据列的单一字段\r\n\r\n$name = DB::table(\'users\')->where(\'name\', \'John\')->pluck(\'name\');\r\n取得单一字段值的列表\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\');\r\n这个方法将会回传含有数据库表 role 的 title 字段值的数组。您也可以通过下面的方法，为回传的数组指定自定义键值。\r\n\r\n$roles = DB::table(\'roles\')->lists(\'title\', \'name\');', '1', '2015-02-17 21:50:56', '2015-03-10 18:47:30', '16', '16', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -185,12 +213,12 @@ CREATE TABLE `micromovie` (
 -- ----------------------------
 -- Records of micromovie
 -- ----------------------------
-INSERT INTO `micromovie` VALUES ('1', '14', 'test1', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer1', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
+INSERT INTO `micromovie` VALUES ('1', '14', 'test1', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer1', '1', 'http://static.hdslb.com/miniloader.swf?aid=2051499', 'hhhhh66666', '2015-02-15 19:36:17', '2015-02-15 19:36:20', '1', '21', '12', '1');
 INSERT INTO `micromovie` VALUES ('2', '15', 'test2', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer2', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:42:39', '2015-02-15 19:36:20', '3', '13', '12', '1');
 INSERT INTO `micromovie` VALUES ('3', '14', 'test3', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer3', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:42:44', '2015-02-15 19:36:20', '4', '14', '13', '1');
 INSERT INTO `micromovie` VALUES ('4', '15', 'test4', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer4', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh666666', '2015-02-15 19:42:54', '2015-02-15 19:36:20', '5', '12', '16', '1');
 INSERT INTO `micromovie` VALUES ('5', '14', 'test5', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer5', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh66666', '2015-02-15 19:42:59', '2015-02-15 19:36:20', '3', '14', '14', '1');
-INSERT INTO `micromovie` VALUES ('6', '15', 'test6', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer6', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-15 19:36:20', '2', '16', '15', '1');
+INSERT INTO `micromovie` VALUES ('6', '15', 'test6', 'http://i1.hdslb.com/320_180/video/2f/2f32eef5d8a6ecaa97c7d2f8a69b7b4c.jpg', 'qwer6', '1', 'http://static.hdslb.com/miniloader.swf?aid=2021519', 'hhhhh6666', '2015-02-15 19:43:03', '2015-02-28 23:49:31', '2', '16', '15', '1');
 
 -- ----------------------------
 -- Table structure for mywork
@@ -314,7 +342,7 @@ CREATE TABLE `permission` (
   `type_id` int(11) DEFAULT NULL,
   `path_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of permission
@@ -336,8 +364,45 @@ INSERT INTO `permission` VALUES ('14', '1', '14');
 INSERT INTO `permission` VALUES ('15', '1', '15');
 INSERT INTO `permission` VALUES ('16', '1', '16');
 INSERT INTO `permission` VALUES ('18', '2', '1');
-INSERT INTO `permission` VALUES ('23', '3', '1');
+INSERT INTO `permission` VALUES ('23', '2', '2');
 INSERT INTO `permission` VALUES ('24', '3', '5');
+INSERT INTO `permission` VALUES ('25', '1', '24');
+INSERT INTO `permission` VALUES ('26', '1', '25');
+INSERT INTO `permission` VALUES ('27', '1', '26');
+INSERT INTO `permission` VALUES ('28', '1', '27');
+INSERT INTO `permission` VALUES ('29', '1', '28');
+INSERT INTO `permission` VALUES ('30', '1', '29');
+INSERT INTO `permission` VALUES ('31', '1', '30');
+INSERT INTO `permission` VALUES ('32', '1', '31');
+INSERT INTO `permission` VALUES ('33', '1', '32');
+INSERT INTO `permission` VALUES ('34', '1', '33');
+INSERT INTO `permission` VALUES ('35', '1', '34');
+INSERT INTO `permission` VALUES ('36', '1', '35');
+INSERT INTO `permission` VALUES ('37', '1', '36');
+INSERT INTO `permission` VALUES ('38', '1', '37');
+INSERT INTO `permission` VALUES ('39', '2', '51');
+INSERT INTO `permission` VALUES ('40', '1', '38');
+INSERT INTO `permission` VALUES ('41', '1', '39');
+INSERT INTO `permission` VALUES ('42', '1', '40');
+INSERT INTO `permission` VALUES ('43', '1', '41');
+INSERT INTO `permission` VALUES ('44', '1', '43');
+INSERT INTO `permission` VALUES ('45', '1', '42');
+INSERT INTO `permission` VALUES ('46', '1', '44');
+INSERT INTO `permission` VALUES ('47', '1', '45');
+INSERT INTO `permission` VALUES ('48', '1', '46');
+INSERT INTO `permission` VALUES ('49', '1', '47');
+INSERT INTO `permission` VALUES ('50', '1', '48');
+INSERT INTO `permission` VALUES ('51', '1', '49');
+INSERT INTO `permission` VALUES ('52', '1', '50');
+INSERT INTO `permission` VALUES ('53', '1', '51');
+INSERT INTO `permission` VALUES ('54', '1', '52');
+INSERT INTO `permission` VALUES ('55', '1', '53');
+INSERT INTO `permission` VALUES ('56', '1', '54');
+INSERT INTO `permission` VALUES ('57', '1', '55');
+INSERT INTO `permission` VALUES ('58', '1', '56');
+INSERT INTO `permission` VALUES ('59', '1', '57');
+INSERT INTO `permission` VALUES ('60', '1', '58');
+INSERT INTO `permission` VALUES ('61', '1', '59');
 
 -- ----------------------------
 -- Table structure for photos
@@ -351,17 +416,31 @@ CREATE TABLE `photos` (
   `introduce` text COLLATE utf8_unicode_ci,
   `album_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `update_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `comment_num` int(11) DEFAULT NULL,
   `love_num` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of photos
 -- ----------------------------
-INSERT INTO `photos` VALUES ('1', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-02-20 20:21:56', '1', '1', '1');
+INSERT INTO `photos` VALUES ('1', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('2', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('3', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('4', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('5', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('6', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('7', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('8', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('9', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('10', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('11', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('12', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('13', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('14', 'hh', 'public/uploads/1.png', 'public/uploads/1.png', '123', '1', '2015-02-20 20:21:54', '2015-03-01 00:07:16', '1', '1', '1');
+INSERT INTO `photos` VALUES ('0', null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for recommend
@@ -423,7 +502,7 @@ CREATE TABLE `routelist` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of routelist
@@ -444,8 +523,45 @@ INSERT INTO `routelist` VALUES ('13', '获取原味评论', 'home/original/comme
 INSERT INTO `routelist` VALUES ('14', '获取排序读书影逝及分页', 'home/recommend');
 INSERT INTO `routelist` VALUES ('15', '获取读书影逝评论', 'home/recommend/comment');
 INSERT INTO `routelist` VALUES ('16', 'test1我去', 'home/test1');
+INSERT INTO `routelist` VALUES ('23', '后台 首页', 'admin/index');
 INSERT INTO `routelist` VALUES ('22', 'test', null);
 INSERT INTO `routelist` VALUES ('21', 'test', null);
+INSERT INTO `routelist` VALUES ('24', '文学模块管理首页', 'admin/literature');
+INSERT INTO `routelist` VALUES ('25', '文学模块管理搜索', 'admin/literature/search');
+INSERT INTO `routelist` VALUES ('26', '文学模块管理', 'admin/literature/manage');
+INSERT INTO `routelist` VALUES ('27', '系统首页', 'admin/system');
+INSERT INTO `routelist` VALUES ('28', '添加导航', 'admin/system/addnav');
+INSERT INTO `routelist` VALUES ('29', '添加路由', 'admin/system/addroute');
+INSERT INTO `routelist` VALUES ('30', '删除路由', 'admin/system/delroute');
+INSERT INTO `routelist` VALUES ('31', '编辑路由', 'admin/system/editroute');
+INSERT INTO `routelist` VALUES ('32', '用户管理首页', 'admin/user');
+INSERT INTO `routelist` VALUES ('33', '添加用户组', 'admin/user/addgroup');
+INSERT INTO `routelist` VALUES ('34', '删除用户组', 'admin/user/delgroup');
+INSERT INTO `routelist` VALUES ('35', '编辑用户组', 'admin/user/editgroup');
+INSERT INTO `routelist` VALUES ('36', '删除用户组授权路由', 'admin/user/delroute');
+INSERT INTO `routelist` VALUES ('37', '添加用户组授权路由', 'admin/user/addroute');
+INSERT INTO `routelist` VALUES ('38', '用户状态管理', 'admin/user/manage');
+INSERT INTO `routelist` VALUES ('39', '评论管理首页', 'admin/comment');
+INSERT INTO `routelist` VALUES ('40', '评论管理', 'admin/comment/manage');
+INSERT INTO `routelist` VALUES ('41', '读书影逝管理首页', 'admin/recommend');
+INSERT INTO `routelist` VALUES ('42', '读书影逝管理', 'admin/recommend/manage');
+INSERT INTO `routelist` VALUES ('43', '读书影逝发布', 'admin/recommend/add');
+INSERT INTO `routelist` VALUES ('44', '微视管理首页', 'admin/micromovie');
+INSERT INTO `routelist` VALUES ('45', '爱拍管理首页', 'admin/photos');
+INSERT INTO `routelist` VALUES ('46', ' 相册管理', 'admin/photos/albummanage');
+INSERT INTO `routelist` VALUES ('47', '相片管理', 'admin/photos/photomanage');
+INSERT INTO `routelist` VALUES ('48', '文学管理首页', 'admin/literature');
+INSERT INTO `routelist` VALUES ('49', '文学管理搜索', 'admin/literature/search');
+INSERT INTO `routelist` VALUES ('50', '文学管理管理', 'admin/literature/manage');
+INSERT INTO `routelist` VALUES ('51', '仪表盘', 'admin/index');
+INSERT INTO `routelist` VALUES ('52', '微视管理', 'admin/micromovie/manage');
+INSERT INTO `routelist` VALUES ('53', '发表爱拍评论', 'home/comment/photos');
+INSERT INTO `routelist` VALUES ('54', ' 微视发表评论', 'home/comment/micromovie');
+INSERT INTO `routelist` VALUES ('55', '原味发表评论', 'home/comment/original');
+INSERT INTO `routelist` VALUES ('56', '读书影逝发表评论', 'home/comment/recommend');
+INSERT INTO `routelist` VALUES ('57', '文学发布文章', 'home/literature/createpassage');
+INSERT INTO `routelist` VALUES ('58', '文学发表评论', 'home/comment/literatrue');
+INSERT INTO `routelist` VALUES ('59', '用户搜索', 'admin/user/search');
 
 -- ----------------------------
 -- Table structure for tags
@@ -489,15 +605,15 @@ CREATE TABLE `users` (
   `updated_at` datetime DEFAULT NULL,
   `remember_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '1', 'admin', '1', 'erg', '234', null, null, null, '1');
-INSERT INTO `users` VALUES ('2', '2', 'test', null, null, null, null, null, null, '1');
-INSERT INTO `users` VALUES ('3', '3', 'test1', '', '', '', '0000-00-00 00:00:00', '2015-02-28 00:11:01', '', '1');
+INSERT INTO `users` VALUES ('1', '1634300', 'Lich', '1', 'erg', '234', null, '2015-03-11 16:02:41', 'dPGF0Qumu01BJVUseyfDo5Yu5zHY50lR8e2tTMHZBQylp5UGdTNNj2kDJHCy', '1', '$2y$10$/ec1TG8xk/yluvZIyArHJuwflso.71z4bhXu00nJuAD5OtExYLAb6');
+INSERT INTO `users` VALUES ('2', '1634301', 'Lich2', null, null, null, null, '2015-03-10 21:32:06', 'c429BvCSGYXe0ZuXWxT4UydQduX4JwHN931pk3B3IIRRCGZ4h6Fc6Tr8IFDE', '1', '$2y$10$/ec1TG8xk/yluvZIyArHJuwflso.71z4bhXu00nJuAD5OtExYLAb6');
 
 -- ----------------------------
 -- Table structure for user_type

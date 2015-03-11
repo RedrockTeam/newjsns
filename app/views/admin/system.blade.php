@@ -5,7 +5,7 @@
     <ul class="nav nav-sidebar text-center nav-pills nav-stacked">
         <li id="nav" class="active"><a href="#">导航管理</a></li>
         <li id="route" ><a href="#">路由管理</a></li>
-        <li><a href="#">S SH(test)</a></li>
+        <li id="ssh"><a href="#">S SH</a></li>
     </ul>
 @stop
 
@@ -146,6 +146,27 @@
             </div>
         </div>
     </div>
+
+    <div class="ssh" style="display: none;">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>自主命令</h4>
+                <form class="form-horizontal" action="{{route('admin/ssh/getCommand')}}" method="post">
+                   <div class="col-md-6"><input type="text" class="form-control" name="input"></div>
+                    <input type="submit" class="btn btn-warning"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>pull</h4>
+                <form class="form-horizontal" action="{{route('admin/ssh/gitPull')}}" method="post">
+                    <input type="submit" class="btn btn-warning"/>
+                </form>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('myscript')
@@ -153,14 +174,26 @@
         $('#nav').bind('click', function(){
             $('#route').attr('class', '');
             $('#nav').attr('class', 'active');
+            $('#ssh').attr('class', '');
             $('.route').css('display', 'none');
             $('.navigation').css('display', 'block');
+            $('.ssh').css('display', '');
         });
         $('#route').bind('click', function(){
             $('#nav').attr('class', '');
             $('#route').attr('class', 'active');
+            $('#ssh').attr('class', '');
             $('.navigation').css('display', 'none');
             $('.route').css('display', 'block');
+            $('.ssh').css('display', '');
+        });
+        $('#ssh').bind('click', function(){
+            $('#nav').attr('class', '');
+            $('#route').attr('class', '');
+            $('#ssh').attr('class', 'active');
+            $('.navigation').css('display', 'none');
+            $('.route').css('display', 'none');
+            $('.ssh').css('display', 'block');
         });
 
         $('.btn.btn-xs.btn-warning').on('click', function(){

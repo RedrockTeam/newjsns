@@ -1,5 +1,13 @@
 @extends("layout.personal")
+{{--top_bar--}}
+@section("top_bar")
+    @include("widget.top_bar.top_bar")
+@stop
 
+{{--header--}}
+@section("header")
+    @include("widget.header.header")
+@stop
 {{--footer--}}
 @section("footer")
     @include("widget.footer.footer")

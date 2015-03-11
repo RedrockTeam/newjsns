@@ -45,66 +45,7 @@ Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@
 
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 /*------------------------------ajax 测试---------------------------------*/
-//Route::get('get_photos', function(){
-//    $data = [
-//        "success" => true,
-//        "isDrain" => false,
-//        "data" => [
-//            [   "img_type" => "single",
-//                "img_src" => 'public/images/test_1.png',
-//                "img_id" => "201320142015",
-//                "img_desc" => "第一张图片描述",
-//                "img_name" => "第一张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20,
-//            ],
-//            [   "img_type" => "single",
-//                "img_src" => 'public/images/test_2.png',
-//                "img_id" => "201320142019",
-//                "img_name" => "第二张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20
-//            ],
-//            [   "img_type" => "album",
-//                "img_src" => 'public/images/test_1.png',
-//                "id" => "20142015124",
-//                "img_name" => "第一个相册",
-//                "comment_count" => 20,
-//                "love_count" => 20,
-//                "img_detail" =>[
-//                    [
-//                        "img_src" => 'public/images/test_3.png',
-//                        "img_id" => "123545854+6",
-//                        "img_desc" => "第一相册第一图片"
-//                    ],
-//                    [
-//                        "img_src" => 'public/images/test_2.png',
-//                        "img_id" => "123545854+6",
-//                        "img_desc" => "第一相册第一图片"
-//                    ]
-//                ]
-//            ],
-//            [
-//                "img_type" => "single",
-//                "img_src" => 'public/images/test_1.png',
-//                "img_id" => "201320142050",
-//                "img_name" => "第四张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20
-//            ],
-//            [
-//                "img_type" => "single",
-//                "img_src" => 'public/images/test_2.png',
-//                "img_id" => "201320142050",
-//                "img_name" => "第四张图片",
-//                "comment_count" => 20,
-//                "love_count" => 20
-//            ]
-//        ]
-//    ];
-//
-//    return Response::json($data);
-//});
+
 
 /**
  * 前台功能性路由
@@ -139,8 +80,8 @@ Route::group(array('prefix' => 'home'), function()
 });
 
 
-//需权限 TODO:array('before' => 'auth')=>false;
-Route::group(array('prefix' => 'home', /*'before' => 'auth|verify_permission'*/), function()
+//需权限
+Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
@@ -195,12 +136,18 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), f
     Route::post('user/delroute', array('as' => 'admin/user/delroute','uses' => 'UsermanageController@delroute'));//用户模块
     Route::post('user/addroute', array('as' => 'admin/user/addroute','uses' => 'UsermanageController@addroute'));//用户模块
     Route::post('user/manage', array('as' => 'admin/user/manage','uses' => 'UsermanageController@manage'));//用户模块
+    Route::post('user/search', array('as' => 'admin/user/search','uses' => 'UsermanageController@search'));//用户模块
 
     Route::get('system', array('as' => 'admin/system','uses' => 'SystemmanageController@index'));//系统模块
     Route::post('system/addnav', array('as' => 'admin/system/addnav','uses' => 'SystemmanageController@addnav'));//系统模块添加导航
     Route::post('system/addroute', array('as' => 'admin/system/addroute','uses' => 'SystemmanageController@addroute'));//系统模块添加路由
     Route::post('system/delroute', array('as' => 'admin/system/delroute','uses' => 'SystemmanageController@delroute'));//系统模块删除路由
     Route::post('system/editroute', array('as' => 'admin/system/editroute','uses' => 'SystemmanageController@editroute'));//系统模块修改路由
+
+
+    Route::post('ssh/getCommand', array('as' => 'admin/ssh/getCommand','uses' => 'SshController@getCommand'));//系统模块修改路由
+    Route::post('ssh/gitPull', array('as' => 'admin/ssh/gitPull','uses' => 'SshController@gitPull'));//系统模块修改路由
+
 
 });
 

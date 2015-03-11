@@ -9,6 +9,16 @@
 @yield("css")
 </head>
 <body>
+{{--top_bar--}}
+<section class="g-top_bar">
+    @yield("top_bar")
+</section>
+
+{{--header--}}
+<header class="g-header">
+    @yield("header")
+</header>
+
 {{--container--}}
 <section class="g-container f-cb">
     @yield("container")

@@ -2,7 +2,7 @@
     <a href="" class="u-change_info">修改信息</a>
     <div class="m-info_detail">
         <img src="{{$data['user_info']['head']}}" alt="" class="u-user_show_icon"/>
-        <h5>{{$data['user_info']['head']}}</h5>
+        <h5>{{$data['user_info']['username']}}</h5>
         <h6>{{$data['user_info']['introduce']}}</h6>
         <ul class="u-user_extra_info">
 
