@@ -23,8 +23,7 @@ class PersonalController extends BaseController {
             'from' => $from,
             'to' => $to,
         );
-        return View::make('template.personal.personal')->with('data', $data);
-            //需要一个高效的方法来取数据, 文章/图片/视频, 思考.
+        return View::make('template.personal.personal')->with('data', $data);//TODO:需要一个高效的方法来取数据, 文章/图片/视频, 思考.
 	}
 
 
