@@ -44,13 +44,13 @@ class Comment extends Eloquent {
 		return $data;
 	}
 
-    //发表评论 TODO:删死数据
+    //发表评论
     public function addComment($type_id, $work_id, $content=null, $to=0, $father_id=0){
         $data = array(
             'type_id' => $type_id,
             'work_id' => $work_id,
             'content' => $content,
-            'from'    => /*Session::get('uid')*/1,
+            'from'    => Session::get('uid'),
             'to'      => $to,
             'father_id'=>$father_id,
             'read_status'=>0,

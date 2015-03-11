@@ -80,7 +80,7 @@ Route::group(array('prefix' => 'home'), function()
 });
 
 
-//需权限 TODO:array('before' => 'auth')=>false;
+//需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
 

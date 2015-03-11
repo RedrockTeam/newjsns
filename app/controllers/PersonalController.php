@@ -5,7 +5,6 @@ class PersonalController extends BaseController {
     //个人中心首页
 	public function personalIndex(){
         $uid = Session::get('uid');
-        $uid = 1;//TODO:删死数据
         $user_info = User::find($uid);
 
         $works_id = Mywork::where('uid', '=', $uid)->get();
