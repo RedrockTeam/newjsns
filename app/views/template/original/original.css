@@ -18,6 +18,10 @@
     padding-left: 26px;
     background: url("../../../images/litera_t_icons.png") no-repeat left -437px;
 }
+.m-login-register-case{
+    margin-top: 200px !important;
+}
+
 
 /*登陆框遮罩*/
 .g-login_box{

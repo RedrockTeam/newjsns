@@ -12,9 +12,19 @@ require.config({
         jquery: "jquery",
         port: "../template/literatrue/port",
         go_top: "../widget/go_top/go_top",
-        login_box: "../widget/login_box/login_box"
+        login_box: "../widget/login-register-case/login-register-case"
     }
 }), //加载依赖项
 define([ "go_top", "login_box" ], function() {
-    console.log("original init");
+    //关闭登陆框
+    /*----------------------事件处理函数--------------------*/
+    function openBox() {
+        $(".js-login_box").css("display", "block");
+    }
+    function closeBox() {
+        $(".js-login_box").css("display", "none");
+    }
+    /*----------------------打开与关闭登陆框-----------------*/
+    $(".js-open_login_box").on("click", openBox), //打开登陆框
+    $(".js-close_login_box, .js-login_box").on("click", closeBox);
 });

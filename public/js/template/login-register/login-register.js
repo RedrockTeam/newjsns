@@ -11,5 +11,11 @@ require.config({
     }
 }), //加载依赖项
 define([ "login-register-case" ], function() {
-    console.log("login-register init");
+    //打开登陆框
+    /*----------------------事件处理函数--------------------*/
+    function openBox() {
+        $(".js-login_box").css("display", "block");
+    }
+    console.log("login-register init"), /*----------------------打开与关闭登陆框-----------------*/
+    $(".js-open_login_box").on("click", openBox);
 });

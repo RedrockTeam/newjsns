@@ -37,7 +37,7 @@
 
 {{--login_box--}}
 @section("login_box")
-    @include("widget.login_box.login_box")
+    @include("widget.login-register-case.login-register-case")
 @stop
 
 {{--css--}}

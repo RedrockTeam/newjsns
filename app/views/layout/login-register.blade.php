@@ -14,7 +14,7 @@
 </section>
 
 {{--login-register---}}
-<section class="m-login-register-case">
+<section class="g-login-register-case">
     @yield("login-register-case")
 </section>
 </body>

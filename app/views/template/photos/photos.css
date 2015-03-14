@@ -36,6 +36,10 @@
     color: #333333;
 }
 
+.m-login-register-case{
+    margin-top: 200px !important;
+}
+
 /*登陆框遮罩*/
 .g-login_box{
     width: 100%;

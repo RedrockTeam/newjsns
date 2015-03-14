@@ -37,7 +37,7 @@
     width: 330px;
     margin: 20px auto;
 }
-.s-form input[type="text"] {
+.s-form input[type="text"],.s-form input[type="password"] {
     display: block;
     width: 328px;
     border: 1px solid #dddddd;
