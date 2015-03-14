@@ -4,7 +4,7 @@ class SshController extends BaseController {
     private $pullcommand;
     //自主命令
     public function getCommand(){
-        final $info;
+//        final $info;
         $input = Input::all();
         $command = explode(';', $input['input']);   
         SSH::run($command, function($line) {

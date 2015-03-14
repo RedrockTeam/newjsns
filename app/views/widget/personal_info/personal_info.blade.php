@@ -1,5 +1,4 @@
 <div class="m-personal_info">
-<<<<<<< HEAD
     <div class="m-show_info js-show_box">
         <span href="" class="u-change_info_btn js-open_change_info">修改信息</span>
         <div class="m-info_detail">
@@ -33,18 +32,6 @@
             
             <input type="submit" value="保存" class="f-fr"/>
         </form>
-=======
-    <a href="" class="u-change_info">修改信息</a>
-    <div class="m-info_detail">
-        <img src="{{$data['user_info']['head']}}" alt="" class="u-user_show_icon"/>
-        <h5>{{$data['user_info']['username']}}</h5>
-        <h6>{{$data['user_info']['introduce']}}</h6>
-        <ul class="u-user_extra_info">
-
-                <li><span>E-mail:</span><span>{{$data['user_info']['email']}}</span></li>
-
-        </ul>
->>>>>>> c388344f5690886a2019e7c6124fd1b023e203c9
     </div>
 </div>
 @section("css")
