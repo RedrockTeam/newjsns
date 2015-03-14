@@ -3,7 +3,7 @@
         <span href="" class="u-change_info_btn js-open_change_info">修改信息</span>
         <div class="m-info_detail">
             <img src="{{$data['user_info']['head']}}" alt="" class="u-user_show_icon js-header_icon"/>
-            <h5 class="js-user_name">{{$data['user_info']['head']}}</h5>
+            <h5 class="js-user_name">{{$data['user_info']['username']}}</h5>
             <h6 class="js-user_signatrue">{{$data['user_info']['introduce']}}</h6>
             <ul class="u-user_extra_info">
                     <li><span>E-mail:</span><span>{{$data['user_info']['email']}}</span></li>

@@ -12,6 +12,11 @@ class LoginController extends BaseController
     //注册
     public function register(){
         $input = Input::all();
+        $num = User::where('uid', '=', $input['username'])->count();
+        if($num!=0){
+            $error = '你已注册';
+            return Redirect::back()->withErrors($error);
+        }
         $result = $this->get_register($input['username'], $input['password']);
         if ($result == $input['username']) {
             $num = User::where('uid', '=', $input['username'])->count();
@@ -39,7 +44,7 @@ class LoginController extends BaseController
              $nickname = User::where('uid', '=', $input['username'])->first();
              Session::put('nickname', $nickname['username']);
              Session::put('uid', $nickname['id']);
-             return Redirect::back();
+             return Redirect::to('/');
          }
         else{
             return 'error';
