@@ -68,7 +68,20 @@
                         </tbody>
                     </table>
                 </div>
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-form" role="search">
+                        <select class="form-control">
+                            <option value="1">按用户昵称搜索</option>
+                        </select>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="userinfo" placeholder="Search">
+                        </div>
+                        <button type="submit"  class="btn btn-default" id="usersearch">搜索</button>
+                    </div>
+                </div>
+            </div>
     </div>
     {{--用户组管理--}}
     <div class="group" style="display: none">
@@ -217,7 +230,7 @@
             $('.user').css('display', 'none');
         });
 
-        $('.btn.btn-xs.btn-danger').bind('click',function(){
+        $('.user table').on('click', '.btn.btn-xs.btn-danger', function(){
             var button = $(this);
             var id = button.parent().parent().parent().children(":first").html();
             $.ajax({
@@ -242,7 +255,7 @@
             });
         });
 
-        $('.btn.btn-xs.btn-success').bind('click',function(){
+        $('.user table').on('click', '.btn.btn-xs.btn-success', function(){
             var button = $(this);
             var id = button.parent().parent().parent().children(":first").html();
             $.ajax({
@@ -266,5 +279,53 @@
                 }
             });
         });
-    </script>
+        function compare(status){
+            return (status==0)?'冻结':'正常';
+        }
+        $('#usersearch').on('click', function(){
+            var info = $("#userinfo").val();
+            if(info.length==0){
+                alert('搜索内容不能为空!');
+            }
+            $.ajax({
+                url: "{{route('admin/user/search')}}",
+
+                type: 'post',
+
+                data:{"content":info},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data.status == 200){
+                        $(".user tbody").remove();
+                        $('.user thead').after("<tbody></tbody>");
+                        for(var i = 0; i < data.data.length; i++){
+                            $('.user tbody').append(
+                                    "<tr>" +
+                                    "<td>"+data.data[i].id+"</td>" +
+                                    "<td>"+data.data[i].uid+"</td>" +
+                                    "<td>"+data.data[i].username+"</td>" +
+                                    "<td>"+compare(data.data[i].status)+"</td>" +
+                                    "<td>"+data.data[i].get_type[0].name+"</td>" +
+                                    "<td>" +
+                                    "<span>" +
+                                    "<button class='btn btn-xs btn-danger'>冻结</button>" +
+                                    "</span>" +
+                                    "<span>" +
+                                    "<button class='btn btn-xs btn-success'>恢复</button>" +
+                                    "</span>" +
+                                    "</td>" +
+                                    "</tr>")
+                        }
+                    }
+                }
+            });
+        })
+</script>
 @stop
