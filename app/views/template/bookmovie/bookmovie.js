@@ -13,11 +13,14 @@ require.config({
         jquery : 'jquery',
         port : '../template/bookmovie/port',
         bookm_list : '../widget/bookm_list/bookm_list',
-        go_top : '../widget/go_top/go_top',
-        login_box : '../widget/login_box/login_box'
+        go_top : '../widget/go_top/go_top'
     }
 });
 //加载依赖项
-define(['bookm_list', 'go_top', 'login_box'], function(){
-    console.log('boookmovie init');
+define(['jquery','bookm_list', 'go_top'], function($){
+    $(function(){
+        $('.js-open_login_box').on('click', function(){
+            location.href = '/login-register';
+        });
+    });
 });

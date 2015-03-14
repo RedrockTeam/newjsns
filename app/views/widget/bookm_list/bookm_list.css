@@ -1,6 +1,6 @@
 /*created by redrock*/
 .m-bkmv_lists{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .m-bkmv_lists .u-bkmv_item {
     width: 110px;
@@ -13,6 +13,14 @@
 }
 .m-bkmv_lists .u-bkmv_item:hover .u-bkmv_info{
     bottom: 0px;
+}
+.m-bkmv_lists .f-link-wrap{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .m-bkmv_lists .u-bkmv_item img{
     width: 108px;

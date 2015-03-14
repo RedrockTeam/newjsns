@@ -13,9 +13,14 @@ require.config({
         jquery: "jquery",
         port: "../template/personal/port",
         personal_tabs: "../widget/personal_tabs/personal_tabs",
-        go_top: "../widget/go_top/go_top"
+        go_top: "../widget/go_top/go_top",
+        personal_info: "../widget/personal_info/personal_info"
     }
 }), //加载依赖项
-define([ "personal_tabs", "go_top" ], function() {
-    console.log("literatrue init");
+define([ "jquery", "go_top", "personal_info" ], function($) {
+    $(function() {
+        $(".js-open_login_box").on("click", function() {
+            location.href = "/login-register";
+        });
+    });
 });

@@ -59,7 +59,7 @@
     top: 55px;
     text-align: center;
 }
-.m-home_square .u-squares .u-square_item span {
+.m-home_square .u-squares .u-square_item span, .m-home_square .u-squares .u-square_item a {
     display: block;
     line-height: 16px;
     color: #ffffff;

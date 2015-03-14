@@ -57,12 +57,12 @@
             </p>
         </li>
 
-        <li class="u-square_item js-open_login_box">
+        <li class="u-square_item">
             <p class="u-title">
                 @if(Session::get('nickname'))
                     <a href="{{route('index')}}"><span>{{Session::get('nickname')}}</span></a>
                 @else
-                    <span>登陆/注册</span>
+                    <a class="u-link-other" href="/login-register">登陆/注册</a>
                 @endif
             </p>
         </li>
