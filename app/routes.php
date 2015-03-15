@@ -134,7 +134,7 @@ Route::group(array('prefix' => 'home'), function()
 });
 
 
-//需权限 TODO:array('before' => 'auth')=>false;
+//需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
 
@@ -190,12 +190,18 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), f
     Route::post('user/delroute', array('as' => 'admin/user/delroute','uses' => 'UsermanageController@delroute'));//用户模块
     Route::post('user/addroute', array('as' => 'admin/user/addroute','uses' => 'UsermanageController@addroute'));//用户模块
     Route::post('user/manage', array('as' => 'admin/user/manage','uses' => 'UsermanageController@manage'));//用户模块
+    Route::post('user/search', array('as' => 'admin/user/search','uses' => 'UsermanageController@search'));//用户模块
 
     Route::get('system', array('as' => 'admin/system','uses' => 'SystemmanageController@index'));//系统模块
     Route::post('system/addnav', array('as' => 'admin/system/addnav','uses' => 'SystemmanageController@addnav'));//系统模块添加导航
     Route::post('system/addroute', array('as' => 'admin/system/addroute','uses' => 'SystemmanageController@addroute'));//系统模块添加路由
     Route::post('system/delroute', array('as' => 'admin/system/delroute','uses' => 'SystemmanageController@delroute'));//系统模块删除路由
     Route::post('system/editroute', array('as' => 'admin/system/editroute','uses' => 'SystemmanageController@editroute'));//系统模块修改路由
+
+
+    Route::post('ssh/getCommand', array('as' => 'admin/ssh/getCommand','uses' => 'SshController@getCommand'));//系统模块修改路由
+    Route::post('ssh/gitPull', array('as' => 'admin/ssh/gitPull','uses' => 'SshController@gitPull'));//系统模块修改路由
+
 
 });
 

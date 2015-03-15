@@ -60,7 +60,7 @@
         <li class="u-square_item">
             <p class="u-title">
                 @if(Session::get('nickname'))
-                    <a href="{{route('index')}}"><span>{{Session::get('nickname')}}</span></a>
+                    <a href="{{route('personal')}}"><span>{{Session::get('nickname')}}</span></a>
                 @else
                     <a class="u-link-other" href="/login-register">登陆/注册</a>
                 @endif

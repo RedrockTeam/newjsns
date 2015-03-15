@@ -9,9 +9,9 @@ class Group extends Eloquent {
 	protected $primaryKey = 'uid';
 
     //多对多获取已授权路由
-	public function routelists(){
-		return $this->belongsToMany('Routelist', 'permission', 'type_id', 'path_id');
-	}
+//	public function routelists(){
+//		return $this->belongsToMany('Routelist', 'permission', 'type_id', 'path_id');
+//	}
 
 
 }

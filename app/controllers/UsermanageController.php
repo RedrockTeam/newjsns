@@ -63,4 +63,16 @@ class UsermanageController extends BaseController{
         User::where('id', '=', $id)->update(array('status' => $status));
         return $data = '200';
     }
+
+    //搜索用户
+    public function search(){
+        $input = Input::all();
+        $content = $input['content'];
+        $data['data'] = User::where('username', 'like', '%'.$content.'%')->get();
+        foreach($data['data'] as $v){
+            $v->getType;
+        }
+        $data['status'] = 200;
+        return $data;
+    }
 }
