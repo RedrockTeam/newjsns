@@ -89,6 +89,14 @@ Route::get('book_tags', function(){
     ];
     return View::make("template.book_tags.book_tags")->with($data);
 });
+#图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
+Route::get('imageUpload', function(){
+    $data =[
+        'imgExists' => true,    //是否已经上传过 上传过的话为true 没有上传过的话为false
+        'imgSrc' => 'public/images/1.png'  //进行剪切的路径  如果上传过的话，为图片路径，没有的话
+    ];
+    return View::make("template.imageUpload.imageUpload")->with($data);
+});
 /*------------------------------ajax 测试---------------------------------*/
 
 

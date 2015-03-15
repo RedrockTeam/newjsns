@@ -5,6 +5,7 @@ define(['jquery', 'port'], function($, port){
     $(function(){
         $('.js-open_change_info').on('click', openChange);
         $('.js-change_form').on('submit', submitForm);
+        $('.js-link_upload').on('click', linkUpload);
 
         /*--------------- ----------*/
         function openChange(){
@@ -22,15 +23,14 @@ define(['jquery', 'port'], function($, port){
             );
             $('.js-change_box').css('display', 'block');
         }
-
+        function linkUpload(){
+            location.href  = '/imageUpload';
+        }
         function submitForm(ev){
             ev.preventDefault();
-
             function ajax(){
             }
-
             function success(){
-
             }
         }
     });

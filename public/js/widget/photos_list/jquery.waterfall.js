@@ -83,7 +83,7 @@
             // 传参给服务器
             opts.params.ajax = ++ajaxTimes, ajaxFunc(function(jsonData) {
                 try {
-                    "string" == typeof jsonData && (jsonData = $.parseJSON(jsonData)), $.isEmptyObject(jsonData) || "string" == typeof jsonData ? showMsg("finish") : (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
+                    "string" == typeof jsonData && (jsonData = $.parseJSON(jsonData)), jsonData.current_page == jsonData.last_page ? showMsg("finish") : (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
                     dealData());
                 } catch (e) {
                     showMsg("error");

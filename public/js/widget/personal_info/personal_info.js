@@ -10,9 +10,13 @@ define([ "jquery", "port" ], function($) {
             $(".m-change_info .js-user_signatrue").text($(".m-show_info .js-user_signatrue").text()), 
             $(".js-change_box").css("display", "block");
         }
+        function linkUpload() {
+            location.href = "/imageUpload";
+        }
         function submitForm(ev) {
             ev.preventDefault();
         }
-        $(".js-open_change_info").on("click", openChange), $(".js-change_form").on("submit", submitForm);
+        $(".js-open_change_info").on("click", openChange), $(".js-change_form").on("submit", submitForm), 
+        $(".js-link_upload").on("click", linkUpload);
     });
 });
