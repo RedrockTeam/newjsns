@@ -5,7 +5,7 @@
     </menu>
 
     {{--注册 默认打开--}}
-    <form action="" class="u-register s-form js-login-form">
+    <form action="" method="POST" class="u-register s-form js-login-form">
         <div><input type="text" class="u-stu_id js-check" name="stu_id" placeholder="学号"/></div>
         <div><input type="password" class="u-stu_pwd js-check" name="stu_pwd" placeholder="密码(6-20位 只能是:数字，字母，_)"/></div>
         <div><input type="text" class="u-stu_nickname js-check" name="stu_nickname" placeholder="昵称"/></div>
@@ -13,7 +13,7 @@
     </form>
 
     {{--登陆 默认关闭--}}
-    <form action="" class="u-login s-form js-login-form">
+    <form action="" method="POST" class="u-login s-form js-login-form">
         <div><input type="text" class="u-stu_id js-check" name="stu_id" placeholder="学号"/></div>
         <div><input type="password" class="u-stu_pwd js-check" name="stu_pwd" placeholder="密码(6-20位 只能是:数字，字母，_)"/></div>
         <input type="submit" value="登陆"/>

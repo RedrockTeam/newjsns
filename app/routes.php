@@ -89,6 +89,7 @@ Route::get('book_tags', function(){
     ];
     return View::make("template.book_tags.book_tags")->with($data);
 });
+
 #图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
 Route::get('imageUpload', function(){
     $data =[

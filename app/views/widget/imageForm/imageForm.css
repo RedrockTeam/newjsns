@@ -9,3 +9,9 @@
 .u-crop-img{
     display: block;
 }
+.u-show_thumb_img {
+    width: 94px;
+    height: 94px;
+    overflow: hidden;
+    margin: 20px auto;
+}
