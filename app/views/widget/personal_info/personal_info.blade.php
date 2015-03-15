@@ -21,13 +21,19 @@
                     <input type="button" class="js-link_upload" id="upload_icon" name="upload_icon" value="上传头像"/>
                 </div>
             </div>
+        </form>
+        <form action="{{route('home/personal/personalinfo')}}" class="f-cb js-change_form" method="post">
             <div class="u-change_user_name s-input">
                 <label for="change-user_name">修改昵称</label>
-                <input type="text" name="change-user_name" id="change-user_name" placeholder="" class="js-user_name"/>
+                <input type="text" name="username" id="change-user_name" placeholder="" class="js-user_name"/>
             </div>
+            {{--<div class="u-chnage_user_signatrue s-input">--}}
+                {{--<label for="change-user_signatrue">E-mail</label>--}}
+                {{--<textarea type="text" id="change-email" class="js-user_signatrue"  name="email"></textarea>--}}
+            {{--</div>--}}
             <div class="u-chnage_user_signatrue s-input">
                 <label for="change-user_signatrue">个性签名</label>
-                <textarea type="text" id="change-user_signatrue" class="js-user_signatrue"  name="change-user_signatrue"></textarea>
+                <textarea type="text" id="change-user_signatrue" class="js-user_signatrue"  name="signatrue"></textarea>
             </div>
             <input type="submit" value="保存" class="f-fr"/>
         </form>

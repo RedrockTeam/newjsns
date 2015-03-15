@@ -27,4 +27,28 @@ class PersonalController extends BaseController {
 	}
 
 
+    //上传头像
+    public function uploadHead(){}
+
+    //修改资料
+    public function editPersonalInfo(){
+        $input = Input::all();
+        $username = $input['username'];
+        $signature = $input['signatrue'];
+        $email = $input['email'];
+        if($username==null||$signature==null){
+            $error = '';
+           // return Redirect::back()->withErrors($error);
+        }
+        $uid = Session::get('uid');
+        $data = array(
+                'username' => $username,
+                'introduce'=> $signature,
+                'email' => $email
+
+        );
+        User::where('id', '=', $uid)->update($data);
+        return Redirect::back();
+    }
+
 }

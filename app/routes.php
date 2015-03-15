@@ -138,6 +138,8 @@ Route::group(array('prefix' => 'home'), function()
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
 
+    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'editPersonalInfo@comment'));//ajax爱拍发表评论
+
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 
     Route::post('comment/micromovie', array('as' => 'home/comment/micromovie','uses' => 'CommentController@comment'));//ajax微视发表评论
