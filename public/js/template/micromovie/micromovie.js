@@ -14,10 +14,11 @@ require.config({
         port: "../template/micromovie/port",
         microm_list: "../widget/microm_list/microm_list",
         microm_topic: "../widget/microm_topic/microm_topic",
-        go_top: "../widget/go_top/go_top"
+        go_top: "../widget/go_top/go_top",
+        praise: "../widget/js_widget/praise"
     }
 }), //加载依赖项
-define([ "jquery", "microm_list", "go_top" ], function($) {
+define([ "jquery", "microm_list", "go_top", "praise" ], function($) {
     console.log("literatrue init"), $(function() {
         $(".js-open_login_box").on("click", function() {
             location.href = "/login-register";

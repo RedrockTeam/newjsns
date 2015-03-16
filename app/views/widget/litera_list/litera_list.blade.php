@@ -3,7 +3,7 @@
     {{--文学内容部分--}}
     @foreach($data['passagelist'] as $value)
         <div class="u-article_item f-cb">
-            <img class="u-img_show" src="{{$value['cover']}}" alt=""/>
+            <div class="u-img_show" style="background-image: url('{{$value["cover"]}}')"> </div>
             <article class="u-content">
                 <div class="u-content_h">
                     <h5>{{$value['title']}}</h5>

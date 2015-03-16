@@ -3,5 +3,5 @@
  */
 //ajax接口配置
 define({
-
+    praise : '/praise'   //点赞
 });

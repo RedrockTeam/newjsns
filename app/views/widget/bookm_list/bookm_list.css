@@ -10,6 +10,10 @@
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #dddddd;
 }
 .m-bkmv_lists .u-bkmv_item:hover .u-bkmv_info{
     bottom: 0px;
@@ -21,6 +25,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 100;
 }
 .m-bkmv_lists .u-bkmv_item img{
     width: 108px;
@@ -34,6 +39,7 @@
     left: 1px;
     background: rgba(0,0,0,0.6);
     padding-bottom: 7px;
+    z-index: 1000;
     -webkit-transition: bottom 0.5s;
     -ms-transition: bottom 0.5s;
     -moz-transition: bottom 0.5s;
@@ -50,7 +56,6 @@
     color: #ffffff;
     float: right;
     width: 100%;
-    z-index: 1000;
 }
 .m-bkmv_lists .u-bkmv_item .u-user_action .u-bkmv_comment,  .m-bkmv_lists .u-bkmv_item .u-user_action .u-bkmv_love{
     float: right;
@@ -63,7 +68,17 @@
 }
 
 .m-bkmv_lists .u-bkmv_item .u-user_action .u-bkmv_love{
-    background-position: left -380px;
+    background: none;
+    padding-left: 0;
+}
+.m-bkmv_lists .u-bkmv_item .u-bkmv_love .fa-heart{
+    font-size: 18px;
+}
+.m-bkmv_lists .u-bkmv_item .u-bkmv_love span{
+    vertical-align: top;
+}
+.m-bkmv_lists .u-bkmv_item .u-bkmv_love .fa-heart.s-active{
+    color: #E54;
 }
 
 /*

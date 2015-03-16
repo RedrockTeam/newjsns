@@ -1,15 +1,17 @@
 /**
  * Created by redrock on 2015/3/16.
  */
-//点赞
+//点赞 爱拍，文学， 微视， 读书影逝
 define(['jquery', 'port'], function($, port){
     $(function(){
-        $('.js-praise').on('click', praise);
+        $('body').on('click','.js-praise,.js-num,.js-show_love' ,praise);//代理
 
-        /*事件处理*/
+        /*--------事件处理函数------*/
         function praise(ev){
-            var $self = $(this);
-            ajax.call($self, {'name' : 'lijinxin'});
+            var $self = $(this), $ele = $self;
+            ev.stopPropagation(); //hack 子层节点
+            !$self.hasClass('js-praise') && ( $ele = $self.parent('.js-praise'));
+            ajax.call($ele, {'name' : 'lijinxin'});
         }
         /*ajax*/
         function ajax(data){
@@ -44,20 +46,27 @@ define(['jquery', 'port'], function($, port){
         /*点赞或取消点赞*/
         function controlParise(){
             var $self = $(this);
-            var $hreat = $self.find('.js-show_love'),
+            var $heart = $self.find('.js-show_love'),
                 $num = $self.find('.js-num');
-
-            var num = $num.text().slice(1, $self.text().length - 1);
-            if( !$hreat.hasClass('s-active') ){
-                $num.text(
-                    '(' + (parseInt(num) + 1) + ')'
-                );
-                $hreat.addClass('s-active');
+            var tag = true;
+            if( $num.lentgh < 1 || $heart.length < 1 ){
+                tag  = false;
+            }
+            if( tag )var num = $num.text().slice(1, $self.text().length - 1);
+            if( !$heart.hasClass('s-active') ){
+                if(tag){
+                    $num.text(
+                        '(' + (parseInt(num) + 1) + ')'
+                    );
+                }
+                $heart.addClass('s-active');
             }else{
-                $num.text(
-                    '(' + (parseInt(num) - 1) + ')'
-                );
-                $hreat.removeClass('s-active');
+                if(tag){
+                    $num.text(
+                        '(' + (parseInt(num) - 1) + ')'
+                    );
+                }
+                $heart.removeClass('s-active');
             }
 
         }

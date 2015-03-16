@@ -1,13 +1,15 @@
 /**
  * Created by redrock on 2015/3/16.
  */
-//点赞
+//点赞 爱拍，文学， 微视， 读书影逝
 define([ "jquery", "port" ], function($, port) {
     $(function() {
-        /*事件处理*/
-        function praise() {
-            var $self = $(this);
-            ajax.call($self, {
+        //代理
+        /*--------事件处理函数------*/
+        function praise(ev) {
+            var $self = $(this), $ele = $self;
+            ev.stopPropagation(), //hack 子层节点
+            !$self.hasClass("js-praise") && ($ele = $self.parent(".js-praise")), ajax.call($ele, {
                 name: "lijinxin"
             });
         }
@@ -34,10 +36,12 @@ define([ "jquery", "port" ], function($, port) {
         }
         /*点赞或取消点赞*/
         function controlParise() {
-            var $self = $(this), $hreat = $self.find(".js-show_love"), $num = $self.find(".js-num"), num = $num.text().slice(1, $self.text().length - 1);
-            $hreat.hasClass("s-active") ? ($num.text("(" + (parseInt(num) - 1) + ")"), $hreat.removeClass("s-active")) : ($num.text("(" + (parseInt(num) + 1) + ")"), 
-            $hreat.addClass("s-active"));
+            var $self = $(this), $heart = $self.find(".js-show_love"), $num = $self.find(".js-num"), tag = !0;
+            if (($num.lentgh < 1 || $heart.length < 1) && (tag = !1), tag) var num = $num.text().slice(1, $self.text().length - 1);
+            $heart.hasClass("s-active") ? (tag && $num.text("(" + (parseInt(num) - 1) + ")"), 
+            $heart.removeClass("s-active")) : (tag && $num.text("(" + (parseInt(num) + 1) + ")"), 
+            $heart.addClass("s-active"));
         }
-        $(".js-praise").on("click", praise);
+        $("body").on("click", ".js-praise,.js-num,.js-show_love", praise);
     });
 });

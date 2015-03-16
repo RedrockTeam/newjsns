@@ -2,7 +2,7 @@
     <h4>其他推荐</h4>
     @foreach($data['recommend'] as $recommend)
         <div class="u-bk_item f-cb">
-            <img src="{{$recommend['cover_url']}}" alt="" class="f-fl"/>
+            <div class="f-fl u-img_show" style="background-image: url('{{$recommend["cover_url"]}}')"></div>
             <aside class="u-movie_info f-fl">
                 <h5 class="u-movie_hot_name">{{$recommend['title']}}</h5>
                 <ul>

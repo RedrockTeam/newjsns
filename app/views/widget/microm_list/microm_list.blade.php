@@ -31,7 +31,7 @@
                 <div class="u-m_user_action">
                     <div class="u-share"><a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a></div>
                     <div class="show_movie-comments">({{$micromovie['comment_num']}})</div>
-                    <div class="show_movie_love">({{$micromovie['love_num']}})</div>
+                    <div class="show_movie_love js-praise"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$micromovie['love_num']}})</span></div>
                 </div>
             </aside>
         </div>
@@ -44,4 +44,5 @@
 @section("css")
     @parent
     {{HTML::style("public/css/widget/microm_list/microm_list.css")}}
+    {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")}}
 @stop

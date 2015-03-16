@@ -2,7 +2,7 @@
     <h5 class="u-bkmv_name">{{$data['passage']['title']}}</h5>
     <div class="u-bkmv_o_intro">
         <div class="u-bkmv_intro_h f-cb">
-            <img src="{{$data['passage']['cover_url']}}" alt="" class="u-bkmv_show_icon f-fl"/>
+            <div src="" alt="" class="u-bkmv_show_icon f-fl" style="background-image: url('{{$data['passage']["cover_url"]}}')"> </div>
             <aside class="u-bkmv_o_info f-fl">
                 <div class="u-bkmv_o_h f-cb">
                     <ul class="u-movie_stars f-cb f-fl">
