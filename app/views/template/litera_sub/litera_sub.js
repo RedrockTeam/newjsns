@@ -14,6 +14,7 @@ require.config({
         litera_content : '../widget/litera_content/litera_content',
         litera_comment : '../widget/litera_comment/litera_comment',
         go_top : '../widget/go_top/go_top',
+        ZeroClipboard : '../../complexPlugin/ueditor/third-party/ZeroClipboard.min',
         ueditorConfig : '../../complexPlugin/ueditor/ueditor.config',
         ueditorAll : '../../complexPlugin/ueditor/ueditor.all.min',
         ueditor : '../widget/ueditor/ueditor'

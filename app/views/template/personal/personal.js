@@ -21,7 +21,7 @@ require.config({
     }
 });
 //加载依赖项
-define(['jquery', 'go_top', 'personal_info', 'imageSelect'], function($){
+define(['jquery', 'go_top', 'personal_info', 'imageSelect', 'personal_tabs'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';

@@ -37,6 +37,7 @@
     @yield("login_box")
 </section>
 
+
 </body>
 @yield("script")
 </html>

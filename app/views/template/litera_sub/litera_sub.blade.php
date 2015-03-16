@@ -42,7 +42,7 @@
     <script type="text/javascript">
             alert("为了你的浏览体验，请升级您的IE或者使用其他现代浏览器。\n现在为你跳转到红岩官网");
             location.href = "http://hongyan.cqupt.edu.cn/";
-        </script>
+    </script>
 @stop
 @section("script")
     {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/litera_sub/litera_sub.js")])}}

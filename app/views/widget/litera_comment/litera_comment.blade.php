@@ -46,7 +46,6 @@
        <input type="submit" class="u-submit"/>
     </form>
 </div>
-
 @section("css")
     @parent
     {{HTML::style("public/css/widget/litera_comment/litera_comment.css")}}
