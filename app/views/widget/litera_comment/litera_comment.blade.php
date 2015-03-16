@@ -40,7 +40,7 @@
     </ul>
 
     {{--发表评论部分--}}
-    <form action="" class="m-litera_re_comment f-cb">
+    <form action="" class="m-litera_re_comment f-cb js-form_ueditor">
        {{--<input type="text" value="" class="u-input" placeholder="这里发表评论"/>--}}
        @include("widget.ueditor.ueditor")
        <input type="submit" class="u-submit"/>
