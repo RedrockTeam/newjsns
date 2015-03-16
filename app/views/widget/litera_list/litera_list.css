@@ -96,7 +96,19 @@
     background: url("../../../images/litera_t_icons.png") no-repeat left -115px;
 }
 .m-artitcle_lists .u-litera_user_action .show_litera_love {
-    background-position: left -160px;
     margin-left: 13px;
     cursor: pointer;
+    padding-left: 0;
+    background: none;
+}
+
+.m-artitcle_lists .u-litera_user_action .show_litera_love .fa-heart{
+    font-size: 18px;
+}
+
+.m-artitcle_lists .u-litera_user_action .show_litera_love .fa-heart.s-active{
+    color: #E54;
+}
+.m-artitcle_lists .u-litera_user_action .show_litera_love span{
+    vertical-align: top;
 }

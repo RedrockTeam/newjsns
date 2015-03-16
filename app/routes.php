@@ -99,7 +99,16 @@ Route::get('imageUpload', function(){
     return View::make("template.imageUpload.imageUpload")->with($data);
 });
 /*------------------------------ajax 测试---------------------------------*/
+#点赞
+Route::post('/praise', function(){
+    $data = [
+        "success" => true,   //注布尔类型
+        "input" => Input::all()
+    ];
 
+    return Response::json($data);
+
+});
 
 /**
  * 前台功能性路由

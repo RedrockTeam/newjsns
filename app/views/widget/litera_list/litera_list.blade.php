@@ -17,13 +17,12 @@
                                 ({{$value['comment_num']}})
                             </a>
                         </div>
-                        <div class="show_litera_love">({{$value['love_num']}})</div>
+                        <div class="show_litera_love js-praise"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$value['love_num']}})</span></div>
                     </div>
                 </p>
             </article>
         </div>
     @endforeach
-
     {{--切换页面--}}
     {{$data['passagelist']->links()}}
 
@@ -32,4 +31,5 @@
 @section("css")
     @parent
     {{HTML::style("public/css/widget/litera_list/litera_list.css")}}
+    {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")}}
 @stop

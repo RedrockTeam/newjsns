@@ -46,6 +46,7 @@
     {{HTML::style("public/css/lib/base.css")}}
     {{HTML::style("public/css/lib/function.css")}}
     {{HTML::style("public/css/template/literatrue/literatrue.css")}}
+    {{HTML::style("public/css/lib/font-awesome.min.css")}}
 @stop
 
 {{--script--}}
