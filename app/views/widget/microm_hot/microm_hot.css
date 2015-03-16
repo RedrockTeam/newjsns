@@ -19,11 +19,15 @@
 .m-microm_hot .u-movie_item:last-child{
     border-bottom: none;
 }
-.m-microm_hot .u-movie_item img {
+.m-microm_hot .u-movie_item .u-fix_image_wrap {
     width: 80px;
     height: 80px;
     border: 1px solid #dddddd;
     margin-right: 10px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .m-microm_hot .u-movie_item .u-movie_hot_name {
