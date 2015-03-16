@@ -23,7 +23,7 @@
         </div>
         <div class="u-intro_r f-fr">
             <a href="" class="u-action_favor js-praise">赞</a>
-            <a href="" class="u-action_tread">踩</a>
+            <a href="" class="u-action_tread js-thread">踩</a>
         </div>
     </div>
     <div class="u-intro_detail">

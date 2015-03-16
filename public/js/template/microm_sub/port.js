@@ -3,5 +3,7 @@
  */
 //ajax接口配置
 define({
-    praise: "/praise"
+    praise: "/praise",
+    //点赞
+    thread: "/thread"
 });
