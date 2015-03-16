@@ -39,15 +39,13 @@ define(['jquery', 'port'], function($, port){
                 returnValue = true,
                 $input = $('.js-check', $self);
             $input.each(function($i, ele){
-                var $ele = $(ele), key = $ele.attr('name');
+                var $ele = $(ele), key = $ele.attr('data-check_type');
                 if( map[key] && (Object.prototype.toString.call(map[key]) == '[object RegExp]') ){
                     if(!map[key].test( $ele.val() )){
-                        $ele.css({
-                            'background-color' : 'yellow'
-                        });
+                        $ele.next('.s-error').css('display', 'block');
                         returnValue = false;
                     }else{
-                        $ele.css('background-color', '#fff');
+                        $ele.next('.s-error').css('display', 'none');
                     }
                 }
             });

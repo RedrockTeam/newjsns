@@ -13,10 +13,6 @@ define([ "jquery", "port" ], function($) {
         function linkUpload() {
             location.href = "/imageUpload";
         }
-        function submitForm(ev) {
-            ev.preventDefault();
-        }
-        $(".js-open_change_info").on("click", openChange), $(".js-change_form").on("submit", submitForm), 
-        $(".js-link_upload").on("click", linkUpload);
+        $(".js-open_change_info").on("click", openChange), $(".js-link_upload").on("click", linkUpload);
     });
 });

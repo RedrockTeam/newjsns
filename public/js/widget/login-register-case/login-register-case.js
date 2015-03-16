@@ -23,10 +23,9 @@ define([ "jquery", "port" ], function($) {
         function check(map) {
             var $self = $(this), returnValue = !0, $input = $(".js-check", $self);
             return $input.each(function($i, ele) {
-                var $ele = $(ele), key = $ele.attr("name");
-                map[key] && "[object RegExp]" == Object.prototype.toString.call(map[key]) && (map[key].test($ele.val()) ? $ele.css("background-color", "#fff") : ($ele.css({
-                    "background-color": "yellow"
-                }), returnValue = !1));
+                var $ele = $(ele), key = $ele.attr("data-check_type");
+                map[key] && "[object RegExp]" == Object.prototype.toString.call(map[key]) && (map[key].test($ele.val()) ? $ele.next(".s-error").css("display", "none") : ($ele.next(".s-error").css("display", "block"), 
+                returnValue = !1));
             }), console.log(returnValue), returnValue;
         }
         /*阻止事件冒泡*/

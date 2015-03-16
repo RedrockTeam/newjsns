@@ -29,7 +29,7 @@
                     {{str_limit($micromovie['introduce'], '250', '......')}}
                 </p>
                 <div class="u-m_user_action">
-                    <div class="u-share"><a href=""></a></div>
+                    <div class="u-share"><a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a></div>
                     <div class="show_movie-comments">({{$micromovie['comment_num']}})</div>
                     <div class="show_movie_love">({{$micromovie['love_num']}})</div>
                 </div>
@@ -39,6 +39,8 @@
     {{--切换页面--}}
     {{$data['micromovielist']->links()}}
 </div>
+<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" target="_blank">QQ空间</a>
+<a href="http://v.t.qq.com/share/share.php?url=http://www.shao-ming.com&title='分享内容'" target="_blank">腾讯微博</a>
 @section("css")
     @parent
     {{HTML::style("public/css/widget/microm_list/microm_list.css")}}

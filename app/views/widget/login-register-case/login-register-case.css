@@ -37,6 +37,26 @@
     width: 330px;
     margin: 20px auto;
 }
+.s-form .s-error {
+    position: absolute;
+    right: -27px;
+    top: 15px;
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 7px;
+    display: none;
+    text-align: center;
+    line-height: 14px;
+    color: #fff;
+    font-family: "microsoft yahei";
+    font-size: 22px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
 .s-form input[type="text"],.s-form input[type="password"] {
     display: block;
     width: 328px;
@@ -77,3 +97,4 @@
 .u-login{
     display: none;
 }
+
