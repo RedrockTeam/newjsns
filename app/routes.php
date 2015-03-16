@@ -109,6 +109,15 @@ Route::post('/praise', function(){
     return Response::json($data);
 
 });
+#踩
+Route::post('/thread', function(){
+    $data = [
+        "success" => true,
+        "input" => Input::all()
+    ];
+
+    return Response::json($data);
+});
 
 /**
  * 前台功能性路由

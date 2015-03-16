@@ -4,10 +4,11 @@
 //赞和踩
 define(['jquery', 'port'], function($, port){
     $(function(){
+        var $pra = $('.js-praise'),
+            $thr = $('.js-thread');
         /*--------事件绑定-------*/
-        $('.js-praise').on('click', praise);   //赞
-        $('.js-thread').on('click', thread);   //踩
-        console.log(port);
+        $pra.on('click', praise);   //赞
+        $thr.on('click', thread);   //踩
         /*--------事件处理函数-------*/
         function praise(ev){  //赞
             ev.preventDefault();
@@ -20,8 +21,10 @@ define(['jquery', 'port'], function($, port){
                 url: port['praise'],
                 data : {},
                 callback : function(res){
-                    alert('点赞+1');
+                    console.log( $thr.text() );
+                    ( $thr.text() == '已踩' ) && $thr.text('踩');
                     $self.text('已赞');
+                    alert('点赞+1');
                 }
             });
         }
@@ -37,8 +40,9 @@ define(['jquery', 'port'], function($, port){
                 url: port['thread'],
                 data : {},
                 callback : function(res){
+                    ( $pra.text() == '已赞' ) && $pra.text('赞');
+                    $self.text('已踩');
                     alert('踩+1');
-                    $self.text('已赞');
                 }
             });
         }
