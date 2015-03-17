@@ -37,7 +37,6 @@
         {{--@endif--}}
         {{--<li><a href="">下一页</a></li>--}}
         <li>{{$data['comment']['page']->appends(array('type_id' => $data['passage']['type_id'], 'passage_id' => $data['passage']['id']))->links()}}</li>
-
     </ul>
 
     {{--发表评论部分--}}
