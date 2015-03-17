@@ -2,8 +2,6 @@
  * Created by redrock on 2015/3/13.
  */
 define(['jquery', 'port'], function($, port){
-    alert(23525);
-    
     $(function(){
         /*阻止事件冒泡*/
         $('.m-login-register-case').on('click', function(ev){ ev.stopPropagation() });
