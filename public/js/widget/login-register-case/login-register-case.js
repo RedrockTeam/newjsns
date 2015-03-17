@@ -2,7 +2,7 @@
  * Created by redrock on 2015/3/13.
  */
 define([ "jquery", "port" ], function($) {
-    alert(23525), $(function() {
+    $(function() {
         /*-------event 处理函数-----*/
         function openBox($openEle, $openBox) {
             //tab切换

@@ -98,10 +98,26 @@ Route::get('imageUpload', function(){
     return View::make("template.imageUpload.imageUpload")->with($data);
 });
 #上传图片
+Route::get('/upload_photo', function(){
+    $data =[
 
+    ];
+    return View::make("template.upload_photo.upload_photo")->with($data);
+});
 #上传微视
+Route::get('/upload_movie', function(){
+    $data =[
 
+    ];
+    return View::make("template.upload_movie.upload_movie")->with($data);
+});
 #上传文章
+Route::get('/upload_passage', function(){
+    $data =[
+
+    ];
+    return View::make("template.upload_passage.upload_passage")->with($data);
+});
 /*------------------------------ajax 测试---------------------------------*/
 #点赞
 Route::post('/praise', function(){
