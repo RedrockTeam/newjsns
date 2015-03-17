@@ -4,7 +4,11 @@ class PersonalController extends BaseController {
 
     //个人中心首页
 	public function personalIndex(){
-        $uid = Session::get('uid');
+        $uid = Session::get('uid')? Session::get('uid'):Cookie::get('uid');
+        if($uid == null){
+            $error = '请先登录';
+            return Redirect::to('/')->withErrors($error);
+        }
         $user_info = User::find($uid);
 
         $works_id = Mywork::where('uid', '=', $uid)->get();

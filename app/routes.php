@@ -38,8 +38,7 @@ Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieControl
 #微视分页
 Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
-#个人中心
-Route::get('personal', array('as' => 'personal', 'uses' =>'PersonalController@personalIndex'));
+
 
 Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
 
@@ -150,7 +149,8 @@ Route::group(array('prefix' => 'home'), function()
 
 });
 
-
+#个人中心
+Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
