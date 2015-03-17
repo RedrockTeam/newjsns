@@ -18,6 +18,7 @@
 {{--container--}}
 @section("container")
     @include("widget.litera_content.litera_content")
+    @include("widget.bdshare.bdshare")
     @include("widget.litera_comment.litera_comment")
 @stop
 

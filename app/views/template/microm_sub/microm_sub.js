@@ -6,7 +6,8 @@ require.config({
     shim : {
         'underscore' : {
             exports : '_'
-        }
+        },
+        bdshare : ['share']
     },
     paths : {
         jquery : 'jquery',
@@ -18,11 +19,13 @@ require.config({
         microm_intro : '../widget/microm_intro/microm_intro',
         ueditorConfig : '../../complexPlugin/ueditor/ueditor.config',
         ueditorAll : '../../complexPlugin/ueditor/ueditor.all.min',
-        ueditor : '../widget/ueditor/ueditor'
+        ueditor : '../widget/ueditor/ueditor',
+        bdshare : '../widget/bdshare/bdshare',
+        share : '../widget/bdshare/share'
     }
 });
 
 //加载依赖项
-define(['microm_play','microm_comment','go_top', 'login_box', 'microm_intro', 'ueditor'], function(){
+define(['microm_play','microm_comment','go_top', 'login_box', 'microm_intro', 'ueditor', 'share','bdshare'], function(){
     console.log('microm_sub init');
 });

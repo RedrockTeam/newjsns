@@ -3,6 +3,8 @@
     font-size: 18px;
     color: #ff894f;
     margin-bottom: 10px;
+    width: 670px;
+    overflow: hidden;
 }
 .m-bkmv_detail .u-bkmv_o_intro{
     padding-bottom: 20px;

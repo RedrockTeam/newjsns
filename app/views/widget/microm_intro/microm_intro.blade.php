@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <div class="u-m_info_b">
-                <span>影片作者:{{$data['movie']['author']}}</span>
+                <span class="js-share_title">影片作者:{{$data['movie']['author']}}</span>
                 <span>{{$data['movie']['created_at']}}</span>
             </div>
         </div>
@@ -28,7 +28,7 @@
     </div>
     <div class="u-intro_detail">
         <h4>剧情简介</h4>
-        <p>{{$data['movie']['introduce']}}</p>
+        <p class="js-share_content">{{$data['movie']['introduce']}}</p>
     </div>
 </article>
 @section("css")

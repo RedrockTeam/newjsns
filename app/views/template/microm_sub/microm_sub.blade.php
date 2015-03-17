@@ -19,6 +19,7 @@
 @section("container")
     <div class="g-left f-fl">
         @include("widget.microm_play.microm_play")
+        @include("widget.bdshare.bdshare")
         @include("widget.microm_intro.microm_intro")
         @include("widget.microm_comment.microm_comment")
     </div>
