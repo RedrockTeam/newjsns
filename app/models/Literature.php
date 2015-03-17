@@ -17,10 +17,7 @@ class Literature extends Eloquent {
     }
 
     //获取文学首页文章
-    public static function getPassage($value = array(), $type = null){
-        if($type == null){
-            $type = '%';
-        }
+    public static function getPassage($value = array(), $type = '%'){
         foreach($value as $id){
             $type_id[] = $id['id'];
         }
