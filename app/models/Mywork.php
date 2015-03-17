@@ -18,6 +18,7 @@ class Mywork extends Eloquent {
             $result[] = DB::table($table['table_name'])->where('id', '=', $id['work_id'])->where('status', '=', '1')->get();
         }
         return $result;
+
     }
 
 }

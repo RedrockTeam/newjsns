@@ -3,7 +3,7 @@
     <div class="u-logo"></div>
     <ul class="u-squares">
         <li class="u-square_item">
-            <a href="/literatrue" class="s-wrap"></a>
+            <a href="/literature" class="s-wrap"></a>
             <p class="u-title">
                 <a href="/literature">
                     <span>文学</span>

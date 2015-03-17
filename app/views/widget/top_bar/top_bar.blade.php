@@ -1,7 +1,7 @@
 <div class="g-top_bar_wrapper f-cb">
     @if(Session::get('nickname'))
         <div class="f-fr u-info" data-user_id="">
-            hello! <a href=""> {{Session::get('nickname')}}</a>
+            hello! <a href="personal"> {{Session::get('nickname')}}</a>
             <a href="{{route('logout')}}">注销</a>
         </div>
     @else
