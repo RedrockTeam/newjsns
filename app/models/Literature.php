@@ -17,11 +17,14 @@ class Literature extends Eloquent {
     }
 
     //获取文学首页文章
-    public static function getPassage($value = array()){
+    public static function getPassage($value = array(), $type = null){
+        if($type == null){
+            $type = '%';
+        }
         foreach($value as $id){
             $type_id[] = $id['id'];
         }
-        $passage = Literature::whereIn('type_id', $type_id)->where('status', '=', '1')->orderBy('created_at', 'desc')->paginate(5);
+        $passage = Literature::whereIn('type_id', $type_id)->where('type_id', 'like', $type)->where('status', '=', '1')->orderBy('created_at', 'desc')->paginate(5);
         foreach($passage as $v){
             $v->navigation;
             $v->user;

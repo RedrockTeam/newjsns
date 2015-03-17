@@ -29,7 +29,7 @@
         <h4 class="u-articles_title"><span>文学</span></h4>
         <ul class="u-menus f-cb">
            @foreach($data['navigation'] as $value)
-            <li><a href="home/literature?type_id={{$value['id']}}">{{$value['type']}}</a></li>
+            <li><a href="literature?type_id={{$value['id']}}">{{$value['type']}}</a></li>
            @endforeach
             <li><a href="">我要上传</a></li>
         </ul>
