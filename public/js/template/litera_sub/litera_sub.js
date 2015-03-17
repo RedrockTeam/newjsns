@@ -6,7 +6,8 @@ require.config({
     shim: {
         underscore: {
             exports: "_"
-        }
+        },
+        bdshare: [ "share" ]
     },
     paths: {
         jquery: "jquery",
@@ -17,10 +18,12 @@ require.config({
         ZeroClipboard: "../../complexPlugin/ueditor/third-party/ZeroClipboard.min",
         ueditorConfig: "../../complexPlugin/ueditor/ueditor.config",
         ueditorAll: "../../complexPlugin/ueditor/ueditor.all.min",
-        ueditor: "../widget/ueditor/ueditor"
+        ueditor: "../widget/ueditor/ueditor",
+        bdshare: "../widget/bdshare/bdshare",
+        share: "../widget/bdshare/share"
     }
 }), //加载依赖项
-define([ "jquery", "litera_content", "litera_comment", "go_top", "ueditor" ], function($) {
+define([ "jquery", "litera_content", "litera_comment", "go_top", "ueditor", "share", "bdshare" ], function($) {
     $(function() {
         $(".js-open_login_box").on("click", function() {
             location.href = "/login-register";

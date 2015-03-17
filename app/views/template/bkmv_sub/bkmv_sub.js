@@ -7,7 +7,8 @@ require.config({
     shim : {
         'underscore' : {
             exports : '_'
-        }
+        },
+        bdshare : ['share']
     },
     paths : {
         jquery : 'jquery',
@@ -16,11 +17,13 @@ require.config({
         go_top : '../widget/go_top/go_top',
         ueditorConfig : '../../complexPlugin/ueditor/ueditor.config',
         ueditorAll : '../../complexPlugin/ueditor/ueditor.all.min',
-        ueditor : '../widget/ueditor/ueditor'
+        ueditor : '../widget/ueditor/ueditor',
+        bdshare : '../widget/bdshare/bdshare',
+        share : '../widget/bdshare/share'
     }
 });
 //加载依赖项
-define(['jquery' ,'bkmv_sub_comment', 'go_top', 'ueditor'], function($){
+define(['jquery' ,'bkmv_sub_comment', 'go_top', 'ueditor', 'share', 'bdshare'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';
