@@ -5,9 +5,9 @@
         <li class="u-square_item">
             <a href="/literatrue" class="s-wrap"></a>
             <p class="u-title">
-                <a href="/literatrue">
+                <a href="/literature">
                     <span>文学</span>
-                    <span>literatrue</span>
+                    <span>literature</span>
                 </a>
             </p>
         </li>

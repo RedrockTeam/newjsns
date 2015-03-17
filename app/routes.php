@@ -21,7 +21,7 @@ Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@o
 Route::get('photos', array('as' => 'photos', 'uses' => 'PhotosController@photoIndex'));
 
 #文学
-Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
+Route::get('literature',array('as' => 'literature', 'uses' => 'LiteratureController@literatureIndex'));
 
 #文学分页
 Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
@@ -136,8 +136,7 @@ Route::get('upload', function(){
 //不需权限
 Route::group(array('prefix' => 'home'), function()
 {
-    Route::get('literatrue', array('as' => 'home/literatrue','uses' => 'LiteratureController@test'));//ajax获取排序文学及分页
-    Route::get('literatrue/comment', array('as' => 'home/literatrue/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
+    Route::get('literature/comment', array('as' => 'home/literature/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
 
     Route::get('photos', array('as' => 'home/photos','uses' => 'LiteratureController@test'));//ajax获取排序图片及分页
     Route::get('photos/comment', array('as' => 'home/photos/comment','uses' => 'LiteratureController@test'));//ajax获取图片评论
@@ -174,7 +173,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
     //文学路由
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
 
-    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => 'CommentController@comment'));//ajax文学发表评论
+    Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
 });
 

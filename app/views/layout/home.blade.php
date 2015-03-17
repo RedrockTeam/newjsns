@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>home</title>
+<title>锦瑟南山</title>
 <!--[if lt IE 9]>
 @yield("html5js")
 <![endif]-->
