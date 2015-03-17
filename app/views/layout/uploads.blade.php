@@ -14,9 +14,9 @@
       <h1>上传<small>Uploads File</small></h1>
     </div>
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">图片</a></li>
-      <li role="presentation"><a href="#">视频</a></li>
-      <li role="presentation"><a href="#">文章</a></li>
+      <li role="presentation" class="@if( $page_pos == 0 ){{'active'}}@endif"><a href="#">图片</a></li>
+      <li role="presentation" class="@if( $page_pos == 1 ){{'active'}}@endif"><a href="#">视频</a></li>
+      <li role="presentation" class="@if( $page_pos == 2 ){{'active'}}@endif"><a href="#">文章</a></li>
     </ul>
     @yield("form")
 </div>

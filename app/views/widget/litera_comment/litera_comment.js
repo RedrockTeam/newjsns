@@ -4,5 +4,4 @@
 //文学评论
 define(['jquery'], function($){
     console.log('litera_comment init');
-
 });

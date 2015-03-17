@@ -1,9 +1,12 @@
 @extends("layout.uploads")
-
 @section("form")
-    @include("widget.upload_photo.upload_photo")
-    @include("widget.upload_movie.upload_movie")
-    @include("widget.upload_passage.upload_passage")
+    @if( $page_pos == 0 )
+        @include("widget.upload_photo.upload_photo")
+    @elseif( $page_pos == 1 )
+        @include("widget.upload_movie.upload_movie")
+    @else
+        @include("widget.upload_passage.upload_passage")
+    @endif
 @stop
 {{--css--}}
 @section("css")
@@ -11,6 +14,7 @@
     {{HTML::style("public/css/lib/function.css")}}
     {{HTML::style("public/css/template/uploads/uploads.css")}}
     {{HTML::style("public/css/lib/bootstrap.min.css")}}
+    {{HTML::style("public/complexPlugin/uploadify/uploadify.css")}}
 @stop
 {{--script--}}
 @section("html5js")

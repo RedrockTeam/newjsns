@@ -6,3 +6,12 @@
 .g-right{
     width: 622px;
 }
+
+.u-link_uploads{
+    display: block;
+    margin-top: 100px;
+    text-align: right;
+    font-size: 14px;
+    color: #000000;
+    font-family: "microsoft yahei";
+}

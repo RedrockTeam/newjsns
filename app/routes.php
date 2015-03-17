@@ -100,7 +100,7 @@ Route::get('imageUpload', function(){
 #上传图片,文章，微视
 Route::get('/uploads', function(){
     $data =[
-
+        "page_pos" => 2   //页面位置 0表示图片栏1表示微视栏2表示文章栏
     ];
     return View::make("template.uploads.uploads")->with($data);
 });

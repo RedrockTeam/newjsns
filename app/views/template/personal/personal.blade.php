@@ -16,6 +16,7 @@
 {{--container--}}
 @section("container")
     <div class="g-left f-fl">
+        <a href="/uploads" class="u-link_uploads">我要上传作品 >></a>
         @include("widget.personal_info.personal_info")
     </div>
     <div class="g-right f-fr">
@@ -40,7 +41,7 @@
     <script type="text/javascript">
             alert("为了你的浏览体验，请升级您的IE或者使用其他现代浏览器。\n现在为你跳转到红岩官网");
             location.href = "http://hongyan.cqupt.edu.cn/";
-        </script>
+    </script>
 @stop
 @section("script")
     {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/personal/personal.js")])}}
