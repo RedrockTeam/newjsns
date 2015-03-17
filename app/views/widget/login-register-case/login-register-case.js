@@ -2,6 +2,8 @@
  * Created by redrock on 2015/3/13.
  */
 define(['jquery', 'port'], function($, port){
+    alert(23525);
+    
     $(function(){
         /*阻止事件冒泡*/
         $('.m-login-register-case').on('click', function(ev){ ev.stopPropagation() });
@@ -23,10 +25,11 @@ define(['jquery', 'port'], function($, port){
                 }
             });
         }
+
         function checkForm(ev){
             var $self = $(this),
                 map = {
-                    'stu_id' : /^[\d]{10}$/gi,
+                    'stu_id' : /^[\d]{7}$/gi,
                     'stu_pwd' : /^[\w]{6,20}$/g,
                     'stu_nickname' : /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[\w])+$/gi
                 };

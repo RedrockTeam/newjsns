@@ -2,7 +2,7 @@
  * Created by redrock on 2015/3/13.
  */
 define([ "jquery", "port" ], function($) {
-    $(function() {
+    alert(23525), $(function() {
         /*-------event 处理函数-----*/
         function openBox($openEle, $openBox) {
             //tab切换
@@ -14,7 +14,7 @@ define([ "jquery", "port" ], function($) {
         }
         function checkForm(ev) {
             var $self = $(this), map = {
-                stu_id: /^[\d]{10}$/gi,
+                stu_id: /^[\d]{7}$/gi,
                 stu_pwd: /^[\w]{6,20}$/g,
                 stu_nickname: /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[\w])+$/gi
             };

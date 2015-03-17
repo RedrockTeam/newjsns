@@ -97,6 +97,11 @@ Route::get('imageUpload', function(){
     ];
     return View::make("template.imageUpload.imageUpload")->with($data);
 });
+#上传图片
+
+#上传微视
+
+#上传文章
 /*------------------------------ajax 测试---------------------------------*/
 #点赞
 Route::post('/praise', function(){
