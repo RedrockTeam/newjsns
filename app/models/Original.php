@@ -19,9 +19,13 @@ class Original extends Eloquent {
     public static function getMain($value = array()){
         foreach($value as $id){
             $type_id[] = $id['id'];
+            if($id['work_id']!=null)
+                $work_id[] = $id['work_id'];
+            else
+                $work_id[] = '%';
         }
-        foreach($type_id as $v){
-            $data[] = Original::where('type_id', '=', $v)->where('status', '=', '1')->limit(5)->get();
+        foreach($type_id as $key => $v){
+            $data[] = Original::where('type_id', '=', $v)->where('id', 'like', $work_id[$key])->where('status', '=', '1')->limit(5)->get();
         }
         return $data;
     }

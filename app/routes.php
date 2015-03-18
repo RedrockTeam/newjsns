@@ -16,6 +16,8 @@ Route::get('/', array('as' => 'index', 'uses' => 'IndexController@index'));
 
 #原味
 Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
+//原味标签搜索
+Route::get('originaltag', array('as' => 'originaltag', 'uses' => 'OriginalController@orginalTagSearch'));
 
 #爱拍
 Route::get('photos', array('as' => 'photos', 'uses' => 'PhotosController@photoIndex'));
