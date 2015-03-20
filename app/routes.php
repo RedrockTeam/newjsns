@@ -108,15 +108,7 @@ Route::get('/uploads', function(){
 });
 /*------------------------------ajax 测试---------------------------------*/
 #点赞
-Route::post('/praise', function(){
-    $data = [
-        "success" => true,   //注布尔类型
-        "input" => Input::all()
-    ];
-
-    return Response::json($data);
-
-});
+Route::post('praise', 'CommentController@praise');
 #踩
 Route::post('/thread', function(){
     $data = [
