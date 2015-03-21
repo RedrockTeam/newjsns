@@ -56,5 +56,5 @@ class CommentController extends BaseController {
             return $data = array("success" => false, "error" => '网络错误');
         }
     }
-    }
+
 }
