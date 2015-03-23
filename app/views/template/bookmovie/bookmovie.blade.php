@@ -20,7 +20,7 @@
     <h4 class="u-bkmv_title"><span>读书影逝</span></h4>
     <menu class="m-menu">
         @foreach($data['navigation'] as $nav)
-            <li {{$nav['active'] ? 's-active' : ''}}><a href="{{$nav['id']}}">{{$nav['type']}}</a></li>
+            <li {{$nav['active'] ? 's-active' : ''}}><a href="bookmovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
     </menu>
     <div class="g-left f-fl">
