@@ -22,7 +22,7 @@ class Recommend extends Eloquent {
                 $work_id[] = '%';
         }
         foreach($type_id as $key => $v){
-            $recommend = Recommend::where('type_id', '=',$v)->where('status', '=', '1')->where('id', 'like', $work_id[$key])->orderBy('id', 'desc')->paginate(20);
+            $recommend = Recommend::whereIn('type_id', $type_id)->where('status', '=', '1')->where('id', 'like', $work_id[$key])->orderBy('id', 'desc')->paginate(20);
         }
             foreach($recommend as $v){
             $v->navigation;

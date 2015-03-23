@@ -19,8 +19,8 @@
 @section("container")
     <h4 class="u-micro_title"><span>精选推荐</span></h4>
     <ul class="m-but f-cb">
-        @foreach($data['navigation'] as $nav)
-            <li><a href="">{{$nav['type']}}</a></li>
+        @foreach($data['category'] as $nav)
+            <li><a href="micromovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
         <li><a href="">最热</a></li>
         <li class="s-active"><a href="">我要上传</a></li>

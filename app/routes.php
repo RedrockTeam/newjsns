@@ -37,6 +37,8 @@ Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@r
 
 #微视
 Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieIndex'));
+//微视影逝标签搜索
+Route::get('micromovietag', array('as' => 'micromovietag', 'uses' =>'MicromovieController@micromovieSearch'));
 
 #微视分页
 Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
