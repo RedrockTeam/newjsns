@@ -30,7 +30,8 @@ Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureContro
 
 #读书影逝
 Route::get('bookmovie', array('as' => 'recommend', 'uses' =>'RecommendController@recommendIndex'));
-
+//读书影逝标签搜索
+Route::get('bookmovietag', array('as' => 'bookmovietag', 'uses' => 'RecommendController@recommendTagSearch'));
 #读书影逝分页
 Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
 

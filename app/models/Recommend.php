@@ -16,9 +16,15 @@ class Recommend extends Eloquent {
     public static function getRecommend($value = array()){
         foreach($value as $id){
             $type_id[] = $id['id'];
+            if($id['work_id']!=null)
+                $work_id[] = $id['work_id'];
+            else
+                $work_id[] = '%';
         }
-        $recommend = Recommend::whereIn('type_id', $type_id)->where('status', '=', '1')->orderBy('id', 'desc')->paginate(20);
-        foreach($recommend as $v){
+        foreach($type_id as $key => $v){
+            $recommend = Recommend::where('type_id', '=',$v)->where('status', '=', '1')->where('id', 'like', $work_id[$key])->orderBy('id', 'desc')->paginate(20);
+        }
+            foreach($recommend as $v){
             $v->navigation;
         }
         return $recommend;
