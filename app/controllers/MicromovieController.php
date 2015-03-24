@@ -34,7 +34,6 @@ class MicromovieController extends BaseController {
             'comment' => $comment,
             'hot' => $hot,
         );
-       // return $data;
         return View::make('template.microm_sub.microm_sub')->with('data', $data);
     }
 

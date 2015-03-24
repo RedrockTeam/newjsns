@@ -21,9 +21,9 @@ class PersonalController extends BaseController {
             $collection = Collection::getCollectWorks($collection_id);//我的收藏
         else
             $collection = null;
-        $from = Comment::where('from', '=', $uid)->get();//我的评论
+        $from = Comment::where('from', '=', $uid)->join('users', 'comment.from', '=', 'users.id')->get();//我的评论
         Comment::where('to', '=', $uid)->update(array('read_status' => '1'));//更新为已读评论
-        $to = Comment::where('to', '=', $uid)->get();//评论我的
+        $to = Comment::where('to', '=', $uid)->join('users', 'comment.to', '=', 'users.id')->get();//评论我的
 
         $data = array(
             'user_info' => $user_info,
