@@ -28,7 +28,12 @@ class LoginController extends BaseController
                 'uid' => $input['stu_id'],
                 'password' => Hash::make($input['stu_pwd']),
             );
-            User::create($data);
+            $uid = User::create($data);
+            $role = array(
+                'uid' => $uid,
+                'type_id'=>'3',
+            );
+            DB::table('group')->insert($role);
             return Redirect::to('/');
         }
         else{

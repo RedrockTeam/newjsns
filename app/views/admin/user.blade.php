@@ -49,8 +49,9 @@
                                     <div class="row">
                                         <div class="col-xs-6 ">
                                         <select class="form-control" name="type_id">
+
                                             @foreach($data['rolelist'] as $role)
-                                                <option value="{{$role['id']}}" {{$user['getType'][0]['id']==$role['id']?'selected="selected"':''}} >{{$role['name']}}</option>
+                                                <option value="{{$role['id']}}" {{$user['getType'][0]['id'] == $role['id']?'selected="selected"':''}} >{{$role['name']}}</option>
                                             @endforeach
                                         </select>
                                         </div>
