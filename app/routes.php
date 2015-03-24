@@ -202,6 +202,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), f
     Route::post('recommend/add', array('as' => 'admin/recommend/add','uses' => 'RecommendmanageController@add'));//读书影逝模块
 
     Route::get('original', array('as' => 'admin/original','uses' => 'OriginalmanageController@index'));//原味模块
+    Route::post('original/manage', array('as' => 'admin/original/manage','uses' => 'OriginalmanageController@manage'));//原味管理模块
 
     Route::get('comment', array('as' => 'admin/comment','uses' => 'CommentmanageController@index'));//评论模块
     Route::post('comment/manage', array('as' => 'admin/comment/manage','uses' => 'CommentmanageController@manage'));//评论模块
