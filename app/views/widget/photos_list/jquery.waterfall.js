@@ -162,7 +162,7 @@
 								function(jsonData){
 									try{
 										if(typeof jsonData === 'string') jsonData = $.parseJSON(jsonData);
-										if($.isEmptyObject(jsonData) || typeof jsonData === 'string'){
+										if(jsonData.current_page == jsonData.last_page){
 											showMsg('finish');
 										}else{
 											jsonCache = jsonCache.concat(jsonData.data).reverse();

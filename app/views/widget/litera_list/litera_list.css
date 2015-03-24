@@ -1,12 +1,18 @@
 /*created by redrock*/
 .u-article_item {
-    margin-bottom: 44px;
+    padding: 22px 0;
+    border-bottom: 1px dashed #dddddd;
 }
 
 .m-artitcle_lists .u-img_show {
     width: 218px;
     height: 218px;
     float: left;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #dddddd;
 }
 
 .m-artitcle_lists .u-content {
@@ -32,7 +38,7 @@
 }
 
 .m-artitcle_lists .u-content-omit {
-    height: 106px;
+    height: 161px;
     overflow: hidden;
 }
 
@@ -96,7 +102,19 @@
     background: url("../../../images/litera_t_icons.png") no-repeat left -115px;
 }
 .m-artitcle_lists .u-litera_user_action .show_litera_love {
-    background-position: left -160px;
     margin-left: 13px;
     cursor: pointer;
+    padding-left: 0;
+    background: none;
+}
+
+.m-artitcle_lists .u-litera_user_action .show_litera_love .fa-heart{
+    font-size: 18px;
+}
+
+.m-artitcle_lists .u-litera_user_action .show_litera_love .fa-heart.s-active{
+    color: #E54;
+}
+.m-artitcle_lists .u-litera_user_action .show_litera_love span{
+    vertical-align: top;
 }

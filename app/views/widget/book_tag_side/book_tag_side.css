@@ -1,0 +1,52 @@
+/*created by redrock*/
+.u-side_title {
+    font-size: 14px;
+    color: #333333;
+    font-family: "microsoft yahei";
+}
+
+.u-tag_lists{
+    margin: 10px 0;
+}
+.u-tag_lists li{
+    float: left;
+    margin-right: 20px;
+}
+.u-tag_lists li a{
+    line-height: 22px;
+    font-size: 12px;
+    color: #666666;
+}
+
+.u-search_form{
+    display: block;
+    padding-top: 20px;
+    border-top: 1px solid #efefef;
+}
+.u-search_form label {
+    display: block;
+    padding-bottom: 10px;
+}
+.u-search_form input[type="text"] {
+    width: 160px;
+    outline: none;
+    border: 1px solid #dddddd;
+    border-right: none;
+    padding: 5px 0;
+    text-indent: 1em;
+}
+.u-search_form input{
+    float: left;
+}
+.u-search_form input[type="submit"] {
+    background: #ff894f;
+    border: none;
+    text-align: center;
+    width: 54px;
+    border-radius: 0 3px 3px 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding:6px 0;
+    color: #fff;
+}

@@ -19,16 +19,9 @@
 @section("container")
     <h4 class="u-bkmv_title"><span>读书影逝</span></h4>
     <menu class="m-menu">
-
-        <li class="u-sort-movie f-pr">
-            @foreach($data['navigation'] as $nav)
-                <a href="{{$nav['id']}}">{{$nav['type']}}</a>
-            @endforeach
-                <span class="s-tangle"></span>
-        </li>
-
-        <li class="u-sort-hot"><a href="">最热</a></li>
-        <li class="u-upload"><a href="">我要上传</a></li>
+        @foreach($data['navigation'] as $nav)
+            <li {{$nav['active'] ? 's-active' : ''}}><a href="bookmovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
+        @endforeach
     </menu>
     <div class="g-left f-fl">
         @include("widget.bookm_list.bookm_list")
@@ -54,7 +47,10 @@
 @stop
 {{--script--}}
 @section("html5js")
-    {{HTML::script("public/js/lib/html5shiv-printshiv.min.js")}}
+    <script type="text/javascript">
+            alert("为了你的浏览体验，请升级您的IE或者使用其他现代浏览器。\n现在为你跳转到红岩官网");
+            location.href = "http://hongyan.cqupt.edu.cn/";
+        </script>
 @stop
 @section("script")
     {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/bookmovie/bookmovie.js")])}}

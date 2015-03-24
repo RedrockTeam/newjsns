@@ -3,6 +3,8 @@
     font-size: 18px;
     color: #ff894f;
     margin-bottom: 10px;
+    width: 670px;
+    overflow: hidden;
 }
 .m-bkmv_detail .u-bkmv_o_intro{
     padding-bottom: 20px;
@@ -13,6 +15,11 @@
     height: 148px;
     border: #dddddd;
     margin-right: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #dddddd;
 }
 
 .m-bkmv_detail .u-bkmv_o_intro .u-movie_stars li{

@@ -15,12 +15,24 @@ require.config({
         go_top : '../widget/go_top/go_top',
         load_img : '../widget/photos_list/load_img',
         underscore : 'underscore',
-        login_box : '../widget/login_box/login_box',
+        login_box : '../widget/login-register-case/login-register-case',
         slim_box : '../widget/photos_list/slimBox',
-        waterfall : '../widget/photos_list/jquery.waterfall'
+        waterfall : '../widget/photos_list/jquery.waterfall',
+        praise : '../widget/js_widget/praise'
     }
 });
 //加载依赖项
-define(['photos_list', 'go_top', 'load_img', 'login_box'], function(){
+define(['photos_list', 'go_top', 'load_img', 'login_box', 'praise'], function(){
     console.log('photos init');
+    /*----------------------打开与关闭登陆框-----------------*/
+    $('.js-open_login_box').on('click', openBox);                //打开登陆框
+    $('.js-close_login_box, .js-login_box').on('click', closeBox);//关闭登陆框
+    /*----------------------事件处理函数--------------------*/
+    function openBox(){
+        $('.js-login_box').css('display', 'block');
+    }
+
+    function closeBox(){
+        $('.js-login_box').css('display', 'none');
+    }
 });

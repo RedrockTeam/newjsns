@@ -20,8 +20,14 @@ class Micromovie extends Eloquent {
     public static function getMicromovie($value = array()){
         foreach($value as $id){
             $type_id[] = $id['id'];
+            if($id['work_id']!=null)
+                $work_id[] = $id['work_id'];
+            else
+                $work_id[] = '%';
         }
-        $micromovie = Micromovie::whereIn('type_id', $type_id)->where('status', '=', '1')->orderBy('created_at', 'desc')->paginate(5);
+        foreach($type_id as $key => $v) {
+            $micromovie = Micromovie::whereIn('type_id', $type_id)->where('status', '=', '1')->where('id', 'like', $work_id[$key])->orderBy('created_at', 'desc')->paginate(5);
+        }
         foreach($micromovie as $v){
             $v->navigation;
             $v->user;

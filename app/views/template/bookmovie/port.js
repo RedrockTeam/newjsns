@@ -4,5 +4,5 @@
 
 //读书影逝列表ajax接口配置
 define({
-
+    'praise' : '/praise'
 });

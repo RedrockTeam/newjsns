@@ -11,6 +11,7 @@
     float: left;
     font-size: 14px;
     color: #333333;
+    font-weight: 600;
 }
 .g-lists .u-ori_header .u-link_more{
     float: right;
@@ -46,9 +47,14 @@
     width: 112px;
     text-align: center;
 }
-.g-lists .u-list_item img{
+.g-lists .u-list_item .u-img_show{
     width: 110px;
     height: 160px;
     margin: 0 auto;
     display: block;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #dddddd;
 }

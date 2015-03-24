@@ -4,10 +4,14 @@ class SshController extends BaseController {
     private $pullcommand;
     //自主命令
     public function getCommand(){
+//        final $info;
         $input = Input::all();
         $command = explode(';', $input['input']);   
-        SSH::run($command);
-    return Redirect::back();
+        SSH::run($command, function($line) {
+            $data['info'] = $line.PHP_EOL;
+        });
+        $data['status'] = 200;
+        return $data;
     }
 
     //pull当前项目

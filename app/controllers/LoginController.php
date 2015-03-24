@@ -12,18 +12,28 @@ class LoginController extends BaseController
     //注册
     public function register(){
         $input = Input::all();
-        $result = $this->get_register($input['username'], $input['password']);
-        if ($result == $input['username']) {
-            $num = User::where('uid', '=', $input['username'])->count();
+        $num = User::where('uid', '=', $input['stu_id'])->count();
+        if($num!=0){
+            $error = '你已注册';
+            return Redirect::back()->withErrors($error);
+        }
+        $result = $this->get_register($input['stu_id'], $input['stu_pwd']);
+        if ($result == $input['stu_id']) {
+            $num = User::where('uid', '=', $input['stu_id'])->count();
             if($num!=0){
                 return 'error';
             }
             $data = array(
-                'username' => $input['nickname'],
-                'uid' => $input['username'],
-                'password' => Hash::make($input['password']),
+                'username' => $input['stu_nickname'],
+                'uid' => $input['stu_id'],
+                'password' => Hash::make($input['stu_pwd']),
             );
-            User::create($data);
+            $uid = User::create($data);
+            $role = array(
+                'uid' => $uid,
+                'type_id'=>'3',
+            );
+            DB::table('group')->insert($role);
             return Redirect::to('/');
         }
         else{
@@ -39,7 +49,7 @@ class LoginController extends BaseController
              $nickname = User::where('uid', '=', $input['username'])->first();
              Session::put('nickname', $nickname['username']);
              Session::put('uid', $nickname['id']);
-             return Redirect::back();
+             return Redirect::to('/')->withCookie(Cookie::forever('uid', $nickname['id']));
          }
         else{
             return 'error';

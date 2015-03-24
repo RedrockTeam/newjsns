@@ -17,18 +17,18 @@
                 </ul>
             </div>
             <div class="u-m_info_b">
-                <span>影片作者:{{$data['movie']['author']}}</span>
+                <span class="js-share_title">影片作者:{{$data['movie']['author']}}</span>
                 <span>{{$data['movie']['created_at']}}</span>
             </div>
         </div>
         <div class="u-intro_r f-fr">
-            <a href="" class="u-action_favor">赞</a>
-            <a href="" class="u-action_tread">踩</a>
+            <a href="" class="u-action_favor js-praise">赞</a>
+            <a href="" class="u-action_tread js-thread">踩</a>
         </div>
     </div>
     <div class="u-intro_detail">
         <h4>剧情简介</h4>
-        <p>{{$data['movie']['introduce']}}</p>
+        <p class="js-share_content">{{$data['movie']['introduce']}}</p>
     </div>
 </article>
 @section("css")

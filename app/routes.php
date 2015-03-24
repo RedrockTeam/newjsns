@@ -16,36 +16,111 @@ Route::get('/', array('as' => 'index', 'uses' => 'IndexController@index'));
 
 #原味
 Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
+//原味标签搜索
+Route::get('originaltag', array('as' => 'originaltag', 'uses' => 'OriginalController@orginalTagSearch'));
 
 #爱拍
 Route::get('photos', array('as' => 'photos', 'uses' => 'PhotosController@photoIndex'));
 
 #文学
-Route::get('literatrue',array('as' => 'literatrue', 'uses' => 'LiteratureController@literatureIndex'));
+Route::get('literature',array('as' => 'literature', 'uses' => 'LiteratureController@literatureIndex'));
 
 #文学分页
 Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
 
 #读书影逝
 Route::get('bookmovie', array('as' => 'recommend', 'uses' =>'RecommendController@recommendIndex'));
-
+//读书影逝标签搜索
+Route::get('bookmovietag', array('as' => 'bookmovietag', 'uses' => 'RecommendController@recommendTagSearch'));
 #读书影逝分页
 Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
 
 #微视
 Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieIndex'));
+//微视影逝标签搜索
+Route::get('micromovietag', array('as' => 'micromovietag', 'uses' =>'MicromovieController@micromovieSearch'));
 
 #微视分页
 Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
-#个人中心
-Route::get('personal', array('as' => 'personal', 'uses' =>'PersonalController@personalIndex'));
+
 
 Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
 
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
-/*------------------------------ajax 测试---------------------------------*/
 
+#登陆和注册
+Route::get('login-register', function(){
+    return View::make("template.login-register.login-register");
+});
+#图书标签
+Route::get('book_tags', function(){
+    $data = [
+            "book_tags" => [
+                [
+                    "title" => "金瓶梅",
+                    "author" => "刘世英/",
+                    "price" => 26,
+                    "comment_total" => 40,
+                    "star" => 3.5,
+                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
+                ],
+                [
+                    "title" => "金瓶梅",
+                    "author" => "刘世英/",
+                    "price" => 26,
+                    "comment_total" => 40,
+                    "star" => 3.5,
+                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
+                ],
+                [
+                    "title" => "金瓶梅",
+                    "author" => "刘世英/",
+                    "price" => 26,
+                    "comment_total" => 40,
+                    "star" => 3.5,
+                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
+                ],
+                [
+                    "title" => "金瓶梅",
+                    "author" => "刘世英/",
+                    "price" => 26,
+                    "comment_total" => 40,
+                    "star" => 3.5,
+                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
+                ]
+            ]
+    ];
+    return View::make("template.book_tags.book_tags")->with($data);
+});
+
+#图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
+Route::get('imageUpload', function(){
+    $data =[
+        'imgExists' => true,    //是否已经上传过 上传过的话为true 没有上传过的话为false
+        'imgSrc' => 'public/images/1.png'  //进行剪切的路径  如果上传过的话，为图片路径，没有的话
+    ];
+    return View::make("template.imageUpload.imageUpload")->with($data);
+});
+#上传图片,文章，微视
+Route::get('/uploads', function(){
+    $data =[
+        "page_pos" => 2   //页面位置 0表示图片栏1表示微视栏2表示文章栏
+    ];
+    return View::make("template.uploads.uploads")->with($data);
+});
+/*------------------------------ajax 测试---------------------------------*/
+#点赞
+Route::post('praise', 'CommentController@praise');
+#踩
+Route::post('/thread', function(){
+    $data = [
+        "success" => true,
+        "input" => Input::all()
+    ];
+
+    return Response::json($data);
+});
 
 /**
  * 前台功能性路由
@@ -59,8 +134,7 @@ Route::get('upload', function(){
 //不需权限
 Route::group(array('prefix' => 'home'), function()
 {
-    Route::get('literatrue', array('as' => 'home/literatrue','uses' => 'LiteratureController@test'));//ajax获取排序文学及分页
-    Route::get('literatrue/comment', array('as' => 'home/literatrue/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
+    Route::get('literature/comment', array('as' => 'home/literature/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
 
     Route::get('photos', array('as' => 'home/photos','uses' => 'LiteratureController@test'));//ajax获取排序图片及分页
     Route::get('photos/comment', array('as' => 'home/photos/comment','uses' => 'LiteratureController@test'));//ajax获取图片评论
@@ -79,10 +153,13 @@ Route::group(array('prefix' => 'home'), function()
 
 });
 
-
+#个人中心
+Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
 {
+
+    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'editPersonalInfo@comment'));//ajax爱拍发表评论
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 
@@ -95,7 +172,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
     //文学路由
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
 
-    Route::post('comment/literatrue', array('as' => 'home/comment/literatrue','uses' => 'CommentController@comment'));//ajax文学发表评论
+    Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
 });
 
@@ -125,6 +202,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), f
     Route::post('recommend/add', array('as' => 'admin/recommend/add','uses' => 'RecommendmanageController@add'));//读书影逝模块
 
     Route::get('original', array('as' => 'admin/original','uses' => 'OriginalmanageController@index'));//原味模块
+    Route::post('original/manage', array('as' => 'admin/original/manage','uses' => 'OriginalmanageController@manage'));//原味管理模块
 
     Route::get('comment', array('as' => 'admin/comment','uses' => 'CommentmanageController@index'));//评论模块
     Route::post('comment/manage', array('as' => 'admin/comment/manage','uses' => 'CommentmanageController@manage'));//评论模块

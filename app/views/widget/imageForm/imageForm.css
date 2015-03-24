@@ -1,0 +1,17 @@
+/*created by redrock*/
+.m-upload_form input[type="file"] {
+    margin-bottom: 20px;
+    outline: none;
+}
+.u-show-img{
+    overflow-x: scroll;
+}
+.u-crop-img{
+    display: block;
+}
+.u-show_thumb_img {
+    width: 94px;
+    height: 94px;
+    overflow: hidden;
+    margin: 20px auto;
+}

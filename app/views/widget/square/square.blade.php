@@ -3,11 +3,11 @@
     <div class="u-logo"></div>
     <ul class="u-squares">
         <li class="u-square_item">
-            <a href="/literatrue" class="s-wrap"></a>
+            <a href="/literature" class="s-wrap"></a>
             <p class="u-title">
-                <a href="/literatrue">
+                <a href="/literature">
                     <span>文学</span>
-                    <span>literatrue</span>
+                    <span>literature</span>
                 </a>
             </p>
         </li>
@@ -57,12 +57,12 @@
             </p>
         </li>
 
-        <li class="u-square_item js-open_login_box">
+        <li class="u-square_item">
             <p class="u-title">
                 @if(Session::get('nickname'))
-                    <a href="{{route('index')}}"><span>{{Session::get('nickname')}}</span></a>
+                    <a href="{{route('personal')}}"><span>{{Session::get('nickname')}}</span></a>
                 @else
-                    <span>登陆/注册</span>
+                    <a class="u-link-other" href="/login-register">登陆/注册</a>
                 @endif
             </p>
         </li>

@@ -40,12 +40,12 @@
     </ul>
 
     {{--发表评论部分--}}
-    <form action="" class="m-litera_re_comment f-cb">
-       <input type="text" value="" class="u-input" placeholder="这里发表评论"/>
+    <form action="" class="m-litera_re_comment f-cb js-form_ueditor" method="POST">
+       {{--<input type="text" value="" class="u-input" placeholder="这里发表评论"/>--}}
+       @include("widget.ueditor.ueditor")
        <input type="submit" class="u-submit"/>
     </form>
 </div>
-
 @section("css")
     @parent
     {{HTML::style("public/css/widget/litera_comment/litera_comment.css")}}

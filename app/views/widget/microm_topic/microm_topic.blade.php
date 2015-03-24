@@ -1,23 +1,13 @@
 <div class="m-micro_tags">
     <h4 class="u-tag_tip">热门标签</h4>
-        @foreach($data['navigation'] as $key => $nav)
+        @foreach($data['category'] as $key => $nav)
             <dl class="f-cb">
-                <dt><a href="">[{{$nav['type']}}]</a></dt>
+                <dt><a href="micromovie?type_id={{$nav['id']}}">[{{$nav['type']}}]</a></dt>
                 @foreach($data['tags'][$key] as $tag)
-                    <dd><a href="{{$tag['id']}}">{{$tag['tag']}}</a></dd>
+                    <dd><a href="micromovietag?type_id={{$nav['id']}}&tag={{$tag['tag']}}">{{$tag['tag']}}</a></dd>
                 @endforeach
             </dl>
         @endforeach
-    {{--<dl class="f-cb">--}}
-        {{--<dt><a href="">[导演]</a></dt>--}}
-        {{--<dd><a href="">文学</a></dd>--}}
-        {{--<dd><a href="">小说</a></dd>--}}
-        {{--<dd><a href="">童话</a></dd>--}}
-        {{--<dd><a href="">励志</a></dd>--}}
-        {{--<dd><a href="">经济管理</a></dd>--}}
-        {{--<dd><a href="">散文</a></dd>--}}
-        {{--<dd><a href="">青春</a></dd>--}}
-    {{--</dl>--}}
 </div>
 
 @section("css")

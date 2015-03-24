@@ -4,7 +4,7 @@
         <div class="u-movie_item f-cb">
             <img src="" alt="" class="u-m_show_img"/>
             <aside class="u-m_info">
-                <a href="{{route('microm_sub')}}?type_id={{$micromovie['type_id']}}&passage_id={{$micromovie['id']}}">
+                <a href="{{route('microm_sub')}}?type_id={{$micromovie['type_id']}}&passage_id={{$micromovie['id']}}" class="s-link_wrap">
                     <div class="u-m_info_h f-cb">
                         <h5>{{$micromovie['title']}}</h5>
                         <ul class="u-movie_stars">
@@ -24,14 +24,13 @@
                         <span>影片作者:{{$micromovie['author']}}</span>
                         <span>{{$micromovie['created_at']}}</span>
                     </div>
+                    <p class="u-m_intro">
+                        {{str_limit($micromovie['introduce'], '250', '......')}}
+                    </p>
                 </a>
-                <p class="u-m_intro">
-                    {{str_limit($micromovie['introduce'], '250', '......')}}
-                </p>
                 <div class="u-m_user_action">
-                    <div class="u-share"><a href=""></a></div>
                     <div class="show_movie-comments">({{$micromovie['comment_num']}})</div>
-                    <div class="show_movie_love">({{$micromovie['love_num']}})</div>
+                    <div class="show_movie_love js-praise"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$micromovie['love_num']}})</span></div>
                 </div>
             </aside>
         </div>
@@ -42,4 +41,5 @@
 @section("css")
     @parent
     {{HTML::style("public/css/widget/microm_list/microm_list.css")}}
+    {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")}}
 @stop

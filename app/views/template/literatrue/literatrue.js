@@ -17,11 +17,15 @@ require.config({
         'go_top' : '../widget/go_top/go_top',
         'jquery.sliderBox' : './jquery.sliderBox',
         'slider' : '../widget/litera_recom_slider/litera_recom_slider',
-        'login_box' : '../widget/login_box/login_box'
+        'praise' : '../widget/js_widget/praise'   //点赞
     }
 });
 
 //加载依赖项
-define(['litera_list', 'go_top', 'slider', 'login_box'], function(){
-    console.log('literatrue init');
+define(['jquery','litera_list', 'go_top', 'slider', 'praise'], function($){
+    $(function(){
+        $('.js-open_login_box').on('click', function(){
+            location.href = '/login-register';
+        });
+    });
 });

@@ -11,10 +11,11 @@ class Collection extends Eloquent {
         return $this->hasOne('Navigation', 'id', 'type_id');
     }
     //根据work_id和type_id取作品
-    public static function getCollectWorks($work_id){
-        foreach($work_id as $id){
+    public static function getCollectWorks($work_id = null){
+        foreach($work_id as $key=>$id){
             $table = $id->hasallFather;
-            $result[] = DB::table($table['table_name'])->where('id', '=', $id['work_id'])->where('status', '=', '1')->get();
+            $result[] = DB::table($table['table_name'])->where('id', '=', $id['work_id'])->where('status', '=', '1')->first();
+            $result[$key]['table'] = $table['table_name'];
         }
         return $result;
     }

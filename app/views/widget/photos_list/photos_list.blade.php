@@ -13,10 +13,11 @@
                 <a class="js-link" style="display: none" href="<%= data.img_detail[i].img_src %>" title="<%= data.img_detail[i].img_desc%>"></a>
             <%}%>
         <%}%>
-        <div class="u-action"><a class="u-show_comments">(<%= data.comment_count%>)</a><a class="u-show_love">(<%= data.love_count%>)</a></div>
+        <div class="u-action"><a class="u-show_comments">(<%= data.comment_count%>)</a><div class="u-show_love js-praise"><i class="fa fa-heart js-show_love"></i><span class="js-num">(<%= data.love_count%>)</span></div></div>
      </div>
 </script>
 @section("css")
     @parent
     {{HTML::style("public/css/widget/photos_list/photos_list.css")}}
+    {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")}}
 @stop

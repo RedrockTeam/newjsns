@@ -19,8 +19,8 @@
 @section("container")
     <h4 class="u-micro_title"><span>精选推荐</span></h4>
     <ul class="m-but f-cb">
-        @foreach($data['navigation'] as $nav)
-            <li><a href="">{{$nav['type']}}</a></li>
+        @foreach($data['category'] as $nav)
+            <li><a href="micromovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
         <li><a href="">最热</a></li>
         <li class="s-active"><a href="">我要上传</a></li>
@@ -51,7 +51,10 @@
 
 {{--script--}}
 @section("html5js")
-    {{HTML::script("public/js/lib/html5shiv-printshiv.min.js")}}
+    <script type="text/javascript">
+            alert("为了你的浏览体验，请升级您的IE或者使用其他现代浏览器。\n现在为你跳转到红岩官网");
+            location.href = "http://hongyan.cqupt.edu.cn/";
+        </script>
 @stop
 @section("script")
     {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/micromovie/micromovie.js")])}}

@@ -18,6 +18,10 @@
 .m-movie_lists .u-m_info{
     width: 446px;
 }
+.m-movie_lists .u-m_info .s-link_wrap{
+    display: block;
+
+}
 .m-movie_lists .u-m_info .u-m_info_h h5{
     color: #6784ff;
     font-size: 14px;
@@ -59,13 +63,19 @@
 .m-movie_lists .u-m_info .u-m_user_action{
     float: right;
 }
+.m-movie_lists .u-m_info .bds_more{
+    background: url("../../../images/litera_t_icons.png") no-repeat left -243px;
+    margin-top: 0;
+    padding-left: 22px;
+    height: 18px;
+}
 .m-movie_lists .u-m_info .u-share,.m-movie_lists .u-m_info .show_movie-comments, .m-movie_lists .u-m_info .show_movie_love{
     float: left;
 }
-.m-movie_lists .u-m_info .show_movie-comments a, .m-movie_lists .u-m_info .u-share a{
+.m-movie_lists .u-m_info .show_movie-comments a{
     text-decoration: none;
 }
-.m-movie_lists .u-m_info .show_movie_love,.m-movie_lists .u-m_info .show_movie-comments, .m-movie_lists .u-m_info .u-share {
+.m-movie_lists .u-m_info .show_movie_love,.m-movie_lists .u-m_info .show_movie-comments{
     color: #666666;
     text-decoration: none;
     font-size: 12px;
@@ -77,13 +87,27 @@
     cursor: pointer;
     margin-left: 13px;
 }
+/*.m-movie_lists .u-m_info .u-share {
+    padding-left: 0;
+    background: none;
+}*/
 .m-movie_lists .u-m_info .show_movie_love {
-    background-position: left -160px;
+    background:none;
     cursor: pointer;
+    margin-left: 0;
 }
-.m-movie_lists .u-m_info .u-share{
+.m-movie_lists .u-m_info .show_movie_love .fa-heart{
+    font-size: 18px;
+}
+.m-movie_lists .u-m_info .show_movie_love span{
+    vertical-align: top;
+}
+.m-movie_lists .u-m_info .show_movie_love .fa-heart.s-active{
+    color: #E54;
+}
+/*.m-movie_lists .u-m_info .u-share{
     background-position: left -243px;
-}
+}*/
 /*.m-movie_lists .u-page_tabs{
     margin-top: 35px;
 }

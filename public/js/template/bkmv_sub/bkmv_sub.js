@@ -7,16 +7,25 @@ require.config({
     shim: {
         underscore: {
             exports: "_"
-        }
+        },
+        bdshare: [ "share" ]
     },
     paths: {
         jquery: "jquery",
         port: "../template/bkmv_sub/port",
-        bkmv_sub_comment: "../widget/bkmv_sub_comment/bkmv_sub_comment)",
+        bkmv_sub_comment: "../widget/bkmv_sub_comment/bkmv_sub_comment",
         go_top: "../widget/go_top/go_top",
-        login_box: "../widget/login_box/login_box"
+        ueditorConfig: "../../complexPlugin/ueditor/ueditor.config",
+        ueditorAll: "../../complexPlugin/ueditor/ueditor.all.min",
+        ueditor: "../widget/ueditor/ueditor",
+        bdshare: "../widget/bdshare/bdshare",
+        share: "../widget/bdshare/share"
     }
 }), //加载依赖项
-define([ "bkmv_sub_comment", "go_top", "login_box" ], function() {
-    console.log("bkmv_sub init");
+define([ "jquery", "bkmv_sub_comment", "go_top", "ueditor", "share", "bdshare" ], function($) {
+    $(function() {
+        $(".js-open_login_box").on("click", function() {
+            location.href = "/login-register";
+        });
+    });
 });

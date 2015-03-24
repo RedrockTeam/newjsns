@@ -37,12 +37,12 @@
         {{--@endif--}}
         {{--<li><a href="">下一页</a></li>--}}
         <li>{{$data['comment']['page']->appends(array('type_id' => $data['passage']['type_id'], 'passage_id' => $data['passage']['id']))->links()}}</li>
-
     </ul>
 
     {{--发表评论部分--}}
     <form action="" class="m-litera_re_comment f-cb">
-       <input type="text" value="" class="u-input" placeholder="这里发表评论"/>
+       {{--<input type="text" value="" class="u-input" placeholder="这里发表评论"/>--}}
+       @include("widget.ueditor.ueditor")
        <input type="submit" class="u-submit"/>
     </form>
 </div>

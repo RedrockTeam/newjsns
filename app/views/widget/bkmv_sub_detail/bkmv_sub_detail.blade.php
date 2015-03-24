@@ -1,8 +1,8 @@
 <div class="m-bkmv_detail">
-    <h5 class="u-bkmv_name">{{$data['passage']['title']}}</h5>
+    <h5 class="u-bkmv_name js-share_title">{{$data['passage']['title']}}</h5>
     <div class="u-bkmv_o_intro">
         <div class="u-bkmv_intro_h f-cb">
-            <img src="{{$data['passage']['cover_url']}}" alt="" class="u-bkmv_show_icon f-fl"/>
+            <div src="" alt="" class="u-bkmv_show_icon f-fl" style="background-image: url('{{$data['passage']["cover_url"]}}')"> </div>
             <aside class="u-bkmv_o_info f-fl">
                 <div class="u-bkmv_o_h f-cb">
                     <ul class="u-movie_stars f-cb f-fl">
@@ -30,12 +30,11 @@
                 </ul>
             </aside>
         </div>
+        @include("widget.bdshare.bdshare")
         {{--内容简介， 可注入html代码--}}
         <div class="m-bkmv_brief_intro">
             <h5 class="s-intro_title">内容简介</h5>
-            <div class="u-bkmv_intro_content">
-                {{$data['passage']['works_introduce']}}
-            </div>
+            <p class="u-bkmv_intro_content js-share_content">{{$data['passage']['works_introduce']}}</p>
         </div>
     </div>
 </div>

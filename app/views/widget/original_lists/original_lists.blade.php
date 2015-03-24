@@ -2,13 +2,13 @@
     <dl class="m-ori_print_lists g-lists f-cb">
         <dt class="u-ori_header f-cb">
             <span class="s-title">{{$nav['type']}}</span>
-            <span class="u-link_more"><a href="">更多</a></span>
+            <span class="u-link_more"><a href="?type_id={{$nav['id']}}">更多</a></span>
         </dt>
 
         @foreach($data['main'][$key] as $work)
             <dd class="u-list_item">
                 <a href="passage_id={{$work['id']}}&type_id={{$work['type_id']}}">
-                    <img src="{{$work['cover_url']}}" alt="" class=""/>
+                    <div style="background-image: url('{{$work["cover_url"]}}')" class="u-img_show"></div>
                     <span class="u-list_name">{{$work['title']}}</span>
                 </a>
             </dd>

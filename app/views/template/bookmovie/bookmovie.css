@@ -22,28 +22,18 @@
 }
 .m-menu li{
     display: inline-block;
-    height: 28px;
     overflow: hidden;
 }
 .m-menu a {
     display: block;
-    width: 80px;
-    height: 28px;
-    background: #75c366;
     font-size: 14px;
     text-align: center;
-    line-height: 28px;
-    color: #ffffff;
     text-decoration: none;
+    color: #999999;
+    font-family: "microsoft yahei";
 }
-.m-menu .u-sort-movie .s-tangle{
-    content: "";
-    border-width: 7px;
-    border-style: solid;
-    position: absolute;
-    right: 5px;
-    top: 11px;
-    border-color: #ffffff transparent transparent;
+.m-menu li.s-active a{
+    color: #333333;
 }
 
 /*登陆框遮罩*/

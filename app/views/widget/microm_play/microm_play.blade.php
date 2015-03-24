@@ -1,5 +1,5 @@
 <div class="m-microm_play">
-    <embed id="" height="390" allowscriptaccess="never" style="visibility:visible;" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="playMovie=true&amp;auto=1&amp;autostart=true" width="482" allowfullscreen="true" quality="high" src="{{$data['movie']['url']}}" type="application/x-shockwave-flash" wmode="transparent">
+    <embed id="" height="350" width="670" allowscriptaccess="never" style="visibility:visible;" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="playMovie=true&amp;auto=1&amp;autostart=true" width="482" allowfullscreen="true" quality="high" src="{{$data['movie']['url']}}" type="application/x-shockwave-flash" wmode="transparent">
 </div>
 
 @section("css")

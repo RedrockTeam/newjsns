@@ -151,10 +151,11 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>自主命令</h4>
-                <form class="form-horizontal" action="{{route('admin/ssh/getCommand')}}" method="post">
-                   <div class="col-md-6"><input type="text" class="form-control" name="input"></div>
-                    <input type="submit" class="btn btn-warning"/>
-                </form>
+                    <div class="col-md-6" id="status">
+
+                    </div>
+                    <div class="col-md-6"><input id="selfcommand" type="text" class="form-control" name="input"></div>
+                    <button type="submit" id="selfcommand_button" class="btn btn-warning"></button>
             </div>
         </div>
 
@@ -222,5 +223,31 @@
                 }
             });
         });
+
+        $('#selfcommand_button').on('click', function(){
+            var command = $('#selfcommand');
+            $.ajax({
+                url: "{{route('admin/ssh/getCommand')}}",
+
+                type: 'post',
+
+                data:{"input":command},
+
+                dataType: 'json',
+
+                timeout: 10000,
+
+                error: function(){alert('出现错误了...刷新一下试试!');},
+
+                success: function(data){
+
+                    if(data.status==200){
+                        $('#status').append(
+                            '<div class="row"><div class="col-md-12">'+data.info+'</div></div>'
+                        );
+                    }
+                }
+            });
+        })
     </script>
 @stop

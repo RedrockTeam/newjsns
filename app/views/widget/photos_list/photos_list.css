@@ -155,7 +155,19 @@
     background: url("../../../images/litera_t_icons.png") no-repeat left -115px;
 }
 .u-action .u-show_love {
-    background-position: left -160px;
+    background:none;
+    padding-left: 0;
     cursor: pointer;
+}
+
+.u-action .u-show_love .fa-heart{
+    font-size: 18px;
+}
+
+.u-action .u-show_love .fa-heart.s-active{
+    color: #E54;
+}
+.u-action .u-show_love span{
+    vertical-align: top;
 }
 

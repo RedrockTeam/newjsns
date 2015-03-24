@@ -18,6 +18,7 @@
 {{--container--}}
 @section("container")
     @include("widget.litera_content.litera_content")
+    @include("widget.bdshare.bdshare")
     @include("widget.litera_comment.litera_comment")
 @stop
 
@@ -39,7 +40,10 @@
 
 {{--script--}}
 @section("html5js")
-    {{HTML::script("public/js/lib/html5shiv-printshiv.min.js")}}
+    <script type="text/javascript">
+            alert("为了你的浏览体验，请升级您的IE或者使用其他现代浏览器。\n现在为你跳转到红岩官网");
+            location.href = "http://hongyan.cqupt.edu.cn/";
+    </script>
 @stop
 @section("script")
     {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/litera_sub/litera_sub.js")])}}
