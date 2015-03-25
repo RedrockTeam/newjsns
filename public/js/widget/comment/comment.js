@@ -29,20 +29,23 @@ define([ "jquery", "port" ], function($, port) {
             dataType: "json",
             data: data,
             success: function(res) {
-                if ("[object Object]" != typeof res) try {
+                if ("object" != typeof res) try {
                     res = JSON.parse(res);
                 } catch (err) {
                     alert("数据错误!!!!");
                 }
-                alert(res.success ? "发表评论成功!!!" : res.error ? res.error : "评论失败");
+                res.success ? (alert("发表评论成功!!!"), successOff()) : alert(res.err ? res.err : "评论失败");
             },
             error: function() {
                 alert("评论失败!!!");
             }
         });
     }
+    function successOff() {
+        $cover.css("display", "none");
+    }
     //储存数据
-    var data = null, $cover = $(".js-cover_comment"), $form = $(".js-form_editor");
+    var data = null, $cover = ($(".js-comment_item").clone(), $(".js-cover_comment")), $form = $(".js-form_editor");
     /*评论*/
     $(".js-reply_btn").on("click", onCover), /*关闭评论部分*/
     $cover.on("click", offCover), /*阻止冒泡*/
