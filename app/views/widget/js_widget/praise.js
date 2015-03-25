@@ -15,8 +15,7 @@ define(['jquery', 'port'], function($, port){
                 'type_id' : $ele.attr('data-type_id'),
                 'passage_id' : $ele.attr('data-passage_id')
             };
-            console.log(data);
-            ajax.call($ele, {'name' : 'lijinxin'});
+            ajax.call($ele, data);
         }
         /*ajax*/
         function ajax(data){

@@ -12,9 +12,7 @@ define([ "jquery", "port" ], function($, port) {
             !$self.hasClass("js-praise") && ($ele = $self.parent(".js-praise")), data = {
                 type_id: $ele.attr("data-type_id"),
                 passage_id: $ele.attr("data-passage_id")
-            }, console.log(data), ajax.call($ele, {
-                name: "lijinxin"
-            });
+            }, ajax.call($ele, data);
         }
         /*ajax*/
         function ajax(data) {

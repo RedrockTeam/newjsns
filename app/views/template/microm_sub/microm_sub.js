@@ -17,15 +17,12 @@ require.config({
         go_top : '../widget/go_top/go_top',
         login_box : '../widget/login_box/login_box',
         microm_intro : '../widget/microm_intro/microm_intro',
-        ueditorConfig : '../../complexPlugin/ueditor/ueditor.config',
-        ueditorAll : '../../complexPlugin/ueditor/ueditor.all.min',
-        ueditor : '../widget/ueditor/ueditor',
         bdshare : '../widget/bdshare/bdshare',
         share : '../widget/bdshare/share'
     }
 });
 
 //加载依赖项
-define(['microm_play','microm_comment','go_top', 'login_box', 'microm_intro', 'ueditor', 'share','bdshare'], function(){
+define(['microm_play','microm_comment','go_top', 'login_box', 'microm_intro',  'share','bdshare'], function(){
     console.log('microm_sub init');
 });
