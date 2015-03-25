@@ -4,10 +4,9 @@
  * @Author Lich
  * 日志model
  */
-class Log extends Eloquent {
-
-	
+class Logget extends Eloquent {
 	protected $table = 'log';
+    protected $fillable = array('uid', 'action');
 
 
 }
