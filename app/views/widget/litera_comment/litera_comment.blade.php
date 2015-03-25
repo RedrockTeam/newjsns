@@ -1,5 +1,5 @@
 {{--文学详细页评论部分--}}
-<div class="m-litera_comment">
+<div class="m-litera_comment" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}">
     @foreach($data['comment']['cz'] as $key => $czcomment)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
