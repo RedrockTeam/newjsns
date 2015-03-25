@@ -113,14 +113,7 @@ Route::get('/uploads', function(){
 #点赞
 Route::post('praise', 'CommentController@praise');
 #踩
-Route::post('/thread', function(){
-    $data = [
-        "success" => true,
-        "input" => Input::all()
-    ];
-
-    return Response::json($data);
-});
+Route::post('thread', 'CommentController@thread');
 
 /**
  * 前台功能性路由
@@ -174,6 +167,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
 
     Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
+    Route::post('comment/collect', array('as' => 'home/comment/collect','uses' => 'CommentController@collect'));
 });
 
 

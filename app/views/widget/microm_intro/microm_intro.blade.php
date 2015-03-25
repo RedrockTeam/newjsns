@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="u-intro_r f-fr">
-            <a href="" class="u-action_favor js-praise">赞</a>
-            <a href="" class="u-action_tread js-thread">踩</a>
+            <a href="" class="u-action_favor js-praise" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}" >赞</a>
+            <a href="" class="u-action_tread js-thread" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}" >踩</a>
         </div>
     </div>
     <div class="u-intro_detail">
