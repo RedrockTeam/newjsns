@@ -11,6 +11,11 @@ define(['jquery', 'port'], function($, port){
             var $self = $(this), $ele = $self;
             ev.stopPropagation(); //hack 子层节点
             !$self.hasClass('js-praise') && ( $ele = $self.parent('.js-praise'));
+            data = {
+                'type_id' : $ele.attr('data-type_id'),
+                'passage_id' : $ele.attr('data-passage_id')
+            };
+            console.log(data);
             ajax.call($ele, {'name' : 'lijinxin'});
         }
         /*ajax*/
