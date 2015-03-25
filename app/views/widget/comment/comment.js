@@ -4,6 +4,7 @@
 define(['jquery', 'port'], function($, port){
     //储存数据
     var data = null;
+    var $cloneItem = $('.js-comment_item').clone();
     var $cover = $('.js-cover_comment');
     var $form = $('.js-form_editor');
     /*评论*/
@@ -37,8 +38,9 @@ define(['jquery', 'port'], function($, port){
         ev.preventDefault();
         var $self = $(this);
         var content = $self.find('.js-content').val();
-        if(content.length > 300){
+        if(content.length > 300 || content.length < 1){
             alert('您输入的字数不正确!!!');
+            return false;
         }else{
             data.content = content;
         }
@@ -57,7 +59,7 @@ define(['jquery', 'port'], function($, port){
             dataType : 'json',
             data : data,
             success : function(res){
-                if(typeof res != '[object Object]'){
+                if(typeof res != 'object'){
                     try{
                         res = JSON.parse(res);
                     }catch(err){
@@ -65,11 +67,22 @@ define(['jquery', 'port'], function($, port){
                     }
                 }
 
-                alert('发表评论成功');
+                if(res.success){
+                    alert('发表评论成功!!!');
+                    successOff();
+                }else{
+                    if(res.err) alert(res.err);
+                    else alert('评论失败');
+                }
             },
             error : function(err){
-                alert('操作失败!!!');
+                alert('评论失败!!!');
             }
         });
+    }
+
+    function successOff(){
+        $cover.css('display', 'none');
+        //$cloneItem
     }
 });

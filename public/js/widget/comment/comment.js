@@ -19,8 +19,8 @@ define([ "jquery", "port" ], function($, port) {
     function subForm(ev) {
         ev.preventDefault();
         var $self = $(this), content = $self.find(".js-content").val();
-        content.length > 300 ? alert("您输入的字数不正确!!!") : data.content = content, "null" == typeof data && alert("请确认您的操作知否正确!!!"), 
-        console.log(data), ajax();
+        return content.length > 300 || content.length < 1 ? (alert("您输入的字数不正确!!!"), !1) : (data.content = content, 
+        "null" == typeof data && alert("请确认您的操作知否正确!!!"), console.log(data), void ajax());
     }
     function ajax() {
         console.log(port), $.ajax({
@@ -29,20 +29,23 @@ define([ "jquery", "port" ], function($, port) {
             dataType: "json",
             data: data,
             success: function(res) {
-                if ("[object Object]" != typeof res) try {
+                if ("object" != typeof res) try {
                     res = JSON.parse(res);
                 } catch (err) {
                     alert("数据错误!!!!");
                 }
-                alert("发表评论成功");
+                res.success ? (alert("发表评论成功!!!"), successOff()) : alert(res.err ? res.err : "评论失败");
             },
             error: function() {
-                alert("操作失败!!!");
+                alert("评论失败!!!");
             }
         });
     }
+    function successOff() {
+        $cover.css("display", "none");
+    }
     //储存数据
-    var data = null, $cover = $(".js-cover_comment"), $form = $(".js-form_editor");
+    var data = null, $cover = ($(".js-comment_item").clone(), $(".js-cover_comment")), $form = $(".js-form_editor");
     /*评论*/
     $(".js-reply_btn").on("click", onCover), /*关闭评论部分*/
     $cover.on("click", offCover), /*阻止冒泡*/
