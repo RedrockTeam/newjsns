@@ -50,6 +50,7 @@ define(['jquery', 'port'], function($, port){
     }
 
     function ajax(){
+        console.log(port);
         $.ajax({
             url : port['comment'],
             method : 'POST',

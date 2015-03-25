@@ -3,5 +3,5 @@
  */
 //文学分页ajax接口
 define({
-    'coment' : 'home/comment/literature'
+    'comment' : 'home/comment/literature'
 });

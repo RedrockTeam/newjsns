@@ -23,7 +23,7 @@ define([ "jquery", "port" ], function($, port) {
         console.log(data), ajax();
     }
     function ajax() {
-        $.ajax({
+        console.log(port), $.ajax({
             url: port.comment,
             method: "POST",
             dataType: "json",
