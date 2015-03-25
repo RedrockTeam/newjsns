@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Mywork
+ * @Author Lich
+ * 导航model
+ */
 class Navigation extends Eloquent {
 
 	

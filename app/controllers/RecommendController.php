@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class RecommendController
+ * @Author Lich
+ * 读书影逝模块
+ */
 
 class RecommendController extends BaseController {
 
@@ -14,7 +18,6 @@ class RecommendController extends BaseController {
         $data['category'] = Navigation::find(3)->hasManyson;
         $data['recommendlist'] = Recommend::getRecommend($id);
         $data['tags'] = Recommend::getTags($data['category']);
-//        return $data['tags'];
 		return View::make('template.bookmovie.bookmovie')->with('data', $data);
 	}
 

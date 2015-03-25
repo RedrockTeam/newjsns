@@ -1,7 +1,10 @@
 <?php
+/**
+ * Class Original
+ * @Author Lich
+ * 原味model
+ */
 class Original extends Eloquent {
-
-
     protected $table = 'original';
     protected $fillable = array('type_id', 'cover_url', 'url', 'title', 'introduce', 'author', 'uid', 'love_num', 'comment_num', 'status');
 

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class User_type
+ * @Author Lich
+ * 用户类型model
+ */
 class User_type extends Eloquent {
 
 	

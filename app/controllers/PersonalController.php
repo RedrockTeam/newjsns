@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class PersonalController
+ * @Author Lich
+ * 个人中心模块
+ */
 class PersonalController extends BaseController {
 
     //个人中心首页

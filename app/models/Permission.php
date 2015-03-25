@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Permission
+ * @Author Lich
+ * 授权路由model
+ */
 class Permission extends Eloquent {
 
 	

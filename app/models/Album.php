@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Album
+ * @Author Lich
+ * 相册model
+ */
 class Album extends Eloquent {
 
 	

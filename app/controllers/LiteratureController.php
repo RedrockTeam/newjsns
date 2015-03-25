@@ -55,8 +55,4 @@ class LiteratureController extends BaseController{
             return Redirect::back();
     }
 
-    public function test(){
-
-    }
-
 }

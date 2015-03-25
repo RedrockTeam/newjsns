@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Photos
+ * @Author Lich
+ * 相片model
+ */
 class Photos extends Eloquent {
 
 	

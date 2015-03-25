@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class collection
+ * @Author Lich
+ * 收藏model
+ */
 class Collection extends Eloquent {
 
 	

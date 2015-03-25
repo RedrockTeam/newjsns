@@ -1,6 +1,12 @@
 <?php
+
+/**
+ * Class CommentmanageController
+ * @Author Lich
+ * 评论管理模块
+ */
 class CommentmanageController extends BaseController{
-    //
+    //评论管理首页
     public function index(){
         $data = Comment::orderBy('created_at', 'desc')->paginate(20);
         foreach($data as $v){

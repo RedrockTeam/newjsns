@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Micromovie
+ * @Author Lich
+ * 微视model
+ */
 class Micromovie extends Eloquent {
 
 	

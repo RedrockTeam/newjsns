@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class RecommendmanageController
+ * @Author Lich
+ * 读书影逝管理模块
+ */
 class RecommendmanageController extends BaseController{
     public function index(){
         $data['list'] = Recommend::orderBy('id', 'desc')->paginate(20);

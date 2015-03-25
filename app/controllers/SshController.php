@@ -1,4 +1,10 @@
 <?php
+/**
+ * Class SshController
+ * @Author Lich
+ * Ssh管理模块
+ * TODO:danger!!!!实验性功能, 能使用, 需要提升用户体验
+ */
 class SshController extends BaseController {
 
     private $pullcommand;
