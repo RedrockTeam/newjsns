@@ -1,5 +1,5 @@
 {{--文学详细页评论部分--}}
-<div class="m-litera_comment" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}">
+<div class="m-litera_comment js-passage_info" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}">
     @foreach($data['comment']['cz'] as $key => $czcomment)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
@@ -12,7 +12,7 @@
                     <div class="s-content_wrap js-user_info">
                         <span class="u-user_name js-user_from" data-value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
                         <span class="u-reply_tag">回复</span>
-                        <span class="u-user_name" class="js-user_to" data-value="{{$v['to_uid']}}">{{$v['to_name']}} :</span>
+                        <span class="u-user_name js-user_to" data-value="{{$v['to_uid']}}">{{$v['to_name']}} :</span>
                         {{--<span class="u-reply_content">{{$v['content']}}</span>--}}
                          <span class="u-reply_content">信息，并说明如何使用所提供的各种数据输入技术。</span>
                     </div>
