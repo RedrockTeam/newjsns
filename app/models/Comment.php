@@ -80,16 +80,15 @@ class Comment extends Eloquent {
             $this->rules
         );
         if($validator->fails()){
-            $error = array('gg');
-            return $validator->messages();
+            return array('success' => true, 'err'=>$validator->messages());
         }
         else{
             if(Comment::create($data)){
-                $success = array('ok');
+                $success = array('success'=>true);
                 return $success;
             }
             else{
-                return 'gg1';
+                return $success = array('success'=>false, 'err'=>'网络错误');;
             }
         }
     }
