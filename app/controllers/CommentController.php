@@ -20,16 +20,16 @@ class CommentController extends BaseController {
     public function praise(){
         $input = Input::all();
         $father = Navigation::find($input['type_id']);
-        if(Session::has('praise.time')&&Session::has('praise.type_id')&& Session::has('praise.passage_id')) {
-            $timespace = time() - Session::get('praise.time');
-            if($timespace < 3600*3 && Session::get('praise.type_id') == $input['type_id'] && Session::get('praise.passage_id') == $input['passage_id']){
+        if(Session::has('praise.time'.$input['type_id'].$input['passage_id'])&&Session::has('praise.type_id'.$input['type_id'])&& Session::has('praise.passage_id'.$input['passage_id'])) {
+            $timespace = time() - Session::get('praise.time'.$input['type_id'].$input['passage_id']);
+            if($timespace < 3600*3 && Session::get('praise.type_id'.$input['type_id']) == $input['type_id'] && Session::get('praise.passage_id'.$input['passage_id']) == $input['passage_id']){
                 return $data = array("success" => false, "error" => '三小时内只能对同一作品点赞一次');
             }
         }
         elseif(DB::table($father['table_name'])->where('id', '=', $input['passage_id'])->increment('love_num')){
-            Session::put('praise.time', time());
-            Session::put('praise.type_id', $input['type_id']);
-            Session::put('praise.passage_id', $input['passage_id']);
+            Session::put('praise.time'.$input['type_id'].$input['passage_id'], time());
+            Session::put('praise.type_id'.$input['type_id'], $input['type_id']);
+            Session::put('praise.passage_id'.$input['passage_id'], $input['passage_id']);
             return $data = array("success" => true, "input" => $input);
         }
         else{
@@ -40,16 +40,19 @@ class CommentController extends BaseController {
     public function thread(){
         $input = Input::all();
         $father = Navigation::find($input['type_id']);
-        if(Session::has('thread.time')&&Session::has('thread.type_id')&& Session::has('thread.passage_id')) {
-            $timespace = time() - Session::get('thread.time');
-            if($timespace < 3600*3 && Session::get('thread.type_id') == $input['type_id'] && Session::get('thread.passage_id') == $input['passage_id']){
+        if(Session::has('thread.time'.$input['type_id'].$input['passage_id'])&&Session::has('thread.type_id'.$input['type_id'])&& Session::has('thread.passage_id'.$input['passage_id'])) {
+            $timespace = time() - Session::get('thread.time'.$input['type_id'].$input['passage_id']);
+
+            if($timespace < 3600*3 && Session::get('thread.type_id'.$input['type_id']) == $input['type_id'] && Session::get('thread.passage_id'.$input['passage_id']) == $input['passage_id']){
                 return $data = array("success" => false, "error" => '三小时内只能对同一作品点赞一次');
             }
+            else
+                return $input['type_id'];
         }
         elseif(DB::table($father['table_name'])->where('id', '=', $input['passage_id'])->decrement('love_num')){
-            Session::put('thread.time', time());
-            Session::put('thread.type_id', $input['type_id']);
-            Session::put('thread.passage_id', $input['passage_id']);
+            Session::put('thread.time'.$input['type_id'].$input['passage_id'], time());
+            Session::put('thread.type_id'.$input['type_id'], $input['type_id']);
+            Session::put('thread.passage_id'.$input['passage_id'], $input['passage_id']);
             return $data = array("success" => true, "input" => $input);
         }
         else{
