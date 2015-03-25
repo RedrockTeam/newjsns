@@ -29,11 +29,11 @@
 //    DB::table('log')->insert($event);
 //});
 
-Literature::updated(function($sql){
-    $op = ($sql->status==0)?'冻结':'恢复';
+Literature::updated(function($result){
+    $op = ($result->status==0)?'冻结':'恢复';
     $event = array(
         'uid' => Session::get('uid'),
-        'action' => '对文学类标题为'.$sql->title.'的文章进行'.$op,
+        'action' => '对文学类标题为'.$result->title.'的文章进行'.$op,
     );
      Logget::create($event);
 });
