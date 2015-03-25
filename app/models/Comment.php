@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Class Comment
+ * @Author Lich
+ * 评论model
+ * TODO:获取评论应该有更好的方法
+ */
 class Comment extends Eloquent {
 
 	

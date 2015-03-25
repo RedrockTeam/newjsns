@@ -1,6 +1,8 @@
 <?php
 /**
- * 渲染后台模板
+ * Class CommentmanageController
+ * @Author Lich
+ * 爱拍管理模块
  */
 
 class PhotosController extends BaseController {

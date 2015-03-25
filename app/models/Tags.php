@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Tags
+ * @Author Lich
+ * 标签model
+ */
 class Tags extends Eloquent {
 
 	

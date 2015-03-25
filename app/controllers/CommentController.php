@@ -44,7 +44,7 @@ class CommentController extends BaseController {
             $timespace = time() - Session::get('thread.time'.$input['type_id'].$input['passage_id']);
 
             if($timespace < 3600*3 && Session::get('thread.type_id'.$input['type_id']) == $input['type_id'] && Session::get('thread.passage_id'.$input['passage_id']) == $input['passage_id']){
-                return $data = array("success" => false, "error" => '三小时内只能对同一作品点赞一次');
+                return $data = array("success" => false, "error" => '三小时内只能对同一作品踩一次');
             }
             else
                 return $input['type_id'];

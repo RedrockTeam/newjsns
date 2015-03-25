@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Routelist
+ * @Author Lich
+ * 路由列表model
+ */
 class Routelist extends Eloquent {
 
 	

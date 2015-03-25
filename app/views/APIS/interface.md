@@ -207,3 +207,10 @@
 
 
 ##个人中心
+
+
+##评论ajax
+
+传给后端的数据
+楼中楼:  {"type_id":123, "passage_id":321, "to":to_uid, "content":content, "father_id":floor_id}
+新楼层:  {"type_id":123, "passage_id":321, "to":0, "content":content, "father_id":0}
