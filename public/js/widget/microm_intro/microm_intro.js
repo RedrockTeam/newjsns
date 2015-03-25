@@ -49,7 +49,7 @@ define([ "jquery", "port" ], function($, port) {
                     } catch (err) {
                         alert("error数据错误!!!");
                     }
-                    res.success ? config.callback(res) : alert(res.err ? res.err : "操作失败!!!!");
+                    res.success ? config.callback(res) : (console.log(res.err), alert(res.error ? res.error : "操作失败!!!!"));
                 },
                 error: function(err) {
                     alert("操作失败!!!"), alert(err.responseText);

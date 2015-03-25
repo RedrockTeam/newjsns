@@ -21,7 +21,7 @@ define(['jquery', 'port'], function($, port){
         function ajax(data){
             var $self = $(this);
             $.ajax({
-                url : port['praise'],
+                url : 'home/comment/collect',
                 method : 'POST',
                 dataType : 'json',
                 data : data,
@@ -36,7 +36,7 @@ define(['jquery', 'port'], function($, port){
                     if(res.success){
                         controlParise.call($self);
                     }else{
-                        if(res.err) alert(res.err);
+                        if(res.error) alert(res.error);
                         else alert('点赞失败!!!!');
                     }
                 },

@@ -71,7 +71,8 @@ define(['jquery', 'port'], function($, port){
                     if(res.success){
                         config.callback(res);
                     }else{
-                        if(res.err) alert(res.err);
+                        console.log(res.err);
+                        if(res.error) alert(res.error);
                         else alert('操作失败!!!!');
                     }
                 },

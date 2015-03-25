@@ -16,10 +16,11 @@ require.config({
         litera_comment: "../widget/litera_comment/litera_comment",
         go_top: "../widget/go_top/go_top",
         bdshare: "../widget/bdshare/bdshare",
-        share: "../widget/bdshare/share"
+        share: "../widget/bdshare/share",
+        comment: "../widget/comment/comment"
     }
 }), //加载依赖项
-define([ "jquery", "litera_content", "litera_comment", "go_top", "share", "bdshare" ], function($) {
+define([ "jquery", "litera_content", "litera_comment", "go_top", "share", "bdshare", "comment" ], function($) {
     $(function() {
         $(".js-open_login_box").on("click", function() {
             location.href = "/login-register";

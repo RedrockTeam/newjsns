@@ -20,6 +20,7 @@
     @include("widget.litera_content.litera_content")
     @include("widget.bdshare.bdshare")
     @include("widget.litera_comment.litera_comment")
+    @include("widget.comment.comment")
 @stop
 
 {{--login_box--}}

@@ -3,26 +3,24 @@
     @foreach($data['comment']['cz'] as $key => $czcomment)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
-            <aside class="u-comment_detail">
-                <span class="u-user_name" value="{{$czcomment['id']}}">{{$czcomment['username']}}</span>
+            <aside class="u-comment_detail js-father" data-value="{{$czcomment['id']}}">
+                <span class="u-user_name">{{$czcomment['username']}}</span>
                 <p class="u-user_content"> {{$czcomment['content']}}</p>
                @if(isset($data['comment']['lzl'][$key]))
                 @foreach($data['comment']['lzl'][$key] as $v)
-                <div class="s-reply_items">
-                    <span class="u-user_name" value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
-                    <span class="u-reply_tag">回复</span>
-                    <span class="u-user_name" value="{{$v['to_uid']}}">{{$v['to_name']}}</span>
-                    <span class="u-reply_content">{{$v['content']}}</span>
+                <div class="s-reply_items f-cb">
+                    <div class="s-content_wrap js-user_info">
+                        <span class="u-user_name js-user_from" data-value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
+                        <span class="u-reply_tag">回复</span>
+                        <span class="u-user_name" class="js-user_to" data-value="{{$v['to_uid']}}">{{$v['to_name']}} :</span>
+                        {{--<span class="u-reply_content">{{$v['content']}}</span>--}}
+                         <span class="u-reply_content">信息，并说明如何使用所提供的各种数据输入技术。</span>
+                    </div>
+                    <button class="u-reply_btn js-reply_btn">我要回复</button>
                 </div>
                 @endforeach
                 @else
                 @endif
-
-                    <div class="u-user_action">
-                        <span value="{{$czcomment['id']}}>赞</span>
-                        <span value="{{$czcomment['id']}}>回复</span>
-                        <span>{{$czcomment['time']}}</span>
-                    </div>
             </aside>
         </div>
     @endforeach
@@ -38,12 +36,6 @@
         {{--@endif--}}
         <li>{{$data['comment']['page']->appends(array('type_id' => $data['passage']['type_id'], 'passage_id' => $data['passage']['id']))->links()}}</li>
     </ul>
-
-    {{--发表评论部分--}}
-    <form action="" class="m-litera_re_comment f-cb js-form_ueditor" method="POST">
-       <input type="text" value="" class="u-input" placeholder="这里发表评论"/>
-       <input type="submit" class="u-submit"/>
-    </form>
 </div>
 @section("css")
     @parent

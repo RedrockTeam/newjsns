@@ -25,7 +25,6 @@
     @endforeach
     {{--切换页面--}}
     {{$data['passagelist']->links()}}
-
 </div>
 
 @section("css")
