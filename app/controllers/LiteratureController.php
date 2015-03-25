@@ -18,7 +18,7 @@ class LiteratureController extends BaseController{
                                             ->join('navigation', 'literature.type_id', '=', 'navigation.id')
                                             ->orderBy('love_num', 'desc')
                                             ->limit(12)
-                                            ->select('literature.id as id', 'literature.type_id as type_id', 'type', 'title', 'cover')
+                                            ->select('literature.id as id', 'literature.type_id as type_id', 'type', 'title', 'cover', 'literature.id as passage_id')
                                             ->get();
         $data['navigation'] = $id;
         return View::make('template.literatrue.literatrue')->with('data', $data);
