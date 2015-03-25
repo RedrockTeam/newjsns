@@ -1,5 +1,5 @@
 {{--微视评论详细页--}}
-<div class="m-microm_comments">
+<div class="m-microm_comments" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}">
     @foreach($data['comment']['cz'] as $key => $czcomment)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
