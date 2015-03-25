@@ -37,8 +37,9 @@ define(['jquery', 'port'], function($, port){
         ev.preventDefault();
         var $self = $(this);
         var content = $self.find('.js-content').val();
-        if(content.length > 300){
+        if(content.length > 300 || content.length < 1){
             alert('您输入的字数不正确!!!');
+            return false;
         }else{
             data.content = content;
         }
@@ -65,10 +66,15 @@ define(['jquery', 'port'], function($, port){
                     }
                 }
 
-                alert('发表评论成功');
+                if(res.success){
+                    alert('发表评论成功!!!');
+                }else{
+                    if(res.error) alert(res.error);
+                    else alert('评论失败');
+                }
             },
             error : function(err){
-                alert('操作失败!!!');
+                alert('评论失败!!!');
             }
         });
     }

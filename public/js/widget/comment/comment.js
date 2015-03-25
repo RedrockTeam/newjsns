@@ -19,8 +19,8 @@ define([ "jquery", "port" ], function($, port) {
     function subForm(ev) {
         ev.preventDefault();
         var $self = $(this), content = $self.find(".js-content").val();
-        content.length > 300 ? alert("您输入的字数不正确!!!") : data.content = content, "null" == typeof data && alert("请确认您的操作知否正确!!!"), 
-        console.log(data), ajax();
+        return content.length > 300 || content.length < 1 ? (alert("您输入的字数不正确!!!"), !1) : (data.content = content, 
+        "null" == typeof data && alert("请确认您的操作知否正确!!!"), console.log(data), void ajax());
     }
     function ajax() {
         console.log(port), $.ajax({
@@ -34,10 +34,10 @@ define([ "jquery", "port" ], function($, port) {
                 } catch (err) {
                     alert("数据错误!!!!");
                 }
-                alert("发表评论成功");
+                alert(res.success ? "发表评论成功!!!" : res.error ? res.error : "评论失败");
             },
             error: function() {
-                alert("操作失败!!!");
+                alert("评论失败!!!");
             }
         });
     }
