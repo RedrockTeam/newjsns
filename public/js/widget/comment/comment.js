@@ -3,15 +3,30 @@
  */
 define([ "jquery", "port" ], function($, port) {
     /*-------事件处理函数----*/
-    function onCover() {
+    function reply() {
         var $self = $(this);
-        $cover.css("display", "block"), data = {
+        $father = $self.parents(".js-father"), $cover.css("display", "block"), data = {
             from: $self.siblings(".js-user_info").find(".js-user_from").attr("data-value"),
+            from_name: $self.siblings(".js-user_info").find(".js-user_from").text(),
             to: $self.siblings(".js-user_info").find(".js-user_to").attr("data-value"),
+            to_name: $self.siblings(".js-user_info").find(".js-user_to").text(),
             father_id: $self.parents(".js-father").attr("data-value"),
             type_id: $(".js-passage_info").attr("data-type_id"),
             passage_id: $(".js-passage_info").attr("data-passage_id")
         };
+    }
+    function comment() {
+        /*$father = $self.parents('.js-father');*/
+        /*data = {
+            'to' : $father.attr('data-value'),
+            'from' : $self.siblings('.js-user_info').find('.js-user_to').attr('data-value'),
+            'to_name' : $self.siblings('.js-user_info').find('.js-user_to').text(),
+            'father_id' : $self.parents('.js-father').attr('data-value'),
+            'type_id' : $('.js-passage_info').attr('data-type_id'),
+            'passage_id' : $('.js-passage_info').attr('data-passage_id')
+        };*/
+        //$cover.css('display', 'block');
+        alert("先别慌， 还没有加上哈!!!");
     }
     function offCover() {
         $self = $(this), $self.css("display", "none");
@@ -20,7 +35,7 @@ define([ "jquery", "port" ], function($, port) {
         ev.preventDefault();
         var $self = $(this), content = $self.find(".js-content").val();
         return content.length > 300 || content.length < 1 ? (alert("您输入的字数不正确!!!"), !1) : (data.content = content, 
-        "null" == typeof data && alert("请确认您的操作知否正确!!!"), console.log(data), void ajax());
+        "null" == typeof data && alert("请确认您的操作知否正确!!!"), void ajax());
     }
     function ajax() {
         console.log(port), $.ajax({
@@ -42,12 +57,16 @@ define([ "jquery", "port" ], function($, port) {
         });
     }
     function successOff() {
-        $cover.css("display", "none");
+        $cloneItem = $(".js-comment_item").eq(0).clone(!0), $cover.css("display", "none"), 
+        $cloneItem.find(".js-user_from").attr("data-value", data.from).text(data.from_name), 
+        $cloneItem.find(".js-user_to").attr("data-value", data.to).text(data.to_name), $cloneItem.find(".js-user_content").text(data.content), 
+        $father.find(".js-user_action").before($cloneItem);
     }
     //储存数据
-    var data = null, $cover = ($(".js-comment_item").clone(), $(".js-cover_comment")), $form = $(".js-form_editor");
-    /*评论*/
-    $(".js-reply_btn").on("click", onCover), /*关闭评论部分*/
+    var data = null, $cloneItem = null, $cover = $(".js-cover_comment"), $form = $(".js-form_editor");
+    /*回复*/
+    $(".js-reply_btn").on("click", reply), /*评论*/
+    $(".js-comment_passage").on("click", comment), /*关闭评论部分*/
     $cover.on("click", offCover), /*阻止冒泡*/
     $form.on("click", function(ev) {
         ev.stopPropagation();

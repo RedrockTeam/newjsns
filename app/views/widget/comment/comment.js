@@ -4,11 +4,14 @@
 define(['jquery', 'port'], function($, port){
     //储存数据
     var data = null;
-    var $cloneItem = $('.js-comment_item').clone();
+    var $wrap = null;
+    var $cloneItem = null;
     var $cover = $('.js-cover_comment');
     var $form = $('.js-form_editor');
+    /*回复*/
+    $('.js-reply_btn').on('click', reply);
     /*评论*/
-    $('.js-reply_btn').on('click', onCover);
+    $('.js-comment_passage').on('click', comment);
     /*关闭评论部分*/
     $cover.on('click', offCover);
     /*阻止冒泡*/
@@ -17,18 +20,33 @@ define(['jquery', 'port'], function($, port){
     $form.on('submit', subForm);
 
     /*-------事件处理函数----*/
-    function onCover(){
+    function reply(){
         var $self = $(this);
+        $father = $self.parents('.js-father');
         $cover.css('display', 'block');
         data = {
             'from' : $self.siblings('.js-user_info').find('.js-user_from').attr('data-value'),
+            'from_name' : $self.siblings('.js-user_info').find('.js-user_from').text(),
             'to' : $self.siblings('.js-user_info').find('.js-user_to').attr('data-value'),
+            'to_name' : $self.siblings('.js-user_info').find('.js-user_to').text(),
             'father_id' : $self.parents('.js-father').attr('data-value'),
             'type_id' : $('.js-passage_info').attr('data-type_id'),
             'passage_id' : $('.js-passage_info').attr('data-passage_id')
         };
     }
-
+    function comment(){
+        /*$father = $self.parents('.js-father');*/
+        /*data = {
+            'to' : $father.attr('data-value'),
+            'from' : $self.siblings('.js-user_info').find('.js-user_to').attr('data-value'),
+            'to_name' : $self.siblings('.js-user_info').find('.js-user_to').text(),
+            'father_id' : $self.parents('.js-father').attr('data-value'),
+            'type_id' : $('.js-passage_info').attr('data-type_id'),
+            'passage_id' : $('.js-passage_info').attr('data-passage_id')
+        };*/
+        //$cover.css('display', 'block');
+        alert('先别慌， 还没有加上哈!!!');
+    }
     function offCover(){
         $self = $(this);
         $self.css('display','none');
@@ -47,7 +65,6 @@ define(['jquery', 'port'], function($, port){
         if(typeof data == 'null'){
             alert('请确认您的操作知否正确!!!');
         }
-        console.log(data);
         ajax();
     }
 
@@ -82,7 +99,11 @@ define(['jquery', 'port'], function($, port){
     }
 
     function successOff(){
+       $cloneItem =  $('.js-comment_item').eq(0).clone(true);
         $cover.css('display', 'none');
-        //$cloneItem
+        $cloneItem.find('.js-user_from').attr('data-value', data.from).text(data.from_name);
+        $cloneItem.find('.js-user_to').attr('data-value', data.to).text(data.to_name);
+        $cloneItem.find('.js-user_content').text(data.content);
+        $father.find('.js-user_action').before($cloneItem);
     }
 });

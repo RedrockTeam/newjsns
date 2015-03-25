@@ -13,7 +13,7 @@
                         <span class="u-user_name js-user_from" data-value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
                         <span class="u-reply_tag">回复</span>
                         <span class="u-user_name js-user_to" data-value="{{$v['to_uid']}}">{{$v['to_name']}} :</span>
-                        <span class="u-reply_content">{{$v['content']}}</span>
+                        <span class="u-reply_content js-user_content">{{$v['content']}}</span>
                          {{--<span class="u-reply_content">信息，并说明如何使用所提供的各种数据输入技术。</span>--}}
                     </div>
                     <button class="u-reply_btn js-reply_btn">我要回复</button>
@@ -21,6 +21,10 @@
                 @endforeach
                 @else
                 @endif
+                 <div class="u-user_action js-user_action">
+                        <span value="{{$czcomment['id']}}" class="js-comment_passage">我要评论</span>
+                       <span>{{$czcomment['time']}}</span>
+                 </div>
             </aside>
         </div>
     @endforeach
