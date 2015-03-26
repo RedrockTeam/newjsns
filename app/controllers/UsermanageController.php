@@ -67,6 +67,7 @@ class UsermanageController extends BaseController{
         $status = $input['oprator_id'];
         $id = $input['id'];
         User::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Usermanage.manage', array($status,$id));
         return $data = '200';
     }
 

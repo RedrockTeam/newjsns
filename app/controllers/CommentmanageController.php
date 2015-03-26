@@ -21,6 +21,7 @@ class CommentmanageController extends BaseController{
         $status = $input['oprator_id'];
         $id = $input['id'];
         Comment::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Commentmanage.manage', array($status,$id));
         return $data = '200';
     }
 }

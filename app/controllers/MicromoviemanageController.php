@@ -20,6 +20,7 @@ class MicromoviemanageController extends BaseController{
         $status = $input['oprator_id'];
         $id = $input['id'];
         Micromovie::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Micromoviemanage.manage', array($status,$id));
         return $data = '200';
     }
 }
