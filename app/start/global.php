@@ -96,3 +96,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/**
+ * 事件监听
+ */
+require app_path().'/start/event.php';

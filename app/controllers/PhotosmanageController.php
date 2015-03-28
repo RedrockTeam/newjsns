@@ -30,6 +30,7 @@ class PhotosmanageController extends BaseController{
         $status = $input['oprator_id'];
         Album::where('id', '=', $id)->update(array('status' => $status));
         Photos::where('album_id', '=', $id)->update(array('status' => $status));
+        Event::fire('Photosmanage.albummanage', array($status,$id));
         return $data = '200';
     }
     //相片管理
@@ -38,6 +39,7 @@ class PhotosmanageController extends BaseController{
         $id = $input['id'];
         $status = $input['oprator_id'];
         Photos::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Photosmanage.photomanage', array($status,$id));
         return $data = '200';
     }
 }

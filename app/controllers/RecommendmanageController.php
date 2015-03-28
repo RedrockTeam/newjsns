@@ -17,6 +17,7 @@ class RecommendmanageController extends BaseController{
         $status = $input['oprator_id'];
         $id = $input['id'];
         Recommend::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Recommendmanage.manage', array($status,$id));
         return $data = '200';
     }
     
