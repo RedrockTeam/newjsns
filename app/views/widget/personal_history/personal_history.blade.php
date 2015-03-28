@@ -1,4 +1,4 @@
-<div class="m-his_work">{{--我的作品  默认打开--}}
+<div class="m-his_work js-his_work">{{--我的作品  默认打开--}}
     @foreach($data['works'] as $work)
         @if($work['table'] == 'literature')
             <div class="u-work_item s-item">
@@ -69,7 +69,7 @@
         @endif
     @endforeach
 </div>
-<div class="m-his_comments js-hs_comments">   {{--我的评论 默认关闭--}}
+<div class="m-his_comments js-his_comments">   {{--我的评论 默认关闭--}}
     <div class="u-sort_comments"><a href="" class="s-active">收到的评论</a>/<a href="">发出的评论</a></div>
     {{--收到的评论--}}
     @foreach($data['from'] as $post)

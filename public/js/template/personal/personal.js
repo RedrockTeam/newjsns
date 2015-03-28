@@ -15,6 +15,7 @@ require.config({
         port: "../template/personal/port",
         personal_tabs: "../widget/personal_tabs/personal_tabs",
         go_top: "../widget/go_top/go_top",
+        personal_tabs: "../widget/personal_tabs/personal_tabs",
         personal_info: "../widget/personal_info/personal_info",
         imgSelectPlugin: "jquery.imgareaselect.min",
         imageSelect: "../widget/imageSelect/imageSelect"

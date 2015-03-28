@@ -7,7 +7,7 @@
     left: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 100;
-    display: none;
+    /*display: none;*/
 }
 
 .m-litera_re_comment .u-input {
@@ -33,5 +33,5 @@
 .m-litera_re_comment {
     display: block;
     width: 960px;
-    margin: 200px auto;
+    /*margin: 200px auto;*/
 }
