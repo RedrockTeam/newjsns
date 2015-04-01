@@ -26,7 +26,6 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         $cloneItem = $('.js-reply_item').eq(0).clone(true);
         //数据注入
         data = {
-            'from_name' : $self.siblings('.js-user_info').find('.js-user_from').text(),
             'to' : $self.siblings('.js-user_info').find('.js-user_from').attr('data-value'),
             'to_name' : $self.siblings('.js-user_info').find('.js-user_from').text(),
             'father_id' : $self.parents('.js-reply_father').attr('data-value')
@@ -45,19 +44,20 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
             'to_name' : $self.parents('.js-user_action').find('.js-fater_user').text(),
             'father_id' : $self.parents('.js-reply_father').attr('data-value')
         };
-
-        console.log(data);
     }
+
     //提交
     function submitForm(ev){
         ev.preventDefault();
         var $self = $(this);
         data = $.extend({
-            'from_name' : 'haha',
-            'to_name' : 'nnn',
-            'to' : 456,
+            'from' : $('.js-user_own_info').attr('data-user_id'),
+            'from_name' : $('.js-user_own_info').find('.js-user_name').text(),
+            'to_name' : $('.js-content_title').text(),
+            'to' : $('.js-content_info').attr('data-value'),
             'type_id' : $('.js-passage_info').attr('data-type_id'),
-            'passage_id' : $('.js-passage_info').attr('data-passage_id')
+            'passage_id' : $('.js-passage_info').attr('data-passage_id'),
+            'father_id' : 0
         },data);
         if( check.call($self) ){
             ajax();
@@ -75,8 +75,10 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         }
         return true;
     }
+
     //提交数据
     function ajax(){
+        console.log(data);
         $.ajax({
             url : port['comment'],
             method : 'POST',

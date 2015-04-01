@@ -9,34 +9,33 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         cPos = $("body").scrollTop(), posPage(), cType = 2, $wrap = $self.parents(".js-reply_father"), 
         $cloneItem = $(".js-reply_item").eq(0).clone(!0), //数据注入
         data = {
-            from: $self.siblings(".js-user_info").find(".js-user_from").attr("data-value"),
-            from_name: $self.siblings(".js-user_info").find(".js-user_from").text(),
-            to: $self.siblings(".js-user_info").find(".js-user_to").attr("data-value"),
-            to_name: $self.siblings(".js-user_info").find(".js-user_to").text(),
+            to: $self.siblings(".js-user_info").find(".js-user_from").attr("data-value"),
+            to_name: $self.siblings(".js-user_info").find(".js-user_from").text(),
             father_id: $self.parents(".js-reply_father").attr("data-value")
         };
     }
     function comment() {
         var $self = $(this);
         cPos = $("body").scrollTop(), $wrap = $self.parents(".js-reply_father"), $cloneItem = $(".js-reply_item").eq(0).clone(!0), 
-        cType = 1, posPage(), console.log(), //数据注入
+        cType = 1, posPage(), //数据注入
         data = {
             to: $self.parents(".js-reply_father").attr("data-value"),
             to_name: $self.parents(".js-user_action").find(".js-fater_user").text(),
             father_id: $self.parents(".js-reply_father").attr("data-value")
-        }, console.log(data);
+        };
     }
     //提交
     function submitForm(ev) {
         ev.preventDefault();
         var $self = $(this);
         data = $.extend({
-            from: 13,
-            from_name: "haha",
-            to_name: "nnn",
-            to: 456,
+            from: $(".js-user_own_info").attr("data-user_id"),
+            from_name: $(".js-user_own_info").find(".js-user_name").text(),
+            to_name: $(".js-content_title").text(),
+            to: $(".js-content_info").attr("data-value"),
             type_id: $(".js-passage_info").attr("data-type_id"),
-            passage_id: $(".js-passage_info").attr("data-passage_id")
+            passage_id: $(".js-passage_info").attr("data-passage_id"),
+            father_id: 0
         }, data), check.call($self) && ajax();
     }
     //检测
@@ -47,7 +46,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
     }
     //提交数据
     function ajax() {
-        $.ajax({
+        console.log(data), $.ajax({
             url: port.comment,
             method: "POST",
             dataType: "json",
