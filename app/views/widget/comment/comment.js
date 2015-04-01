@@ -32,7 +32,6 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         };
         $('.js-form_editor').find('.js-content').css('text-indent', 0).attr('placeholder', '回复' + data.to_name + ':' );
     }
-
     function comment(){
         var $self = $(this);
         cPos = $('body').scrollTop();
@@ -46,7 +45,6 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
             'to_name' : $self.parents('.js-user_action').siblings('.js-father_user').text(),
             'father_id' : $self.parents('.js-reply_father').attr('data-value')
         };
-
         $('.js-form_editor').find('.js-content').css('text-indent', 0).attr('placeholder', '回复' + data.to_name + ':' );
     }
 
@@ -110,6 +108,7 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
     //成功
     function success(res){
         render();
+        $('.js-form_editor').find('.js-content').css('text-indent', 0).attr('placeholder', '回复' + data.to_name + ':' );
         $('body').scrollTop(cPos);
         alert('发表评论成功!!!');
     }

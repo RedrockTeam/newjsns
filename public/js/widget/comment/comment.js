@@ -66,7 +66,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
     }
     //成功
     function success() {
-        render(), $("body").scrollTop(cPos), alert("发表评论成功!!!");
+        render(), $(".js-form_editor").find(".js-content").css("text-indent", 0).attr("placeholder", "回复" + data.to_name + ":"), 
+        $("body").scrollTop(cPos), alert("发表评论成功!!!");
     }
     //成功后的渲染
     function render() {
