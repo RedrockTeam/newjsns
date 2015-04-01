@@ -1,4 +1,4 @@
-<form action="" method="POST" enctype="multipart/form-data" class="m-photo_form js-photo_form">
+<form action="" method="POST" enctype="multipart/form-data" class="m-photo_form js-photo_form js-photo">
   <div class="form-group">
     <label for="ablum_name">请输入相册名称</label>
     <input type="text" class="form-control" name="ablum_name" id="ablum_name" placeholder="相册名称"/>
