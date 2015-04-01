@@ -115,7 +115,7 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
     //成功后的渲染
     function render(){
         if(cType === 0){    //单个对文章的评论
-            //todo
+            window.location.reload();
         }else{   //回复的那种类型
             var temp = _.template( $('#temp_reply').html() )({
                 data : data

@@ -44,7 +44,7 @@
             <button class="u-reply_btn js-reply_btn">我要回复</button>
     </div>
 </script>
-<script type="ttext/template" id="temp_comment">
+<script type="text/template" id="temp_comemnt">
 
 </script>
 @section("css")
