@@ -40,8 +40,8 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         posPage();
         //数据注入
         data = {
-            'to' : $self.parents('.js-reply_father').attr('data-value'),
-            'to_name' : $self.parents('.js-user_action').find('.js-fater_user').text(),
+            'to' : $self.parents('.js-user_father').attr('data-value'),
+            'to_name' : $self.parents('.js-user_father').text(),
             'father_id' : $self.parents('.js-reply_father').attr('data-value')
         };
     }
