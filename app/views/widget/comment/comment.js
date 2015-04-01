@@ -26,10 +26,9 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         $cloneItem = $('.js-reply_item').eq(0).clone(true);
         //数据注入
         data = {
-            'from' : $self.siblings('.js-user_info').find('.js-user_from').attr('data-value'),
             'from_name' : $self.siblings('.js-user_info').find('.js-user_from').text(),
-            'to' : $self.siblings('.js-user_info').find('.js-user_to').attr('data-value'),
-            'to_name' : $self.siblings('.js-user_info').find('.js-user_to').text(),
+            'to' : $self.siblings('.js-user_info').find('.js-user_from').attr('data-value'),
+            'to_name' : $self.siblings('.js-user_info').find('.js-user_from').text(),
             'father_id' : $self.parents('.js-reply_father').attr('data-value')
         };
     }
@@ -40,7 +39,6 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         $cloneItem = $('.js-reply_item').eq(0).clone(true);
         cType = 1;
         posPage();
-        console.log()
         //数据注入
         data = {
             'to' : $self.parents('.js-reply_father').attr('data-value'),
@@ -55,7 +53,6 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         ev.preventDefault();
         var $self = $(this);
         data = $.extend({
-            'from' : 13,
             'from_name' : 'haha',
             'to_name' : 'nnn',
             'to' : 456,
