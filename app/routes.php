@@ -71,7 +71,7 @@ Route::get('/uploads', function(){
 });
 /*------------------------------ajax 测试---------------------------------*/
 #点赞
-Route::post('praise', 'CommentController@praise');
+Route::post('praise', 'CommentController@praise');//TODO:记得加入权限控制
 #踩
 Route::post('thread', 'CommentController@thread');
 
