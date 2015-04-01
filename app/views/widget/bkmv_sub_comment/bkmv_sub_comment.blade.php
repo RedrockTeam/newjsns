@@ -3,7 +3,7 @@
         <div class="u-comment_item f-cb js-comment_item">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
             <aside class="u-comment_detail js-reply_father" data-value="{{$czcomment['id']}}">
-                <span class="u-user_name js-father_user" value="{{$czcomment['id']}}">{{$czcomment['username']}}</span>
+                <span class="u-user_name js-father_user" value="{{$czcomment['uid']}}">{{$czcomment['username']}}</span>
                 <p class="u-user_content"> {{$czcomment['content']}}</p>
                 @if(isset($data['comment']['lzl'][$key]))
                     @foreach($data['comment']['lzl'][$key] as $v)
