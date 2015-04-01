@@ -26,7 +26,7 @@ class Comment extends Eloquent {
 				->where('comment.status', '=', '1')
 				->join('users', 'comment.from', '=', 'users.id')
 				->skip($skip)
-				->limit(2)
+				->limit(10)
 				->select('username', 'content', 'users.id as uid', 'head as head_pic', 'comment.created_at as time', 'love_num as praise', 'comment.id')
 				->get();
 		foreach($data['cz'] as $v){
@@ -42,7 +42,7 @@ class Comment extends Eloquent {
             ->where('comment.work_id', '=', $work_id)
             ->where('comment.father_id', '=', 0)
             ->where('comment.status', '=', '1')
-            ->paginate(2);
+            ->paginate(10);
 //        $data['page']->setBaseUrl('#');
 		$data['success'] = 'true';
 		$data['output'] = '成功';
