@@ -27,7 +27,7 @@ class Comment extends Eloquent {
 				->join('users', 'comment.from', '=', 'users.id')
 				->skip($skip)
 				->limit(2)
-				->select('username', 'content', 'users.id', 'head as head_pic', 'comment.created_at as time', 'love_num as praise', 'comment.id')
+				->select('username', 'content', 'users.id as uid', 'head as head_pic', 'comment.created_at as time', 'love_num as praise', 'comment.id')
 				->get();
 		foreach($data['cz'] as $v){
 			$data['lzl'][] = Comment::where('father_id','=', $v['id'])

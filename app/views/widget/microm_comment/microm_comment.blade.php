@@ -1,10 +1,10 @@
 {{--微视评论详细页--}}
-<div class="m-microm_comments" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}">
+<div class="m-microm_comments" >
     @foreach($data['comment']['cz'] as $key => $czcomment)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
-            <aside class="u-comment_detail">
-                <span class="u-user_name" value="{{$czcomment['id']}}">{{$czcomment['username']}}</span>
+            <aside class="u-comment_detail" data-value="{{$czcomment['id']}}">
+                <span class="u-user_name" data-value="{{$czcomment['uid']}}">{{$czcomment['username']}}</span>
                 <p class="u-user_content"> {{$czcomment['content']}}</p>
                 @if(isset($data['comment']['lzl'][$key]))
                     @foreach($data['comment']['lzl'][$key] as $v)

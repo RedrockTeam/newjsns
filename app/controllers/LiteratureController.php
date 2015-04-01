@@ -37,6 +37,7 @@ class LiteratureController extends BaseController{
             'passage' => $passage,
             'comment' => $comment,
         );
+//        return $data['comment'];
         return View::make('template.litera_sub.litera_sub')->with('data', $data);
     }
 

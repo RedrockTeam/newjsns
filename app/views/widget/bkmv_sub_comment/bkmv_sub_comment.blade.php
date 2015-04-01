@@ -1,8 +1,8 @@
-<div class="m-bkmv_comments">
+<div class="m-bkmv_comments" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}">
     @foreach($data['comment']['cz'] as $key => $czcomment)
         <div class="u-comment_item f-cb">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
-            <aside class="u-comment_detail">
+            <aside class="u-comment_detail" data-value="{{$czcomment['id']}}">
                 <span class="u-user_name" value="{{$czcomment['id']}}">{{$czcomment['username']}}</span>
                 <p class="u-user_content"> {{$czcomment['content']}}</p>
                 @if(isset($data['comment']['lzl'][$key]))
