@@ -5,5 +5,7 @@
 define({
     praise: "/praise",
     //点赞
-    thread: "/thread"
+    thread: "/thread",
+    //踩,
+    comment: "home/comment/micromovie"
 });
