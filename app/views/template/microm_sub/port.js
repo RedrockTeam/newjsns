@@ -5,5 +5,5 @@
 define({
     praise : '/praise',   //点赞
     thread : '/thread',    //踩,
-    'comment' : 'home/comment/literature' //评论
+    'comment' : 'home/comment/micromovie' //评论
 });

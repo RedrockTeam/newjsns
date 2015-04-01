@@ -7,5 +7,5 @@ define({
     //点赞
     thread: "/thread",
     //踩,
-    comment: "home/comment/literature"
+    comment: "home/comment/micromovie"
 });
