@@ -46,7 +46,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
     }
     //提交数据
     function ajax() {
-        $.ajax({
+        console.log(data), console.log(port.comment), $.ajax({
             url: port.comment,
             method: "POST",
             dataType: "json",
@@ -66,7 +66,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
     }
     //成功
     function success() {
-        render(), data = null, $(".js-form_editor").find(".js-content").val("").css("text-indent", "2rem").attr("placeholder", "这里发表评论(最大字数为300字)"), 
+        render(), data = null, cType = 0, $(".js-form_editor").find(".js-content").val("").css("text-indent", "2rem").attr("placeholder", "这里发表评论(最大字数为300字)"), 
         $("body").scrollTop(cPos), alert("发表评论成功!!!");
     }
     //成功后的渲染
@@ -90,8 +90,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             scrollTop: $form.offset().top
         }).find('input[type="text"]').focus();
     }
-    var $form = $(".js-form_editor"), $wrap = ($(".js-reply_btn"), $(".js-comment_btn"), 
-    null), $cloneItem = null, data = {}, cPos = 0, //保存当前位置
+    var $form = $(".js-form_editor"), $wrap = null, $cloneItem = null, data = {}, cPos = 0, //保存当前位置
     cType = 0;
     //当前评论的类别
     /*绑定*/

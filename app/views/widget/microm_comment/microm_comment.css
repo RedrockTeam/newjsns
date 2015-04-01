@@ -49,6 +49,29 @@
     font-size: 12px;
 }
 
+.m-microm_comments .u-comment_item .s-reply_items {
+    background: #efefef;
+    margin-top: 7px;
+    padding: 0 5px 5px;
+    text-indent: 2px;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+    border-radius: 3px;
+}
+
+.m-microm_comments .u-comment_item .u-reply_content {
+    color: #333333;
+    font-size: 12px;
+    text-indent: 2em;
+}
+.m-microm_comments .u-comment_item .u-reply_btn {
+    margin: 5px 5px 0 0;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+}
+
 .m-microm_comments .u-page_tabs{
     margin: 48px 0 27px;
 }

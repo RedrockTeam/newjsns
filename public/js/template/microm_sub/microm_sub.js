@@ -18,9 +18,10 @@ require.config({
         login_box: "../widget/login_box/login_box",
         microm_intro: "../widget/microm_intro/microm_intro",
         bdshare: "../widget/bdshare/bdshare",
-        share: "../widget/bdshare/share"
+        share: "../widget/bdshare/share",
+        comment: "../widget/comment/comment"
     }
 }), //加载依赖项
-define([ "microm_play", "microm_comment", "go_top", "login_box", "microm_intro", "share", "bdshare" ], function() {
+define([ "microm_play", "microm_comment", "go_top", "login_box", "microm_intro", "share", "bdshare", "comment" ], function() {
     console.log("microm_sub init");
 });

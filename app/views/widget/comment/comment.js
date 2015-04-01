@@ -3,9 +3,7 @@
  */
 /*评论*/
 define(['jquery', 'underscore', 'port'], function($, _, port){
-    var $form = $('.js-form_editor'),
-          $replyBtn = $('.js-reply_btn'),
-          $commentBtn = $('.js-comment_btn');
+    var $form = $('.js-form_editor');
     var $wrap = null,
           $cloneItem = null;
     var data = {};  //保存数据
@@ -80,6 +78,8 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
 
     //提交数据
     function ajax(){
+        console.log(data);
+        console.log(port['comment']);
         $.ajax({
             url : port['comment'],
             method : 'POST',
@@ -108,6 +108,7 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
     function success(res){
         render();
         data = null;
+        cType = 0;
         $('.js-form_editor').find('.js-content').val('').css('text-indent', '2rem').attr('placeholder', '这里发表评论(最大字数为300字)');
         $('body').scrollTop(cPos);
         alert('发表评论成功!!!');
