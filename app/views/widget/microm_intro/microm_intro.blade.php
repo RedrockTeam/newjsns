@@ -1,4 +1,4 @@
-<article class="m-microm_intro">
+<article class="m-microm_intro" >
     <div class="u-intro_h f-cb">
         <div class="u-intro_l f-fl">
             <div class="u-intro_n_s f-cb">
@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <div class="u-m_info_b">
-                <span class="js-share_title">影片作者:{{$data['movie']['author']}}</span>
+                <span class="js-share_title" data-value="{{$data['movie']['uid']}}" >影片作者:{{$data['movie']['author']}}</span>
                 <span>{{$data['movie']['created_at']}}</span>
             </div>
         </div>
