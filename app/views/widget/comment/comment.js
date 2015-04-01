@@ -12,13 +12,13 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
     var cPos = 0, //保存当前位置
            cType = 0;  //当前评论的类别
     /*绑定*/
-    $replyBtn.on('click', reply);
-    $commentBtn.on('click', comment);
+    $(document.body).on('click', '.js-reply_btn',reply);
+    $(document.body).on('click', '.js-comment_btn',comment);
     $form.on('submit', submitForm);
 
     /*事件处理*/
-    function reply(){
-        var $self = $(this);
+    function reply(ev){
+        var $self = $(ev.target);
         cPos = $('body').scrollTop();
         posPage();
         cType = 2;
@@ -32,8 +32,8 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
         };
         $('.js-form_editor').find('.js-content').css('text-indent', 0).attr('placeholder', '回复' + data.to_name + ':' );
     }
-    function comment(){
-        var $self = $(this);
+    function comment(ev){
+        var $self = $(ev.target);
         cPos = $('body').scrollTop();
         $wrap = $self.parents('.js-reply_father');
         $cloneItem = $('.js-reply_item').eq(0).clone(true);
@@ -80,7 +80,6 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
 
     //提交数据
     function ajax(){
-        console.log(data);
         $.ajax({
             url : port['comment'],
             method : 'POST',
@@ -108,7 +107,8 @@ define(['jquery', 'underscore', 'port'], function($, _, port){
     //成功
     function success(res){
         render();
-        $('.js-form_editor').find('.js-content').css('text-indent', '2rem')[0].placeholder = 'hahhahah';
+        data = null;
+        $('.js-form_editor').find('.js-content').val('').css('text-indent', '2rem').attr('placeholder', '这里发表评论(最大字数为300字)');
         $('body').scrollTop(cPos);
         alert('发表评论成功!!!');
     }

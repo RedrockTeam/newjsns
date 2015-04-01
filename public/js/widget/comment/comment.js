@@ -4,8 +4,8 @@
 /*评论*/
 define([ "jquery", "underscore", "port" ], function($, _, port) {
     /*事件处理*/
-    function reply() {
-        var $self = $(this);
+    function reply(ev) {
+        var $self = $(ev.target);
         cPos = $("body").scrollTop(), posPage(), cType = 2, $wrap = $self.parents(".js-reply_father"), 
         $cloneItem = $(".js-reply_item").eq(0).clone(!0), //数据注入
         data = {
@@ -14,8 +14,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             father_id: $self.parents(".js-reply_father").attr("data-value")
         }, $(".js-form_editor").find(".js-content").css("text-indent", 0).attr("placeholder", "回复" + data.to_name + ":");
     }
-    function comment() {
-        var $self = $(this);
+    function comment(ev) {
+        var $self = $(ev.target);
         cPos = $("body").scrollTop(), $wrap = $self.parents(".js-reply_father"), $cloneItem = $(".js-reply_item").eq(0).clone(!0), 
         cType = 1, posPage(), //数据注入
         data = {
@@ -46,7 +46,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
     }
     //提交数据
     function ajax() {
-        console.log(data), $.ajax({
+        $.ajax({
             url: port.comment,
             method: "POST",
             dataType: "json",
@@ -66,7 +66,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
     }
     //成功
     function success() {
-        render(), $(".js-form_editor").find(".js-content").css("text-indent", "2rem")[0].placeholder = "hahhahah", 
+        render(), data = null, $(".js-form_editor").find(".js-content").val("").css("text-indent", "2rem").attr("placeholder", "这里发表评论(最大字数为300字)"), 
         $("body").scrollTop(cPos), alert("发表评论成功!!!");
     }
     //成功后的渲染
@@ -90,9 +90,11 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             scrollTop: $form.offset().top
         }).find('input[type="text"]').focus();
     }
-    var $form = $(".js-form_editor"), $replyBtn = $(".js-reply_btn"), $commentBtn = $(".js-comment_btn"), $wrap = null, $cloneItem = null, data = {}, cPos = 0, //保存当前位置
+    var $form = $(".js-form_editor"), $wrap = ($(".js-reply_btn"), $(".js-comment_btn"), 
+    null), $cloneItem = null, data = {}, cPos = 0, //保存当前位置
     cType = 0;
     //当前评论的类别
     /*绑定*/
-    $replyBtn.on("click", reply), $commentBtn.on("click", comment), $form.on("submit", submitForm);
+    $(document.body).on("click", ".js-reply_btn", reply), $(document.body).on("click", ".js-comment_btn", comment), 
+    $form.on("submit", submitForm);
 });
