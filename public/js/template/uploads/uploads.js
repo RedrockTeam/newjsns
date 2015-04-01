@@ -19,6 +19,8 @@ require.config({
         webuploader: "../../complexPlugin/webuploader/dist/webuploader.flashonly"
     }
 }), //加载依赖项
-define([ "upload_photo", "upload_movie" ], function() {
-    console.log("uploadify is filished");
+define([ "jquery", "upload_photo", "upload_movie" ], function($) {
+    $(function() {
+        alert(235345);
+    });
 });
