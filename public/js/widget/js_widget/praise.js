@@ -2,22 +2,23 @@
  * Created by redrock on 2015/3/16.
  */
 //点赞 爱拍，文学， 微视， 读书影逝
-define([ "jquery", "port" ], function($, port) {
+define([ "jquery", "port" ], function($) {
     $(function() {
         //代理
         /*--------事件处理函数------*/
         function praise(ev) {
             var $self = $(this), $ele = $self;
             ev.stopPropagation(), //hack 子层节点
-            !$self.hasClass("js-praise") && ($ele = $self.parent(".js-praise")), ajax.call($ele, {
-                name: "lijinxin"
-            });
+            !$self.hasClass("js-praise") && ($ele = $self.parent(".js-praise")), data = {
+                type_id: $ele.attr("data-type_id"),
+                passage_id: $ele.attr("data-passage_id")
+            }, ajax.call($ele, data);
         }
         /*ajax*/
         function ajax(data) {
             var $self = $(this);
             $.ajax({
-                url: port.praise,
+                url: "home/comment/collect",
                 method: "POST",
                 dataType: "json",
                 data: data,
@@ -27,7 +28,7 @@ define([ "jquery", "port" ], function($, port) {
                     } catch (err) {
                         alert("error数据错误!!!");
                     }
-                    res.success ? controlParise.call($self) : alert(res.err ? res.err : "点赞失败!!!!");
+                    res.success ? controlParise.call($self) : alert(res.error ? res.error : "点赞失败!!!!");
                 },
                 error: function(err) {
                     alert("点赞失败!!!"), alert(err.responseText);

@@ -18,7 +18,7 @@ class LiteratureController extends BaseController{
                                             ->join('navigation', 'literature.type_id', '=', 'navigation.id')
                                             ->orderBy('love_num', 'desc')
                                             ->limit(12)
-                                            ->select('literature.id as id', 'literature.type_id as type_id', 'type', 'title', 'cover')
+                                            ->select('literature.id as id', 'literature.type_id as type_id', 'type', 'title', 'cover', 'literature.id as passage_id')
                                             ->get();
         $data['navigation'] = $id;
         return View::make('template.literatrue.literatrue')->with('data', $data);
@@ -37,6 +37,7 @@ class LiteratureController extends BaseController{
             'passage' => $passage,
             'comment' => $comment,
         );
+//        return $data['comment'];
         return View::make('template.litera_sub.litera_sub')->with('data', $data);
     }
 
@@ -44,6 +45,13 @@ class LiteratureController extends BaseController{
     //发表文章
     public function createPassage(){
             $data = Input::all();
+            $data['uid'] = Session::get('uid');
+            $data['comment_num'] = 0;
+            $data['love_num'] = 0;
+            $data['status'] = 1;
+            $file = Input::file('cover');
+            $path = $this->uploadCover($file);
+            $data['cover'] = $path;
             $literature = Literature::create($data);
             $insertedId = $literature->id;
             $type_id = $data['type_id'];
@@ -55,8 +63,40 @@ class LiteratureController extends BaseController{
             return Redirect::back();
     }
 
-    public function test(){
-
+    private function uploadCover ($file) {
+        foreach($file as $v){
+            if($v==null) {
+                continue;
+            }
+            $validator = Validator::make(
+                array('photo' => $v),
+                array('photo' => 'required|image|between:1,10240')
+            );
+            if ($validator->fails()) {
+                return Redirect::back()->withInput()->withErrors($validator);
+            }
+        }
+        foreach($file as $v){
+            if($v==null) {
+                continue;
+            }
+            $type = $v->getClientOriginalExtension();
+            $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
+            $img = Image::make($v);
+            $img0 = Image::make($v);
+            $originalimg = $img0->resize(1366, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $newimg = $img->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $newimg->save($name);
+            $originalimg->save($originalname);
+            $newimg->destroy();
+            $originalimg->destroy();
+            return $name;
+        }
     }
 
 }

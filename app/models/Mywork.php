@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Mywork
+ * @Author Lich
+ * 我的收藏model
+ */
 class Mywork extends Eloquent {
 
 

@@ -1,6 +1,8 @@
 <?php
 /**
- * 渲染后台模板
+ * Class LoginController
+ * @Author Lich
+ * 登陆注册模块
  */
 
 class LoginController extends BaseController

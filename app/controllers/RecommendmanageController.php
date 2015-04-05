@@ -1,4 +1,9 @@
 <?php
+/**
+ * Class RecommendmanageController
+ * @Author Lich
+ * 读书影逝管理模块
+ */
 class RecommendmanageController extends BaseController{
     public function index(){
         $data['list'] = Recommend::orderBy('id', 'desc')->paginate(20);
@@ -12,6 +17,7 @@ class RecommendmanageController extends BaseController{
         $status = $input['oprator_id'];
         $id = $input['id'];
         Recommend::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Recommendmanage.manage', array($status,$id));
         return $data = '200';
     }
     

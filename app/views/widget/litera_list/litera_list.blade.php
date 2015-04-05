@@ -17,7 +17,7 @@
                                 ({{$value['comment_num']}})
                             </a>
                         </div>
-                        <div class="show_litera_love js-praise"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$value['love_num']}})</span></div>
+                        <div class="show_litera_love js-praise" data-type_id="{{$value['type_id']}}" data-passage_id="{{$value['id']}}"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$value['love_num']}})</span></div>
                     </div>
                 </p>
             </article>
@@ -25,7 +25,6 @@
     @endforeach
     {{--切换页面--}}
     {{$data['passagelist']->links()}}
-
 </div>
 
 @section("css")

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Literature
+ * @Author Lich
+ * 文学model
+ */
 class Literature extends Eloquent {
 
 	

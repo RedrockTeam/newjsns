@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Class Comment
+ * @Author Lich
+ * 评论model
+ * TODO:获取评论应该有更好的方法
+ */
 class Comment extends Eloquent {
 
 	
@@ -21,8 +26,8 @@ class Comment extends Eloquent {
 				->where('comment.status', '=', '1')
 				->join('users', 'comment.from', '=', 'users.id')
 				->skip($skip)
-				->limit(2)
-				->select('username', 'content', 'users.id', 'head as head_pic', 'comment.created_at as time', 'love_num as praise', 'comment.id')
+				->limit(10)
+				->select('username', 'content', 'users.id as uid', 'head as head_pic', 'comment.created_at as time', 'love_num as praise', 'comment.id')
 				->get();
 		foreach($data['cz'] as $v){
 			$data['lzl'][] = Comment::where('father_id','=', $v['id'])
@@ -37,7 +42,7 @@ class Comment extends Eloquent {
             ->where('comment.work_id', '=', $work_id)
             ->where('comment.father_id', '=', 0)
             ->where('comment.status', '=', '1')
-            ->paginate(2);
+            ->paginate(10);
 //        $data['page']->setBaseUrl('#');
 		$data['success'] = 'true';
 		$data['output'] = '成功';
@@ -75,16 +80,15 @@ class Comment extends Eloquent {
             $this->rules
         );
         if($validator->fails()){
-            $error = array('gg');
-            return $validator->messages();
+            return array('success' => true, 'err'=>$validator->messages());
         }
         else{
             if(Comment::create($data)){
-                $success = array('ok');
+                $success = array('success'=>true);
                 return $success;
             }
             else{
-                return 'gg1';
+                return $success = array('success'=>false, 'err'=>'网络错误');;
             }
         }
     }

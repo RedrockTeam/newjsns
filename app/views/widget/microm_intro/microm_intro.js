@@ -19,7 +19,10 @@ define(['jquery', 'port'], function($, port){
             }
             ajax({
                 url: port['praise'],
-                data : {},
+                data : {
+                    'passage_id' : $self.attr('data-passage_id'),
+                    'type_id' : $self.attr('data-type_id')
+                },
                 callback : function(res){
                     console.log( $thr.text() );
                     ( $thr.text() == '已踩' ) && $thr.text('踩');
@@ -38,7 +41,10 @@ define(['jquery', 'port'], function($, port){
             }
             ajax({
                 url: port['thread'],
-                data : {},
+                data : {
+                    'passage_id' : $self.attr('data-passage_id'),
+                    'type_id' : $self.attr('data-type_id')
+                },
                 callback : function(res){
                     ( $pra.text() == '已赞' ) && $pra.text('赞');
                     $self.text('已踩');
@@ -48,6 +54,7 @@ define(['jquery', 'port'], function($, port){
         }
 
         function ajax(config){
+            console.log(config.data);
             $.ajax({
                 url : config.url,
                 method : 'POST',
@@ -64,7 +71,8 @@ define(['jquery', 'port'], function($, port){
                     if(res.success){
                         config.callback(res);
                     }else{
-                        if(res.err) alert(res.err);
+                        console.log(res.err);
+                        if(res.error) alert(res.error);
                         else alert('操作失败!!!!');
                     }
                 },

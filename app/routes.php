@@ -53,46 +53,6 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout')
 Route::get('login-register', function(){
     return View::make("template.login-register.login-register");
 });
-#图书标签
-Route::get('book_tags', function(){
-    $data = [
-            "book_tags" => [
-                [
-                    "title" => "金瓶梅",
-                    "author" => "刘世英/",
-                    "price" => 26,
-                    "comment_total" => 40,
-                    "star" => 3.5,
-                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
-                ],
-                [
-                    "title" => "金瓶梅",
-                    "author" => "刘世英/",
-                    "price" => 26,
-                    "comment_total" => 40,
-                    "star" => 3.5,
-                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
-                ],
-                [
-                    "title" => "金瓶梅",
-                    "author" => "刘世英/",
-                    "price" => 26,
-                    "comment_total" => 40,
-                    "star" => 3.5,
-                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
-                ],
-                [
-                    "title" => "金瓶梅",
-                    "author" => "刘世英/",
-                    "price" => 26,
-                    "comment_total" => 40,
-                    "star" => 3.5,
-                    "intro" => "这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，...这是一部动人心弦的、平缓舒雅的、略带感伤的恋爱小说。小说主人公渡边以第一人称展开他同两个女孩间的爱情纠葛。渡边的第一个恋人直子原是他高中要好同学木月的女友，..."
-                ]
-            ]
-    ];
-    return View::make("template.book_tags.book_tags")->with($data);
-});
 
 #图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
 Route::get('imageUpload', function(){
@@ -103,24 +63,13 @@ Route::get('imageUpload', function(){
     return View::make("template.imageUpload.imageUpload")->with($data);
 });
 #上传图片,文章，微视
-Route::get('/uploads', function(){
-    $data =[
-        "page_pos" => 2   //页面位置 0表示图片栏1表示微视栏2表示文章栏
-    ];
-    return View::make("template.uploads.uploads")->with($data);
-});
+Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
+
 /*------------------------------ajax 测试---------------------------------*/
 #点赞
-Route::post('praise', 'CommentController@praise');
+Route::post('praise', 'CommentController@praise');//TODO:记得加入权限控制
 #踩
-Route::post('/thread', function(){
-    $data = [
-        "success" => true,
-        "input" => Input::all()
-    ];
-
-    return Response::json($data);
-});
+Route::post('thread', 'CommentController@thread');
 
 /**
  * 前台功能性路由
@@ -174,6 +123,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
 
     Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
+    Route::post('comment/collect', array('as' => 'home/comment/collect','uses' => 'CommentController@collect'));
 });
 
 

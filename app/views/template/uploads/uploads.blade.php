@@ -1,12 +1,8 @@
 @extends("layout.uploads")
 @section("form")
-    @if( $page_pos == 0 )
-        @include("widget.upload_photo.upload_photo")
-    @elseif( $page_pos == 1 )
-        @include("widget.upload_movie.upload_movie")
-    @else
-        @include("widget.upload_passage.upload_passage")
-    @endif
+     @include("widget.upload_photo.upload_photo")
+     @include("widget.upload_movie.upload_movie")
+     @include("widget.upload_passage.upload_passage")
 @stop
 {{--css--}}
 @section("css")

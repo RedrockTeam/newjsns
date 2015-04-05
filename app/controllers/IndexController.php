@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class IndexController
+ * 首页
+ */
 class IndexController extends BaseController {
 
 	public function index(){

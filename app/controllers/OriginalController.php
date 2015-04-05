@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class CommentmanageController
+ * @Author Lich
+ * 原味管理模块
+ */
 class OriginalController extends BaseController {
 
     //原味首页

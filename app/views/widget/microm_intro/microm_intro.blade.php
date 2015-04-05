@@ -1,4 +1,4 @@
-<article class="m-microm_intro">
+<article class="m-microm_intro js-content_info" data-value="{{$data['movie']['uid']}}">
     <div class="u-intro_h f-cb">
         <div class="u-intro_l f-fl">
             <div class="u-intro_n_s f-cb">
@@ -16,14 +16,15 @@
                     @endif
                 </ul>
             </div>
-            <div class="u-m_info_b">
-                <span class="js-share_title">影片作者:{{$data['movie']['author']}}</span>
+            <div class="u-m_info_b" >
+                <span class="js-share_title">影片作者:</span>
+                <span class="js-content_title">{{$data['movie']['author']}}</span>
                 <span>{{$data['movie']['created_at']}}</span>
             </div>
         </div>
         <div class="u-intro_r f-fr">
-            <a href="" class="u-action_favor js-praise">赞</a>
-            <a href="" class="u-action_tread js-thread">踩</a>
+            <a href="" class="u-action_favor js-praise" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}" >赞</a>
+            <a href="" class="u-action_tread js-thread" data-type_id="{{Input::get('type_id')}}" data-passage_id="{{Input::get('passage_id')}}" >踩</a>
         </div>
     </div>
     <div class="u-intro_detail">

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Group
+ * @Author Lich
+ * 用户组model
+ */
 class Group extends Eloquent {
 
 	

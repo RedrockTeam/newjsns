@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class PersonalController
+ * @Author Lich
+ * 个人中心模块
+ */
 class PersonalController extends BaseController {
 
     //个人中心首页
@@ -32,6 +36,7 @@ class PersonalController extends BaseController {
             'from' => $from,
             'to' => $to,
         );
+//        return $works;
         return View::make('template.personal.personal')->with('data', $data);//TODO:需要一个高效的方法来取数据, 文章/图片/视频, 思考.
 	}
 
@@ -58,6 +63,16 @@ class PersonalController extends BaseController {
         );
         User::where('id', '=', $uid)->update($data);
         return Redirect::back();
+    }
+
+    public function uploads(){
+        $passage_type = Navigation::where('father_id', '=', 1)->get();
+        $data = array(
+            'page_pos' => 2,   //页面位置 0表示图片栏1表示微视栏2表示文章栏
+            'passage_type' => $passage_type
+        );
+//        return $data;
+        return View::make("template.uploads.uploads")->with($data);
     }
 
 }

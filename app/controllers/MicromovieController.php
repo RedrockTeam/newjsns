@@ -1,6 +1,8 @@
 <?php
 /**
- * 渲染后台模板
+ * Class MicromovieController
+ * @Author Lich
+ * 微视模块
  */
 
 class MicromovieController extends BaseController {

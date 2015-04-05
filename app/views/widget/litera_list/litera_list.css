@@ -32,9 +32,10 @@
 }
 
 .m-artitcle_lists .u-content_h > span {
-    font-size: 12px;
+    font-size: 14px;
     color: #999999;
     margin-left: 10px;
+    vertical-align: top;
 }
 
 .m-artitcle_lists .u-content-omit {

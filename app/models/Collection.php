@@ -1,10 +1,15 @@
 <?php
-
+/**
+ * Class collection
+ * @Author Lich
+ * 收藏model
+ */
 class Collection extends Eloquent {
 
 	
 	protected $table = 'collection';
 	protected $fillable = array('type_id', 'work_id', 'uid');
+    public $timestamps = false;
 
     //获取二级导航
     public function hasallFather(){

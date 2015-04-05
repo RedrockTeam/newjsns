@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class Recommend
+ * @Author Lich
+ * 读书影逝model
+ */
 class Recommend extends Eloquent {
 
 	

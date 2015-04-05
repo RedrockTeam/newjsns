@@ -1,15 +1,16 @@
-<form action="" method="POST" enctype="multipart/form-data" class="m-passage_form">
+<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $page_pos != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
     <div class="form-group">
         <label for="passage_name">请输入文章标题</label>
-        <input type="text" class="form-control" name="ablum_name" id="passage_name" placeholder="相册名称"/>
+        <input type="text" class="form-control" name="title" id="passage_name" placeholder="相册名称"/>
     </div>
-    <div class="form-group">
+   {{-- <div class="form-group">
         <label for="passage_cover">请上传文章封面(可选)</label>
         <input type="file" accept="image/gif, image/jpeg, image/png"/>
-    </div>
+    </div>--}}
     <div class="form-group">
             <label for="passage_cover">文章内容</label>
-            @include("widget.ueditor.ueditor")
+            <br/>
+            <textarea id="" cols="30" rows="10" name="content"></textarea>
     </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>

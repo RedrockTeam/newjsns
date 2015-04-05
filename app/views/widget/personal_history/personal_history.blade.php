@@ -1,10 +1,10 @@
-<div class="m-his_work">{{--我的作品  默认打开--}}
+<div class="m-his_work js-his_work">{{--我的作品  默认打开--}}
     @foreach($data['works'] as $work)
         @if($work['table'] == 'literature')
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
                 <article class="s-article">
-                    <h2 class="s-title">{{$work['title']}}</h2>
+                    <a href="litera_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"><h2 class="s-title">{{$work['title']}}</h2></a>
                     <p class="s-content">{{str_limit($work['content'], 300)}}</p>
                 </article>
             </div>
@@ -12,7 +12,7 @@
             <div class="u-work_item s-item">
                     <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
                     <div class="s-article">
-                        <h2 class="s-title">{{$work['title']}}</h2>
+                        <a href="microm_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"> <h2 class="s-title">{{$work['title']}}</h2></a>
                         <p class="s-content">
                             <img src="{{$work['cover_url']}}" alt=""/>
                         </p>
@@ -40,7 +40,7 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <article class="s-article">
-                    <h2 class="s-title">{{$collection['title']}}</h2>
+                    <a href="litera_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"><h2 class="s-title">{{$collection['title']}}</h2></a>
                     <p class="s-content">{{str_limit($collection['content'], 300)}}</p>
                 </article>
             </div>
@@ -48,7 +48,7 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <div class="s-article">
-                    <h2 class="s-title">{{$collection['title']}}</h2>
+                    <a href="microm_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"><h2 class="s-title">{{$collection['title']}}</h2></a>
                     <p class="s-content">
                         <img src="{{$collection['cover_url']}}" alt=""/>
                     </p>
@@ -69,7 +69,7 @@
         @endif
     @endforeach
 </div>
-<div class="m-his_comments js-hs_comments">   {{--我的评论 默认关闭--}}
+<div class="m-his_comments js-his_comments">   {{--我的评论 默认关闭--}}
     <div class="u-sort_comments"><a href="" class="s-active">收到的评论</a>/<a href="">发出的评论</a></div>
     {{--收到的评论--}}
     @foreach($data['from'] as $post)

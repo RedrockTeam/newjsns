@@ -1,6 +1,11 @@
 <?php
+/**
+ * Class SystemmanageController
+ * @Author Lich
+ * 系统管理模块
+ */
 class SystemmanageController extends BaseController{
-
+    //系统管理首页
     public function index(){
         $data['navigation'] = Navigation::where('father_id', '=', '0')->get();
         $data['routelist'] = Routelist::all();
@@ -54,7 +59,7 @@ class SystemmanageController extends BaseController{
             return Redirect::back()->withErrors($info, 'route');
         }
     }
-
+    //编辑路由
     public function editroute(){
         $input = Input::all();
         $data = array(

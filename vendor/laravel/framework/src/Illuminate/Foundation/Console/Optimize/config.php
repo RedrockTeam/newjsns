@@ -79,7 +79,7 @@ return array_map('realpath', array(
     $basePath.'/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php',
     $basePath.'/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php',
     $basePath.'/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php',
-    $basePath.'/vendor/laravel/framework/src/Illuminate/Support/Facades/Log.php',
+    $basePath.'/vendor/laravel/framework/src/Illuminate/Support/Facades/Logget.php',
     $basePath.'/vendor/laravel/framework/src/Illuminate/Log/LogServiceProvider.php',
     $basePath.'/vendor/laravel/framework/src/Illuminate/Log/Writer.php',
     $basePath.'/vendor/monolog/monolog/src/Monolog/Logger.php',

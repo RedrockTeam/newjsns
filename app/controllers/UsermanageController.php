@@ -1,5 +1,11 @@
 <?php
+/**
+ * Class UsermanageController
+ * @Author Lich
+ * 用户管理模块
+ */
 class UsermanageController extends BaseController{
+    //用户管理首页
     public function index(){
         $data['user'] = User::orderBy('id', 'desc')->paginate(20);
         foreach($data['user'] as $v){
@@ -61,6 +67,7 @@ class UsermanageController extends BaseController{
         $status = $input['oprator_id'];
         $id = $input['id'];
         User::where('id', '=', $id)->update(array('status' => $status));
+        Event::fire('Usermanage.manage', array($status,$id));
         return $data = '200';
     }
 
