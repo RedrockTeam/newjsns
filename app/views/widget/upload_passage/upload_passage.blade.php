@@ -1,4 +1,4 @@
-<form action="" method="POST" enctype="multipart/form-data" class="m-passage_form js-passage">
+<form action="" method="POST" enctype="multipart/form-data" class="@if( $page_pos != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
     <div class="form-group">
         <label for="passage_name">请输入文章标题</label>
         <input type="text" class="form-control" name="ablum_name" id="passage_name" placeholder="相册名称"/>

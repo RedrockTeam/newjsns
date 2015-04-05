@@ -10,7 +10,7 @@ require.config({
     paths : {
         jquery : 'jquery',
         port : '../template/uploads/port',
-        //uploadify : '../../complexPlugin/uploadify/jquery.uploadify',
+        uploadify : '../../complexPlugin/uploadify/jquery.uploadify',
         upload_photo : '../widget/upload_photo/upload_photo',
         ueditorConfig : '../../complexPlugin/ueditor/ueditor.config',
         ueditorAll : '../../complexPlugin/ueditor/ueditor.all.min',
@@ -23,6 +23,27 @@ require.config({
 //加载依赖项
 define(['jquery','upload_photo', 'upload_movie'], function($){
     $(function(){
-        alert(235345);
+        var map = {
+            'js-photo' : $('.js-form_photo'),
+            'js-passage' : $('.js-form_passage'),
+            'js-movie' : $('.js-form_movie')
+        };
+        for(var key in map){
+            (function (key){
+                $('.' + key).on('click', function(ev){
+                    switchTab.call(this, ev, key);
+                });
+            })(key);
+        }
+        function switchTab(ev, btn){
+            ev.preventDefault();
+            var $self = $(this);
+            for(var key in map){
+                $('.' + key).removeClass('active');
+                map[key].css('display', 'none');
+            }
+            $('.'+btn).addClass('active');
+            map[btn].css('display', 'block');
+        }
     });
 });

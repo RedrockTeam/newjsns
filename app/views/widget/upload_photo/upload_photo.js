@@ -38,6 +38,7 @@
 require([ 'jquery','webuploader' ], function( $,WebUploader ) {
     // 当domReady的时候开始初始化
     console.log(WebUploader);
+    
     $(function() {
         var $wrap = $('#uploader'),
 

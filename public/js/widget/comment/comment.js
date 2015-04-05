@@ -19,10 +19,10 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         cPos = $("body").scrollTop(), $wrap = $self.parents(".js-reply_father"), $cloneItem = $(".js-reply_item").eq(0).clone(!0), 
         cType = 1, posPage(), //数据注入
         data = {
-            to: $self.parents(".js-user_action").siblings(".js-fater_user").attr("data-value"),
+            to: $self.parents(".js-user_action").siblings(".js-father_user").attr("data-value"),
             to_name: $self.parents(".js-user_action").siblings(".js-father_user").text(),
             father_id: $self.parents(".js-reply_father").attr("data-value")
-        }, $(".js-form_editor").find(".js-content").css("text-indent", 0).attr("placeholder", "回复" + data.to_name + ":");
+        }, console.log($self.parents(".js-user_action").siblings(".js-father_user")), $(".js-form_editor").find(".js-content").css("text-indent", 0).attr("placeholder", "回复" + data.to_name + ":");
     }
     //提交
     function submitForm(ev) {
