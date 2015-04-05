@@ -65,4 +65,14 @@ class PersonalController extends BaseController {
         return Redirect::back();
     }
 
+    public function uploads(){
+        $passage_type = Navigation::where('father_id', '=', 1)->get();
+        $data = array(
+            'page_pos' => 2,   //页面位置 0表示图片栏1表示微视栏2表示文章栏
+            'passage_type' => $passage_type
+        );
+//        return $data;
+        return View::make("template.uploads.uploads")->with($data);
+    }
+
 }
