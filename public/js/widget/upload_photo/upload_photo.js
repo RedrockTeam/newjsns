@@ -39,8 +39,13 @@
  //});*/
 /**/
 require([ "jquery", "webuploader" ], function($, WebUploader) {
+    function check() {
+        var $self = $(this);
+        $(".js-photo_name")[0].disabled = $self[0].checked ? !0 : !1;
+    }
     // 当domReady的时候开始初始化
-    console.log(WebUploader), $(function() {
+    console.log(WebUploader), //检测是否多图上传
+    $(".js-form_photo .js-check-isAblum").on("click", check), $(function() {
         // 当有文件添加进来时执行，负责view的创建
         function addFile(file) {
             var $li = $('<li id="' + file.id + '"><p class="title">' + file.name + '</p><p class="imgWrap"></p><p class="progress"><span></span></p></li>'), $btns = $('<div class="file-panel"><span class="cancel">删除</span><span class="rotateRight">向右旋转</span><span class="rotateLeft">向左旋转</span></div>').appendTo($li), $prgress = $li.find("p.progress span"), $wrap = $li.find("p.imgWrap"), $info = $('<p class="error"></p>'), showError = function(code) {
