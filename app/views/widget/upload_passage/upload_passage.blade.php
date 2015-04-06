@@ -1,4 +1,4 @@
-<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $page_pos != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
+<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
     <div class="form-group">
         <label for="passage_name">请输入文章标题</label>
         <br/>
@@ -8,7 +8,9 @@
             <label for="passage_name">请选择文章类别</label>
             <br/>
             <select name="passage_class" id="">
-                <option value="df">言情类</option>
+                @foreach($data['passage_type'] as $type)
+                <option value="{{$type['id']}}">{{$type['type']}}</option>
+                @endforeach
             </select>
     </div>
     <div class="form-group">
