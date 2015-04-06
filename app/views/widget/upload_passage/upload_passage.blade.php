@@ -1,8 +1,12 @@
-<form action="" method="POST" enctype="multipart/form-data" class="@if( $page_pos != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
+<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $page_pos != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
     <div class="form-group">
         <label for="passage_name">请输入文章标题</label>
+<<<<<<< HEAD
         <br/>
         <input type="text" class="form-control" name="ablum_name" id="passage_name" placeholder="相册名称"/>
+=======
+        <input type="text" class="form-control" name="title" id="passage_name" placeholder="相册名称"/>
+>>>>>>> e870cc8ec9fa4518eab61145881891f87dceb308
     </div>
      <div class="form-group">
             <label for="passage_name">请选择文章类别</label>
