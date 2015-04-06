@@ -58,4 +58,9 @@ class MicromovieController extends BaseController {
         $data['tags'] = Micromovie::getTags($data['category']);
         return View::make('template.micromovie.micromovie')->with('data', $data);
     }
+
+    public function micromovieupload(){
+        $data = Input::all();
+        return $data;
+    }
 }

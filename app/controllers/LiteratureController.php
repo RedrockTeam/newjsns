@@ -74,7 +74,7 @@ class LiteratureController extends BaseController{
             $passage['status'] = 1;
             $passage['type_id'] = $data['type_id'];
             $passage['title'] = $data['title'];
-            $passage['content'] = htmlentities($data['content']);
+            $passage['content'] = e($data['content']);
             $cover = Input::file();
             $passage['cover'] = $this->uploadCover($cover);
             $literature = Literature::create($passage);
@@ -107,19 +107,12 @@ class LiteratureController extends BaseController{
             }
             $type = $v->getClientOriginalExtension();
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
-            $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
             $img = Image::make($v);
-            $img0 = Image::make($v);
-            $originalimg = $img0->resize(1366, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $newimg->save($name);
-            $originalimg->save($originalname);
             $newimg->destroy();
-            $originalimg->destroy();
             return $name;
         }
     }
