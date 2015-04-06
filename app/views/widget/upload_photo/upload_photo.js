@@ -38,6 +38,17 @@
 require([ 'jquery','webuploader' ], function( $,WebUploader ) {
     // 当domReady的时候开始初始化
     console.log(WebUploader);
+    //检测是否多图上传
+    $('.js-form_photo .js-check-isAblum').on('click', check);
+
+    function check(ev){
+        var $self = $(this);
+        if( $self[0].checked ){
+            $('.js-photo_name')[0].disabled = true;
+        }else{
+            $('.js-photo_name')[0].disabled = false;
+        }
+    }
     
     $(function() {
         var $wrap = $('#uploader'),
