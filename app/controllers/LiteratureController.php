@@ -45,6 +45,7 @@ class LiteratureController extends BaseController{
     //发表文章
     public function createPassage(){
             $data = Input::all();
+            return $data;
             $data['uid'] = Session::get('uid');
             $data['comment_num'] = 0;
             $data['love_num'] = 0;

@@ -40,7 +40,7 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <article class="s-article">
-                    <a href="litera_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"><h2 class="s-title">{{$collection['title']}}</h2></a>
+                    <a href="litera_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{$collection['title']}}</h2></a>
                     <p class="s-content">{{str_limit($collection['content'], 300)}}</p>
                 </article>
             </div>
