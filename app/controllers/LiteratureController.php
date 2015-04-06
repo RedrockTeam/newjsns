@@ -45,20 +45,44 @@ class LiteratureController extends BaseController{
     //发表文章
     public function createPassage(){
             $data = Input::all();
-            return $data;
-            $data['uid'] = Session::get('uid');
-            $data['comment_num'] = 0;
-            $data['love_num'] = 0;
-            $data['status'] = 1;
-            $file = Input::file('cover');
-            $path = $this->uploadCover($file);
-            $data['cover'] = $path;
-            $literature = Literature::create($data);
+            $pattern = '/base64,(.*?)"/';
+            preg_match_all($pattern, $data['content'], $match, PREG_PATTERN_ORDER);
+        if($match[1]){
+            foreach($match[1] as $v) {
+            $img = base64_decode($v);
+            file_put_contents('public/uploads/tmp.jpg', $img);
+            $name = 'public/uploads/tmp.jpg';
+            $image = Image::make($name);
+            $time = md5(microtime(true));
+            $path =  'public/uploads/'.$time.'.jpg';
+            $newimg = $image->resize(300, null, function ($constraint) {
+              $constraint->aspectRatio();
+            });
+            $newimg->save($path);
+            $newimg->destroy();
+            $img_url[] = $path;
+            $replace[] = 'src="'.$path.'"';
+        }
+        $pattern1 = '/src="data:(.*?)"/';
+        foreach($replace as $r){
+            $data =  preg_replace($pattern1, $r, $data,1);
+        }
+        }
+            $passage['uid'] = Session::get('uid');
+            $passage['comment_num'] = 0;
+            $passage['love_num'] = 0;
+            $passage['status'] = 1;
+            $passage['type_id'] = $data['type_id'];
+            $passage['title'] = $data['title'];
+            $passage['content'] = $data['content'];
+            $cover = Input::file();
+            $passage['cover'] = $this->uploadCover($cover);
+            $literature = Literature::create($passage);
             $insertedId = $literature->id;
-            $type_id = $data['type_id'];
             $user_work = array(
-                'type_id' => $type_id,
+                'type_id' => $data['type_id'],
                 'work_id' => $insertedId,
+                'uid' => Session::get('uid')
             );
             Mywork::create($user_work);
             return Redirect::back();
@@ -66,7 +90,7 @@ class LiteratureController extends BaseController{
 
     private function uploadCover ($file) {
         foreach($file as $v){
-            if($v==null) {
+            if($v == null) {
                 continue;
             }
             $validator = Validator::make(
@@ -78,7 +102,7 @@ class LiteratureController extends BaseController{
             }
         }
         foreach($file as $v){
-            if($v==null) {
+            if($v == null) {
                 continue;
             }
             $type = $v->getClientOriginalExtension();

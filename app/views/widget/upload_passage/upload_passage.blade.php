@@ -2,12 +2,12 @@
     <div class="form-group">
         <label for="passage_name">请输入文章标题</label>
         <br/>
-        <input type="text" class="form-control" name="ablum_name" id="passage_name" placeholder="相册名称"/>
+        <input type="text" class="form-control" name="title" id="passage_name" placeholder="文章标题"/>
     </div>
      <div class="form-group">
             <label for="passage_name">请选择文章类别</label>
             <br/>
-            <select name="passage_class" id="">
+            <select name="type_id" id="">
                 @foreach($data['passage_type'] as $type)
                 <option value="{{$type['id']}}">{{$type['type']}}</option>
                 @endforeach
@@ -16,7 +16,7 @@
     <div class="form-group">
         <label for="passage_cover">请上传文章封面(可选)</label>
         <br/>
-        <input type="file" accept="image/gif, image/jpeg, image/png"/>
+        <input type="file" name="cover" accept="image/gif, image/jpeg, image/png"/>
     </div>
     <div class="form-group">
             <label for="passage_cover">文章内容</label>
