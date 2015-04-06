@@ -1,7 +1,7 @@
 /**
  * Created by redrock on 2015/3/16.
  */
-//点赞 爱拍，文学， 微视， 读书影逝
+//收藏 爱拍，文学， 微视， 读书影逝
 define([ "jquery", "port" ], function($) {
     $(function() {
         //代理
@@ -28,14 +28,14 @@ define([ "jquery", "port" ], function($) {
                     } catch (err) {
                         alert("error数据错误!!!");
                     }
-                    res.success ? controlParise.call($self) : alert(res.error ? res.error : "点赞失败!!!!");
+                    res.success ? controlParise.call($self) : alert(res.error ? res.error : "收藏失败!!!!");
                 },
                 error: function(err) {
-                    alert("点赞失败!!!"), alert(err.responseText);
+                    alert("收藏失败!!!"), alert(err.responseText);
                 }
             });
         }
-        /*点赞或取消点赞*/
+        /*收藏或取消收藏*/
         function controlParise() {
             var $self = $(this), $heart = $self.find(".js-show_love"), $num = $self.find(".js-num"), tag = !0;
             if (($num.lentgh < 1 || $heart.length < 1) && (tag = !1), tag) var num = $num.text().slice(1, $self.text().length - 1);

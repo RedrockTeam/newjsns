@@ -7,7 +7,7 @@
         <span class="js-content_title">{{$data['passage']['user']['username']}}</span>
     </div>
     {{--文章内容--}}
-    <p class="u-litera_content js-share_content">
+    <p class="u-litera_content js-share_content js-stop_copy">
         {{$data['passage']['content']}}
     </p>
     {{--文章时间--}}

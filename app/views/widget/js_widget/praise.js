@@ -1,7 +1,7 @@
 /**
  * Created by redrock on 2015/3/16.
  */
-//点赞 爱拍，文学， 微视， 读书影逝
+//收藏 爱拍，文学， 微视， 读书影逝
 define(['jquery', 'port'], function($, port){
     $(function(){
         $('body').on('click','.js-praise,.js-num,.js-show_love' ,praise);//代理
@@ -37,17 +37,18 @@ define(['jquery', 'port'], function($, port){
                         controlParise.call($self);
                     }else{
                         if(res.error) alert(res.error);
-                        else alert('点赞失败!!!!');
+                        else alert('收藏失败!!!!');
                     }
                 },
+
                 error : function(err){
-                    alert('点赞失败!!!');
+                    alert('收藏失败!!!');
                     alert(err.responseText);
                 }
             });
         }
 
-        /*点赞或取消点赞*/
+        /*收藏或取消收藏*/
         function controlParise(){
             var $self = $(this);
             var $heart = $self.find('.js-show_love'),
@@ -72,7 +73,6 @@ define(['jquery', 'port'], function($, port){
                 }
                 $heart.removeClass('s-active');
             }
-
         }
     });
 });
