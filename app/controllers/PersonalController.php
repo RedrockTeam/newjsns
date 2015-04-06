@@ -72,7 +72,7 @@ class PersonalController extends BaseController {
             'passage_type' => $passage_type
         );
 //        return $data;
-        return View::make("template.uploads.uploads")->with($data);
+        return View::make("template.uploads.uploads")->with('data', $data);
     }
 
 }
