@@ -1,4 +1,4 @@
-<form action="" class="@if( $data['page_pos'] != 1 ){{'f-dn'}}@endif m-movie_form js-form_movie">
+<form action="{{route('home/movie/createmovie')}}" method="post" class="@if( $data['page_pos'] != 1 ){{'f-dn'}}@endif m-movie_form js-form_movie">
     <div class="form-group">
         <label for="movie_name">请输入视频名称</label>
         <input type="text" class="form-control" name="title" id="movie_name" placeholder="微视名称"/>

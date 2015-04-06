@@ -120,6 +120,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
 
     //文学路由
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
+    Route::post('movie/createmovie', array('as' => 'home/movie/createmovie','uses' => 'MicromovieController@micromovieupload'));//发表文章
 
     Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
