@@ -20,6 +20,7 @@
             <label for="passage_cover">文章内容</label>
             <div id="editor">
             </div>
+            <textarea name="content" class="s-hidden js-hidden_content" cols="30" rows="10"></textarea>
     </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>

@@ -5,3 +5,6 @@
 .note-editable{
     height: auto;
 }
+.s-hidden{
+    display: none;
+}
