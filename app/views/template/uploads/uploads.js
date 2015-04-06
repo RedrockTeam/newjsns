@@ -6,8 +6,7 @@ require.config({
     baseUrl : 'public/js/lib',
     shim : {
         'uploadify' : ['jquery'],
-        'hotkey' : ['jquery'],
-        'wysiwyg' : ['jquery']
+        'bootstrap' : ['jquery']
     },
     paths : {
         jquery : 'jquery',
