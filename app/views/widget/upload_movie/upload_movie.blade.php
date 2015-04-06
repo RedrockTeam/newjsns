@@ -5,15 +5,15 @@
     </div>
     <div class="form-group">
         <label for="movie_desc">请输入视频描述</label>
-        <input type="text" class="form-control" name="movie_desc" id="movie_desc" placeholder="微视名称"/>
+        <input type="text" class="form-control" name="movie_desc" id="movie_desc" placeholder="微视描述"/>
     </div>
     <div class="form-group">
         <label for="movie_cover">请上传影片截图</label>
         <input type="file" name="movie_cover" class="js-upload_movie" accept="image/gif, image/jpeg, image/png" id="movie_cover"/>
     </div>
     <div class="form-group">
-        <label for="movie_content">请上传影片</label>
-        <input type="file" name="movie_content" class="js-upload_movie" accept="" id="movie_content"/>
+        <label for="movie_content">请填写影片url</label>
+        <input type="text" class="form-control" name="movie_url" id="movie_url" placeholder="影片链接"/>
     </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>
