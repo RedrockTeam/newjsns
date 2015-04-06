@@ -7,6 +7,13 @@
         <label for="movie_desc">请输入视频描述</label>
         <input type="text" class="form-control" name="movie_desc" id="movie_desc" placeholder="微视描述"/>
     </div>
+     <div class="form-group">
+                <label for="passage_name">请选择视频类别</label>
+                <br/>
+                <select name="type_id" id="">
+                    <option value="">爱情动作类</option>
+                </select>
+        </div>
     <div class="form-group">
         <label for="movie_cover">请上传影片截图</label>
         <input type="file" name="movie_cover" class="js-upload_movie" accept="image/gif, image/jpeg, image/png" id="movie_cover"/>
