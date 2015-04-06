@@ -37,7 +37,6 @@ class LiteratureController extends BaseController{
             'passage' => $passage,
             'comment' => $comment,
         );
-//        return $data['comment'];
         return View::make('template.litera_sub.litera_sub')->with('data', $data);
     }
 
@@ -64,17 +63,18 @@ class LiteratureController extends BaseController{
             $replace[] = 'src="'.$path.'"';
         }
         $pattern1 = '/src="data:(.*?)"/';
-        foreach($replace as $r){
-            $data =  preg_replace($pattern1, $r, $data,1);
+            foreach($replace as $r){
+                $data = preg_replace($pattern1, $r, $data,1);
+            }
         }
-        }
+
             $passage['uid'] = Session::get('uid');
             $passage['comment_num'] = 0;
             $passage['love_num'] = 0;
             $passage['status'] = 1;
             $passage['type_id'] = $data['type_id'];
             $passage['title'] = $data['title'];
-            $passage['content'] = $data['content'];
+            $passage['content'] = htmlentities($data['content']);
             $cover = Input::file();
             $passage['cover'] = $this->uploadCover($cover);
             $literature = Literature::create($passage);
