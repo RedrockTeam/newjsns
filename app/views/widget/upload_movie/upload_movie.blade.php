@@ -1,4 +1,4 @@
-<form action="{{route('home/movie/createmovie')}}" method="post" class="@if( $data['page_pos'] != 1 ){{'f-dn'}}@endif m-movie_form js-form_movie">
+<form action="{{route('home/movie/createmovie')}}" method="post" enctype="multipart/form-data" class="@if( $data['page_pos'] != 1 ){{'f-dn'}}@endif m-movie_form js-form_movie">
     <div class="form-group">
         <label for="movie_name">请输入视频名称</label>
         <input type="text" class="form-control" name="title" id="movie_name" placeholder="微视名称"/>
@@ -11,7 +11,9 @@
                 <label for="passage_name">请选择视频类别</label>
                 <br/>
                 <select name="type_id" id="">
-                    <option value="">爱情动作类</option>
+                    @foreach($data['micromovie_type'] as $type)
+                        <option value="{{$type['id']}}">{{$type['type']}}</option>
+                    @endforeach
                 </select>
         </div>
     <div class="form-group">

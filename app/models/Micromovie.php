@@ -8,7 +8,7 @@ class Micromovie extends Eloquent {
 
 	
 	protected $table = 'micromovie';
-	protected $fillable = array('title', 'author', 'uid', 'introduce', 'created_at', 'updated_at', 'status');
+	protected $fillable = array('title', 'author', 'uid', 'introduce', 'created_at', 'updated_at', 'status', 'type_id', 'cover_url', 'url', 'star', 'comment_num', 'love_num');
 
     //获取用户名
     public function user(){
