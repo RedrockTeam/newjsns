@@ -16,7 +16,7 @@
 {{--container--}}
 @section("container")
     <div class="g-left f-fl">
-        <a href="/uploads" class="u-link_uploads">我要上传作品 >></a>
+        <a href="/uploads" class="u-link_uploads">我要上传作品</a>
         @include("widget.personal_info.personal_info")
     </div>
     <div class="g-right f-fr">
