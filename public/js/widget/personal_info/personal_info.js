@@ -5,9 +5,17 @@ define([ "jquery", "port" ], function($) {
     $(function() {
         /*--------------- ----------*/
         function openChange() {
-            $(".js-show_box").css("display", "none"), $(".m-change_info .js-header_icon").attr("src", $(".m-show_info .js-header_icon").attr("src")), 
-            $(".m-change_info .js-user_name").attr("placeholder", $(".m-show_info .js-user_name").text()), 
-            $(".m-change_info .js-user_signatrue").text($(".m-show_info .js-user_signatrue").text()), 
+            $(".js-show_box").css("display", "none"), /*$('.m-change_info .js-header_icon').attr(
+                'src',
+                $('.m-show_info .js-header_icon').attr('src')
+            );
+            $('.m-change_info .js-user_name').attr(
+                'placeholder',
+                $('.m-show_info .js-user_name').text()
+            );
+            $('.m-change_info .js-user_signatrue').text(
+                $('.m-show_info .js-user_signatrue').text()
+            );*/
             $(".js-change_box").css("display", "block");
         }
         function linkUpload() {
