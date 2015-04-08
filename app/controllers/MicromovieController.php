@@ -40,7 +40,7 @@ class MicromovieController extends BaseController {
     }
 
     //微视标签搜索
-    public function micromovieSearch(){
+        public function micromovieSearch(){
         $type_id = Input::get('type_id')? Input::get('type_id'):'';
         $tag = Input::get('tag')? Input::get('tag'):'';
         if($tag == null || $type_id == null)
