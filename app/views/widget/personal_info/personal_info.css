@@ -39,7 +39,8 @@
     font-size: 14px;
     padding: 10px 0 20px;
 }
-.m-personal_info .m-info_detail .u-user_extra_info li span{
+
+.m-personal_info .m-info_detail .u-user_extra_info span{
     font-size: 12px;
     color: #333333;
     line-height: 25px;
