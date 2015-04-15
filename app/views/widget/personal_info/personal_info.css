@@ -119,3 +119,7 @@
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ff8c47), color-stop(1, ff6e3a)); /* Saf4+, Chrome */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8c47', endColorstr='ff6e3a', GradientType='0'); /* IE 9 -*/
 }
+
+.alert{
+    color: red;
+}
