@@ -56,6 +56,7 @@ Route::get('login-register', function(){
 
 #图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
 Route::get('imageUpload', array('as'=>'home/imageUpload', 'uses'=>'PersonalController@uploadHeadPage'));
+Route::post('imageUploadCut', array('as'=>'home/imageUploadCut', 'uses'=>'PersonalController@uploadHeadCut'));
 Route::post('imageUpload', 'PersonalController@uploadHead');
 
 #上传图片,文章，微视

@@ -5,7 +5,7 @@
         <img src="{{$imgSrc}}" alt="{{$imgSrc}}" class="u-crop-img js-crop-img"/>
     </div>
     <div class="">
-        <form action="" method="POST" class="m-crop_form js-crop_form">
+        <form action="{{route('home/imageUploadCut')}}" method="POST" class="m-crop_form js-crop_form">
                 <input type="hidden" name="x1" id="x1"/> {{--起始横坐标--}}
                 <input type="hidden" name="y1" id="y1"/> {{--起始纵坐标--}}
                 <input type="hidden" name="width" id="w"/> {{--裁剪图片的宽度--}}

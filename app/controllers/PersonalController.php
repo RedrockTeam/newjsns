@@ -76,10 +76,20 @@ class PersonalController extends BaseController {
                     'imgExists' => true,    //是否已经上传过 上传过的话为true 没有上传过的话为false
                     'imgSrc' => $name  //进行剪切的路径  如果上传过的话，为图片路径，没有的话
                 ];
+            Session::put('headpath', $name);
             return View::make("template.imageUpload.imageUpload")->with($data);
         }
     }
-
+    //裁剪头像
+    public function uploadHeadCut() {
+        $data = Input::all();
+        $img = Image::make(Session::get('headpath'));
+        $img->crop(94, 94, $data['x1'], $data['y1']);
+        $img->save(Session::get('headpath'));
+        $update = array('head'=>Session::get('headpath'));
+        User::where('id', '=',  Session::get('uid'))->update($update);
+        return Redirect::back();
+    }
     //修改资料
     public function editPersonalInfo(){
         $input = Input::all();
@@ -109,7 +119,6 @@ class PersonalController extends BaseController {
             'passage_type' => $passage_type,
             'micromovie_type' => $micromovie_type
         );
-//        return $data;
         return View::make("template.uploads.uploads")->with('data', $data);
     }
 
