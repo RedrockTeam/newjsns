@@ -105,10 +105,9 @@ Route::group(array('prefix' => 'home'), function()
 #个人中心
 Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
-Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
-{
+Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
 
-    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'editPersonalInfo@comment'));//ajax爱拍发表评论
+    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//ajax爱拍发表评论
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 
@@ -117,14 +116,13 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
     Route::post('comment/original', array('as' => 'home/comment/original','uses' => 'CommentController@comment'));//ajax原味发表评论
 
     Route::post('comment/recommend', array('as' => 'home/comment/recommend','uses' => 'CommentController@comment'));//ajax读书影逝发表评论
-
     //文学路由
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
-    Route::post('movie/createmovie', array('as' => 'home/movie/createmovie','uses' => 'MicromovieController@micromovieupload'));//发表文章
+    Route::post('movie/createmovie', array('as' => 'home/movie/createmovie','uses' => 'MicromovieController@micromovieupload'));//发表微视
 
     Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
-    Route::post('comment/collect', array('as' => 'home/comment/collect','uses' => 'CommentController@collect'));
+    Route::post('comment/collect', array('as' => 'home/comment/collect','uses' => 'CommentController@collect'));//收藏
 });
 
 

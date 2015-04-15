@@ -1,4 +1,17 @@
 <div class="m-personal_info">
+    <div>
+        @if($errors)
+            @foreach ($errors->all() as $error)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            <strong>{{$error}}</strong>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
+    </div>
     <div class="m-show_info js-show_box">
         <span href="" class="u-change_info_btn js-open_change_info">修改信息</span>
         <div class="m-info_detail">
@@ -11,7 +24,7 @@
         </div>
     </div>
     <div class="m-change_info js-change_box">
-        <form action="" class="f-cb js-change_form">
+        <form action="{{route('home/personal/personalinfo')}}" class="f-cb js-change_form">
             <div class="u-change_header_icon f-cb">
                 <img src="" alt="" class="u-show_icon f-fl js-header_icon" />
                 <div class="f-fl upload" >
