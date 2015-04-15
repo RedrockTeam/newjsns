@@ -2,7 +2,7 @@
     <div>
         @if($errors)
             @foreach ($errors->all() as $error)
-                <div class="row">
+                <div class="row js-change_info">
                     <div class="col-md-12">
                         <div class="alert alert-success" role="alert">
                             <strong>{{$error}}</strong>
