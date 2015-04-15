@@ -13,8 +13,9 @@
         </form>
     </div>
 @else   {{--上传--}}
-    <form action="" method="POST" class="m-upload_form js-upload_form" enctype="multipart/form-data">
-        <input type="file" accept="image/gif, image/jpeg" name="upload" value=""/>
+    <form action="{{route('home/imageUpload')}}" method="POST" class="m-upload_form js-upload_form" enctype="multipart/form-data">
+        <input type="file" accept="image/gif, image/jpeg" name="photo[]"/>
+        <input type="submit" value="上传"/>
     </form>
 @endif
 

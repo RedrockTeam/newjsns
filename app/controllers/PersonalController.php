@@ -38,7 +38,12 @@ class PersonalController extends BaseController {
         );
         return View::make('template.personal.personal')->with('data', $data);//TODO:需要一个高效的方法来取数据, 文章/图片/视频, 思考.
 	}
-
+    public function uploadHeadPage(){
+        $data =[
+            'imgExists' => false,    //是否已经上传过 上传过的话为true 没有上传过的话为false
+        ];
+        return View::make("template.imageUpload.imageUpload")->with($data);
+    }
 
     //上传头像
     public function uploadHead() {
@@ -71,7 +76,7 @@ class PersonalController extends BaseController {
                     'imgExists' => true,    //是否已经上传过 上传过的话为true 没有上传过的话为false
                     'imgSrc' => $name  //进行剪切的路径  如果上传过的话，为图片路径，没有的话
                 ];
-            return View::make("template.imageUpload.imageUpload")->with('data', $data);
+            return View::make("template.imageUpload.imageUpload")->with($data);
         }
     }
 
