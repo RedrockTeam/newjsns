@@ -62,6 +62,8 @@ Route::get('imageUpload', function(){
     ];
     return View::make("template.imageUpload.imageUpload")->with($data);
 });
+Route::post('imageUpload', 'PersonalController@uploadHead');
+
 #上传图片,文章，微视
 Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
 
@@ -107,7 +109,8 @@ Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'P
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
 
-    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//ajax爱拍发表评论
+    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//修改个人资料
+    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//修改头像
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 

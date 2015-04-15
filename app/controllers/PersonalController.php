@@ -41,7 +41,39 @@ class PersonalController extends BaseController {
 
 
     //上传头像
-    public function uploadHead(){}
+    public function uploadHead() {
+        $file = Input::file('photo');
+        foreach($file as $v){
+            if($v==null) {
+                continue;
+            }
+            $validator = Validator::make(
+                array('photo' => $v),
+                array('photo' => 'required|image|between:1,10240')
+            );
+            if ($validator->fails()) {
+                return Redirect::back()->withInput()->withErrors($validator);
+            }
+        }
+        foreach($file as $v){
+            if($v==null) {
+                continue;
+            }
+            $type = $v->getClientOriginalExtension();
+            $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $img = Image::make($v);
+            $newimg = $img->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $newimg->save($name);
+            $newimg->destroy();
+                $data =[
+                    'imgExists' => true,    //是否已经上传过 上传过的话为true 没有上传过的话为false
+                    'imgSrc' => $name  //进行剪切的路径  如果上传过的话，为图片路径，没有的话
+                ];
+            return View::make("template.imageUpload.imageUpload")->with('data', $data);
+        }
+    }
 
     //修改资料
     public function editPersonalInfo(){
