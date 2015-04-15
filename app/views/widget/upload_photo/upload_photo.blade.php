@@ -10,7 +10,7 @@
     </div>
   <div class="form-group">
     <label for="photo_anme">请输入图片名称</label>
-    <input type="text" class="form-control js-photo_name" name="photo_anme" id="photo_anme" placeholder="图片名称"/>
+    <input type="text" class="form-control js-photo_name" name="photo_name" id="photo_anme" placeholder="图片名称"/>
   </div>
   <div class="form-group">
     <label for="photo_desc">请输入图片描述</label>

@@ -16,7 +16,7 @@ require.config({
         upload_movie : '../widget/upload_movie/upload_movie',
         webuploader : '../../complexPlugin/webuploader/dist/webuploader.flashonly',
         bootstrap: "http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap",
-        summernote: "http://cdn.gbtags.com/summernote/0.5.2/summernote.min",
+        summernote: "summernote.min",
         upload_passage : "../widget/upload_passage/upload_passage"
     }
 });
