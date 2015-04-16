@@ -8,7 +8,7 @@
     </div>
     {{--文章内容--}}
     <p class="u-litera_content js-share_content js-stop_copy">
-        {{$data['passage']['content']}}
+{{$data['passage']['content']}}
     </p>
     {{--文章时间--}}
     <div class="u-article_date">{{$data['passage']['created_at']}}</div>

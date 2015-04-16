@@ -8,7 +8,7 @@ class Album extends Eloquent {
 
 	
 	protected $table = 'album';
-	protected $fillable = array('uid', 'album_name', 'created_at', 'updated_at');
+	protected $fillable = array('uid', 'album_name', 'created_at', 'updated_at', 'type_id', 'album_cover', 'comment_num', 'love_num', 'status');
 
     //获取用户名
     public function user(){

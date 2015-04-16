@@ -1,8 +1,17 @@
-<form action="" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 0 ){{'f-dn'}}@endif m-photo_form js-form_photo">
+<form action="{{route('home/updateAlbum')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 0 ){{'f-dn'}}@endif m-photo_form js-form_photo">
   <div class="form-group">
     <label for="ablum_name">请输入相册名称</label>
     <input type="text" class="form-control" name="ablum_name" id="ablum_name" placeholder="相册名称"/>
   </div>
+    <div class="form-group">
+        <label for="passage_name">请选择视频类别</label>
+        <br/>
+        <select name="photo_type" id="">
+            @foreach($data['photo_type'] as $type)
+                <option value="{{$type['id']}}">{{$type['type']}}</option>
+            @endforeach
+        </select>
+    </div>
   <div class="checkbox">
       <label>
         <input type="checkbox" class="js-check-isAblum"> 是否多图上传？
@@ -43,7 +52,7 @@
   </div>
   <button type="submit" class="btn btn-default">确定</button>
 </form>
-
+<script>var uploadpath = "{{route('home/upload')}}";</script>
 @section("css")
     @parent
     {{HTML::style("public/css/widget/upload_photo/upload_photo.css")}}

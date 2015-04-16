@@ -73,9 +73,8 @@ Route::post('thread', 'CommentController@thread');
  */
 
 Route::get('test', function () {});//test
-Route::get('upload', function(){
-    return route('recommend');
-});
+Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
+Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()

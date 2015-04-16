@@ -38,6 +38,7 @@ class PersonalController extends BaseController {
         );
         return View::make('template.personal.personal')->with('data', $data);//TODO:需要一个高效的方法来取数据, 文章/图片/视频, 思考.
 	}
+
     public function uploadHeadPage(){
         $data =[
             'imgExists' => false,    //是否已经上传过 上传过的话为true 没有上传过的话为false
@@ -110,14 +111,17 @@ class PersonalController extends BaseController {
         $error = '修改成功!';
         return Redirect::back()->withErrors($error);
     }
-
+    //作品发表页面
     public function uploads(){
+        $type_id = Input::get('type_id')? Input::get('type_id'):0;
         $passage_type = Navigation::where('father_id', '=', 1)->get();
         $micromovie_type = Navigation::where('father_id', '=', 4)->get();
+        $photo_type = Navigation::where('father_id', '=', 2)->get();
         $data = array(
-            'page_pos' => 2,   //页面位置 0表示图片栏1表示微视栏2表示文章栏
+            'page_pos' => $type_id,   //页面位置 0表示图片栏1表示微视栏2表示文章栏
             'passage_type' => $passage_type,
-            'micromovie_type' => $micromovie_type
+            'micromovie_type' => $micromovie_type,
+            'photo_type' => $photo_type
         );
         return View::make("template.uploads.uploads")->with('data', $data);
     }

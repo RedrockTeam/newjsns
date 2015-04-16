@@ -104,4 +104,4 @@ Route::filter('verify_permission', function() {
 
 });
 
-Common::globalXssClean();
+//Common::globalXssClean();

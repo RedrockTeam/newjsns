@@ -28,41 +28,64 @@ class PhotosController extends BaseController {
         return $info['data'];
     }
 
-    //上传
-	public function upload(){
-        $file = Input::file('photo');
-        foreach($file as $v){
-            if($v==null) {
-                continue;
-            }
-            $validator = Validator::make(
-                array('photo' => $v),
-                array('photo' => 'required|image|between:1,10240')
+    public function updateAlbum(){
+        $data = Input::all();
+        if(!isset($data['type'])) {
+            $updateAlbum = array(
+                'album_name' => $data['ablum_name'],
+                'type_id' => $data['photo_type'],
+                'album_cover' => Session::get('cover')
             );
-            if ($validator->fails()) {
-                return Redirect::back()->withInput()->withErrors($validator);
+            $album_id = Session::get('album_id');
+            if(Album::where('id', '=', $album_id)->update($updateAlbum)){
+                Session::forget('album_id');
+                Session::forget('cover');
+                return Redirect::back();
             }
+            else
+                return 'error';
         }
-        foreach($file as $v){
-            if($v==null) {
-                continue;
-            }
-            $type = $v->getClientOriginalExtension();
+    }
+    //上传
+	public function upload(){//TODO:前端为了省事直接扔了个插件, 没办法验证, gg
+        $data = Input::all();
+        $album_id = Session::get('album_id')?Session::get('album_id'):null;
+        if($album_id == null){
+                $album = array(
+                    'uid' => Session::get('uid'),
+                    'comment_num' => 0,
+                    'love_num' => 0,
+                    'status' => 1
+                );
+                $album_id = Album::create($album);
+                Session::put('album_id', $album_id['id']);
+        }
+            $file = file_get_contents("php://input");
+            $type = str_replace('image/','',$data['type']);
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
             $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
-            $img = Image::make($v);
-            $img0 = Image::make($v);
+            $img = Image::make($file);
+            $img0 = Image::make($file);
             $originalimg = $img0->resize(1366, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
+        $photo = array(
+            'url' => $name,
+            'original_url' => $originalname,
+            'album_id' => Session::get('album_id'),
+            'comment_num' => 0,
+            'love_num' => 1,
+            'status' => 1
+        );
+            $cover_id = Photos::create($photo);
+            Session::put('cover', $cover_id['id']);
             $newimg->save($name);
             $originalimg->save($originalname);
             $newimg->destroy();
             $originalimg->destroy();
-        }
 	}
 
 }

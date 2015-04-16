@@ -44,6 +44,9 @@ class LiteratureController extends BaseController{
 
     //发表文章
     public function createPassage(){
+        $cover = Input::file('cover');
+        if(!isset($cover))
+            return Redirect::back();
             $data = Input::all();
             $pattern = '/base64,(.*?)"/';
             preg_match_all($pattern, $data['content'], $match, PREG_PATTERN_ORDER);
@@ -55,7 +58,7 @@ class LiteratureController extends BaseController{
             $image = Image::make($name);
             $time = md5(microtime(true));
             $path =  'public/uploads/'.$time.'.jpg';
-            $newimg = $image->resize(300, null, function ($constraint) {
+            $newimg = $image->resize(100, null, function ($constraint) {
               $constraint->aspectRatio();
             });
             $newimg->save($path);
@@ -75,8 +78,8 @@ class LiteratureController extends BaseController{
             $passage['status'] = 1;
             $passage['type_id'] = $data['type_id'];
             $passage['title'] = $data['title'];
-            $passage['content'] = e($data['content']);
-            $cover = Input::file();
+            $html = new Common($data['content']);
+            $passage['content'] = $html->getHtml();
             $passage['cover'] = $this->uploadCover($cover);
             $literature = Literature::create($passage);
             $insertedId = $literature->id;
