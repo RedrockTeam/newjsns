@@ -49,7 +49,7 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
             $('.js-photo_name')[0].disabled = false;
         }
     }
-    
+
     $(function() {
         var $wrap = $('#uploader'),
 
@@ -376,6 +376,7 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
                     stats = uploader.getStats();
                     if ( stats.successNum ) {
                         alert( '上传成功' );
+                        $('.js-form_photo')[0].submit();
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';
