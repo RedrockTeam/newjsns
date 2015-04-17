@@ -22,5 +22,5 @@
         </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/imageUpload/imageUpload.js")])}}
+    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/imageUpload/imageUpload.js")])}}
 @stop

@@ -19,7 +19,7 @@ define([ "jquery", "port" ], function($) {
             $(".js-change_box").css("display", "block");
         }
         function linkUpload() {
-            location.href = "/imageUpload";
+            location.href = "home/imageUpload";
         }
         $(".js-open_change_info").on("click", openChange), $(".js-link_upload").on("click", linkUpload);
     });

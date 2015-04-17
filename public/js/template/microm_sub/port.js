@@ -3,9 +3,9 @@
  */
 //ajax接口配置
 define({
-    praise: "/praise",
+    praise: "home/praise",
     //点赞
-    thread: "/thread",
+    thread: "home/thread",
     //踩,
     comment: "home/comment/micromovie"
 });

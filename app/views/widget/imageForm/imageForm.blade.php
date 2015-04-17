@@ -1,8 +1,8 @@
 {{--如果原来已经上传过图片， 将显示已经上传的图片, 如果没有上传过， 则显示上传的表单--}}
 @if($imgExists){{--剪切--}}
-    @if($imgExists) <div class="u-show_thumb_img"> <img src="{{$imgSrc}}" alt=""/></div> @endif
+    @if($imgExists) <div class="u-show_thumb_img"> <img src="../{{$imgSrc}}" alt=""/></div> @endif
     <div class="u-show-img">
-        <img src="{{$imgSrc}}" alt="{{$imgSrc}}" class="u-crop-img js-crop-img"/>
+        <img src="../{{$imgSrc}}" alt="../{{$imgSrc}}" class="u-crop-img js-crop-img"/>
     </div>
     <div class="">
         <form action="{{route('home/imageUploadCut')}}" method="POST" class="m-crop_form js-crop_form">
@@ -21,5 +21,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/imageForm/imageForm.css")}}
+    {{HTML::style("../public/css/widget/imageForm/imageForm.css")}}
 @stop

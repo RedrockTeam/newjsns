@@ -183,7 +183,7 @@ require([ "jquery", "webuploader" ], function($, WebUploader) {
             },
             dnd: "#dndArea",
             paste: "#uploader",
-            swf: "public/complexPlugin/webuploader/dist/Uploader.swf",
+            swf: "../public/complexPlugin/webuploader/dist/Uploader.swf",
             chunked: !0,
             // runtimeOrder: 'flash',
             sendAsBinary: !0,

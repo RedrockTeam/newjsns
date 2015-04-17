@@ -3,7 +3,7 @@
  */
 //配置require.js
 require.config({
-    baseUrl: "public/js/lib",
+    baseUrl: "../public/js/lib",
     shim: {
         underscore: {
             exports: "_"

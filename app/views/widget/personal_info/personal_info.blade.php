@@ -44,10 +44,6 @@
                             <label for="change-user_name">修改邮箱</label>
                             <input type="text" name="email" id="change-user_eamil" value="{{$data['user_info']['email']}}" class="js-user_email"/>
              </div>
-            {{--<div class="u-chnage_user_signatrue s-input">--}}
-                {{--<label for="change-user_signatrue">E-mail</label>--}}
-                {{--<textarea type="text" id="change-email" class="js-user_signatrue"  name="email"></textarea>--}}
-            {{--</div>--}}
             <div class="u-chnage_user_signatrue s-input">
                 <label for="change-user_signatrue">个性签名</label>
                 <textarea type="text" id="change-user_signatrue" class="js-user_signatrue" value="{{$data['user_info']['introduce']}}"  name="signatrue"></textarea>

@@ -54,19 +54,10 @@ Route::get('login-register', function(){
     return View::make("template.login-register.login-register");
 });
 
-#图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
-Route::get('imageUpload', array('as'=>'home/imageUpload', 'uses'=>'PersonalController@uploadHeadPage'));
-Route::post('imageUploadCut', array('as'=>'home/imageUploadCut', 'uses'=>'PersonalController@uploadHeadCut'));
-Route::post('imageUpload', 'PersonalController@uploadHead');
 
-#上传图片,文章，微视
-Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
+
 
 /*------------------------------ajax 测试---------------------------------*/
-#点赞
-Route::post('praise', 'CommentController@praise');//TODO:记得加入权限控制
-#踩
-Route::post('thread', 'CommentController@thread');
 
 /**
  * 前台功能性路由
@@ -79,6 +70,9 @@ Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosControl
 //不需权限
 Route::group(array('prefix' => 'home'), function()
 {
+    #上传图片,文章，微视
+    Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
+
     Route::get('literature/comment', array('as' => 'home/literature/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
 
     Route::get('photos', array('as' => 'home/photos','uses' => 'LiteratureController@test'));//ajax获取排序图片及分页
@@ -103,8 +97,17 @@ Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'P
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
 
+    #点赞
+    Route::post('praise', array('as' => 'home/praise','uses' => 'CommentController@praise'));
+    #踩
+    Route::post('thread', array('as' => 'home/thread','uses' => 'CommentController@thread'));
+
+    #图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
+    Route::get('imageUpload', array('as'=>'home/imageUpload', 'uses'=>'PersonalController@uploadHeadPage'));
+    Route::post('imageUploadCut', array('as'=>'home/imageUploadCut', 'uses'=>'PersonalController@uploadHeadCut'));
+    Route::post('imageUpload', array('as'=>'home/imageUpload', 'uses'=>'PersonalController@uploadHead'));//头像上传
+
     Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//修改个人资料
-    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//修改头像
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 

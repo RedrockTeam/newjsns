@@ -16,7 +16,7 @@
 {{--container--}}
 @section("container")
     <div class="g-left f-fl">
-        <a href="/uploads" class="u-link_uploads">我要上传作品</a>
+        <a href="{{route('home/uploads')}}" class="u-link_uploads">我要上传作品</a>
         @include("widget.personal_info.personal_info")
     </div>
     <div class="g-right f-fr">
@@ -44,5 +44,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/personal/personal.js")])}}
+    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/personal/personal.js")])}}
 @stop
