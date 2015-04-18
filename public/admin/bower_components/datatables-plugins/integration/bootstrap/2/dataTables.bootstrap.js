@@ -1,4 +1,162 @@
-/* DataTables Bootstrap 2 integration
+/*! DataTables Bootstrap 2 integration
  * ©2011-2014 SpryMedia Ltd - datatables.net/license
  */
-(function(A,B,E,D,C){E.extend(true,D.defaults,{"dom":"<'row-fluid'<'span6'l><'span6'f>r><'row-fluid'<'span12't>><'row-fluid'<'span6'i><'span6'p>>",renderer:"bootstrap"});E.extend(D.ext.classes,{sWrapper:"dataTables_wrapper form-inline dt-bootstrap"});D.ext.renderer.pageButton.bootstrap=function(G,O,L,Q,J,M){var P=new D.Api(G);var K=G.oClasses;var I=G.oLanguage.oPaginate;var H,F;var N=function(U,W){var S,R,T,V;var X=function(Y){Y.preventDefault();if(!E(Y.currentTarget).hasClass("disabled")){P.page(Y.data.action).draw(false)}};for(S=0,R=W.length;S<R;S++){V=W[S];if(E.isArray(V)){N(U,V)}else{H="";F="";switch(V){case"ellipsis":H="&hellip;";F="disabled";break;case"first":H=I.sFirst;F=V+(J>0?"":" disabled");break;case"previous":H=I.sPrevious;F=V+(J>0?"":" disabled");break;case"next":H=I.sNext;F=V+(J<M-1?"":" disabled");break;case"last":H=I.sLast;F=V+(J<M-1?"":" disabled");break;default:H=V+1;F=J===V?"active":"";break}if(H){T=E("<li>",{"class":K.sPageButton+" "+F,"aria-controls":G.sTableId,"tabindex":G.iTabIndex,"id":L===0&&typeof V==="string"?G.sTableId+"_"+V:null}).append(E("<a>",{"href":"#"}).html(H)).appendTo(U);G.oApi._fnBindAction(T,{action:V},X)}}}};N(E(O).empty().html('<div class="pagination"><ul/></div>').find("ul"),Q)};if(D.TableTools){E.extend(true,D.TableTools.classes,{"container":"DTTT btn-group","buttons":{"normal":"btn","disabled":"disabled"},"collection":{"container":"DTTT_dropdown dropdown-menu","buttons":{"normal":"","disabled":"disabled"}},"print":{"info":"DTTT_print_info modal"},"select":{"row":"active"}});E.extend(true,D.TableTools.DEFAULTS.oTags,{"collection":{"container":"ul","button":"li","liner":"a"}})}})(window,document,jQuery,jQuery.fn.dataTable);
+
+/**
+ * DataTables integration for Bootstrap 2. This requires Bootstrap 2 and
+ * DataTables 1.10 or newer.
+ *
+ * This file sets the defaults and adds options to DataTables to style its
+ * controls using Bootstrap. See http://datatables.net/manual/styling/bootstrap
+ * for further information.
+ */
+(function(window, document, $, DataTable, undefined){
+
+$.extend( true, DataTable.defaults, {
+	"dom":
+		"<'row-fluid'<'span6'l><'span6'f>r>" +
+		"<'row-fluid'<'span12't>>" +
+		"<'row-fluid'<'span6'i><'span6'p>>",
+	renderer: 'bootstrap'
+} );
+
+
+/* Default class modification */
+$.extend( DataTable.ext.classes, {
+	sWrapper: "dataTables_wrapper form-inline dt-bootstrap"
+} );
+
+
+/* Bootstrap paging button renderer */
+DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, buttons, page, pages ) {
+	var api     = new DataTable.Api( settings );
+	var classes = settings.oClasses;
+	var lang    = settings.oLanguage.oPaginate;
+	var btnDisplay, btnClass;
+
+	var attach = function( container, buttons ) {
+		var i, ien, node, button;
+		var clickHandler = function ( e ) {
+			e.preventDefault();
+			if ( !$(e.currentTarget).hasClass('disabled') ) {
+				api.page( e.data.action ).draw( false );
+			}
+		};
+
+		for ( i=0, ien=buttons.length ; i<ien ; i++ ) {
+			button = buttons[i];
+
+			if ( $.isArray( button ) ) {
+				attach( container, button );
+			}
+			else {
+				btnDisplay = '';
+				btnClass = '';
+
+				switch ( button ) {
+					case 'ellipsis':
+						btnDisplay = '&hellip;';
+						btnClass = 'disabled';
+						break;
+
+					case 'first':
+						btnDisplay = lang.sFirst;
+						btnClass = button + (page > 0 ?
+							'' : ' disabled');
+						break;
+
+					case 'previous':
+						btnDisplay = lang.sPrevious;
+						btnClass = button + (page > 0 ?
+							'' : ' disabled');
+						break;
+
+					case 'next':
+						btnDisplay = lang.sNext;
+						btnClass = button + (page < pages-1 ?
+							'' : ' disabled');
+						break;
+
+					case 'last':
+						btnDisplay = lang.sLast;
+						btnClass = button + (page < pages-1 ?
+							'' : ' disabled');
+						break;
+
+					default:
+						btnDisplay = button + 1;
+						btnClass = page === button ?
+							'active' : '';
+						break;
+				}
+
+				if ( btnDisplay ) {
+					node = $('<li>', {
+							'class': classes.sPageButton+' '+btnClass,
+							'aria-controls': settings.sTableId,
+							'tabindex': settings.iTabIndex,
+							'id': idx === 0 && typeof button === 'string' ?
+								settings.sTableId +'_'+ button :
+								null
+						} )
+						.append( $('<a>', {
+								'href': '#'
+							} )
+							.html( btnDisplay )
+						)
+						.appendTo( container );
+
+					settings.oApi._fnBindAction(
+						node, {action: button}, clickHandler
+					);
+				}
+			}
+		}
+	};
+
+	attach(
+		$(host).empty().html('<div class="pagination"><ul/></div>').find('ul'),
+		buttons
+	);
+};
+
+
+/*
+ * TableTools Bootstrap compatibility
+ * Required TableTools 2.1+
+ */
+if ( DataTable.TableTools ) {
+	// Set the classes that TableTools uses to something suitable for Bootstrap
+	$.extend( true, DataTable.TableTools.classes, {
+		"container": "DTTT btn-group",
+		"buttons": {
+			"normal": "btn",
+			"disabled": "disabled"
+		},
+		"collection": {
+			"container": "DTTT_dropdown dropdown-menu",
+			"buttons": {
+				"normal": "",
+				"disabled": "disabled"
+			}
+		},
+		"print": {
+			"info": "DTTT_print_info modal"
+		},
+		"select": {
+			"row": "active"
+		}
+	} );
+
+	// Have the collection use a bootstrap compatible dropdown
+	$.extend( true, DataTable.TableTools.DEFAULTS.oTags, {
+		"collection": {
+			"container": "ul",
+			"button": "li",
+			"liner": "a"
+		}
+	} );
+}
+
+
+})(window, document, jQuery, jQuery.fn.dataTable);

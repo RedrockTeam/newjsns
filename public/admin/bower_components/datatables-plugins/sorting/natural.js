@@ -1,1 +1,90 @@
-(function(){function A(H,E){var R=/(^-?[0-9]+(\.?[0-9]*)[df]?e?[0-9]?$|^0x[0-9a-f]+$|[0-9]+)/gi,I=/(^[ ]*|[ ]*$)/g,B=/(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/,P=/^0x[0-9a-f]+$/i,L=/^0/,N=H.toString().replace(I,"")||"",O=E.toString().replace(I,"")||"",Q=N.replace(R,"\0$1\0").replace(/\0$/,"").replace(/^\0/,"").split("\0"),F=O.replace(R,"\0$1\0").replace(/\0$/,"").replace(/^\0/,"").split("\0"),K=parseInt(N.match(P),10)||(Q.length!==1&&N.match(B)&&Date.parse(N)),G=parseInt(O.match(P),10)||K&&O.match(B)&&Date.parse(O)||null;if(G){if(K<G){return -1}else{if(K>G){return 1}}}for(var J=0,D=Math.max(Q.length,F.length);J<D;J++){var C=!(Q[J]||"").match(L)&&parseFloat(Q[J],10)||Q[J]||0;var M=!(F[J]||"").match(L)&&parseFloat(F[J],10)||F[J]||0;if(isNaN(C)!==isNaN(M)){return(isNaN(C))?1:-1}else{if(typeof C!==typeof M){C+="";M+=""}}if(C<M){return -1}if(C>M){return 1}}return 0}jQuery.extend(jQuery.fn.dataTableExt.oSort,{"natural-asc":function(C,B){return A(C,B)},"natural-desc":function(C,B){return A(C,B)*-1}})}());
+/**
+ * Data can often be a complicated mix of numbers and letters (file names
+ * are a common example) and sorting them in a natural manner is quite a
+ * difficult problem.
+ * 
+ * Fortunately a deal of work has already been done in this area by other
+ * authors - the following plug-in uses the [naturalSort() function by Jim
+ * Palmer](http://www.overset.com/2008/09/01/javascript-natural-sort-algorithm-with-unicode-support) to provide natural sorting in DataTables.
+ *
+ *  @name Natural sorting
+ *  @summary Sort data with a mix of numbers and letters _naturally_.
+ *  @author [Jim Palmer](http://www.overset.com/2008/09/01/javascript-natural-sort-algorithm-with-unicode-support)
+ *
+ *  @example
+ *    $('#example').dataTable( {
+ *       columnDefs: [
+ *         { type: 'natural', targets: 0 }
+ *       ]
+ *    } );
+ */
+
+(function() {
+
+/*
+ * Natural Sort algorithm for Javascript - Version 0.7 - Released under MIT license
+ * Author: Jim Palmer (based on chunking idea from Dave Koelle)
+ * Contributors: Mike Grier (mgrier.com), Clint Priest, Kyle Adams, guillermo
+ * See: http://js-naturalsort.googlecode.com/svn/trunk/naturalSort.js
+ */
+function naturalSort (a, b) {
+	var re = /(^-?[0-9]+(\.?[0-9]*)[df]?e?[0-9]?$|^0x[0-9a-f]+$|[0-9]+)/gi,
+		sre = /(^[ ]*|[ ]*$)/g,
+		dre = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/,
+		hre = /^0x[0-9a-f]+$/i,
+		ore = /^0/,
+		// convert all to strings and trim()
+		x = a.toString().replace(sre, '') || '',
+		y = b.toString().replace(sre, '') || '',
+		// chunk/tokenize
+		xN = x.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+		yN = y.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+		// numeric, hex or date detection
+		xD = parseInt(x.match(hre), 10) || (xN.length !== 1 && x.match(dre) && Date.parse(x)),
+		yD = parseInt(y.match(hre), 10) || xD && y.match(dre) && Date.parse(y) || null;
+
+	// first try and sort Hex codes or Dates
+	if (yD) {
+		if ( xD < yD ) {
+			return -1;
+		}
+		else if ( xD > yD )	{
+			return 1;
+		}
+	}
+
+	// natural sorting through split numeric strings and default strings
+	for(var cLoc=0, numS=Math.max(xN.length, yN.length); cLoc < numS; cLoc++) {
+		// find floats not starting with '0', string or 0 if not defined (Clint Priest)
+		var oFxNcL = !(xN[cLoc] || '').match(ore) && parseFloat(xN[cLoc], 10) || xN[cLoc] || 0;
+		var oFyNcL = !(yN[cLoc] || '').match(ore) && parseFloat(yN[cLoc], 10) || yN[cLoc] || 0;
+		// handle numeric vs string comparison - number < string - (Kyle Adams)
+		if (isNaN(oFxNcL) !== isNaN(oFyNcL)) {
+			return (isNaN(oFxNcL)) ? 1 : -1;
+		}
+		// rely on string comparison if different types - i.e. '02' < 2 != '02' < '2'
+		else if (typeof oFxNcL !== typeof oFyNcL) {
+			oFxNcL += '';
+			oFyNcL += '';
+		}
+		if (oFxNcL < oFyNcL) {
+			return -1;
+		}
+		if (oFxNcL > oFyNcL) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	"natural-asc": function ( a, b ) {
+		return naturalSort(a,b);
+	},
+
+	"natural-desc": function ( a, b ) {
+		return naturalSort(a,b) * -1;
+	}
+} );
+
+}());

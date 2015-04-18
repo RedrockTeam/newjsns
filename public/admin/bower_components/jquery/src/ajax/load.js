@@ -1,1 +1,75 @@
-define(["../core","../core/parseHTML","../ajax","../traversing","../manipulation","../selector","../event/alias"],function(B){var A=B.fn.load;B.fn.load=function(H,E,C){if(typeof H!=="string"&&A){return A.apply(this,arguments)}var F,G,J,D=this,I=H.indexOf(" ");if(I>=0){F=B.trim(H.slice(I));H=H.slice(0,I)}if(B.isFunction(E)){C=E;E=undefined}else{if(E&&typeof E==="object"){G="POST"}}if(D.length>0){B.ajax({url:H,type:G,dataType:"html",data:E}).done(function(K){J=arguments;D.html(F?B("<div>").append(B.parseHTML(K)).find(F):K)}).complete(C&&function(K,L){D.each(C,J||[K.responseText,L,K])})}return this}});
+define([
+	"../core",
+	"../core/parseHTML",
+	"../ajax",
+	"../traversing",
+	"../manipulation",
+	"../selector",
+	// Optional event/alias dependency
+	"../event/alias"
+], function( jQuery ) {
+
+// Keep a copy of the old load method
+var _load = jQuery.fn.load;
+
+/**
+ * Load a url into a page
+ */
+jQuery.fn.load = function( url, params, callback ) {
+	if ( typeof url !== "string" && _load ) {
+		return _load.apply( this, arguments );
+	}
+
+	var selector, type, response,
+		self = this,
+		off = url.indexOf(" ");
+
+	if ( off >= 0 ) {
+		selector = jQuery.trim( url.slice( off ) );
+		url = url.slice( 0, off );
+	}
+
+	// If it's a function
+	if ( jQuery.isFunction( params ) ) {
+
+		// We assume that it's the callback
+		callback = params;
+		params = undefined;
+
+	// Otherwise, build a param string
+	} else if ( params && typeof params === "object" ) {
+		type = "POST";
+	}
+
+	// If we have elements to modify, make the request
+	if ( self.length > 0 ) {
+		jQuery.ajax({
+			url: url,
+
+			// if "type" variable is undefined, then "GET" method will be used
+			type: type,
+			dataType: "html",
+			data: params
+		}).done(function( responseText ) {
+
+			// Save response for use in complete callback
+			response = arguments;
+
+			self.html( selector ?
+
+				// If a selector was specified, locate the right elements in a dummy div
+				// Exclude scripts to avoid IE 'Permission Denied' errors
+				jQuery("<div>").append( jQuery.parseHTML( responseText ) ).find( selector ) :
+
+				// Otherwise use the full result
+				responseText );
+
+		}).complete( callback && function( jqXHR, status ) {
+			self.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );
+		});
+	}
+
+	return this;
+};
+
+});

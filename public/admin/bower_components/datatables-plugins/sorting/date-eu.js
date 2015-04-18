@@ -1,1 +1,69 @@
-jQuery.extend(jQuery.fn.dataTableExt.oSort,{"date-eu-pre":function(E){E=E.replace(" ","");var D,C;if(E==""){return 0}if(E.indexOf(".")>0){D=E.split(".")}else{D=E.split("/")}if(D[2]){C=D[2]}else{C=0}var B=D[1];if(B.length==1){B=0+B}var A=D[0];if(A.length==1){A=0+A}return(C+B+A)*1},"date-eu-asc":function(B,A){return((B<A)?-1:((B>A)?1:0))},"date-eu-desc":function(B,A){return((B<A)?1:((B>A)?-1:0))}});
+/**
+ * Similar to the Date (dd/mm/YY) data sorting plug-in, this plug-in offers 
+ * additional  flexibility with support for spaces between the values and
+ * either . or / notation for the separators.
+ *
+ * Please note that this plug-in is **deprecated*. The
+ * [datetime](//datatables.net/blog/2014-12-18) plug-in provides enhanced
+ * functionality and flexibility.
+ *
+ *  @name Date (dd . mm[ . YYYY]) 
+ *  @summary Sort dates in the format `dd/mm/YY[YY]` (with optional spaces)
+ *  @author [Robert Sedovšek](http://galjot.si/)
+ *  @deprecated
+ *
+ *  @example
+ *    $('#example').dataTable( {
+ *       columnDefs: [
+ *         { type: 'date-eu', targets: 0 }
+ *       ]
+ *    } );
+ */
+
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	"date-eu-pre": function ( date ) {
+		date = date.replace(" ", "");
+		var eu_date, year;
+		
+		if (date == '') {
+			return 0;
+		}
+
+		if (date.indexOf('.') > 0) {
+			/*date a, format dd.mn.(yyyy) ; (year is optional)*/
+			eu_date = date.split('.');
+		} else {
+			/*date a, format dd/mn/(yyyy) ; (year is optional)*/
+			eu_date = date.split('/');
+		}
+
+		/*year (optional)*/
+		if (eu_date[2]) {
+			year = eu_date[2];
+		} else {
+			year = 0;
+		}
+
+		/*month*/
+		var month = eu_date[1];
+		if (month.length == 1) {
+			month = 0+month;
+		}
+
+		/*day*/
+		var day = eu_date[0];
+		if (day.length == 1) {
+			day = 0+day;
+		}
+
+		return (year + month + day) * 1;
+	},
+
+	"date-eu-asc": function ( a, b ) {
+		return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+	},
+
+	"date-eu-desc": function ( a, b ) {
+		return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+	}
+} );

@@ -1,1 +1,33 @@
-(function(A,B){A.augment=B()}(this,function(){var B=function(){};var C=Array.prototype.slice;var A=function(J,E){var I=B.prototype=typeof J==="function"?J.prototype:J;var G=new B(),H=E.apply(G,C.call(arguments,2).concat(I));if(typeof H==="object"){for(var D in H){G[D]=H[D]}}if(!G.hasOwnProperty("constructor")){return G}var F=G.constructor;F.prototype=G;return F};A.defclass=function(E){var D=E.constructor;D.prototype=E;return D};A.extend=function(E,D){return A(E,function(F){this.uber=F;return D})};return A}));
+(function (global, factory) {
+	global.augment = factory();
+}(this, function () {
+    "use strict";
+
+    var Factory = function () {};
+    var slice = Array.prototype.slice;
+
+    var augment = function (base, body) {
+        var uber = Factory.prototype = typeof base === "function" ? base.prototype : base;
+        var prototype = new Factory(), properties = body.apply(prototype, slice.call(arguments, 2).concat(uber));
+        if (typeof properties === "object") for (var key in properties) prototype[key] = properties[key];
+        if (!prototype.hasOwnProperty("constructor")) return prototype;
+        var constructor = prototype.constructor;
+        constructor.prototype = prototype;
+        return constructor;
+    };
+
+    augment.defclass = function (prototype) {
+        var constructor = prototype.constructor;
+        constructor.prototype = prototype;
+        return constructor;
+    };
+
+    augment.extend = function (base, body) {
+        return augment(base, function (uber) {
+            this.uber = uber;
+            return body;
+        });
+    };
+
+    return augment;
+}));

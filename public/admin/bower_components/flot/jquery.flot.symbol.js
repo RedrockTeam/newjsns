@@ -1,1 +1,71 @@
-(function(C){function A(F,G,E){var H={square:function(M,K,L,N,I){var J=N*Math.sqrt(Math.PI)/2;M.rect(K-J,L-J,J+J,J+J)},diamond:function(M,K,L,N,I){var J=N*Math.sqrt(Math.PI/2);M.moveTo(K-J,L);M.lineTo(K,L-J);M.lineTo(K+J,L);M.lineTo(K,L+J);M.lineTo(K-J,L)},triangle:function(N,L,M,O,I){var K=O*Math.sqrt(2*Math.PI/Math.sin(Math.PI/3));var J=K*Math.sin(Math.PI/3);N.moveTo(L-K/2,M+J/2);N.lineTo(L+K/2,M+J/2);if(!I){N.lineTo(L,M-J/2);N.lineTo(L-K/2,M+J/2)}},cross:function(M,K,L,N,I){var J=N*Math.sqrt(Math.PI)/2;M.moveTo(K-J,L-J);M.lineTo(K+J,L+J);M.moveTo(K-J,L+J);M.lineTo(K+J,L-J)}};var D=G.points.symbol;if(H[D]){G.points.symbol=H[D]}}function B(D){D.hooks.processDatapoints.push(A)}C.plot.plugins.push({init:B,name:"symbols",version:"1.0"})})(jQuery);
+/* Flot plugin that adds some extra symbols for plotting points.
+
+Copyright (c) 2007-2014 IOLA and Ole Laursen.
+Licensed under the MIT license.
+
+The symbols are accessed as strings through the standard symbol options:
+
+	series: {
+		points: {
+			symbol: "square" // or "diamond", "triangle", "cross"
+		}
+	}
+
+*/
+
+(function ($) {
+    function processRawData(plot, series, datapoints) {
+        // we normalize the area of each symbol so it is approximately the
+        // same as a circle of the given radius
+
+        var handlers = {
+            square: function (ctx, x, y, radius, shadow) {
+                // pi * r^2 = (2s)^2  =>  s = r * sqrt(pi)/2
+                var size = radius * Math.sqrt(Math.PI) / 2;
+                ctx.rect(x - size, y - size, size + size, size + size);
+            },
+            diamond: function (ctx, x, y, radius, shadow) {
+                // pi * r^2 = 2s^2  =>  s = r * sqrt(pi/2)
+                var size = radius * Math.sqrt(Math.PI / 2);
+                ctx.moveTo(x - size, y);
+                ctx.lineTo(x, y - size);
+                ctx.lineTo(x + size, y);
+                ctx.lineTo(x, y + size);
+                ctx.lineTo(x - size, y);
+            },
+            triangle: function (ctx, x, y, radius, shadow) {
+                // pi * r^2 = 1/2 * s^2 * sin (pi / 3)  =>  s = r * sqrt(2 * pi / sin(pi / 3))
+                var size = radius * Math.sqrt(2 * Math.PI / Math.sin(Math.PI / 3));
+                var height = size * Math.sin(Math.PI / 3);
+                ctx.moveTo(x - size/2, y + height/2);
+                ctx.lineTo(x + size/2, y + height/2);
+                if (!shadow) {
+                    ctx.lineTo(x, y - height/2);
+                    ctx.lineTo(x - size/2, y + height/2);
+                }
+            },
+            cross: function (ctx, x, y, radius, shadow) {
+                // pi * r^2 = (2s)^2  =>  s = r * sqrt(pi)/2
+                var size = radius * Math.sqrt(Math.PI) / 2;
+                ctx.moveTo(x - size, y - size);
+                ctx.lineTo(x + size, y + size);
+                ctx.moveTo(x - size, y + size);
+                ctx.lineTo(x + size, y - size);
+            }
+        };
+
+        var s = series.points.symbol;
+        if (handlers[s])
+            series.points.symbol = handlers[s];
+    }
+    
+    function init(plot) {
+        plot.hooks.processDatapoints.push(processRawData);
+    }
+    
+    $.plot.plugins.push({
+        init: init,
+        name: 'symbols',
+        version: '1.0'
+    });
+})(jQuery);

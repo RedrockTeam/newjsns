@@ -1,1 +1,5 @@
-define(["../../core"],function(A){return A.now()});
+define([
+	"../../core"
+], function( jQuery ) {
+	return jQuery.now();
+});

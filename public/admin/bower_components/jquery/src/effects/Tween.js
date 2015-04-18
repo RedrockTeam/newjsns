@@ -1,1 +1,114 @@
-define(["../core","../css"],function(A){function B(D,C,E,F,G){return new B.prototype.init(D,C,E,F,G)}A.Tween=B;B.prototype={constructor:B,init:function(E,D,F,G,H,C){this.elem=E;this.prop=F;this.easing=H||"swing";this.options=D;this.start=this.now=this.cur();this.end=G;this.unit=C||(A.cssNumber[F]?"":"px")},cur:function(){var C=B.propHooks[this.prop];return C&&C.get?C.get(this):B.propHooks._default.get(this)},run:function(C){var E,D=B.propHooks[this.prop];if(this.options.duration){this.pos=E=A.easing[this.easing](C,this.options.duration*C,0,1,this.options.duration)}else{this.pos=E=C}this.now=(this.end-this.start)*E+this.start;if(this.options.step){this.options.step.call(this.elem,this.now,this)}if(D&&D.set){D.set(this)}else{B.propHooks._default.set(this)}return this}};B.prototype.init.prototype=B.prototype;B.propHooks={_default:{get:function(D){var C;if(D.elem[D.prop]!=null&&(!D.elem.style||D.elem.style[D.prop]==null)){return D.elem[D.prop]}C=A.css(D.elem,D.prop,"");return !C||C==="auto"?0:C},set:function(C){if(A.fx.step[C.prop]){A.fx.step[C.prop](C)}else{if(C.elem.style&&(C.elem.style[A.cssProps[C.prop]]!=null||A.cssHooks[C.prop])){A.style(C.elem,C.prop,C.now+C.unit)}else{C.elem[C.prop]=C.now}}}}};B.propHooks.scrollTop=B.propHooks.scrollLeft={set:function(C){if(C.elem.nodeType&&C.elem.parentNode){C.elem[C.prop]=C.now}}};A.easing={linear:function(C){return C},swing:function(C){return 0.5-Math.cos(C*Math.PI)/2}};A.fx=B.prototype.init;A.fx.step={}});
+define([
+	"../core",
+	"../css"
+], function( jQuery ) {
+
+function Tween( elem, options, prop, end, easing ) {
+	return new Tween.prototype.init( elem, options, prop, end, easing );
+}
+jQuery.Tween = Tween;
+
+Tween.prototype = {
+	constructor: Tween,
+	init: function( elem, options, prop, end, easing, unit ) {
+		this.elem = elem;
+		this.prop = prop;
+		this.easing = easing || "swing";
+		this.options = options;
+		this.start = this.now = this.cur();
+		this.end = end;
+		this.unit = unit || ( jQuery.cssNumber[ prop ] ? "" : "px" );
+	},
+	cur: function() {
+		var hooks = Tween.propHooks[ this.prop ];
+
+		return hooks && hooks.get ?
+			hooks.get( this ) :
+			Tween.propHooks._default.get( this );
+	},
+	run: function( percent ) {
+		var eased,
+			hooks = Tween.propHooks[ this.prop ];
+
+		if ( this.options.duration ) {
+			this.pos = eased = jQuery.easing[ this.easing ](
+				percent, this.options.duration * percent, 0, 1, this.options.duration
+			);
+		} else {
+			this.pos = eased = percent;
+		}
+		this.now = ( this.end - this.start ) * eased + this.start;
+
+		if ( this.options.step ) {
+			this.options.step.call( this.elem, this.now, this );
+		}
+
+		if ( hooks && hooks.set ) {
+			hooks.set( this );
+		} else {
+			Tween.propHooks._default.set( this );
+		}
+		return this;
+	}
+};
+
+Tween.prototype.init.prototype = Tween.prototype;
+
+Tween.propHooks = {
+	_default: {
+		get: function( tween ) {
+			var result;
+
+			if ( tween.elem[ tween.prop ] != null &&
+				(!tween.elem.style || tween.elem.style[ tween.prop ] == null) ) {
+				return tween.elem[ tween.prop ];
+			}
+
+			// Passing an empty string as a 3rd parameter to .css will automatically
+			// attempt a parseFloat and fallback to a string if the parse fails.
+			// Simple values such as "10px" are parsed to Float;
+			// complex values such as "rotate(1rad)" are returned as-is.
+			result = jQuery.css( tween.elem, tween.prop, "" );
+			// Empty strings, null, undefined and "auto" are converted to 0.
+			return !result || result === "auto" ? 0 : result;
+		},
+		set: function( tween ) {
+			// Use step hook for back compat.
+			// Use cssHook if its there.
+			// Use .style if available and use plain properties where available.
+			if ( jQuery.fx.step[ tween.prop ] ) {
+				jQuery.fx.step[ tween.prop ]( tween );
+			} else if ( tween.elem.style && ( tween.elem.style[ jQuery.cssProps[ tween.prop ] ] != null || jQuery.cssHooks[ tween.prop ] ) ) {
+				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
+			} else {
+				tween.elem[ tween.prop ] = tween.now;
+			}
+		}
+	}
+};
+
+// Support: IE9
+// Panic based approach to setting things on disconnected nodes
+Tween.propHooks.scrollTop = Tween.propHooks.scrollLeft = {
+	set: function( tween ) {
+		if ( tween.elem.nodeType && tween.elem.parentNode ) {
+			tween.elem[ tween.prop ] = tween.now;
+		}
+	}
+};
+
+jQuery.easing = {
+	linear: function( p ) {
+		return p;
+	},
+	swing: function( p ) {
+		return 0.5 - Math.cos( p * Math.PI ) / 2;
+	}
+};
+
+jQuery.fx = Tween.prototype.init;
+
+// Back Compat <1.8 extension point
+jQuery.fx.step = {};
+
+});

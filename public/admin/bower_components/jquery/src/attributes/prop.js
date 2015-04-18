@@ -1,1 +1,94 @@
-define(["../core","../core/access","./support"],function(C,B,A){var D=/^(?:input|select|textarea|button)$/i;C.fn.extend({prop:function(E,F){return B(this,C.prop,E,F,arguments.length>1)},removeProp:function(E){return this.each(function(){delete this[C.propFix[E]||E]})}});C.extend({propFix:{"for":"htmlFor","class":"className"},prop:function(G,H,I){var J,F,E,K=G.nodeType;if(!G||K===3||K===8||K===2){return}E=K!==1||!C.isXMLDoc(G);if(E){H=C.propFix[H]||H;F=C.propHooks[H]}if(I!==undefined){return F&&"set" in F&&(J=F.set(G,I,H))!==undefined?J:(G[H]=I)}else{return F&&"get" in F&&(J=F.get(G,H))!==null?J:G[H]}},propHooks:{tabIndex:{get:function(E){return E.hasAttribute("tabindex")||D.test(E.nodeName)||E.href?E.tabIndex:-1}}}});if(!A.optSelected){C.propHooks.selected={get:function(E){var F=E.parentNode;if(F&&F.parentNode){F.parentNode.selectedIndex}return null}}}C.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){C.propFix[this.toLowerCase()]=this})});
+define([
+	"../core",
+	"../core/access",
+	"./support"
+], function( jQuery, access, support ) {
+
+var rfocusable = /^(?:input|select|textarea|button)$/i;
+
+jQuery.fn.extend({
+	prop: function( name, value ) {
+		return access( this, jQuery.prop, name, value, arguments.length > 1 );
+	},
+
+	removeProp: function( name ) {
+		return this.each(function() {
+			delete this[ jQuery.propFix[ name ] || name ];
+		});
+	}
+});
+
+jQuery.extend({
+	propFix: {
+		"for": "htmlFor",
+		"class": "className"
+	},
+
+	prop: function( elem, name, value ) {
+		var ret, hooks, notxml,
+			nType = elem.nodeType;
+
+		// Don't get/set properties on text, comment and attribute nodes
+		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
+			return;
+		}
+
+		notxml = nType !== 1 || !jQuery.isXMLDoc( elem );
+
+		if ( notxml ) {
+			// Fix name and attach hooks
+			name = jQuery.propFix[ name ] || name;
+			hooks = jQuery.propHooks[ name ];
+		}
+
+		if ( value !== undefined ) {
+			return hooks && "set" in hooks && (ret = hooks.set( elem, value, name )) !== undefined ?
+				ret :
+				( elem[ name ] = value );
+
+		} else {
+			return hooks && "get" in hooks && (ret = hooks.get( elem, name )) !== null ?
+				ret :
+				elem[ name ];
+		}
+	},
+
+	propHooks: {
+		tabIndex: {
+			get: function( elem ) {
+				return elem.hasAttribute( "tabindex" ) || rfocusable.test( elem.nodeName ) || elem.href ?
+					elem.tabIndex :
+					-1;
+			}
+		}
+	}
+});
+
+if ( !support.optSelected ) {
+	jQuery.propHooks.selected = {
+		get: function( elem ) {
+			var parent = elem.parentNode;
+			if ( parent && parent.parentNode ) {
+				parent.parentNode.selectedIndex;
+			}
+			return null;
+		}
+	};
+}
+
+jQuery.each([
+	"tabIndex",
+	"readOnly",
+	"maxLength",
+	"cellSpacing",
+	"cellPadding",
+	"rowSpan",
+	"colSpan",
+	"useMap",
+	"frameBorder",
+	"contentEditable"
+], function() {
+	jQuery.propFix[ this.toLowerCase() ] = this;
+});
+
+});

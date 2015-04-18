@@ -1,1 +1,116 @@
-+function(D){var A=function(F,E){this.$element=D(F);this.options=D.extend({},A.DEFAULTS,E);this.isLoading=false};A.VERSION="3.3.2";A.DEFAULTS={loadingText:"loading..."};A.prototype.setState=function(I){var E="disabled";var G=this.$element;var H=G.is("input")?"val":"html";var F=G.data();I=I+"Text";if(F.resetText==null){G.data("resetText",G[H]())}setTimeout(D.proxy(function(){G[H](F[I]==null?this.options[I]:F[I]);if(I=="loadingText"){this.isLoading=true;G.addClass(E).attr(E,E)}else{if(this.isLoading){this.isLoading=false;G.removeClass(E).removeAttr(E)}}},this),0)};A.prototype.toggle=function(){var G=true;var E=this.$element.closest('[data-toggle="buttons"]');if(E.length){var F=this.$element.find("input");if(F.prop("type")=="radio"){if(F.prop("checked")&&this.$element.hasClass("active")){G=false}else{E.find(".active").removeClass("active")}}if(G){F.prop("checked",!this.$element.hasClass("active")).trigger("change")}}else{this.$element.attr("aria-pressed",!this.$element.hasClass("active"))}if(G){this.$element.toggleClass("active")}};function C(E){return this.each(function(){var F=D(this);var H=F.data("bs.button");var G=typeof E=="object"&&E;if(!H){F.data("bs.button",(H=new A(this,G)))}if(E=="toggle"){H.toggle()}else{if(E){H.setState(E)}}})}var B=D.fn.button;D.fn.button=C;D.fn.button.Constructor=A;D.fn.button.noConflict=function(){D.fn.button=B;return this};D(document).on("click.bs.button.data-api",'[data-toggle^="button"]',function(E){var F=D(E.target);if(!F.hasClass("btn")){F=F.closest(".btn")}C.call(F,"toggle");E.preventDefault()}).on("focus.bs.button.data-api blur.bs.button.data-api",'[data-toggle^="button"]',function(E){D(E.target).closest(".btn").toggleClass("focus",/^focus(in)?$/.test(E.type))})}(jQuery);
+/* ========================================================================
+ * Bootstrap: button.js v3.3.2
+ * http://getbootstrap.com/javascript/#buttons
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // BUTTON PUBLIC CLASS DEFINITION
+  // ==============================
+
+  var Button = function (element, options) {
+    this.$element  = $(element)
+    this.options   = $.extend({}, Button.DEFAULTS, options)
+    this.isLoading = false
+  }
+
+  Button.VERSION  = '3.3.2'
+
+  Button.DEFAULTS = {
+    loadingText: 'loading...'
+  }
+
+  Button.prototype.setState = function (state) {
+    var d    = 'disabled'
+    var $el  = this.$element
+    var val  = $el.is('input') ? 'val' : 'html'
+    var data = $el.data()
+
+    state = state + 'Text'
+
+    if (data.resetText == null) $el.data('resetText', $el[val]())
+
+    // push to event loop to allow forms to submit
+    setTimeout($.proxy(function () {
+      $el[val](data[state] == null ? this.options[state] : data[state])
+
+      if (state == 'loadingText') {
+        this.isLoading = true
+        $el.addClass(d).attr(d, d)
+      } else if (this.isLoading) {
+        this.isLoading = false
+        $el.removeClass(d).removeAttr(d)
+      }
+    }, this), 0)
+  }
+
+  Button.prototype.toggle = function () {
+    var changed = true
+    var $parent = this.$element.closest('[data-toggle="buttons"]')
+
+    if ($parent.length) {
+      var $input = this.$element.find('input')
+      if ($input.prop('type') == 'radio') {
+        if ($input.prop('checked') && this.$element.hasClass('active')) changed = false
+        else $parent.find('.active').removeClass('active')
+      }
+      if (changed) $input.prop('checked', !this.$element.hasClass('active')).trigger('change')
+    } else {
+      this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
+    }
+
+    if (changed) this.$element.toggleClass('active')
+  }
+
+
+  // BUTTON PLUGIN DEFINITION
+  // ========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.button')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('bs.button', (data = new Button(this, options)))
+
+      if (option == 'toggle') data.toggle()
+      else if (option) data.setState(option)
+    })
+  }
+
+  var old = $.fn.button
+
+  $.fn.button             = Plugin
+  $.fn.button.Constructor = Button
+
+
+  // BUTTON NO CONFLICT
+  // ==================
+
+  $.fn.button.noConflict = function () {
+    $.fn.button = old
+    return this
+  }
+
+
+  // BUTTON DATA-API
+  // ===============
+
+  $(document)
+    .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+      var $btn = $(e.target)
+      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
+      Plugin.call($btn, 'toggle')
+      e.preventDefault()
+    })
+    .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+      $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
+    })
+
+}(jQuery);
