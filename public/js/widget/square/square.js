@@ -1,3 +1,1 @@
-define([ "jquery" ], function() {
-    console.log("square init");
-});
+define(["jquery"],function(){console.log("square init")});

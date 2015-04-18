@@ -1,6 +1,1 @@
-require(['../raphael'], function(Raphael){
-    var paper = Raphael(0, 0, 640, 720, "container");
-
-    // Work here
-
-});
+require(["../raphael"],function(A){var B=A(0,0,640,720,"container")});

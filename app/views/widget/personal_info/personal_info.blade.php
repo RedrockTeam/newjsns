@@ -1,5 +1,5 @@
 <div class="m-personal_info">
-    <div>
+    <div class="js-change_status">
         @if($errors)
             @foreach ($errors->all() as $error)
                 <div class="row js-change_info">

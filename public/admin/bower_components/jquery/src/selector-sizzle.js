@@ -1,14 +1,1 @@
-define([
-	"./core",
-	"sizzle"
-], function( jQuery, Sizzle ) {
-
-jQuery.find = Sizzle;
-jQuery.expr = Sizzle.selectors;
-jQuery.expr[":"] = jQuery.expr.pseudos;
-jQuery.unique = Sizzle.uniqueSort;
-jQuery.text = Sizzle.getText;
-jQuery.isXMLDoc = Sizzle.isXML;
-jQuery.contains = Sizzle.contains;
-
-});
+define(["./core","sizzle"],function(B,A){B.find=A;B.expr=A.selectors;B.expr[":"]=B.expr.pseudos;B.unique=A.uniqueSort;B.text=A.getText;B.isXMLDoc=A.isXML;B.contains=A.contains});

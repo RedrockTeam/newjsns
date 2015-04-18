@@ -3,6 +3,9 @@
  */
 define(['jquery', 'port'], function($, port){
     $(function(){
+        setTimeout(function(){
+            $('.js-change_status').fadeOut();
+        }, 1000);
         $('.js-open_change_info').on('click', openChange);
         $('.js-link_upload').on('click', linkUpload);
         /*--------------- ----------*/

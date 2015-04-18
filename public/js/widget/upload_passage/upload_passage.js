@@ -1,10 +1,1 @@
-/**
- * Created by redrock on 2015/4/6.
- */
-define([ "jquery" ], function($) {
-    $(function() {
-        $(".js-form_passage").on("submit", function(ev) {
-            ev.preventDefault(), $(".js-hidden_content").text($(".note-editable").html()), $(this)[0].submit();
-        });
-    });
-});
+define(["jquery"],function(A){A(function(){A(".js-form_passage").on("submit",function(B){B.preventDefault(),A(".js-hidden_content").text(A(".note-editable").html()),A(this)[0].submit()})})});
