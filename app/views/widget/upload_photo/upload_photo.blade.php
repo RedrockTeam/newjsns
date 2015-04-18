@@ -50,7 +50,6 @@
               </div>
           </div>
   </div>
-  <button type="submit" class="btn btn-default">确定</button>
 </form>
 <script>var uploadpath = "{{route('home/upload')}}";</script>
 @section("css")

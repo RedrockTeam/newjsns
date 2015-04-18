@@ -28,7 +28,14 @@
         @include("widget.original_tags.original_tags")
     </div>
 @stop
-
+{{--music_player--}}
+@section("music_player")
+@include("widget.music_player.music_player")
+@stop
+{{--model--}}
+@section("model")
+@include("widget.ori_model.ori_model")
+@stop
 {{--go_top--}}
 @section("go_top")
     @include("widget.go_top.go_top")
@@ -38,6 +45,7 @@
     {{HTML::style("public/css/lib/base.css")}}
     {{HTML::style("public/css/lib/function.css")}}
     {{HTML::style("public/css/template/original/original.css")}}
+    {{HTML::style("public/css/lib/font-awesome.min.css")}}
 @stop
 
 {{--script--}}

@@ -13,7 +13,9 @@
     {{--header--}}
     <div class="page-header f-pr">
       <h1>上传图片<small>Upload Images</small></h1>
-      <button class="u-submit-form btn btn-default js-@if($imgExists){{"save"}}@else{{"upload"}}@endif-form">@if($imgExists){{"保存"}}@else{{"确定"}}@endif</button>
+      @if($imgExists)
+      <button class="u-submit-form btn btn-default js-save-form">保存</button>
+      @endif
     </div>
     {{--container--}}
     <section class="f-cb">

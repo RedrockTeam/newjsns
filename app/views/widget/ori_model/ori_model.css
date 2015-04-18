@@ -1,0 +1,92 @@
+/*created by smelrain*/
+.m-ori_model{
+    width: 681px;
+    /*height: 665px;*/
+    padding: 40px 50px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.m-orc{
+    width: 440px;
+    position: relative;
+}
+.m-orc img{
+    width: 440px;
+}
+.m-ocb{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+}
+.m-ocb .text{
+    display: inline-block;
+    width: 350px;
+    height: 50px;
+    text-indent: 2em;
+    font-family: "microsoft yahei";
+    overflow: hidden;
+}
+
+.m-ocb .love{
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.u-ainfo {
+    color: #333;
+    font-size: 14px;
+    padding-top: 12px;
+
+}
+.g-ors{
+    padding-left: 20px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.m-comments_lists{
+    padding-bottom: 10px;
+    border-bottom:1px dashed #cccccc;
+    font-size: 12px;
+    line-height: 22px;
+    color: #666666;
+}
+
+.m-comments_lists .u-name{
+    font-size: 12px;
+    color: #464bbb;
+}
+.m-comments_lists .u-content{
+    font-size: 12px;
+}
+
+.m-comments_lists button{
+    outline: none;
+    border: none;
+    background: none;
+    color: #666666;
+    cursor: pointer;
+}
+.m-comment{
+    margin-top: 40px;
+}
+.m-comment input{
+    width: 98%;
+}
+.m-comment button{
+    border: none;
+    margin-top: 9px;
+    background: #8c7d4d;
+    color: #fff;
+    font-size: ;
+    padding: 6px 17px;
+}
