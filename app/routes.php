@@ -97,7 +97,85 @@ Route::get('login-register', function(){
 
 
 /*------------------------------ajax 测试---------------------------------*/
+//原味初始化评论
+Route::post('ori_get_comments', function(){
+    $data = [
+        'success' => true,
+        'data'=> [
+            [      //对楼主的评论
+                'from' => 'hahah',
+                'content' => '这里是内容这里是内容这里是内容这里是内容这里是内容',
+                'reply' => [    //对评论的回复
+                    [
+                        'from' =>   'sdgh',
+                        'to' => 'ewgresg',
+                        'content' => '这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复'
+                    ],
+                    [
+                        'from' =>   'sdgh',
+                        'to' => 'ewgresg',
+                        'content' => '这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复'
+                    ]
+                ]
+            ],
+            [      //对楼主的评论
+                'from' => 'hahah',
+                'content' => '这里是内容这里是内容这里是内容这里是内容这里是内容',
+                'reply' => [    //对评论的回复
+                    [
+                        'from' =>   'sdgh',
+                        'to' => 'ewgresg',
+                        'content' => '这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复'
+                    ],
+                    [
+                        'from' =>   'sdgh',
+                        'to' => 'ewgresg',
+                        'content' => '这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复'
+                    ]
+                ]
+            ],
+            [      //对楼主的评论
+                'from' => 'hahah',
+                'content' => '这里是内容这里是内容这里是内容这里是内容这里是内容',
+                'reply' => [    //对评论的回复
+                    [
+                        'from' =>   'sdgh',
+                        'to' => 'ewgresg',
+                        'content' => '这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复'
+                    ],
+                    [
+                        'from' =>   'sdgh',
+                        'to' => 'ewgresg',
+                        'content' => '这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复这里是回复'
+                    ]
+                ]
+            ]
+        ]
+    ];
 
+    return Response::json($data);
+});
+//原味收藏
+Route::post('ori_collect', function(){
+    $data = [
+        'success' => true     //取消的话返回false
+    ];
+    return Response::json($data);
+});
+//原味评论
+Route::post('ori_comment', function(){
+    $data = [
+        'success' => true
+    ];
+    return Response::json($data);
+});
+//原味回复
+Route::post('ori_reply', function(){
+    $data = [
+        'success' => true
+    ];
+    return Response::json($data);
+});
 /**
  * 前台功能性路由
  */
