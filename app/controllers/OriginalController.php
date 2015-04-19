@@ -40,5 +40,13 @@ class OriginalController extends BaseController {
         return View::make('template.original.original')->with('data', $data);
 
     }
+    //原味视频类型的上传
+    public function originalVideoUpload(){
+
+    }
+    //原味图片类型上传
+    public function originalPhotoUpload(){
+
+    }
 
 }

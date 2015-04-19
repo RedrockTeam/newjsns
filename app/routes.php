@@ -43,46 +43,46 @@ Route::get('micromovietag', array('as' => 'micromovietag', 'uses' =>'MicromovieC
 #微视分页
 Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
-#图书标签
-Route::get('book_tags', function(){
-    $data = [
-        'book_tags' => [
-            [
-                'title' => 'lill',
-                'author' => 'shj',
-                'price' => 30,
-                'star' => 5,
-                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-                'comment_total' => 20
-            ],
-            [
-                'title' => 'lill',
-                'author' => 'shj',
-                'price' => 30,
-                'star' => 5,
-                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-                'comment_total' => 20
-            ],
-            [
-                'title' => 'lill',
-                'author' => 'shj',
-                'price' => 30,
-                'star' => 5,
-                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-                'comment_total' => 20
-            ],
-            [
-                'title' => 'lill',
-                'author' => 'shj',
-                'price' => 30,
-                'star' => 5,
-                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-                'comment_total' => 20
-            ]
-        ]
-    ];
-    return View::make("template.book_tags.book_tags")->with($data);
-});
+//#图书标签
+//Route::get('book_tags', function(){
+//    $data = [
+//        'book_tags' => [
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ],
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ],
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ],
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ]
+//        ]
+//    ];
+//    return View::make("template.book_tags.book_tags")->with($data);
+//});
 
 Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
 
