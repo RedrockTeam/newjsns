@@ -55,10 +55,15 @@
 
 .m-comments_lists{
     padding-bottom: 10px;
-    border-bottom:1px dashed #cccccc;
     font-size: 12px;
     line-height: 22px;
     color: #666666;
+    padding: 10px;
+}
+.m-comments_lists .item{
+    border-bottom:1px dashed #cccccc;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .m-comments_lists .u-name{
@@ -76,6 +81,11 @@
     color: #666666;
     cursor: pointer;
 }
+.m-comments_lists:before{
+    display: block;
+    content: "";
+    overflow: hidden;
+}
 .m-comment{
     margin-top: 40px;
 }
@@ -87,6 +97,75 @@
     margin-top: 9px;
     background: #8c7d4d;
     color: #fff;
-    font-size: ;
+    cursor:pointer;
     padding: 6px 17px;
+}
+.s-loadding {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    margin: 100px auto;
+    border-bottom-color: transparent;
+    border-radius: 25px;
+    animation: loading 2s linear infinite;
+    -webkit-animation: loading 2s linear infinite;
+    -moz-animation: loading 2s linear infinite;
+    -ms-animation: loading 2s linear infinite;
+    -o-animation: loading 2s linear infinite;
+    /*display: none;*/
+}
+@keyframes loading{
+    from{
+        transform : rotate(0deg);
+        -webkit-tansform : rotate(0deg);
+        -moz-tansform : rotate(0deg);
+        -ms-tansform : rotate(0deg);
+        -o-tansform : rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-tansform : rotate(360deg);
+        -moz-tansform : rotate(360deg);
+        -ms-tansform : rotate(360deg);
+        -o-tansform : rotate(360deg);
+    }
+}
+@-webkit-keyframes loading{
+    from{
+        transform : rotate(0deg);
+        -webkit-tansform : rotate(0deg);
+        -moz-tansform : rotate(0deg);
+        -ms-tansform : rotate(0deg);
+        -o-tansform : rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-tansform : rotate(360deg);
+        -moz-tansform : rotate(360deg);
+        -ms-tansform : rotate(360deg);
+        -o-tansform : rotate(360deg);
+    }
+}
+@-moz-keyframes loading{
+    from{
+        transform : rotate(0deg);
+        -webkit-transform : rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform : rotate(360deg);
+    }
+}
+@-o-keyframes loading{
+    from{
+        transform : rotate(0deg);
+        -webkit-transform : rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform : rotate(360deg);
+    }
 }

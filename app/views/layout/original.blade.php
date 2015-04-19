@@ -35,9 +35,9 @@
 <section class="g-login_box js-login_box">
     @yield("login_box")
 </section>
-<section class="g-mask">
+<section class="g-mask js-wrap">
 </section>
-<section class="g-capacy">
+<section class="g-capacy js-control_model">
     @yield("music_player")
     @yield("model")
 </section>
