@@ -3,7 +3,7 @@
  */
 define({
     'get_comments' : '/ori_get_comments',
-    'collect' : '/ori_collect',
+    'collect' : 'home/comment/collect',
     'comment' :'/ori_comment',
     'reply' : '/ori_reply'
 });
