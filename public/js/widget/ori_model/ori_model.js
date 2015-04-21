@@ -28,7 +28,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         }
         //收藏
         function collect() {
-            console.log(port), $.ajax({
+            $.ajax({
                 url: port.collect,
                 data: {
                     type_id: typeId,
@@ -36,7 +36,9 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 },
                 method: "POST",
                 success: function(res) {
-                    (res = checkJson(res)) && res.success && $(".js-love_num").text(res.info ? parseInt($(".js-love_num").text()) + 1 : parseInt($(".js-love_num").text()) - 1);
+                    var num;
+                    (res = checkJson(res)) && res.success && (num = res.info ? parseInt($(".js-love_num").text()) + 1 : parseInt($(".js-love_num").text()) - 1, 
+                    console.log(num), $(".js-love_num").text(num), $cL.attr("data-love_num", num));
                 },
                 error: function(err) {
                     alert("服务器数据出错!!!!"), alert(err.responseText);
@@ -92,11 +94,11 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             var $self = $(this), url = $self.find(".js-bac_url").attr("data-url");
             $(".js-model_show").attr("src", url), console.log(url);
         }
-        var $cE, $initTemp = $("#temp_comment"), $loading = $(".js-loading"), $dI = $(".js-data_input"), type = 0, data = null, typeId = 0, passageId = 0;
+        var $cE, $cL, $initTemp = $("#temp_comment"), $loading = $(".js-loading"), $dI = $(".js-data_input"), type = 0, data = null, typeId = 0, passageId = 0;
         //打开弹框
         $(".js-open_model").on("click", function(ev) {
             var $self = $(this);
-            typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
+            $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
             ev.preventDefault(), $(".js-control_model").show(), $(".js-wrap").show(), $(".js-model").show(), 
             initComments(), showImg.call($self), $(".js-love_num").text($self.attr("data-love_num")), 
             $(".js-introduce").text($self.attr("data-intro")), $(".js-author").text($self.attr("data-author"));

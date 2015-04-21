@@ -3,11 +3,12 @@
  */
 define(['jquery', 'underscore', 'port'], function($, _,port){
     $(function(){
-        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, data = null, cP = 0, $cE, typeId = 0, passageId = 0 ;
+        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
 
         //打开弹框
         $('.js-open_model').on('click', function(ev){
             var $self = $(this);
+            $cL = $(this);
             typeId = $self.attr('data-type_id');
             passageId = $self.attr('data-passage_id');
             ev.preventDefault();
@@ -78,19 +79,22 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
 
         //收藏
         function collect(){
-            console.log(port);
             $.ajax({
                 url : port['collect'],
                 data : {'type_id' : typeId, 'passage_id' : passageId},
                 method : 'POST',
                 success : function(res){
+                    var num;
                     if( ! ( res = checkJson(res) ) ) return;
                     if( res.success ){
                        if(res.info){
-                           $('.js-love_num').text(  parseInt( $('.js-love_num').text() ) + 1  );
+                           num =  parseInt( $('.js-love_num').text() ) + 1;
                        }else{
-                           $('.js-love_num').text(  parseInt( $('.js-love_num').text() ) - 1  );
+                           num = parseInt( $('.js-love_num').text() ) - 1;
                        }
+                        console.log(num);
+                        $('.js-love_num').text( num );
+                        $cL.attr('data-love_num', num);
                     }
                 },
                 error : function(err){
