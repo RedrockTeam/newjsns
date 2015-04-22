@@ -3,12 +3,23 @@
  */
 define(['jquery', 'underscore', 'port'], function($, _,port){
     $(function(){
-        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, data = null, cP = 0, $cE;
+        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
 
         //打开弹框
-        $('.js-open_model').on('click', function(){
+        $('.js-open_model').on('click', function(ev){
+            var $self = $(this);
+            $cL = $(this);
+            typeId = $self.attr('data-type_id');
+            passageId = $self.attr('data-passage_id');
+            ev.preventDefault();
             $('.js-control_model').show();
             $('.js-wrap').show();
+            $('.js-model').show();
+            initComments();
+            showImg.call($self);
+            $('.js-love_num').text( $self.attr('data-love_num') );
+            $('.js-introduce').text( $self.attr('data-intro') );
+            $('.js-author').text( $self.attr('data-author') );
         });
 
         //关闭弹框
@@ -65,26 +76,30 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 type = 0;
             });
         }
-        //发表
-        initComments();
 
         //收藏
         function collect(){
             $.ajax({
                 url : port['collect'],
-                data : {'name' : 'lijixi'},
+                data : {'type_id' : typeId, 'passage_id' : passageId},
                 method : 'POST',
                 success : function(res){
+                    var num;
                     if( ! ( res = checkJson(res) ) ) return;
                     if( res.success ){
-                        alert('收藏成功!!!!');
-                    }else{
-                        alert('取消收藏成功!!!');
+                       if(res.info){
+                           num =  parseInt( $('.js-love_num').text() ) + 1;
+                       }else{
+                           num = parseInt( $('.js-love_num').text() ) - 1;
+                       }
+                        console.log(num);
+                        $('.js-love_num').text( num );
+                        $cL.attr('data-love_num', num);
                     }
                 },
                 error : function(err){
                     alert('服务器数据出错!!!!');
-                    alert(err);
+                    alert(err.responseText);
                 }
             });
         }
@@ -151,6 +166,13 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                     alert(err);
                 }
             });
+        }
+
+        //显示图片
+        function showImg(){
+            var $self = $(this), url = $self.find('.js-bac_url').attr('data-url');
+            $('.js-model_show').attr('src', url);
+            console.log(url);
         }
     });
 });

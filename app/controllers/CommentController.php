@@ -72,12 +72,12 @@ class CommentController extends BaseController {
         if($id){
             DB::table($father['table_name'])->where('id', '=', $work_id)->decrement('love_num');
             Collection::destroy($id['id']);
-            return $data = array('info'=>'取消收藏成功', 'success'=>true);
+            return $data = array('info'=>/*'取消收藏成功'*/ false, 'success'=>true);
         }
         else{
             DB::table($father['table_name'])->where('id', '=', $work_id)->increment('love_num');
             Collection::create(array('type_id'=>$type_id, 'work_id'=>$work_id, 'uid'=>Session::get('uid')));
-            return $data = array('info'=>'收藏成功', 'success'=>true);
+            return $data = array('info'=>/*'收藏成功'*/true, 'success'=>true);
         }
 
     }

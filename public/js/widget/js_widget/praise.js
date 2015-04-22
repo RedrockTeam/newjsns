@@ -1,1 +1,47 @@
-define(["jquery","port"],function(A){A(function(){function D(G){var F=A(this),E=F;G.stopPropagation(),!F.hasClass("js-praise")&&(E=F.parent(".js-praise")),data={type_id:E.attr("data-type_id"),passage_id:E.attr("data-passage_id")},C.call(E,data)}function C(F){var E=A(this);A.ajax({url:"home/comment/collect",method:"POST",dataType:"json",data:F,success:function(G){if("object"!=typeof G){try{G=JSON.parse(G)}catch(H){alert("error数据错误!!!")}}G.success?B.call(E):alert(G.error?G.error:"收藏失败!!!!")},error:function(G){alert("收藏失败!!!"),alert(G.responseText)}})}function B(){var G=A(this),I=G.find(".js-show_love"),F=G.find(".js-num"),E=!0;if((F.lentgh<1||I.length<1)&&(E=!1),E){var H=F.text().slice(1,G.text().length-1)}I.hasClass("s-active")?(E&&F.text("("+(parseInt(H)-1)+")"),I.removeClass("s-active")):(E&&F.text("("+(parseInt(H)+1)+")"),I.addClass("s-active"))}A("body").on("click",".js-praise,.js-num,.js-show_love",D)})});
+/**
+ * Created by redrock on 2015/3/16.
+ */
+//收藏 爱拍，文学， 微视， 读书影逝
+define([ "jquery", "port" ], function($) {
+    $(function() {
+        //代理
+        /*--------事件处理函数------*/
+        function praise(ev) {
+            var $self = $(this), $ele = $self;
+            ev.stopPropagation(), //hack 子层节点
+            !$self.hasClass("js-praise") && ($ele = $self.parent(".js-praise")), data = {
+                type_id: $ele.attr("data-type_id"),
+                passage_id: $ele.attr("data-passage_id")
+            }, ajax.call($ele, data);
+        }
+        /*ajax*/
+        function ajax(data) {
+            var $self = $(this);
+            $.ajax({
+                url: "home/comment/collect",
+                method: "POST",
+                dataType: "json",
+                data: data,
+                success: function(res) {
+                    if ("object" != typeof res) try {
+                        res = JSON.parse(res);
+                    } catch (err) {
+                        alert("error数据错误!!!");
+                    }
+                    res.success ? (console.log(res.info), controlParise.call($self, res.info)) : res.error && alert(res.error);
+                },
+                error: function(err) {
+                    alert("收藏失败!!!"), alert(err.responseText);
+                }
+            });
+        }
+        /*收藏或取消收藏*/
+        function controlParise(isCollect) {
+            var $self = $(this), $heart = $self.find(".js-show_love"), $num = $self.find(".js-num"), tag = !0;
+            if (($num.lentgh < 1 || $heart.length < 1) && (tag = !1), tag) var num = $num.text().slice(1, $self.text().length - 1);
+            isCollect ? tag && $num.text("(" + (parseInt(num) + 1) + ")") : (tag && $num.text("(" + (parseInt(num) - 1) + ")"), 
+            $heart.removeClass("s-active"));
+        }
+        $("body").on("click", ".js-praise,.js-num,.js-show_love", praise);
+    });
+});

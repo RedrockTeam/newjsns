@@ -1,10 +1,10 @@
 <div class="m-ori_model f-cb js-model">
     <div class="g-orm f-fl">
         <div class="m-orc">
-            <img src="public/images/xxx.jpg" alt=""/>
-            <div class="m-ocb"><span class="text">怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的岁月</span><span class="love js-collect"><i class="fa fa-heart"></i></span></div>
+            <img src="" alt="" class="js-model_show"/>
+            <div class="m-ocb"><span class="text">怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的岁月</span><span class="love js-collect"><i class="fa fa-heart"></i>(<span class="js-love_num"></span>)</span></div>
         </div>
-        <p class="u-ainfo">作者: 陈晋唯  学院：传媒艺术学院  类型：人物速写</p>
+        <p class="u-ainfo">作者:<span class="js-author"></span>  <span class="js-introduce"></span> </p>
     </div>
     <aside class="g-ors">
             <div class="m-comments_lists f-cb">

@@ -31,14 +31,17 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             $.ajax({
                 url: port.collect,
                 data: {
-                    name: "lijixi"
+                    type_id: typeId,
+                    passage_id: passageId
                 },
                 method: "POST",
                 success: function(res) {
-                    (res = checkJson(res)) && alert(res.success ? "收藏成功!!!!" : "取消收藏成功!!!");
+                    var num;
+                    (res = checkJson(res)) && res.success && (num = res.info ? parseInt($(".js-love_num").text()) + 1 : parseInt($(".js-love_num").text()) - 1, 
+                    console.log(num), $(".js-love_num").text(num), $cL.attr("data-love_num", num));
                 },
                 error: function(err) {
-                    alert("服务器数据出错!!!!"), alert(err);
+                    alert("服务器数据出错!!!!"), alert(err.responseText);
                 }
             });
         }
@@ -86,10 +89,19 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 }
             });
         }
-        var $cE, $initTemp = $("#temp_comment"), $loading = $(".js-loading"), $dI = $(".js-data_input"), type = 0, data = null;
+        //显示图片
+        function showImg() {
+            var $self = $(this), url = $self.find(".js-bac_url").attr("data-url");
+            $(".js-model_show").attr("src", url), console.log(url);
+        }
+        var $cE, $cL, $initTemp = $("#temp_comment"), $loading = $(".js-loading"), $dI = $(".js-data_input"), type = 0, data = null, typeId = 0, passageId = 0;
         //打开弹框
-        $(".js-open_model").on("click", function() {
-            $(".js-control_model").show(), $(".js-wrap").show();
+        $(".js-open_model").on("click", function(ev) {
+            var $self = $(this);
+            $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
+            ev.preventDefault(), $(".js-control_model").show(), $(".js-wrap").show(), $(".js-model").show(), 
+            initComments(), showImg.call($self), $(".js-love_num").text($self.attr("data-love_num")), 
+            $(".js-introduce").text($self.attr("data-intro")), $(".js-author").text($self.attr("data-author"));
         }), //关闭弹框
         $(".js-control_model, .js-wrap").on("click", function() {
             $(".js-control_model").hide(), $(".js-wrap").fadeOut();
@@ -107,7 +119,6 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 to: "sdavsdj",
                 content: "sgsrhg"
             }, type = 1, $dI.select().attr("placeholder", "回复" + data.to + ":"), window.scroll(0, $dI.offset().top);
-        }), //发表
-        initComments();
+        });
     });
 });

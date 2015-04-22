@@ -34,22 +34,20 @@ define(['jquery', 'port'], function($, port){
                         }
                     }
                     if(res.success){
-                        controlParise.call($self);
+                        console.log(res.info);
+                        controlParise.call($self, res.info);
                     }else{
                         if(res.error) alert(res.error);
-                        else alert('收藏失败!!!!');
                     }
                 },
-
                 error : function(err){
                     alert('收藏失败!!!');
                     alert(err.responseText);
                 }
             });
         }
-
         /*收藏或取消收藏*/
-        function controlParise(){
+        function controlParise(isCollect){
             var $self = $(this);
             var $heart = $self.find('.js-show_love'),
                 $num = $self.find('.js-num');
@@ -58,21 +56,35 @@ define(['jquery', 'port'], function($, port){
                 tag  = false;
             }
             if( tag )var num = $num.text().slice(1, $self.text().length - 1);
-            if( !$heart.hasClass('s-active') ){
-                if(tag){
-                    $num.text(
-                        '(' + (parseInt(num) + 1) + ')'
-                    );
-                }
-                $heart.addClass('s-active');
+            if(isCollect){
+                    if(tag){
+                        $num.text(
+                            '(' + (parseInt(num) + 1) + ')'
+                        );
+                    }
             }else{
-                if(tag){
-                    $num.text(
-                        '(' + (parseInt(num) - 1) + ')'
-                    );
-                }
-                $heart.removeClass('s-active');
+                    if(tag){
+                        $num.text(
+                            '(' + (parseInt(num) - 1) + ')'
+                        );
+                    }
+                    $heart.removeClass('s-active');
             }
+            //if( !$heart.hasClass('s-active') ){
+            //    if(tag){
+            //        $num.text(
+            //            '(' + (parseInt(num) + 1) + ')'
+            //        );
+            //    }
+            //    $heart.addClass('s-active');
+            //}else{
+            //    if(tag){
+            //        $num.text(
+            //            '(' + (parseInt(num) - 1) + ')'
+            //        );
+            //    }
+            //    $heart.removeClass('s-active');
+            //}
         }
     });
 });
