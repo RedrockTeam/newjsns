@@ -98,7 +98,7 @@ Route::get('login-register', function(){
 
 /*------------------------------ajax 测试---------------------------------*/
 //原味初始化评论
-Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'Comment@originalGetComment'));
+Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
 /**
  * 前台功能性路由
  */
