@@ -40,7 +40,17 @@ class OriginalController extends BaseController {
         return View::make('template.original.original')->with('data', $data);
 
     }
-    //原味视频类型的上传
+    //原味获取评论
+    public function originalGetComment(){
+        $id = Input::all();
+        $passage_id = $id['passage_id'];
+        $type_id = $id['type_id'];
+        $page = isset($id['page'])? $id['page']:1;
+        $comment = Comment::findComment($type_id, $passage_id, $page);
+        return $comment;
+    }
+
+    //原味视频/音频类型的上传
     public function originalVideoUpload(){
 
     }

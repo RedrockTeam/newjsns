@@ -21,7 +21,6 @@ class LiteratureController extends BaseController{
                                             ->select('literature.id as id', 'literature.type_id as type_id', 'type', 'title', 'cover', 'literature.id as passage_id')
                                             ->get();
         $data['navigation'] = $id;
-//        return $data['recommend_list'];
         return View::make('template.literatrue.literatrue')->with('data', $data);
     }
 

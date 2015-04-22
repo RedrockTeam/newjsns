@@ -82,7 +82,7 @@
     {{--收到的评论--}}
     @foreach($data['from'] as $post)
         <div class="u-comments_item s-item">
-            <h6 class="s-date">{{$post['updated_at']}}-12-6</h6>
+            <h6 class="s-date">{{$post['updated_at']}}</h6>
             <div class="u-show_comments">
                 <div class="u-img_show" style="background-image: url('')"></div>  {{--在此表签url上添加url--}}
                 <aside class="u-comments_aside">
