@@ -98,35 +98,14 @@ Route::get('login-register', function(){
 
 /*------------------------------ajax 测试---------------------------------*/
 //原味初始化评论
-Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'OriginalController@originalGetComment'));
-//原味收藏
-Route::post('ori_collect', function(){
-    $data = [
-        'success' => true     //取消的话返回false
-    ];
-    return Response::json($data);
-});
-//原味评论
-Route::post('ori_comment', function(){
-    $data = [
-        'success' => true
-    ];
-    return Response::json($data);
-});
-//原味回复
-Route::post('ori_reply', function(){
-    $data = [
-        'success' => true
-    ];
-    return Response::json($data);
-});
+Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'Comment@originalGetComment'));
 /**
  * 前台功能性路由
  */
 
-Route::get('test', function () {});//test
-Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
-Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
+//Route::get('test', function () {});//test
+//Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
+//Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
