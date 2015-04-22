@@ -83,8 +83,10 @@ class Comment extends Eloquent {
             return array('success' => true, 'err'=>$validator->messages());
         }
         else{
-            if(Comment::create($data)){
-                $success = array('success'=>true);
+            $id = Comment::create($data);
+            if($id) {
+                $id['success'] = true;
+                $success = $id;
                 return $success;
             }
             else{
