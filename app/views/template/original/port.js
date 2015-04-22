@@ -4,6 +4,5 @@
 define({
     'get_comments' : '/ori_get_comments',
     'collect' : 'home/comment/collect',
-    'comment' :'/ori_comment',
-    'reply' : '/ori_reply'
+    'comment' :'home/comment/original'
 });

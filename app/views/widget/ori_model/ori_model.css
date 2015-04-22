@@ -173,3 +173,12 @@
         -webkit-transform : rotate(360deg);
     }
 }
+
+.m-c_page {
+    font-size: 13px;
+}
+.m-c_page span{
+    cursor:pointer;
+    color: #666;
+    padding-right: 5px;
+}

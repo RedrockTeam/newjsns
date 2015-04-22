@@ -6,10 +6,10 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         //评论
         function comment() {
             data = {
-                from: "sg",
-                to: "sgsgd",
-                content: "sgbfdubi",
-                reply: []
+                father_id: 0,
+                to: $cL.attr("data-uid"),
+                reply: [],
+                username: userN
             }, crAjax(port.comment, data, function() {
                 var temp = _.template($initTemp.html())({
                     data: [ data ]
@@ -19,9 +19,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             });
         }
         function reply() {
-            crAjax(port.reply, data, function() {
-                var html = '<span class="from u-name">' + data.from + '</span>回复<span class="to u-name">' + data.to + '</span> <span class="reply_cotent u-content">' + data.content + "</span><br/>";
-                console.log(html), //console.log( $cE.parents('.js-reply_lists') );
+            crAjax(port.comment, data, function() {
+                var html = '<span class="from u-name">' + data.fn + '</span>回复<span class="to u-name">' + data.tn + '</span> <span class="reply_cotent u-content">' + data.content + "</span><br/>";
                 $cE.siblings(".js-reply_lists").append(html), alert("回复成功!!!!!"), data = null, $dI.val("").attr("placeholder", "评论："), 
                 type = 0;
             });
@@ -46,19 +45,21 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             });
         }
         //初始化
-        function initComments() {
+        function getComments(data) {
             $.ajax({
                 url: port.get_comments,
                 type: "POST",
-                data: {
-                    name: "lijinxin"
-                },
+                data: data,
                 success: function(res) {
                     if (res = checkJson(res)) if (res.success) {
-                        var temp = _.template($initTemp.html())({
-                            data: res.data
+                        res.cz.forEach(function(piece, i) {
+                            piece.reply = res.lzl[i];
                         });
-                        $loading.before(temp), $loading.fadeOut();
+                        var temp = _.template($initTemp.html())({
+                            data: res.cz
+                        });
+                        //$loading.before(temp);
+                        console.log(res.cz), $(".js-w_comments").html(temp), $loading.fadeOut();
                     } else alert("数据获取失败，请稍后再试!!!"), res.err && alert(res.err);
                 },
                 error: function(err) {
@@ -77,7 +78,11 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         }
         //评论和回复 ajax
         function crAjax(port, data, cb) {
-            $.ajax({
+            data = $.extend(data, {
+                type_id: typeId,
+                passage_id: passageId,
+                content: $(".js-data_input").val()
+            }), $.ajax({
                 url: port,
                 type: "POST",
                 data: data,
@@ -85,7 +90,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                     (res = checkJson(res)) && (res.success ? cb() : (alert("操作失败!!!!"), res.err && alert(res.err)));
                 },
                 error: function(err) {
-                    alert("服务器数据出错!!!!!"), alert(err);
+                    alert("服务器数据出错!!!!!"), alert(err.responseText);
                 }
             });
         }
@@ -94,14 +99,18 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             var $self = $(this), url = $self.find(".js-bac_url").attr("data-url");
             $(".js-model_show").attr("src", url), console.log(url);
         }
-        var $cE, $cL, $initTemp = $("#temp_comment"), $loading = $(".js-loading"), $dI = $(".js-data_input"), type = 0, data = null, typeId = 0, passageId = 0;
+        var $cE, $cL, $initTemp = $("#temp_comment"), $loading = $(".js-loading"), $dI = $(".js-data_input"), type = 0, userN = $(".js-user_name").text(), data = null, typeId = 0, passageId = 0;
         //打开弹框
         $(".js-open_model").on("click", function(ev) {
             var $self = $(this);
-            $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
+            $self.data("pIndex", 0), $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
             ev.preventDefault(), $(".js-control_model").show(), $(".js-wrap").show(), $(".js-model").show(), 
-            initComments(), showImg.call($self), $(".js-love_num").text($self.attr("data-love_num")), 
-            $(".js-introduce").text($self.attr("data-intro")), $(".js-author").text($self.attr("data-author"));
+            getComments({
+                type_id: /*typeId*/ 6,
+                passage_id: /*passageId*/ 60,
+                page: 0
+            }), showImg.call($self), $(".js-love_num").text($self.attr("data-love_num")), $(".js-introduce").text($self.attr("data-intro")), 
+            $(".js-author").text($self.attr("data-author"));
         }), //关闭弹框
         $(".js-control_model, .js-wrap").on("click", function() {
             $(".js-control_model").hide(), $(".js-wrap").fadeOut();
@@ -112,13 +121,33 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         $(".js-collect").on("click", collect), //评论
         $(".js-comment").on("click", function() {
             0 === type ? comment() : reply();
+        }), //评论上一页
+        $(".js-prev").on("click", function() {
+            var index = parseInt($cL.data("pIndex")) - 1;
+            console.log(index), index >= 0 && getComments({
+                type_id: typeId,
+                passage_id: passageId,
+                page: index
+            }), $cL.data("pIndex", 0 > index ? 0 : index);
+        }), //评论下一页
+        $(".js-next").on("click", function() {
+            var index = parseInt($cL.data("pIndex")) + 1;
+            console.log(index), $cL.data("pIndex", index), getComments({
+                type_id: /*typeId*/ 6,
+                passage_id: /*passageId*/ 60,
+                page: index
+            });
         }), //回复
         $(".js-model").on("click", ".js-reply", function() {
-            $cE = $(this), data = {
-                from: "asd",
-                to: "sdavsdj",
-                content: "sgsrhg"
-            }, type = 1, $dI.select().attr("placeholder", "回复" + data.to + ":"), window.scroll(0, $dI.offset().top);
+            $cE = $(this);
+            var $self = $(this), $f = $self.parents(".js-father");
+            data = {
+                to: $f.attr("data-fi"),
+                tn: $f.attr("data-fn"),
+                father_id: $f.attr("data-ffi"),
+                fn: userN
+            }, console.log(data), type = 1, $dI.select().attr("placeholder", "回复" + data.tn + ":"), 
+            window.scroll(0, $dI.offset().top);
         });
     });
 });

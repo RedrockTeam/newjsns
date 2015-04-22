@@ -8,23 +8,28 @@
     </div>
     <aside class="g-ors">
             <div class="m-comments_lists f-cb">
+                <div class="js-w_comments"></div>
                 <i class="s-loadding js-loading"></i>
             </div>
+            <div class="m-c_page">
+                <span class="prev js-prev">上一页</span>
+                <span class="next js-next">下一页</span>
+            </div>
             <div class="m-comment">
-            <input type="text" class="js-data_input" placeholder="评论："/>
-            <button class="f-fr js-comment">发表</button>
+                <input type="text" class="js-data_input" placeholder="评论："/>
+                <button class="f-fr js-comment">发表</button>
             </div>
     </aside>
 </div>
 
 <script type="text/template" id="temp_comment">
     <% data.forEach(function(f){%>
-             <div class="item f-cb">
-                 <span class="author u-name"><%=f.from%>：</span>
+             <div class="item f-cb js-father" data-fn="<%=f.username%>" data-fi="<%=f.uid%>" data-ffi="<%=f.id%>">
+                 <span class="author u-name"><%=f.username%>：</span>
                  <span class="content u-content"><%=f.content%></span>
                  <div class="m-reply_lists js-reply_lists">
                      <%f.reply.forEach(function (s){%>
-                        <span class="from u-name"><%=s.from%></span>回复<span class="to u-name"><%=s.to%>：</span> <span class="reply_cotent u-content"><%=s.content%></span>
+                        <span class="from u-name"><%=s.from_name%></span>回复<span class="to u-name"><%=s.to_name%>：</span> <span class="reply_cotent u-content"><%=s.content%></span>
                         <br/>
                      <%})%>
                  </div>

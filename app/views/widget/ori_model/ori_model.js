@@ -3,11 +3,12 @@
  */
 define(['jquery', 'underscore', 'port'], function($, _,port){
     $(function(){
-        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
+        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
 
         //打开弹框
         $('.js-open_model').on('click', function(ev){
             var $self = $(this);
+            $self.data('pIndex', 0);
             $cL = $(this);
             typeId = $self.attr('data-type_id');
             passageId = $self.attr('data-passage_id');
@@ -15,7 +16,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             $('.js-control_model').show();
             $('.js-wrap').show();
             $('.js-model').show();
-            initComments();
+            getComments({'type_id' : /*typeId*/ 6, 'passage_id' : /*passageId*/ 60, 'page' : 0});
             showImg.call($self);
             $('.js-love_num').text( $self.attr('data-love_num') );
             $('.js-introduce').text( $self.attr('data-intro') );
@@ -40,10 +41,23 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         $('.js-comment').on('click', function(){
             type === 0 ? comment() : reply();
         });
-
+        //评论上一页
+        $('.js-prev').on('click', function(){
+            var index = parseInt( $cL.data('pIndex') ) - 1;
+            console.log(index);
+            index >= 0 &&  getComments({'type_id' : typeId, 'passage_id' : passageId, 'page' : index});
+            $cL.data('pIndex', index < 0 ? 0 :  index);
+        });
+        //评论下一页
+        $('.js-next').on('click', function(){
+            var index = parseInt( $cL.data('pIndex') ) + 1;
+            console.log(index);
+            $cL.data('pIndex', index);
+            getComments({'type_id' : /*typeId*/ 6, 'passage_id' : /*passageId*/ 60, 'page' : index  });
+        });
         //评论
         function comment(){
-            data = {'from' : 'sg', to : 'sgsgd', 'content' : 'sgbfdubi', 'reply' : []};
+            data = {'father_id' : 0, to : $cL.attr('data-uid'), 'reply' : [], 'username' : userN};
             crAjax(port['comment'], data, function(){
                 var temp = _.template( $initTemp.html() )({data : [data]});
                 $loading.before(temp);
@@ -58,17 +72,17 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         //回复
         $('.js-model').on('click', '.js-reply', function(){
             $cE = $(this);
-            data = {'from' : 'asd', to : 'sdavsdj', 'content' : 'sgsrhg'};
+            var $self = $(this), $f = $self.parents('.js-father');
+            data = {'to' : $f.attr('data-fi'), 'tn' : $f.attr('data-fn'), 'father_id' : $f.attr('data-ffi'), 'fn' : userN};
+            console.log(data);
             type = 1;
-            $dI.select().attr('placeholder','回复' + data.to + ':');
+            $dI.select().attr('placeholder','回复' + data.tn + ':');
             window.scroll(0 ,$dI.offset().top );
         });
 
         function reply(){
-            crAjax(port['reply'], data, function(){
-                var html = '<span class="from u-name">'+ data.from +'</span>回复<span class="to u-name">'+ data.to +'</span> <span class="reply_cotent u-content">'+ data.content +'</span>'+ '<br/>';
-                console.log(html);
-                //console.log( $cE.parents('.js-reply_lists') );
+            crAjax(port['comment'], data, function(){
+                var html = '<span class="from u-name">'+ data.fn +'</span>回复<span class="to u-name">'+ data.tn +'</span> <span class="reply_cotent u-content">'+ data.content +'</span>'+ '<br/>';
                 $cE.siblings('.js-reply_lists').append(html);
                 alert('回复成功!!!!!');
                 data = null;
@@ -105,16 +119,21 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         }
 
         //初始化
-        function initComments(){
+        function getComments(data){
             $.ajax({
                 url : port['get_comments'],
                 type : 'POST',
-                data : {'name': 'lijinxin'},
+                data :data,
                 success : function(res){
                     if( ! ( res = checkJson(res) ) ) return;
                     if( res.success){
-                        var temp = _.template( $initTemp.html() )({data : res.data});
-                        $loading.before(temp);
+                        res.cz.forEach(function(piece, i){
+                            piece.reply = res.lzl[i];
+                        });
+                        var temp = _.template( $initTemp.html() )({data : res.cz});
+                        //$loading.before(temp);
+                        console.log(res.cz);
+                        $('.js-w_comments').html(temp);
                         $loading.fadeOut();
                     }else{
                         alert('数据获取失败，请稍后再试!!!');
@@ -146,6 +165,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
 
         //评论和回复 ajax
         function crAjax(port,data,cb){
+            data = $.extend(data, {'type_id' : typeId, 'passage_id' : passageId, 'content' : $('.js-data_input').val()});
             $.ajax({
                 url : port,
                 type : 'POST',
@@ -163,7 +183,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 },
                 error : function(err){
                     alert('服务器数据出错!!!!!');
-                    alert(err);
+                    alert(err.responseText);
                 }
             });
         }
