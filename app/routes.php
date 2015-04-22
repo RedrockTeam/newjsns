@@ -104,8 +104,8 @@ Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'Com
  */
 
 //Route::get('test', function () {});//test
-//Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
-//Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
+Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
+Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
