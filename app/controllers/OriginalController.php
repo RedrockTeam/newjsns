@@ -58,14 +58,14 @@ class OriginalController extends BaseController {
             return Redirect::back();
         $cover_name = $this->uploadCover($cover);
         $work_name = $this->uploadCover($work);
-
+        $username = User::where('id', '=', Session::get('uid'))->first();
         $data = array(
             'cover_url' => $cover_name,
             'url' => $work_name,
             'type_id' => $work_name,
             'title' => $data[''],
             'introduce' => $data[''],
-            'author' => Session::get('uid'),
+            'author' => $username['nickname'],
             'uid' => Session::get('uid'),
             'love_num' => 0,
             'comment_num' => 0,
