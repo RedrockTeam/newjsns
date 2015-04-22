@@ -44,7 +44,7 @@ class Comment extends Eloquent {
             ->where('comment.status', '=', '1')
             ->paginate(10);
 //        $data['page']->setBaseUrl('#');
-		$data['success'] = 'true';
+		$data['success'] = true;
 		$data['output'] = '成功';
 		return $data;
 	}
