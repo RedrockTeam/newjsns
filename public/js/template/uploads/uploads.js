@@ -17,10 +17,11 @@ require.config({
         webuploader: "../../complexPlugin/webuploader/dist/webuploader.flashonly",
         bootstrap: "http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap",
         summernote: "summernote.min",
-        upload_passage: "../widget/upload_passage/upload_passage"
+        upload_passage: "../widget/upload_passage/upload_passage",
+        upload_ori: "../widget/upload_ori/upload_ori"
     }
 }), //加载依赖项
-define([ "jquery", "upload_photo", "upload_passage", "bootstrap", "summernote" ], function($) {
+define([ "jquery", "upload_photo", "upload_passage", "bootstrap", "summernote", "upload_ori" ], function($) {
     $(function() {
         function switchTab(ev, btn) {
             ev.preventDefault();
