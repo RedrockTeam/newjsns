@@ -49,9 +49,7 @@ Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 
 #登陆和注册
-Route::get('login-register', function(){
-    return View::make("template.login-register.login-register");
-});
+Route::get('login-register', array('as' => 'login', 'uses'=>'LoginController@index'));
 
 
 

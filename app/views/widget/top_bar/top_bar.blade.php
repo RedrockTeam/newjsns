@@ -5,7 +5,7 @@
             <a href="{{route('logout')}}">注销</a>
         </div>
     @else
-        <div class="u-login_register f-fr js-open_login_box">登陆/注册</div>
+        <div class="u-login_register f-fr js-open_login_box"><a href="{{route('login')}}">登陆/注册</a></div>
     @endif
 </div>
 

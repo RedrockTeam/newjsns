@@ -10,7 +10,9 @@ class LoginController extends BaseController
     private $username;
     private $password;
     private $rules;
-
+    public function index() {
+        return View::make("template.login-register.login-register");
+    }
     //注册
     public function register(){
         $input = Input::all();

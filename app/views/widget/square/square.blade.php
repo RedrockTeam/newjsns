@@ -62,7 +62,7 @@
                 @if(Session::get('nickname'))
                     <a href="{{route('personal')}}"><span>{{Session::get('nickname')}}</span></a>
                 @else
-                    <a class="u-link-other" href="/login-register">登陆/注册</a>
+                    <a class="u-link-other" href="{{route('login')}}">登陆/注册</a>
                 @endif
             </p>
         </li>
