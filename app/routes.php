@@ -93,7 +93,7 @@ Route::group(array('prefix' => 'jsns/home'), function()
 });
 
 #个人中心
-Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
+Route::get('jsns/personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
 Route::group(array('prefix' => 'jsns/home', 'before' => 'auth|verify_permission'), function() {
 
