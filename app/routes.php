@@ -12,7 +12,7 @@
 */
 /*-------------------------------------------------blade 测试---------------------*/
 #首页
-Route::get('/jsns', array('as' => 'index', 'uses' => 'IndexController@index'));
+Route::get('jsns', array('as' => 'index', 'uses' => 'IndexController@index'));
 
 #原味
 Route::get('jsns/original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
