@@ -46,7 +46,7 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <article class="s-article">
-                    <a href="litera_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{$collection['title']}}</h2></a>
+                    <a href="litera_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{{$collection['title']}}}</h2></a>
                     <p class="s-content">{{str_limit($collection['content'], 300)}}</p>
                 </article>
             </div>
@@ -54,7 +54,7 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <div class="s-article">
-                    <a href="microm_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{$collection['title']}}</h2></a>
+                    <a href="microm_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{{$collection['title']}}}</h2></a>
                     <p class="s-content">
                         <img src="{{$collection['cover_url']}}" alt=""/>
                     </p>
@@ -65,7 +65,7 @@
                 <a href="">
                     <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                     <div class="s-article">
-                        <h2 class="s-title">{{$collection['title']}}</h2>
+                        <h2 class="s-title">{{{$collection['title']}}}</h2>
                         <p class="s-content">
                             <img src="{{$collection['url']}}" alt=""/>
                         </p>
@@ -84,11 +84,10 @@
         <div class="u-comments_item s-item">
             <h6 class="s-date">{{$post['updated_at']}}</h6>
             <div class="u-show_comments">
-                <div class="u-img_show" style="background-image: url('')"></div>  {{--在此表签url上添加url--}}
+                <div class="u-img_show" style="background-image: url('{{$post['head']}}')"></div>
                 <aside class="u-comments_aside">
-                    <h3 class="u-user_nickname">{{$post['username']}}</h3>
-                    <p class="u-content">{{$post['content']}}</p>
-                    {{--<span class="u-article_title">评论我的文章：《球场的记亿》</span>--}}
+                    <h3 class="u-user_nickname">{{{$post['username']}}}</h3>
+                    <p class="u-content">{{{$post['content']}}}</p>
                 </aside>
             </div>
         </div>
@@ -98,11 +97,10 @@
     <div class="u-comments_item s-item">
             <h6 class="s-date">{{$get['updated_at']}}</h6>
             <div class="u-show_comments">
-                <div class="u-img_show" style="background-image: url('')"></div>  {{--在此表签url上添加url--}}
+                <div class="u-img_show" style="background-image: url('{{$get['head']}}')"></div>
                 <aside class="u-comments_aside">
-                    <h3 class="u-user_nickname">{{$get['username']}}</h3>
-                    <p class="u-content">{{$get['content']}}</p>
-                    {{--<span class="u-article_title">评论我的文章：《球场的记亿》</span>--}}
+                    <h3 class="u-user_nickname">{{{$get['username']}}}</h3>
+                    <p class="u-content">{{{$get['content']}}}</p>
                 </aside>
             </div>
     </div>

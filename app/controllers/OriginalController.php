@@ -56,7 +56,7 @@ class OriginalController extends BaseController {
             'url' => $input['url'],
             'title' => $input['title'],
             'introduce' => $input['introduce'],
-            'author' => $username['nickname'],
+            'author' => $username['username'],
             'uid' => Session::get('uid'),
             'love_num' => 0,
             'comment_num' => 0,
@@ -69,7 +69,7 @@ class OriginalController extends BaseController {
     //原味图片类型上传
     public function originalPhotoUpload(){
         $input = Input::all();
-        $cover = Input::file('cover');
+        $cover = Input::file();
         if(!isset($cover))
             return Redirect::back();
         $cover_name = $this->uploadCover($cover);
@@ -80,7 +80,7 @@ class OriginalController extends BaseController {
             'type_id' => $input['type_id'],
             'title' => $input['title'],
             'introduce' => $input['introduce'],
-            'author' => $username['nickname'],
+            'author' => $username['username'],
             'uid' => Session::get('uid'),
             'love_num' => 0,
             'comment_num' => 0,
@@ -92,32 +92,22 @@ class OriginalController extends BaseController {
     }
     //上传图片
     private function uploadCover ($file) {
-        foreach($file as $v){
-            if($v == null) {
-                continue;
-            }
             $validator = Validator::make(
-                array('photo' => $v),
+                array('photo' => $file),
                 array('photo' => 'required|image|between:1,10240')
             );
             if ($validator->fails()) {
                 return Redirect::back()->withInput()->withErrors($validator);
             }
-        }
-        foreach($file as $v){
-            if($v == null) {
-                continue;
-            }
-            $type = $v->getClientOriginalExtension();
+            $type = $file->getClientOriginalExtension();
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
-            $img = Image::make($v);
+            $img = Image::make($file);
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $newimg->save($name);
             $newimg->destroy();
             return $name;
-        }
     }
 
 }

@@ -13,7 +13,7 @@
                                                     <span class="u-user_name js-user_from" data-value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
                                                     <span class="u-reply_tag">回复</span>
                                                     <span class="u-user_name js-user_to" data-value="{{$v['to_uid']}}">{{$v['to_name']}} :</span>
-                                                    <span class="u-reply_content js-user_content">{{$v['content']}}</span>
+                                                    <span class="u-reply_content js-user_content">{{{$v['content']}}}</span>
                                         </div>
                                         <button class="u-reply_btn js-reply_btn">我要回复</button>
                         </div>

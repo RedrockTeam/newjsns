@@ -21,12 +21,12 @@
     <div class="form-group js-type_link">
             <label for="ori_url">链接</label>
             <br/>
-            <input type="text" class="form-control" name="title" id="ori_url" placeholder="请输入作品链接"/>
+            <input type="text" class="form-control" name="url" id="ori_url" placeholder="请输入作品链接"/>
     </div>
     <div class="form-group">
                 <label for="ori_intro">文章简介</label>
                 <br/>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" name="introduce" rows="3"></textarea>
         </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>
