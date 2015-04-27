@@ -18,13 +18,9 @@
 @section("container")
     <h4 class="u-photos_title"><span>爱拍</span></h4>
     <ul class="m-but f-cb">
-        <li class="s-active"><a href="">人像</a></li>
-        <li><a href="">风景</a></li>
-        <li><a href="">lEMO</a></li>
-        <li><a href="">宠物</a></li>
-        <li><a href="">观念</a></li>
-        <li><a href="">其他</a></li>
-        <li><a href="">最热</a></li>
+        @foreach($data as $nav)
+            <li {{$nav['active'] ? 's-active' : ''}}><a href="bookmovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
+        @endforeach
         <li><a href="">我要上传</a></li>
     </ul>
     @include("widget.photos_list.photos_list")
