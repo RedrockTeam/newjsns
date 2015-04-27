@@ -29,6 +29,10 @@
     margin-right: 20px;
     position: relative;
 }
+
+.s-c{
+    cursor: pointer;
+}
 .g-lists .u-list_item a {
     display: block;
     width: 112px;
