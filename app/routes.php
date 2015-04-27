@@ -12,84 +12,44 @@
 */
 /*-------------------------------------------------blade 测试---------------------*/
 #首页
-Route::get('/', array('as' => 'index', 'uses' => 'IndexController@index'));
+Route::get('/jsns', array('as' => 'index', 'uses' => 'IndexController@index'));
 
 #原味
-Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
+Route::get('jsns/original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
 //原味标签搜索
-Route::get('originaltag', array('as' => 'originaltag', 'uses' => 'OriginalController@orginalTagSearch'));
+Route::get('jsns/originaltag', array('as' => 'originaltag', 'uses' => 'OriginalController@orginalTagSearch'));
 
 #爱拍
-Route::get('photos', array('as' => 'photos', 'uses' => 'PhotosController@photoIndex'));
+Route::get('jsns/photos', array('as' => 'photos', 'uses' => 'PhotosController@photoIndex'));
 
 #文学
-Route::get('literature',array('as' => 'literature', 'uses' => 'LiteratureController@literatureIndex'));
+Route::get('jsns/literature',array('as' => 'literature', 'uses' => 'LiteratureController@literatureIndex'));
 
 #文学分页
-Route::get('litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
+Route::get('jsns/litera_sub', array('as' => 'litera_sub', 'uses' => 'LiteratureController@detailPassage'));
 
 #读书影逝
-Route::get('bookmovie', array('as' => 'recommend', 'uses' =>'RecommendController@recommendIndex'));
+Route::get('jsns/bookmovie', array('as' => 'recommend', 'uses' =>'RecommendController@recommendIndex'));
 //读书影逝标签搜索
-Route::get('bookmovietag', array('as' => 'bookmovietag', 'uses' => 'RecommendController@recommendTagSearch'));
+Route::get('jsns/bookmovietag', array('as' => 'bookmovietag', 'uses' => 'RecommendController@recommendTagSearch'));
 #读书影逝分页
-Route::get('bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
+Route::get('jsns/bkmv_sub', array('as' => 'bkmv_sub', 'uses' =>'RecommendController@recommendDetail'));
 
 #微视
-Route::get('micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieIndex'));
+Route::get('jsns/micromovie', array('as' => 'micromovie', 'uses' =>'MicromovieController@micromovieIndex'));
 //微视影逝标签搜索
-Route::get('micromovietag', array('as' => 'micromovietag', 'uses' =>'MicromovieController@micromovieSearch'));
+Route::get('jsns/micromovietag', array('as' => 'micromovietag', 'uses' =>'MicromovieController@micromovieSearch'));
 
 #微视分页
-Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
+Route::get('jsns/microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
-//#图书标签
-//Route::get('book_tags', function(){
-//    $data = [
-//        'book_tags' => [
-//            [
-//                'title' => 'lill',
-//                'author' => 'shj',
-//                'price' => 30,
-//                'star' => 5,
-//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-//                'comment_total' => 20
-//            ],
-//            [
-//                'title' => 'lill',
-//                'author' => 'shj',
-//                'price' => 30,
-//                'star' => 5,
-//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-//                'comment_total' => 20
-//            ],
-//            [
-//                'title' => 'lill',
-//                'author' => 'shj',
-//                'price' => 30,
-//                'star' => 5,
-//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-//                'comment_total' => 20
-//            ],
-//            [
-//                'title' => 'lill',
-//                'author' => 'shj',
-//                'price' => 30,
-//                'star' => 5,
-//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
-//                'comment_total' => 20
-//            ]
-//        ]
-//    ];
-//    return View::make("template.book_tags.book_tags")->with($data);
-//});
 
-Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
+Route::get('jsns/get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
 
-Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
+Route::get('jsns/logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 
 #登陆和注册
-Route::get('login-register', function(){
+Route::get('jsns/login-register', function(){
     return View::make("template.login-register.login-register");
 });
 
@@ -98,17 +58,17 @@ Route::get('login-register', function(){
 
 /*------------------------------ajax 测试---------------------------------*/
 //原味初始化评论
-Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
+Route::post('jsns/ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
 /**
  * 前台功能性路由
  */
 
 //Route::get('test', function () {});//test
-Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
-Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
+Route::post('jsns/upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
+Route::post('jsns/updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
 //不需权限
-Route::group(array('prefix' => 'home'), function()
+Route::group(array('prefix' => 'jsns/home'), function()
 {
     #上传图片,文章，微视
     Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
@@ -135,7 +95,7 @@ Route::group(array('prefix' => 'home'), function()
 #个人中心
 Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
-Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
+Route::group(array('prefix' => 'jsns/home', 'before' => 'auth|verify_permission'), function() {
 
     #点赞
     Route::post('praise', array('as' => 'home/praise','uses' => 'CommentController@praise'));
@@ -173,7 +133,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
 /**
  * 后台路由
  */
-Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), function()
+Route::group(array('prefix' => 'jsns/admin', 'before' => 'auth|verify_permission'), function()
 {
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
 
