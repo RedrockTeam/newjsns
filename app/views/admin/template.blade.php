@@ -64,7 +64,7 @@
     {{--footer--}}
     <div class="row">
     <nav class="navbar-fixed-bottom text-center">
-        <div class="row"><div class="col-md-12"><h4>© 2015 本网站由 <a href="http://getbootstrap.com/">Bootstrap</a> 和 <a href="http://laravel.com/">Laravel</a> 驱动, 遵循 <a href="https://github.com/RedrockTeam/newjsns/blob/master/LICENSE">MIT</a> 开源协议</h4></div></div>
+        <div class="row"><div class="col-md-12"><h4>© 2015 本网站由 @红岩网校工作站 开发 由<a href="http://getbootstrap.com/">Bootstrap</a> 和 <a href="http://laravel.com/">Laravel</a> 驱动, 遵循 <a href="https://github.com/RedrockTeam/newjsns/blob/master/LICENSE">MIT</a> 开源协议</h4></div></div>
     </nav>
     </div>
 </div>
