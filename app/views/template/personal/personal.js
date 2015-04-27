@@ -3,7 +3,7 @@
  */
 //配置require.config
 require.config({
-    baseUrl : '../public/js/lib',
+    baseUrl : '../jsns/public/js/lib',
     shim : {
         underscore : {
             exports : '_'
@@ -11,7 +11,7 @@ require.config({
         imgSelectPlugin : ['jquery']
     },
     paths : {
-        jquery : 'jsns/jquery',
+        jquery : 'jquery',
         port : '../template/personal/port',
         personal_tabs: '../widget/personal_tabs/personal_tabs',
         go_top : '../widget/go_top/go_top',
