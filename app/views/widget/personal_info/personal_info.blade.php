@@ -16,11 +16,11 @@
         <span href="" class="u-change_info_btn js-open_change_info">@if(Session::get('uid') == $data['user_info']['id'])修改信息@else @endif</span>
         <div class="m-info_detail">
             <img src="{{$data['user_info']['head']}}" alt="" class="u-user_show_icon js-header_icon"/>
-            <h5 class="js-user_name">{{$data['user_info']['username']}}</h5>
+            <h5 class="js-user_name">{{{$data['user_info']['username']}}}</h5>
              <p class="u-user_extra_info">
-                <span>E-mail:</span><span>{{$data['user_info']['email']}}</span>
+                <span>E-mail:</span><span>{{{$data['user_info']['email']}}}</span>
              </p>
-            <h6 class="js-user_signatrue">{{$data['user_info']['introduce']}}</h6>
+            <h6 class="js-user_signatrue">{{{$data['user_info']['introduce']}}}</h6>
         </div>
     </div>
     <div class="m-change_info js-change_box">
