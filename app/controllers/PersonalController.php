@@ -117,11 +117,13 @@ class PersonalController extends BaseController {
         $passage_type = Navigation::where('father_id', '=', 1)->get();
         $micromovie_type = Navigation::where('father_id', '=', 4)->get();
         $photo_type = Navigation::where('father_id', '=', 2)->get();
+        $original_type = Navigation::where('father_id', '=', 5)->get();
         $data = array(
             'page_pos' => $type_id,   //页面位置 0表示图片栏1表示微视栏2表示文章栏
             'passage_type' => $passage_type,
             'micromovie_type' => $micromovie_type,
-            'photo_type' => $photo_type
+            'photo_type' => $photo_type,
+            'original_type' => $original_type
         );
         return View::make("template.uploads.uploads")->with('data', $data);
     }

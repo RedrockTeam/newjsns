@@ -44,7 +44,24 @@ class OriginalController extends BaseController {
 
     //原味视频/音频类型的上传
     public function originalVideoUpload(){
-        $data = Input::all();
+        $input = Input::all();
+        $cover = Input::file('cover');
+        if(!isset($cover))
+            return Redirect::back();
+        $cover_name = $this->uploadCover($cover);
+        $username = User::where('id', '=', Session::get('uid'))->first();
+        $data = array(
+            'type_id' => $input['type_id'],
+            'cover_url' => $cover_name,
+            'url' => $input['url'],
+            'title' => $input['title'],
+            'introduce' => $input['introduce'],
+            'author' => $username,
+            'uid' => Session::get('uid'),
+            'love_num' => 0,
+            'comment_num' => 0,
+            'status' => 1
+        );
         Original::create($data);
         $error = '发表成功';
         return Redirect::back()->with($error);
@@ -73,7 +90,7 @@ class OriginalController extends BaseController {
         $error = '发表成功';
         return Redirect::back()->with($error);
     }
-
+    //上传图片
     private function uploadCover ($file) {
         foreach($file as $v){
             if($v == null) {

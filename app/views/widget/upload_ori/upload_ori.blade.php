@@ -1,4 +1,4 @@
-<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 2 ){{'f-dn'}}@endif m-passage_form js-form_ori">
+<form action="{{route('home/original/createoriginal')}}" data-action="{{route('home/original/createuporiginal')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 2 ){{'f-dn'}}@endif m-passage_form js-form_ori">
     <div class="form-group">
         <label for="ori_name">标题</label>
         <br/>
@@ -8,21 +8,20 @@
             <label for="ori_name">请选择类别</label>
             <br/>
             <select name="type_id" id="">
-             <option value="">曲艺</option>
-             <option value="">舞蹈</option>
-             <option value="">音乐</option>
-             <option value="">书法</option>
+                @foreach($data['original_type'] as $type)
+                    <option value="{{$type['id']}}">{{$type['type']}}</option>
+                @endforeach
             </select>
     </div>
     <div class="form-group f-dn">
-        <label for="ori_cover">请上传作品</label>
+        <label for="ori_cover">请上传作品封面</label>
         <br/>
         <input type="file" name="cover" accept="image/gif, image/jpeg, image/png"/>
     </div>
     <div class="form-group">
             <label for="ori_url">链接</label>
             <br/>
-            <input type="text" class="form-control" name="title" id="ori_url" placeholder="请输入作品链接"/>
+            <input type="text" class="form-control" name="title" id="url" placeholder="请输入作品链接"/>
         </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>
