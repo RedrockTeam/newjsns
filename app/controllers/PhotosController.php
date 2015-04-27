@@ -9,7 +9,12 @@ class PhotosController extends BaseController {
 
 	//爱拍首页
     public function photoIndex(){
-        return View::make('template.photos.photos');
+        $type_id = Input::get('type_id')? Input::get('type_id'):'';
+        if($type_id!=null)
+            $id = array(Navigation::find($type_id));
+        else
+            $id = Navigation::find(2)->hasManyson;
+        return View::make('template.photos.photos')->with('data', $id);
 	}
 
     //爱拍获取更多图片
