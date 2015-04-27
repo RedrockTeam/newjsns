@@ -12,7 +12,7 @@
 <div class="container">
     <div class="page-header f-cb">
       <h1>上传<small>Uploads File</small></h1>
-      <a href="/home/personal" class="f-fr">返回个人中心</a>
+      <a href="{{route('personal')}}" class="f-fr">返回个人中心</a>
     </div>
     <ul class="nav nav-tabs js-tabs" >
       <li role="presentation" class="@if( $data['page_pos'] == 0 ){{'active'}}@endif js-photo" ><a href="#">图片</a></li>
