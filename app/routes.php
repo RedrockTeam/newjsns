@@ -43,7 +43,46 @@ Route::get('micromovietag', array('as' => 'micromovietag', 'uses' =>'MicromovieC
 #微视分页
 Route::get('microm_sub', array('as' => 'microm_sub', 'uses' =>'MicromovieController@micromovieDetail'));
 
-
+//#图书标签
+//Route::get('book_tags', function(){
+//    $data = [
+//        'book_tags' => [
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ],
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ],
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ],
+//            [
+//                'title' => 'lill',
+//                'author' => 'shj',
+//                'price' => 30,
+//                'star' => 5,
+//                'intro' => 'sdgvjhsdbvjksdbvjksdbvjsdnbkldsnbslkbf',
+//                'comment_total' => 20
+//            ]
+//        ]
+//    ];
+//    return View::make("template.book_tags.book_tags")->with($data);
+//});
 
 Route::get('get_photos', array('as' => 'get_photos', 'uses' =>'PhotosController@get_photos'));
 
@@ -54,35 +93,26 @@ Route::get('login-register', function(){
     return View::make("template.login-register.login-register");
 });
 
-#图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
-Route::get('imageUpload', function(){
-    $data =[
-        'imgExists' => true,    //是否已经上传过 上传过的话为true 没有上传过的话为false
-        'imgSrc' => 'public/images/1.png'  //进行剪切的路径  如果上传过的话，为图片路径，没有的话
-    ];
-    return View::make("template.imageUpload.imageUpload")->with($data);
-});
-#上传图片,文章，微视
-Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
+
+
 
 /*------------------------------ajax 测试---------------------------------*/
-#点赞
-Route::post('praise', 'CommentController@praise');//TODO:记得加入权限控制
-#踩
-Route::post('thread', 'CommentController@thread');
-
+//原味初始化评论
+Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
 /**
  * 前台功能性路由
  */
 
-Route::get('test', function () {});//test
-Route::get('upload', function(){
-    return route('recommend');
-});
+//Route::get('test', function () {});//test
+Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
+Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
 {
+    #上传图片,文章，微视
+    Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
+
     Route::get('literature/comment', array('as' => 'home/literature/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
 
     Route::get('photos', array('as' => 'home/photos','uses' => 'LiteratureController@test'));//ajax获取排序图片及分页
@@ -105,10 +135,19 @@ Route::group(array('prefix' => 'home'), function()
 #个人中心
 Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
-Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function()
-{
+Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
 
-    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'editPersonalInfo@comment'));//ajax爱拍发表评论
+    #点赞
+    Route::post('praise', array('as' => 'home/praise','uses' => 'CommentController@praise'));
+    #踩
+    Route::post('thread', array('as' => 'home/thread','uses' => 'CommentController@thread'));
+
+    #图片上传（先上整个图片到服务器， 然后再刷新页面进行剪切, 再保存）
+    Route::get('imageUpload', array('as'=>'home/imageUpload', 'uses'=>'PersonalController@uploadHeadPage'));
+    Route::post('imageUploadCut', array('as'=>'home/imageUploadCut', 'uses'=>'PersonalController@uploadHeadCut'));
+    Route::post('imageUpload', array('as'=>'home/imageUpload', 'uses'=>'PersonalController@uploadHead'));//头像上传
+
+    Route::post('personal/personalinfo', array('as' => 'home/personal/personalinfo','uses' => 'PersonalController@editPersonalInfo'));//修改个人资料
 
     Route::post('comment/photos', array('as' => 'home/comment/photos','uses' => 'CommentController@comment'));//ajax爱拍发表评论
 
@@ -117,13 +156,15 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
     Route::post('comment/original', array('as' => 'home/comment/original','uses' => 'CommentController@comment'));//ajax原味发表评论
 
     Route::post('comment/recommend', array('as' => 'home/comment/recommend','uses' => 'CommentController@comment'));//ajax读书影逝发表评论
-
     //文学路由
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
+    Route::post('movie/createmovie', array('as' => 'home/movie/createmovie','uses' => 'MicromovieController@micromovieupload'));//发表微视
+    Route::post('original/createoriginal', array('as' => 'home/original/createoriginal','uses' => 'OriginalController@originalVideoUpload'));//发表链接类原味
+    Route::post('original/createuporiginal', array('as' => 'home/original/createuporiginal','uses' => 'OriginalController@originalPhotoUpload'));//发表非链接类类原味
 
     Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
-    Route::post('comment/collect', array('as' => 'home/comment/collect','uses' => 'CommentController@collect'));
+    Route::post('comment/collect', array('as' => 'home/comment/collect','uses' => 'CommentController@collect'));//收藏
 });
 
 

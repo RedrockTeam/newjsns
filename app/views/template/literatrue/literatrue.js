@@ -17,12 +17,13 @@ require.config({
         'go_top' : '../widget/go_top/go_top',
         'jquery.sliderBox' : './jquery.sliderBox',
         'slider' : '../widget/litera_recom_slider/litera_recom_slider',
-        'praise' : '../widget/js_widget/praise'   //点赞
+        'praise' : '../widget/js_widget/praise' ,  //收藏
+        'stop_copy' : '../widget/js_widget/stopCopy'
     }
 });
 
 //加载依赖项
-define(['jquery','litera_list', 'go_top', 'slider', 'praise'], function($){
+define(['jquery','litera_list', 'go_top', 'slider', 'praise', 'stop_copy'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';

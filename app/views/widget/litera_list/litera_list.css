@@ -44,6 +44,9 @@
 }
 
 .m-artitcle_lists .u-content-omit a {
+    display: block;
+    width: 100%;
+    height: 100%;
     color: #333333;
     text-decoration: none;
     line-height: 23px;
@@ -114,7 +117,7 @@
 }
 
 .m-artitcle_lists .u-litera_user_action .show_litera_love .fa-heart.s-active{
-    color: #E54;
+    /*color: #E54;*/
 }
 .m-artitcle_lists .u-litera_user_action .show_litera_love span{
     vertical-align: top;

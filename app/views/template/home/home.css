@@ -10,8 +10,8 @@
     display: none;
     z-index: 1;
 }
-
 /*底部hack*/
 .g-footer {
+    /*position: absolute;*/
     bottom: 0;
 }

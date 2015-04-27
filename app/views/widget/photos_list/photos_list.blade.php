@@ -6,14 +6,14 @@
      <div class="wf_item_inner">
         <a href="<%= data.img_src%>" class="thumb js-open_box js-link" target="_blank" title="<%= data.img_desc%>" data-type="<%= data.img_type%>">
             <img class="thumb_img"  src="<%= data.img_src%>"/>
-            <p class="u-name"><%= data.img_name%></p>
+            <p class="u-name"><%= data.img_name ? data.img_name : 'unkown'%></p>
         </a>
         <%if(data.img_type == "album") {%>
             <%for(var i = 0; i < data.img_detail.length; i++){%>
                 <a class="js-link" style="display: none" href="<%= data.img_detail[i].img_src %>" title="<%= data.img_detail[i].img_desc%>"></a>
             <%}%>
         <%}%>
-        <div class="u-action"><a class="u-show_comments">(<%= data.comment_count%>)</a><div class="u-show_love js-praise" data-type_id="<%= data.type_id%>" data-passage_id="<%= data.passage_id%>"><i class="fa fa-heart js-show_love"></i><span class="js-num">(<%= data.love_count%>)</span></div></div>
+        <div class="u-action"><a class="u-show_comments">{{--(<%= data.comment_count%>)--}}</a><div class="u-show_love js-praise" data-type_id="<%= data.type_id%>" data-passage_id="<%= data.passage_id%>"><i class="fa fa-heart js-show_love"></i><span class="js-num">(<%= data.love_count%>)</span></div></div>
      </div>
 </script>
 @section("css")

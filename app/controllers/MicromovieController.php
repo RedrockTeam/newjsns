@@ -40,7 +40,7 @@ class MicromovieController extends BaseController {
     }
 
     //微视标签搜索
-    public function micromovieSearch(){
+        public function micromovieSearch(){
         $type_id = Input::get('type_id')? Input::get('type_id'):'';
         $tag = Input::get('tag')? Input::get('tag'):'';
         if($tag == null || $type_id == null)
@@ -58,4 +58,49 @@ class MicromovieController extends BaseController {
         $data['tags'] = Micromovie::getTags($data['category']);
         return View::make('template.micromovie.micromovie')->with('data', $data);
     }
+
+    public function micromovieupload(){
+        $data = Input::all();
+        $cover = Input::file();
+        $data['cover_url'] = $this->uploadCover($cover);
+        $data['uid'] = Session::get('uid');
+        $author = User::find(Session::get('uid'));
+        $data['author'] = $author['nickname'];
+        $data['star'] = 0;
+        $data['comment_num'] = 0;
+        $data['love_num'] = 0;
+        $data['status'] = 1;
+        Micromovie::create($data);
+        return Redirect::back();
+    }
+
+    private function uploadCover ($file) {
+        foreach($file as $v){
+            if($v == null) {
+                continue;
+            }
+            $validator = Validator::make(
+                array('photo' => $v),
+                array('photo' => 'required|image|between:1,10240')
+            );
+            if ($validator->fails()) {
+                return Redirect::back()->withInput()->withErrors($validator);
+            }
+        }
+        foreach($file as $v){
+            if($v == null) {
+                continue;
+            }
+            $type = $v->getClientOriginalExtension();
+            $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $img = Image::make($v);
+            $newimg = $img->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $newimg->save($name);
+            $newimg->destroy();
+            return $name;
+        }
+    }
+
 }

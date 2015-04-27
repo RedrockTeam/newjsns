@@ -3,6 +3,7 @@
      @include("widget.upload_photo.upload_photo")
      @include("widget.upload_movie.upload_movie")
      @include("widget.upload_passage.upload_passage")
+     @include("widget.upload_ori.upload_ori")
 @stop
 {{--css--}}
 @section("css")
@@ -20,5 +21,6 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/uploads/uploads.js")])}}
+{{--    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/personal/personal.js")])}}--}}
+    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/uploads/uploads.js")])}}
 @stop

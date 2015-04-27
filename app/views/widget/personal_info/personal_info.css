@@ -39,7 +39,8 @@
     font-size: 14px;
     padding: 10px 0 20px;
 }
-.m-personal_info .m-info_detail .u-user_extra_info li span{
+
+.m-personal_info .m-info_detail .u-user_extra_info span{
     font-size: 12px;
     color: #333333;
     line-height: 25px;
@@ -117,4 +118,8 @@
     background-image: -moz-linear-gradient(top, #ff8c47, ff6e3a); /* Firefox */
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ff8c47), color-stop(1, ff6e3a)); /* Saf4+, Chrome */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8c47', endColorstr='ff6e3a', GradientType='0'); /* IE 9 -*/
+}
+
+.alert{
+    color: red;
 }

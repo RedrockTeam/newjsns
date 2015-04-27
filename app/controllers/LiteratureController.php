@@ -37,27 +37,55 @@ class LiteratureController extends BaseController{
             'passage' => $passage,
             'comment' => $comment,
         );
-//        return $data['comment'];
         return View::make('template.litera_sub.litera_sub')->with('data', $data);
     }
 
 
     //发表文章
     public function createPassage(){
+        $cover = Input::file('cover');
+        if(!isset($cover))
+            return Redirect::back();
             $data = Input::all();
-            $data['uid'] = Session::get('uid');
-            $data['comment_num'] = 0;
-            $data['love_num'] = 0;
-            $data['status'] = 1;
-            $file = Input::file('cover');
-            $path = $this->uploadCover($file);
-            $data['cover'] = $path;
-            $literature = Literature::create($data);
+            $pattern = '/base64,(.*?)"/';
+            preg_match_all($pattern, $data['content'], $match, PREG_PATTERN_ORDER);
+        if($match[1]){
+            foreach($match[1] as $v) {
+            $img = base64_decode($v);
+            file_put_contents('public/uploads/tmp.jpg', $img);
+            $name = 'public/uploads/tmp.jpg';
+            $image = Image::make($name);
+            $time = md5(microtime(true));
+            $path =  'public/uploads/'.$time.'.jpg';
+            $newimg = $image->resize(100, null, function ($constraint) {
+              $constraint->aspectRatio();
+            });
+            $newimg->save($path);
+            $newimg->destroy();
+            $img_url[] = $path;
+            $replace[] = 'src="'.$path.'"';
+        }
+        $pattern1 = '/src="data:(.*?)"/';
+            foreach($replace as $r){
+                $data = preg_replace($pattern1, $r, $data,1);
+            }
+        }
+
+            $passage['uid'] = Session::get('uid');
+            $passage['comment_num'] = 0;
+            $passage['love_num'] = 0;
+            $passage['status'] = 1;
+            $passage['type_id'] = $data['type_id'];
+            $passage['title'] = $data['title'];
+            $html = new Common($data['content']);
+            $passage['content'] = $html->getHtml();
+            $passage['cover'] = $this->uploadCover($cover);
+            $literature = Literature::create($passage);
             $insertedId = $literature->id;
-            $type_id = $data['type_id'];
             $user_work = array(
-                'type_id' => $type_id,
+                'type_id' => $data['type_id'],
                 'work_id' => $insertedId,
+                'uid' => Session::get('uid')
             );
             Mywork::create($user_work);
             return Redirect::back();
@@ -65,7 +93,7 @@ class LiteratureController extends BaseController{
 
     private function uploadCover ($file) {
         foreach($file as $v){
-            if($v==null) {
+            if($v == null) {
                 continue;
             }
             $validator = Validator::make(
@@ -77,24 +105,17 @@ class LiteratureController extends BaseController{
             }
         }
         foreach($file as $v){
-            if($v==null) {
+            if($v == null) {
                 continue;
             }
             $type = $v->getClientOriginalExtension();
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
-            $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
             $img = Image::make($v);
-            $img0 = Image::make($v);
-            $originalimg = $img0->resize(1366, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $newimg->save($name);
-            $originalimg->save($originalname);
             $newimg->destroy();
-            $originalimg->destroy();
             return $name;
         }
     }

@@ -4,8 +4,8 @@
         <div class="u-comment_item f-cb js-comment_item">
             <img class="u-show_user_icon" src="{{$czcomment['head_pic']}}" alt=""/>
             <aside class="u-comment_detail js-reply_father" data-value="{{$czcomment['id']}}">
-                <span class="u-user_name js-father_user" data-value="{{$czcomment['uid']}}">{{$czcomment['username']}}</span>
-                <p class="u-user_content"> {{$czcomment['content']}}</p>
+                <span class="u-user_name js-father_user" data-value="{{$czcomment['uid']}}">{{{$czcomment['username']}}}</span>
+                <p class="u-user_content"> {{{$czcomment['content']}}}</p>
                 @if(isset($data['comment']['lzl'][$key]))
                     @foreach($data['comment']['lzl'][$key] as $v)
                         <div class="s-reply_items f-cb js-reply_item">
@@ -13,7 +13,7 @@
                                                     <span class="u-user_name js-user_from" data-value="{{$v['from_uid']}}">{{$v['from_name']}}</span>
                                                     <span class="u-reply_tag">回复</span>
                                                     <span class="u-user_name js-user_to" data-value="{{$v['to_uid']}}">{{$v['to_name']}} :</span>
-                                                    <span class="u-reply_content js-user_content">{{$v['content']}}</span>
+                                                    <span class="u-reply_content js-user_content">{{{$v['content']}}}</span>
                                         </div>
                                         <button class="u-reply_btn js-reply_btn">我要回复</button>
                         </div>

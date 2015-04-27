@@ -41,4 +41,73 @@ class OriginalController extends BaseController {
 
     }
 
+
+    //原味视频/音频类型的上传
+    public function originalVideoUpload(){
+        $input = Input::all();
+        $cover = Input::file('cover');
+        if(!isset($cover))
+            return Redirect::back();
+        $cover_name = $this->uploadCover($cover);
+        $username = User::where('id', '=', Session::get('uid'))->first();
+        $data = array(
+            'type_id' => $input['type_id'],
+            'cover_url' => $cover_name,
+            'url' => $input['url'],
+            'title' => $input['title'],
+            'introduce' => $input['introduce'],
+            'author' => $username['username'],
+            'uid' => Session::get('uid'),
+            'love_num' => 0,
+            'comment_num' => 0,
+            'status' => 1
+        );
+        Original::create($data);
+        $error = '发表成功';
+        return Redirect::back()->with($error);
+    }
+    //原味图片类型上传
+    public function originalPhotoUpload(){
+        $input = Input::all();
+        $cover = Input::file();
+        if(!isset($cover))
+            return Redirect::back();
+        $cover_name = $this->uploadCover($cover);
+        $username = User::where('id', '=', Session::get('uid'))->first();
+        $data = array(
+            'cover_url' => $cover_name,
+            'url' => $cover_name,
+            'type_id' => $input['type_id'],
+            'title' => $input['title'],
+            'introduce' => $input['introduce'],
+            'author' => $username['username'],
+            'uid' => Session::get('uid'),
+            'love_num' => 0,
+            'comment_num' => 0,
+            'status' => 1
+        );
+        Original::create($data);
+        $error = '发表成功';
+        return Redirect::back()->with($error);
+    }
+    //上传图片
+    private function uploadCover ($file) {
+            $validator = Validator::make(
+                array('photo' => $file),
+                array('photo' => 'required|image|between:1,10240')
+            );
+            if ($validator->fails()) {
+                return Redirect::back()->withInput()->withErrors($validator);
+            }
+            $type = $file->getClientOriginalExtension();
+            $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $img = Image::make($file);
+            $newimg = $img->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $newimg->save($name);
+            $newimg->destroy();
+            return $name;
+    }
+
 }

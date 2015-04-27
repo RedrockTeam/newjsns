@@ -1,7 +1,7 @@
 /**
  * Created by redrock on 2015/3/16.
  */
-//点赞 爱拍，文学， 微视， 读书影逝
+//收藏 爱拍，文学， 微视， 读书影逝
 define([ "jquery", "port" ], function($) {
     $(function() {
         //代理
@@ -28,20 +28,19 @@ define([ "jquery", "port" ], function($) {
                     } catch (err) {
                         alert("error数据错误!!!");
                     }
-                    res.success ? controlParise.call($self) : alert(res.error ? res.error : "点赞失败!!!!");
+                    res.success ? (console.log(res.info), controlParise.call($self, res.info)) : res.error && alert(res.error);
                 },
                 error: function(err) {
-                    alert("点赞失败!!!"), alert(err.responseText);
+                    alert("收藏失败!!!"), alert(err.responseText);
                 }
             });
         }
-        /*点赞或取消点赞*/
-        function controlParise() {
+        /*收藏或取消收藏*/
+        function controlParise(isCollect) {
             var $self = $(this), $heart = $self.find(".js-show_love"), $num = $self.find(".js-num"), tag = !0;
             if (($num.lentgh < 1 || $heart.length < 1) && (tag = !1), tag) var num = $num.text().slice(1, $self.text().length - 1);
-            $heart.hasClass("s-active") ? (tag && $num.text("(" + (parseInt(num) - 1) + ")"), 
-            $heart.removeClass("s-active")) : (tag && $num.text("(" + (parseInt(num) + 1) + ")"), 
-            $heart.addClass("s-active"));
+            isCollect ? tag && $num.text("(" + (parseInt(num) + 1) + ")") : (tag && $num.text("(" + (parseInt(num) - 1) + ")"), 
+            $heart.removeClass("s-active"));
         }
         $("body").on("click", ".js-praise,.js-num,.js-show_love", praise);
     });

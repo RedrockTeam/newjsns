@@ -1,7 +1,7 @@
 /**
  * Created by redrock on 2015/3/16.
  */
-//点赞 爱拍，文学， 微视， 读书影逝
+//收藏 爱拍，文学， 微视， 读书影逝
 define(['jquery', 'port'], function($, port){
     $(function(){
         $('body').on('click','.js-praise,.js-num,.js-show_love' ,praise);//代理
@@ -34,21 +34,20 @@ define(['jquery', 'port'], function($, port){
                         }
                     }
                     if(res.success){
-                        controlParise.call($self);
+                        console.log(res.info);
+                        controlParise.call($self, res.info);
                     }else{
                         if(res.error) alert(res.error);
-                        else alert('点赞失败!!!!');
                     }
                 },
                 error : function(err){
-                    alert('点赞失败!!!');
+                    alert('收藏失败!!!');
                     alert(err.responseText);
                 }
             });
         }
-
-        /*点赞或取消点赞*/
-        function controlParise(){
+        /*收藏或取消收藏*/
+        function controlParise(isCollect){
             var $self = $(this);
             var $heart = $self.find('.js-show_love'),
                 $num = $self.find('.js-num');
@@ -57,22 +56,35 @@ define(['jquery', 'port'], function($, port){
                 tag  = false;
             }
             if( tag )var num = $num.text().slice(1, $self.text().length - 1);
-            if( !$heart.hasClass('s-active') ){
-                if(tag){
-                    $num.text(
-                        '(' + (parseInt(num) + 1) + ')'
-                    );
-                }
-                $heart.addClass('s-active');
+            if(isCollect){
+                    if(tag){
+                        $num.text(
+                            '(' + (parseInt(num) + 1) + ')'
+                        );
+                    }
             }else{
-                if(tag){
-                    $num.text(
-                        '(' + (parseInt(num) - 1) + ')'
-                    );
-                }
-                $heart.removeClass('s-active');
+                    if(tag){
+                        $num.text(
+                            '(' + (parseInt(num) - 1) + ')'
+                        );
+                    }
+                    $heart.removeClass('s-active');
             }
-
+            //if( !$heart.hasClass('s-active') ){
+            //    if(tag){
+            //        $num.text(
+            //            '(' + (parseInt(num) + 1) + ')'
+            //        );
+            //    }
+            //    $heart.addClass('s-active');
+            //}else{
+            //    if(tag){
+            //        $num.text(
+            //            '(' + (parseInt(num) - 1) + ')'
+            //        );
+            //    }
+            //    $heart.removeClass('s-active');
+            //}
         }
     });
 });
