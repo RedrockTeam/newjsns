@@ -20,13 +20,15 @@ require.config({
         upload_passage : "../widget/upload_passage/upload_passage"
     }
 });
+
 //加载依赖项
 define(['jquery','upload_photo', 'upload_passage' ,'bootstrap','summernote'], function($){
     $(function(){
         var map = {
             'js-photo' : $('.js-form_photo'),
             'js-passage' : $('.js-form_passage'),
-            'js-movie' : $('.js-form_movie')
+            'js-movie' : $('.js-form_movie'),
+            'js-ori' : $('.js-form_ori')
         };
         for(var key in map){
             (function (key){
