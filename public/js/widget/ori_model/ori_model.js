@@ -10,7 +10,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 to: $cL.attr("data-uid"),
                 reply: [],
                 username: userN
-            }, crAjax(port.comment, data, function() {
+            }, crAjax(port.comment, data, function(res) {
+                data.uid = $(".js-user_own_info").attr("data-user_id"), data.id = res.id;
                 var temp = _.template($initTemp.html())({
                     data: [ data ]
                 });
@@ -87,7 +88,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 type: "POST",
                 data: data,
                 success: function(res) {
-                    (res = checkJson(res)) && (res.success ? cb() : (alert("操作失败!!!!"), res.err && alert(res.err)));
+                    (res = checkJson(res)) && (res.success ? cb(res) : (alert("操作失败!!!!"), res.err && alert(res.err)));
                 },
                 error: function(err) {
                     alert("服务器数据出错!!!!!"), alert(err.responseText);

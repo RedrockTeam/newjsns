@@ -58,7 +58,9 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         //评论
         function comment(){
             data = {'father_id' : 0, to : $cL.attr('data-uid'), 'reply' : [], 'username' : userN};
-            crAjax(port['comment'], data, function(){
+            crAjax(port['comment'], data, function(res){
+                data.uid = $('.js-user_own_info').attr('data-user_id');
+                data.id = res.id;
                 var temp = _.template( $initTemp.html() )({data : [data]});
                 $loading.before(temp);
                 $loading.fadeOut();
@@ -173,7 +175,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 success : function(res){
                     if( ! ( res = checkJson(res) ) ) return;
                     if( res.success ){
-                        cb();
+                        cb(res);
                     }else{
                         alert('操作失败!!!!');
                         if(res.err){
