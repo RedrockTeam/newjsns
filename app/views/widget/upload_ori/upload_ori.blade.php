@@ -7,19 +7,19 @@
      <div class="form-group">
             <label for="ori_name">请选择类别</label>
             <br/>
-            <select name="type_id" id="">
+            <select name="type_id" id="" class="js-ori_type">
              <option value="">曲艺</option>
              <option value="">舞蹈</option>
              <option value="">音乐</option>
-             <option value="">书法</option>
+             <option value="shufa" class="js-flag">书法</option>
             </select>
     </div>
-    <div class="form-group f-dn">
+    <div class="form-group f-dn js-type_work">
         <label for="ori_cover">请上传作品</label>
         <br/>
         <input type="file" name="cover" accept="image/gif, image/jpeg, image/png"/>
     </div>
-    <div class="form-group">
+    <div class="form-group js-type_link">
             <label for="ori_url">链接</label>
             <br/>
             <input type="text" class="form-control" name="title" id="ori_url" placeholder="请输入作品链接"/>
