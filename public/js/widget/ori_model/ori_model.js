@@ -107,8 +107,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             $self.data("pIndex", 0), $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
             ev.preventDefault(), $(".js-control_model").show(), $(".js-wrap").show(), $(".js-model").show(), 
             getComments({
-                type_id: /*typeId*/ 6,
-                passage_id: /*passageId*/ 60,
+                type_id: typeId,
+                passage_id: passageId,
                 page: 0
             }), showImg.call($self), $(".js-love_num").text($self.attr("data-love_num")), $(".js-introduce").text($self.attr("data-intro")), 
             $(".js-author").text($self.attr("data-author"));
@@ -134,8 +134,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         $(".js-next").on("click", function() {
             var index = parseInt($cL.data("pIndex")) + 1;
             console.log(index), $cL.data("pIndex", index), getComments({
-                type_id: /*typeId*/ 6,
-                passage_id: /*passageId*/ 60,
+                type_id: typeId,
+                passage_id: passageId,
                 page: index
             });
         }), //回复

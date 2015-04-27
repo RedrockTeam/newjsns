@@ -16,7 +16,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             $('.js-control_model').show();
             $('.js-wrap').show();
             $('.js-model').show();
-            getComments({'type_id' : /*typeId*/ 6, 'passage_id' : /*passageId*/ 60, 'page' : 0});
+            getComments({'type_id' :typeId, 'passage_id' : passageId, 'page' : 0});
             showImg.call($self);
             $('.js-love_num').text( $self.attr('data-love_num') );
             $('.js-introduce').text( $self.attr('data-intro') );
@@ -53,7 +53,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             var index = parseInt( $cL.data('pIndex') ) + 1;
             console.log(index);
             $cL.data('pIndex', index);
-            getComments({'type_id' : /*typeId*/ 6, 'passage_id' : /*passageId*/ 60, 'page' : index  });
+            getComments({'type_id' : typeId, 'passage_id' : passageId, 'page' : index  });
         });
         //评论
         function comment(){
