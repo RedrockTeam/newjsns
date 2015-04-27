@@ -160,7 +160,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
     Route::post('literature/createpassage', array('as' => 'home/literature/createpassage','uses' => 'LiteratureController@createPassage'));//发表文章
     Route::post('movie/createmovie', array('as' => 'home/movie/createmovie','uses' => 'MicromovieController@micromovieupload'));//发表微视
     Route::post('original/createoriginal', array('as' => 'home/original/createoriginal','uses' => 'OriginalController@originalVideoUpload'));//发表链接类原味
-    Route::post('original/createuporiginal', array('as' => 'home/original/createuporiginal','uses' => 'OriginalController@originalPhotoUpload'));//发表链接类原味
+    Route::post('original/createuporiginal', array('as' => 'home/original/createuporiginal','uses' => 'OriginalController@originalPhotoUpload'));//发表非链接类类原味
 
     Route::post('comment/literature', array('as' => 'home/comment/literature','uses' => 'CommentController@comment'));//ajax文学发表评论
 
