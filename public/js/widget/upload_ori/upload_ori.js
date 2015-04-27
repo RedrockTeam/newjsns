@@ -4,7 +4,7 @@
 define([ "jquery" ], function($) {
     $(function() {
         $(".js-ori_type").on("change", function() {
-            this.value == $(".js-flag").val() ? ($(".js-type_work label").text("请上传作品"), $(".js-type_link").hide()) : ($(".js-type_work label").text("请上传封面"), 
+            17 == this.value ? ($(".js-type_work label").text("请上传作品"), $(".js-type_link").hide()) : ($(".js-type_work label").text("请上传封面"), 
             $(".js-type_link").show());
         });
     });

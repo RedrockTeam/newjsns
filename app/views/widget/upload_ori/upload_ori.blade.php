@@ -7,13 +7,13 @@
      <div class="form-group">
             <label for="ori_name">请选择类别</label>
             <br/>
-            <select name="type_id" id="">
+            <select name="type_id" id="" class="js-ori_type">
                 @foreach($data['original_type'] as $type)
                     <option value="{{$type['id']}}">{{$type['type']}}</option>
                 @endforeach
             </select>
     </div>
-    <div class="form-group f-dn">
+    <div class="form-group js-type_work">
         <label for="ori_cover">请上传作品封面</label>
         <br/>
         <input type="file" name="cover" accept="image/gif, image/jpeg, image/png"/>

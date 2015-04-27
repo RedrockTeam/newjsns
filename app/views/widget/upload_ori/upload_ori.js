@@ -4,7 +4,7 @@
 define(['jquery'], function($){
     $(function(){
         $('.js-ori_type').on('change', function(){
-            if(this.value == $('.js-flag').val() ){
+            if(this.value == 17 ){
                 $('.js-type_work label').text('请上传作品');
                 $('.js-type_link').hide();
             }else{

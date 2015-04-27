@@ -17,6 +17,8 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             $('.js-wrap').show();
             $('.js-model').show();
             $('.js-more_link').attr('href', $self.attr('data-url'));
+            console.log( $('.js-more_link') );
+            console.log();
             getComments({'type_id' :typeId, 'passage_id' : passageId, 'page' : 0});
             showImg.call($self);
             $('.js-love_num').text( $self.attr('data-love_num') );
