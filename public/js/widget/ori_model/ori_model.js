@@ -106,7 +106,8 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             var $self = $(this);
             $self.data("pIndex", 0), $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
             ev.preventDefault(), $(".js-control_model").show(), $(".js-wrap").show(), $(".js-model").show(), 
-            $(".js-more_link").attr("href", $self.attr("data-url")), getComments({
+            $(".js-more_link").attr("href", $self.attr("data-url")), console.log($(".js-more_link")), 
+            console.log(), getComments({
                 type_id: typeId,
                 passage_id: passageId,
                 page: 0
