@@ -3,7 +3,7 @@
  */
 //配置require.config
 require.config({
-    baseUrl: "public/js/lib",
+    baseUrl: "../public/js/lib",
     shim: {
         uploadify: [ "jquery" ],
         bootstrap: [ "jquery" ]

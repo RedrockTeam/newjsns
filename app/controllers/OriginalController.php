@@ -53,15 +53,13 @@ class OriginalController extends BaseController {
     public function originalPhotoUpload(){
         $input = Input::all();
         $cover = Input::file('cover');
-        $work = Input::file('work_pic');
-        if(!isset($cover) || !isset($work))
+        if(!isset($cover))
             return Redirect::back();
         $cover_name = $this->uploadCover($cover);
-        $work_name = $this->uploadCover($work);
         $username = User::where('id', '=', Session::get('uid'))->first();
         $data = array(
             'cover_url' => $cover_name,
-            'url' => $work_name,
+            'url' => $cover_name,
             'type_id' => $work_name,
             'title' => $data[''],
             'introduce' => $data[''],

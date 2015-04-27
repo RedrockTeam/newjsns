@@ -11,7 +11,7 @@ class CommentController extends BaseController {
     //发表评论
     public function comment(){
         $input = Input::all();
-        $content = Input::get('content');
+        $content = strip_tags(Input::get('content'));
         $comment = new Comment();
         $result = $comment->addComment($input['type_id'], $input['passage_id'], $content, $input['to'], $input['father_id']);
         return $result;
@@ -90,6 +90,6 @@ class CommentController extends BaseController {
         $type_id = $id['type_id'];
         $page = isset($id['page'])? $id['page']:1;
         $comment = Comment::findComment($type_id, $passage_id, $page);
-        return strip_tags($comment);
+        return $comment;
     }
 }
