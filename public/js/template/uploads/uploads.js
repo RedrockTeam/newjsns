@@ -3,7 +3,7 @@
  */
 //配置require.config
 require.config({
-    baseUrl: "public/js/lib",
+    baseUrl: "../public/js/lib",
     shim: {
         uploadify: [ "jquery" ],
         bootstrap: [ "jquery" ]
@@ -31,14 +31,14 @@ define([ "jquery", "upload_photo", "upload_passage", "bootstrap", "summernote" ]
         var map = {
             "js-photo": $(".js-form_photo"),
             "js-passage": $(".js-form_passage"),
-            "js-movie": $(".js-form_movie")
+            "js-movie": $(".js-form_movie"),
+            "js-ori": $(".js-form_ori")
         };
         for (var key in map) !function(key) {
             $("." + key).on("click", function(ev) {
                 switchTab.call(this, ev, key);
             });
         }(key);
-
         $("#editor").summernote();
     });
 });

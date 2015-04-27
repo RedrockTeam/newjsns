@@ -1,31 +1,30 @@
 <form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 2 ){{'f-dn'}}@endif m-passage_form js-form_ori">
-   {{-- <div class="form-group">
-        <label for="passage_name">请输入文章标题</label>
+    <div class="form-group">
+        <label for="ori_name">标题</label>
         <br/>
-        <input type="text" class="form-control" name="title" id="passage_name" placeholder="文章标题"/>
+        <input type="text" class="form-control" name="title" id="ori_name" placeholder="原味标题"/>
     </div>
      <div class="form-group">
-            <label for="passage_name">请选择文章类别</label>
+            <label for="ori_name">请选择类别</label>
             <br/>
             <select name="type_id" id="">
-                @foreach($data['passage_type'] as $type)
-                <option value="{{$type['id']}}">{{$type['type']}}</option>
-                @endforeach
+             <option value="">曲艺</option>
+             <option value="">舞蹈</option>
+             <option value="">音乐</option>
+             <option value="">书法</option>
             </select>
     </div>
-    <div class="form-group">
-        <label for="passage_cover">请上传文章封面(可选)</label>
+    <div class="form-group f-dn">
+        <label for="ori_cover">请上传作品</label>
         <br/>
         <input type="file" name="cover" accept="image/gif, image/jpeg, image/png"/>
     </div>
     <div class="form-group">
-            <label for="passage_cover">文章内容</label>
-            <div id="editor">
-            </div>
-            <textarea name="content" class="s-hidden js-hidden_content" cols="30" rows="10"></textarea>
-    </div>
-    <button type="submit" class="btn btn-default">确定</button>--}}
-    <div>serueudhgtrhju8</div>
+            <label for="ori_url">链接</label>
+            <br/>
+            <input type="text" class="form-control" name="title" id="ori_url" placeholder="请输入作品链接"/>
+        </div>
+    <button type="submit" class="btn btn-default">确定</button>
 </form>
 
 @section("css")
