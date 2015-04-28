@@ -65,7 +65,7 @@ class OriginalController extends BaseController {
         $work = Original::create($data);
         $mywork = array(
             'type_id' => $work['type_id'],
-            'work_id' => $work['uid'],
+            'work_id' => $work['id'],
             'uid' => Session::get('uid')
         );
         Mywork::create($mywork);
@@ -95,7 +95,7 @@ class OriginalController extends BaseController {
         $work = Original::create($data);
         $mywork = array(
             'type_id' => $work['type_id'],
-            'work_id' => $work['uid'],
+            'work_id' => $work['id'],
             'uid' => Session::get('uid')
         );
         Mywork::create($mywork);
