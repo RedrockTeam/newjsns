@@ -11,7 +11,7 @@
                 </div>
                 <p class="u-content-omit">
                     <a class="js-stop_copy" href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}">
-                        {{{str_limit($value['content'], '250', '......')}}}
+                        {{str_limit($value['content'], '250', '......')}}
                     </a>
                     <div class="u-litera_user_action f-cb">
                         <div class="show_litera-comments">
