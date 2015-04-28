@@ -92,32 +92,25 @@ class LiteratureController extends BaseController{
     }
 
     private function uploadCover ($file) {
-        foreach($file as $v){
-            if($v == null) {
-                continue;
-            }
+
             $validator = Validator::make(
-                array('photo' => $v),
+                array('photo' => $file),
                 array('photo' => 'required|image|between:1,10240')
             );
             if ($validator->fails()) {
                 return Redirect::back()->withInput()->withErrors($validator);
             }
-        }
-        foreach($file as $v){
-            if($v == null) {
-                continue;
-            }
-            $type = $v->getClientOriginalExtension();
+
+            $type = $file->getClientOriginalExtension();
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
-            $img = Image::make($v);
+            $img = Image::make($file);
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $newimg->save($name);
             $newimg->destroy();
             return $name;
-        }
+
     }
 
 }
