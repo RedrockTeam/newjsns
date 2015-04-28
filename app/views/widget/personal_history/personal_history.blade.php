@@ -61,6 +61,7 @@
                 </div>
             </div>
         @else
+            @if($collection['updated_at'])
             <div class="u-work_item s-item">
                 <a href="">
                     <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
@@ -72,6 +73,7 @@
                     </div>
                 </a>
             </div>
+                @endif
         @endif
     @endforeach
         @else
