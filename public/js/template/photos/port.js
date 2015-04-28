@@ -1,1 +1,1 @@
-define({get_img:"jsns/get_photos",praise:"jsnpraise"});
+define({get_img:"jsns1/get_photos",praise:"jsns1/praise"});
