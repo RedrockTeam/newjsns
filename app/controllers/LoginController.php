@@ -31,6 +31,7 @@ class LoginController extends BaseController
                 'username' => $input['stu_nickname'],
                 'uid' => $input['stu_id'],
                 'password' => Hash::make($input['stu_pwd']),
+                'status' => 1
             );
             $uid = User::create($data);
             $role = array(
