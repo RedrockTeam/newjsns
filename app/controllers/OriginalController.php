@@ -86,7 +86,13 @@ class OriginalController extends BaseController {
             'comment_num' => 0,
             'status' => 1
         );
-        Original::create($data);
+        $work = Original::create($data);
+        $mywork = array(
+            'type_id' => $work['type_id'],
+            'work_id' => $work['uid'],
+            'uid' => Session::get('uid')
+        );
+        Mywork::create($mywork);
         $error = '发表成功';
         return Redirect::back()->with($error);
     }

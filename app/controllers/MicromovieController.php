@@ -65,12 +65,18 @@ class MicromovieController extends BaseController {
         $data['cover_url'] = $this->uploadCover($cover);
         $data['uid'] = Session::get('uid');
         $author = User::find(Session::get('uid'));
-        $data['author'] = $author['nickname'];
+        $data['author'] = $author['username'];
         $data['star'] = 0;
         $data['comment_num'] = 0;
         $data['love_num'] = 0;
         $data['status'] = 1;
-        Micromovie::create($data);
+        $work = Micromovie::create($data);
+        $mywork = array(
+            'type_id' => $work['type_id'],
+            'work_id' => $work['id'],
+            'uid' => Session::get('uid')
+        );
+        Mywork::create($mywork);
         return Redirect::back();
     }
 
