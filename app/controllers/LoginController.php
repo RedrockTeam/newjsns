@@ -34,7 +34,7 @@ class LoginController extends BaseController
             );
             $uid = User::create($data);
             $role = array(
-                'uid' => $uid,
+                'uid' => $uid['id'],
                 'type_id'=>'3',
             );
             DB::table('group')->insert($role);
