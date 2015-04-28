@@ -2,7 +2,7 @@
 <div class="m-movie_lists">
     @foreach($data['micromovielist'] as $micromovie)
         <div class="u-movie_item f-cb">
-            <img src="{{$micromovie['cover_url']}}" alt="" class="u-m_show_img"/>
+            <div style="background-image: url('{{$micromovie['cover_url']}}')" alt="" class="u-m_show_img"></div>
             <aside class="u-m_info">
                 <a href="{{route('microm_sub')}}?type_id={{$micromovie['type_id']}}&passage_id={{$micromovie['id']}}" class="s-link_wrap">
                     <div class="u-m_info_h f-cb">
