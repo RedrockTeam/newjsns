@@ -24,13 +24,13 @@ class PhotosController extends BaseController {
         foreach($data as $v){
             $v->imgDetail;
         }
-        $info = array(
-            'success' => true,
-            'isDrain' => false,
-            'img_type'=> 'album',
-            'data' => $data,
-        );
-        return $info['data'];
+//        $info = array(
+//            'success' => true,
+//            'isDrain' => false,
+//            'img_type'=> 'album',
+//            'data' => $data,
+//        );
+        return $data;
     }
 
     public function updateAlbum(){
