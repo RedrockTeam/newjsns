@@ -10,7 +10,7 @@
                     <span>{{$value['user']['username']}}</span>
                 </div>
                 <div class="u-content-omit">
-                    <a class="js-stop_copy js-content_filter" href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}" data-content="{{$value['content']}}{{--{{{str_limit($value['content'], '250', '......')}}}--}}">
+                    <a class="js-stop_copy js-content_filter" href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}" data-content="<p>lijinxin</p><b>hello</b>{{--{{$value['content']}}--}}{{--{{{str_limit($value['content'], '250', '......')}}}--}}">
                     </a>
                     <div class="u-litera_user_action f-cb">
                         <div class="show_litera-comments">

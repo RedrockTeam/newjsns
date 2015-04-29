@@ -5,6 +5,7 @@
 
 define(['jquery', 'port'], function($, port){
     $(function(){
-        $('.js-content_filter').text(  $('.js-content_filter').text().replace(/<[^>]*>/gi, '') );
+        //console.log($('.js-content_filter').);
+        $('.js-content_filter').text(  $('.js-content_filter').attr('data-content').replace(/<[^>]*>/gi, '') );
     });
 });
