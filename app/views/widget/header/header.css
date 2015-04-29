@@ -27,13 +27,15 @@
 }
 .g-header_wrapper .u-h_nav li{
     float: left;
+    margin-right: 5px;
 }
 .g-header_wrapper .u-h_nav li a {
     text-decoration: none;
-    padding: 5px 22px;
+    padding: 5px 17px;
     color: #70c85c;
     font-size: 16px;
     font-family: "microsoft yahei";
+    transition: color .4s ease-in,background .4s ease-in, box-shadow .4s ease-in;
 }
 
 .g-header_wrapper .u-h_nav li a:hover, .g-header_wrapper .u-h_nav li.s-active a{
