@@ -30,7 +30,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             function parseData() {
             }
             var action, li, img = new Image();
-            $loadGif.before($([ action = $('<div class="u-user_action f-cb"/>').append($([ $('<div class="u-show_comments"/>')[0], $('<div class="u-show_love"/>')[0] ]))[0], li = $('<li class="u-ph_item f-cb"/>')[0] ])), 
+            $loadGif.before($([ action = $('<div class="u-user_action f-cb"/>').append($([ $('<div class="u-show_comments"/>')[0], $('<div class="u-show_love"/>')[0] ]))[0], li = $('<li class="u-ph_item f-cb"/>')[0] ])),
             $(action).append($([])), img.onload = parseData, $(img).attr({
                 src: ""
             });
@@ -39,6 +39,6 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
             var $loadGif = ($(".js-outer_photo"), $(".js-load_gif"));
             $("#js-photo_temp"), new Image();
         }
-        init(), alert(123);
+        init(), alert(45689);
     });
 });
