@@ -1,1 +1,34 @@
-define(["jquery","slim_box","waterfall","underscore","port"],function(E,B,C,D,A){E(function(){var F=0;E(".js-waterfall").waterfall({colWidth:222,ajaxFunc:function(G,H){E.ajax({type:"GET",url:A.get_img,cache:!1,data:{page:++F},timeout:60000,success:G,error:H})},createHtml:function(G){return G.img_desc=G.img_desc||G.img_name||"没有描述",D.template(E("#js-photo_temp").html())({data:G})}}),E(".js-waterfall").slimbox({counterText:"共 {y} 张图片 第{x}张图片"})})});
+/**
+ * Created by redrock on 2015/2/1.
+ */
+define(['jquery', 'slim_box', 'waterfall', 'underscore', 'port'], function($, slim_box, masonry, _, port){
+    $(function(){
+        alert('photo_list');
+        // 按需加载方式
+        var wf_page = 0;
+        $(".js-waterfall").waterfall({
+            colWidth: 222,
+            // 自定义跨域请求
+            ajaxFunc: function(success, error){
+                $.ajax({
+                    type: 'GET',
+                    url: port['get_img'],
+                    cache: false,
+                    data: {'page': ++wf_page},
+                    timeout: 60000,
+                    success: success,
+                    error: error
+                });
+            },
+            createHtml: function(data){
+                console.log(data);
+                data.img_desc = data.img_desc || data.img_name ||'没有描述';
+                return _.template($('#js-photo_temp').html()  )({data : data});
+            }
+        });
+        //幻灯片
+        $(".js-waterfall").slimbox({
+            counterText: "共 {y} 张图片 第{x}张图片"
+        });
+    });
+});

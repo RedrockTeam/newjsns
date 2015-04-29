@@ -24,12 +24,6 @@ class PhotosController extends BaseController {
         foreach($data as $v){
             $v->imgDetail;
         }
-//        $info = array(
-//            'success' => true,
-//            'isDrain' => false,
-//            'img_type'=> 'album',
-//            'data' => $data,
-//        );
         return $data;
     }
 
@@ -52,7 +46,7 @@ class PhotosController extends BaseController {
         }
     }
     //上传
-	public function upload(){//TODO:前端为了省事直接扔了个插件, 没办法验证, gg
+	public function upload(){//TODO:前端直接扔了个插件, 没办法验证, gg
         $data = Input::all();
         $album_id = Session::get('album_id')?Session::get('album_id'):null;
         if($album_id == null){
