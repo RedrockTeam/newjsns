@@ -3,7 +3,6 @@
  */
 define(['jquery', 'slim_box', 'waterfall', 'underscore', 'port'], function($, slim_box, masonry, _, port){
     $(function(){
-        alert('photo_list');
         // 按需加载方式
         var wf_page = 0;
         $(".js-waterfall").waterfall({

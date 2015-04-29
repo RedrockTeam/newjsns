@@ -50,7 +50,7 @@
                 <article class="s-article">
                     <a href="litera_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}" class="s-content_wrap">
                         <h2 class="s-title">{{{$collection['title']}}}</h2>
-                        <p class="s-content">{{str_limit($collection['content'], 300)}}</p>
+                        <p class="s-content">{{strip_tags(str_limit($collection['content'], 300))}}</p>
                     </a>
                 </article>
             </div>
