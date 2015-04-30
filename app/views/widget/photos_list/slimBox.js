@@ -190,6 +190,12 @@
 
     function animateBox() {
         console.log(preload.width);
+        var cW = document.body.clientWidth;
+        var ratio = preload.width / preload.height;
+        if( preload.width >=  cW){
+            preload.width = cW / 2;
+            preload.height = preload.width  * (1/ ratio);
+        }
         center.className = "";
         $(image).css({backgroundImage: "url(" + activeURL + ")", visibility: "hidden", display: ""});
         $(sizer).width(preload.width);
