@@ -47,11 +47,13 @@
     function animateBox() {
         console.log(preload.width);
         var cW = document.body.clientWidth, ratio = preload.width / preload.height;
-        preload.width >= cW && (preload.width = cW / 2, preload.height = preload.width * (1 / ratio)), 
+        preload.width >= cW && (preload.width = cW / 1.3, preload.height = preload.width * (1 / ratio)), 
         center.className = "", $(image).css({
             backgroundImage: "url(" + activeURL + ")",
             visibility: "hidden",
-            display: ""
+            display: "",
+            backgroundSize: "contain",
+            backgroundPosition: "center center"
         }), $(sizer).width(preload.width), $([ sizer, prevLink, nextLink ]).height(preload.height), 
         $(caption).html(images[activeImage][1] || ""), $(number).html((images.length > 1 && options.counterText || "").replace(/{x}/, activeImage + 1).replace(/{y}/, images.length)), 
         prevImage >= 0 && (preloadPrev.src = images[prevImage][0]), nextImage >= 0 && (preloadNext.src = images[nextImage][0]), 
