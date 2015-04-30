@@ -3,6 +3,6 @@
  */
 //爱拍ajax接口配置
 define({
-    'get_img' : '/get_photos',
-    'praise' : '/praise'
+    'get_img' : 'get_photos',
+    'praise' : 'praise'
 });

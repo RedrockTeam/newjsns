@@ -4,5 +4,8 @@
  */
 
 define(['jquery', 'port'], function($, port){
-    console.log('litera_list init');
+    $(function(){
+        //console.log($('.js-content_filter').);
+        //$('.js-content_filter').text(  $('.js-content_filter').attr('data-content').replace(/<[^>]*>/gi, '') );
+    });
 });

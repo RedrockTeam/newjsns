@@ -17,7 +17,7 @@ define(['jquery', 'underscore', 'port'], function ($, _, port) {
             if ($(window).scrollTop() > 0) $('html,body').animate({scrollTop: 0});
             getImg();
         }
-
+        //alert(123);
         function getImg() {  //获取图片
             $.ajax({
                 url: port['get_img'],

@@ -17,7 +17,7 @@
                 </select>
         </div>
     <div class="form-group">
-        <label for="movie_cover">请上传影片截图</label>
+        <label for="movie_cover">请上传影片截图(218px X 130px)</label>
         <input type="file" name="cover_url" class="js-upload_movie" accept="image/gif, image/jpeg, image/png" id="movie_cover"/>
     </div>
     <div class="form-group">

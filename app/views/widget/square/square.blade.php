@@ -7,7 +7,7 @@
             <p class="u-title">
                 <a href="{{route('literature')}}">
                     <span>文学</span>
-                    <span>literature</span>
+                    <span>Literature</span>
                 </a>
             </p>
         </li>
@@ -16,7 +16,7 @@
             <p class="u-title">
                 <a href="{{route('photos')}}">
                     <span>爱拍</span>
-                    <span>photograph</span>
+                    <span>Photograph</span>
                 </a>
             </p>
         </li>
@@ -25,7 +25,7 @@
             <p class="u-title">
                 <a href="{{route('recommend')}}">
                     <span>读书·影逝</span>
-                    <span>read&movie</span>
+                    <span>Read&Movie</span>
                 </a>
             </p>
         </li>
@@ -34,7 +34,7 @@
             <p class="u-title">
                 <a href="{{route('micromovie')}}">
                     <span>微视</span>
-                    <span>micro film</span>
+                    <span>Micromoive</span>
                 </a>
             </p>
         </li>
@@ -43,7 +43,7 @@
             <p class="u-title">
                 <a href="{{route('original')}}">
                     <span>原味</span>
-                    <span>original</span>
+                    <span>Original</span>
                 </a>
             </p>
         </li>
@@ -52,7 +52,7 @@
             <p class="u-title">
                 <a href="{{route('personal')}}">
                     <span>个人中心</span>
-                    <span>personal</span>
+                    <span>Personal</span>
                 </a>
             </p>
         </li>

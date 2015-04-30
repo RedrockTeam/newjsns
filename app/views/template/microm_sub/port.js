@@ -3,7 +3,7 @@
  */
 //ajax接口配置
 define({
-    praise : '/praise',   //点赞
-    thread : '/thread',    //踩,
-    'comment' : 'home/comment/micromovie' //评论
+    praise : 'jsns/praise',   //点赞
+    thread : 'jsns/thread',    //踩,
+    'comment' : 'jsns/home/comment/micromovie' //评论
 });

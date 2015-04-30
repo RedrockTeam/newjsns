@@ -5,15 +5,17 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
                 <article class="s-article">
-                    <a href="litera_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"><h2 class="s-title">{{$work['title']}}</h2></a>
-                    <p class="s-content">{{{str_limit($work['content'], 300)}}}</p>
+                    <a class="s-content_wrap" href="litera_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}">
+                        <h2 class="s-title">{{$work['title']}}</h2>
+                        <p class="s-content">{{strip_tags($work['content'])}}</p>
+                    </a>
                 </article>
             </div>
         @elseif($work['table'] == 'micromovie' && isset($work['updated_at']))
             <div class="u-work_item s-item">
                     <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
                     <div class="s-article">
-                        <a href="microm_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"> <h2 class="s-title">{{$work['title']}}</h2></a>
+                        <a href="microm_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"> <h2 class="s-title">{{{$work['title']}}}</h2></a>
                         <p class="s-content">
                             <img src="{{$work['cover_url']}}" alt=""/>
                         </p>
@@ -46,21 +48,26 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <article class="s-article">
-                    <a href="litera_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{{$collection['title']}}}</h2></a>
-                    <p class="s-content">{{str_limit($collection['content'], 300)}}</p>
+                    <a href="litera_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}" class="s-content_wrap">
+                        <h2 class="s-title">{{{$collection['title']}}}</h2>
+                        <p class="s-content">{{strip_tags(str_limit($collection['content'], 300))}}</p>
+                    </a>
                 </article>
             </div>
         @elseif($collection['table'] == 'micromovie' && isset($collection['updated_at']))
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                 <div class="s-article">
-                    <a href="microm_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}"><h2 class="s-title">{{{$collection['title']}}}</h2></a>
-                    <p class="s-content">
-                        <img src="{{$collection['cover_url']}}" alt=""/>
-                    </p>
+                    <a href="microm_sub?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}" class="s-content_wrap">
+                         <h2 class="s-title">{{{$collection['title']}}}</h2>
+                        <p class="s-content">
+                                            <img src="{{$collection['cover_url']}}" alt=""/>
+                        </p>
+                    </a>
                 </div>
             </div>
         @else
+            @if(isset($collection['updated_at']))
             <div class="u-work_item s-item">
                 <a href="">
                     <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
@@ -71,7 +78,8 @@
                         </p>
                     </div>
                 </a>
-            </div>
+            </div>@else
+                @endif
         @endif
     @endforeach
         @else

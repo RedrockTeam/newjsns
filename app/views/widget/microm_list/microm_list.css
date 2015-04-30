@@ -2,11 +2,15 @@
 .m-movie_lists{
     margin-bottom: 66px;
 }
+
 .m-movie_lists .u-m_show_img {
     width: 218px;
     height: 130px;
     float: left;
     margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 .m-movie_lists .u-movie_item {
     padding: 18px 0;

@@ -19,7 +19,7 @@
     <h4 class="u-photos_title"><span>爱拍</span></h4>
     <ul class="m-but f-cb">
         @foreach($data as $nav)
-            <li {{$nav['active'] ? 's-active' : ''}}><a href="bookmovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
+            <li {{$nav['active'] ? 's-active' : ''}}><a href="photos?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
         <li><a href="">我要上传</a></li>
     </ul>
