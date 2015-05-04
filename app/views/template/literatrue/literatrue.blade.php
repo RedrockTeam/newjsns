@@ -31,7 +31,7 @@
            @foreach($data['navigation'] as $value)
             <li><a href="literature?type_id={{$value['id']}}">{{$value['type']}}</a></li>
            @endforeach
-            <li><a href="">我要上传</a></li>
+            <li><a href="{{route('home/uploads')}}">我要上传</a></li>
         </ul>
         @include("widget.litera_list.litera_list")
     </div>

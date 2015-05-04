@@ -39,7 +39,8 @@ class LoginController extends BaseController
                 'type_id'=>'3',
             );
             DB::table('group')->insert($role);
-            return Redirect::to('/');
+            $info = '注册成功';
+            return Redirect::back()->withErrors($info, 'login');
         }
         else{
             $info = '统一认证码或身份证后六位有误';

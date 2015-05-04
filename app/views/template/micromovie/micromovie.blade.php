@@ -23,7 +23,7 @@
             <li><a href="micromovie?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
         <li><a href="">最热</a></li>
-        <li class="s-active"><a href="">我要上传</a></li>
+        <li class="s-active"><a href="{{route('home/uploads')}}">我要上传</a></li>
     </ul>
     <div class="g-left f-fl ">
         @include("widget.microm_list.microm_list")

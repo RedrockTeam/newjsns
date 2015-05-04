@@ -21,7 +21,7 @@
         @foreach($data as $nav)
             <li {{$nav['active'] ? 's-active' : ''}}><a href="photos?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
-        <li><a href="">我要上传</a></li>
+        <li><a href="{{route('home/uploads')}}">我要上传</a></li>
     </ul>
     @include("widget.photos_list.photos_list")
 @stop
