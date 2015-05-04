@@ -2,7 +2,9 @@
     <dl class="m-ori_print_lists g-lists f-cb">
         <dt class="u-ori_header f-cb">
             <span class="s-title">{{$nav['type']}}</span>
-            <span class="u-link_more"><a href="?type_id={{$nav['id']}}">更多</a></span>
+            <span class="u-link_more">
+                <a href="{{route('original')}}?type_id={{$nav['id']}}">更多</a>
+            </span>
         </dt>
 
         @foreach($data['main'][$key] as $work)
