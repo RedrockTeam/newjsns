@@ -19,7 +19,7 @@ class LoginController extends BaseController
         $num = User::where('uid', '=', $input['stu_id'])->count();
         if($num!=0){
             $error = '你已注册';
-            return Redirect::back()->withErrors($error);
+            return Redirect::back()->withErrors($error, 'register');
         }
         $result = $this->get_register($input['stu_id'], $input['stu_pwd']);
         if ($result == $input['stu_id']) {
@@ -42,8 +42,8 @@ class LoginController extends BaseController
             return Redirect::to('/');
         }
         else{
-            $info = '用户名或密码错误';
-            return  Redirect::back()->withInput()->withErrors($info);
+            $info = '统一认证码或身份证后六位有误';
+            return  Redirect::back()->withInput()->withErrors($info, 'register');
         }
     }
 
@@ -57,7 +57,8 @@ class LoginController extends BaseController
              return Redirect::to('/')->withCookie(Cookie::forever('uid', $nickname['id']));
          }
         else{
-            return 'error';
+            $info = '用户名或密码错误';
+            return Redirect::back()->withInput()->withErrors($info, 'login');
         }
     }
 

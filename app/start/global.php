@@ -61,7 +61,8 @@ App::error(function(Exception $exception, $code)
             return Response::make('500', 500);
 
         default:
-            return Response::make('404', 404);
+            $content = View::make('admin.error');
+            return Response::make($content, 404);
     }
 
 }
