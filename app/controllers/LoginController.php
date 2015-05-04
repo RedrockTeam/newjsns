@@ -43,7 +43,7 @@ class LoginController extends BaseController
             return Redirect::back()->withErrors($info, 'login');
         }
         else{
-            $info = '统一认证码或身份证后六位有误';
+            $info = '统一认证码或密码有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
             return  Redirect::back()->withInput()->withErrors($info, 'register');
         }
     }

@@ -22,7 +22,7 @@
             @endforeach
         @endif
         <div class="f-pr"><input type="text" class="u-stu_id js-check" name="stu_id" data-check_type="stu_id"  placeholder="统一认证码"/><span class="s-error">+</span></div>
-        <div class="f-pr"><input type="password" class="u-stu_pwd js-check" name="stu_pwd" data-check_type="stu_pwd" placeholder="密码（身份证后六位）"/><span class="s-error">+</span></div>
+        <div class="f-pr"><input type="password" class="u-stu_pwd js-check" name="stu_pwd" data-check_type="stu_pwd" placeholder="密码为统一认证码密码"/><span class="s-error">+</span></div>
         <div class="f-pr"><input type="text" class="u-stu_nickname js-check" name="stu_nickname" data-check_type="stu_nickname" placeholder="昵称"/><span class="s-error">+</span></div>
         <input type="submit" value="注册"/>
     </form>
