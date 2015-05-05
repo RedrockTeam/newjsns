@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         <label for="movie_content">请填写影片URL</label>
-        <input type="text" class="form-control" name="url" id="movie_url" placeholder="影片链接"/>
+        <input type="text" class="form-control" name="url" id="movie_url" placeholder="影片链接(swf)"/>
     </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>

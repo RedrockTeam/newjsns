@@ -8,7 +8,6 @@
             <img class="thumb_img"  src="<%= data.img_src%>"/>
             <p class="u-name"><%= data.img_name ? data.img_name : 'unkown'%></p>
         </a>
-        <%console.log(124)%>
         <%for(var i = 0; i < data.img_detail.length; i++){%>
             <a class="js-link" style="display: none" href="<%= data.img_detail[i].img_src %>" title="<%= data.img_detail[i].img_desc%>"></a>
         <%}%>
