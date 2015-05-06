@@ -14,11 +14,12 @@ require.config({
         port : '../template/bookmovie/port',
         bookm_list : '../widget/bookm_list/bookm_list',
         go_top : '../widget/go_top/go_top',
-        praise : '../widget/js_widget/praise'   //点赞
+        praise : '../widget/js_widget/praise,'   //点赞
+        footer : '../widget/footer/footer'
     }
 });
 //加载依赖项
-define(['jquery','bookm_list', 'go_top', 'praise'], function($){
+define(['jquery','bookm_list', 'go_top', 'praise', 'footer'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';

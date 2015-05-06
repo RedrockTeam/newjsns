@@ -14,10 +14,11 @@ require.config({
         go_top: "../widget/go_top/go_top",
         login_box: "../widget/login-register-case/login-register-case",
         ori_model: "../widget/ori_model/ori_model",
-        underscore: "underscore"
+        underscore: "underscore",
+        footer: "../widget/footer/footer"
     }
 }), //加载依赖项
-define([ "go_top", "login_box", "ori_model", "underscore" ], function() {
+define([ "go_top", "login_box", "ori_model", "underscore", "footer" ], function() {
     $(function() {
         //关闭登陆框
         /*----------------------事件处理函数--------------------*/

@@ -15,3 +15,10 @@
     /*position: absolute;*/
     bottom: 0;
 }
+
+.s-tip{
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+    font-family: "microsoft yahei";
+}

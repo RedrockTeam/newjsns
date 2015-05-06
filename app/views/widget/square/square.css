@@ -93,18 +93,22 @@
     top: 31px;
 }
 /*个人中心*/
-.m-home_square .u-squares .u-square_item:nth-child(6){
-    right: 31px;
-    top: 136px;
-}
+/*.m-home_square .u-squares .u-square_item:nth-child(6){*/
+    /*right: 31px;*/
+    /*top: 138px;*/
+    /*background: #48e073;*/
+/*}*/
+/*.m-home_square .u-squares .u-square_item:nth-child(6) .s-wrap{*/
+    /*background: #48e073;*/
+/*}*/
 /*登陆注册*/
-.m-home_square .u-squares .u-square_item:nth-child(7){
+.m-home_square .u-squares .u-square_item:nth-child(6){
     left: 348px;
     top: 243px;
 }
-.m-home_square .u-squares .u-square_item:nth-child(7) a{
+.m-home_square .u-squares .u-square_item:nth-child(6) a{
     background: none;
 }
-.m-home_square .u-squares .u-square_item:nth-child(7) .u-title{
+.m-home_square .u-squares .u-square_item:nth-child(6) .u-title{
     top: 67px;
 }
