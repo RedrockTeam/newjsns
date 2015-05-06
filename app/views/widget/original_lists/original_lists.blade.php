@@ -12,7 +12,7 @@
 
                 <div href="#"  class="s-c @if($work['type_id'] == 16 || $work['type_id'] == 17){{"js-open_model"}}@endif" data-type_id="{{$work['type_id']}}" data-passage_id="{{$work['id']}}" data-love_num="{{$work['love_num']}}" data-intro="{{$work['introduce']}}" data-author="{{$work['author']}}" data-uid="{{$work['uid']}}" data-url="{{$work['url']}}" >
 
-                    <div style="background-image: url('{{$work["cover_url"]}}')" class="u-img_show js-bac_url" data-url="{{$work["cover_url"]}}"></div>
+                    <div style="background-image: url('{{$work["cover_url"]}}')" class="u-img_show js-bac_url" data-url="{{strip_tags($work["cover_url"])}}"></div>
                     <span class="u-list_name">{{{$work['title']}}}</span>
                 </div>
             </dd>
