@@ -6,8 +6,8 @@
             <div class="u-img_show" style="background-image: url('{{$value["cover"]}}')"> </div>
             <article class="u-content">
                 <div class="u-content_h">
-                    <h5>{{$value['title']}}</h5>
-                    <span>{{$value['user']['username']}}</span>
+                    <h5>{{{$value['title']}}}</h5>
+                    <span>文/{{{$value['user']['username']}}}</span>
                 </div>
                 <div class="u-content-omit">
                     <a class="js-stop_copy js-content_filter" href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}" data-content="">
