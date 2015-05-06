@@ -5,7 +5,7 @@
             <div class="u-work_item s-item">
                 <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
                 <article class="s-article">
-                    <a class="s-content_wrap" href="litera_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}">
+                    <a class="s-content_wrap" href="{{route('litera_sub')}}?passage_id={{$work['id']}}&type_id={{$work['type_id']}}">
                         <h2 class="s-title">{{$work['title']}}</h2>
                         <p class="s-content">{{strip_tags($work['content'])}}</p>
                     </a>
@@ -15,14 +15,14 @@
             <div class="u-work_item s-item">
                     <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
                     <div class="s-article">
-                        <a href="microm_sub?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"> <h2 class="s-title">{{{$work['title']}}}</h2></a>
+                        <a href="{{route('microm_sub')}}?passage_id={{$work['id']}}&type_id={{$work['type_id']}}"> <h2 class="s-title">{{{$work['title']}}}</h2></a>
                         <p class="s-content">
                             <img src="{{$work['cover_url']}}" alt=""/>
                         </p>
                     </div>
                 </div>
         @else
-            @if( isset($collection['updated_at']))
+            @if( isset($work['updated_at']))
             <div class="u-work_item s-item">
                 <a href="">
                     <h6 class="u-work_date s-date">{{$work['updated_at']}}</h6>
@@ -74,13 +74,14 @@
                 <a href="{{route('photos')}}">
                     <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
                     <div class="s-article">
-                        <h2 class="s-title">{{{$collection['title']}}}</h2>
+                        <h2 class="s-title">{{{$collection['album_name']}}}</h2>
                         <p class="s-content">
-                            <img src="{{$collection['url']}}" alt=""/>
+                            {{--<img src="{{$collection['url']}}" alt=""/>--}}
                         </p>
                     </div>
                 </a>
-            </div>@else
+            </div>
+                @else
                 @endif
         @endif
     @endforeach
