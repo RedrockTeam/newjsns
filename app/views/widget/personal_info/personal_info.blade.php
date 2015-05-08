@@ -26,7 +26,7 @@
     <div class="m-change_info js-change_box">
         <form action="{{route('home/personal/personalinfo')}}" class="f-cb js-change_form">
             <div class="u-change_header_icon f-cb">
-                <img src="" alt="" class="u-show_icon f-fl js-header_icon" />
+                <img src="{{$data['user_info']['head']}}" alt="" class="u-show_icon f-fl js-header_icon" />
                 <div class="f-fl upload" >
                     <label for="upload_icon" class="f-fl">
                         支持JGP、PNG、BMP格式
