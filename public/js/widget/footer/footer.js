@@ -1,1 +1,9 @@
-define(["jquery"],function(B){var A=document.documentElement.clientHeight;A=A-B(".g-top_bar").height()-B(".g-header").height()-2*parseFloat(B(".g-container").css("margin-top"))-B(".g-footer")[0].offsetHeight,B(".g-container").css("min-height",A)});
+/**
+ * Created by redrock on 2015/4/29.
+ */
+define([ "jquery" ], function($) {
+    //console.log(document.body.clientHeight);
+    var h = document.documentElement.clientHeight;
+    h = h - $(".g-top_bar").height() - $(".g-header").height() - (parseFloat($(".g-container").css("margin-top")) + parseFloat($(".g-container").css("margin-bottom"))) - $(".g-footer")[0].offsetHeight, 
+    $(".g-container").css("min-height", h);
+});
