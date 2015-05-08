@@ -46,7 +46,7 @@
              </div>
             <div class="u-chnage_user_signatrue s-input">
                 <label for="change-user_signatrue">个性签名</label>
-                <textarea type="text" id="change-user_signatrue" class="js-user_signatrue" value="{{$data['user_info']['introduce']}}"  name="signatrue"></textarea>
+                <textarea type="text" id="change-user_signatrue" class="js-user_signatrue" name="signatrue">{{$data['user_info']['introduce']}}</textarea>
             </div>
             <input type="submit" value="保存" class="f-fr"/>
         </form>
