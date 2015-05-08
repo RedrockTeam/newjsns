@@ -376,7 +376,24 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
                     stats = uploader.getStats();
                     if ( stats.successNum ) {
                         alert( '上传成功' );
-                        $('.js-form_photo')[0].submit();
+                        var f = $('.js-form_photo')[0];
+                        if(f.ablum_name.value.length < 1){
+                           $(  f.ablum_name ).css('border-color', 'red');
+                            alert('请填写标题!!!!');
+                            return false;
+                        }else{
+                            $( f.ablum_name ).css('border-color', '#ccc');
+                        }
+
+                        if(f.introduce.value.length < 1){
+                            $( f.introduce ).css('border-color', 'red');
+                            alert('请填写简介！！！');
+                            return false;
+                        }else{
+                            $( f.introduce ).css('border-color', '#ccc');
+                        }
+
+                        f.submit();
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';
