@@ -35,7 +35,7 @@ define(['jquery', 'port'], function($, port){
                 ev.preventDefault();
             }
         }
-        
+
         function check(map){
             var $self = $(this),
                 returnValue = true,

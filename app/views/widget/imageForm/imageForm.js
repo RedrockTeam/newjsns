@@ -21,7 +21,7 @@ define(['jqueryPack', 'imageSelect'], function(){
         function setPluginCrop($ele){
             $ele.imgAreaSelect({
                 aspectRatio: '1:1',
-                resizable : false,
+                resizable : true,
                 maxHeight : '94',
                 maxWidth : '94',
                 minWidth : '94',
@@ -29,7 +29,6 @@ define(['jqueryPack', 'imageSelect'], function(){
                 onSelectChange: preview
             });
         }
-
         /*选择框事件处理*/
         function preview(img, selection){
             $('.js-crop_form #x1').val(selection.x1);
