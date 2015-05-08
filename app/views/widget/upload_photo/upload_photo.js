@@ -105,10 +105,12 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
 
         // 实例化
         uploader = WebUploader.create({
-            pick: {
-                id: '#filePicker',
-                label: '点击选择图片'
-            },
+            pick:(function(){
+                return  {
+                    id: '#filePicker',
+                    label: '点击选择图片'
+                };
+            })(),
             dnd: '#dndArea',
             paste: '#uploader',
             swf: '../public/complexPlugin/webuploader/dist/Uploader.swf',
@@ -391,8 +393,7 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
                         }else{
                             $( f.introduce ).css('border-color', '#ccc');
                         }
-
-                        f.submit();
+                        $('.js-form_photo')[0].submit();
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';
@@ -463,6 +464,24 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
         };
 
         $upload.on('click', function() {
+            alert(5426);
+            var f = $('.js-form_photo')[0];
+            if(f.ablum_name.value.length < 1){
+                $(  f.ablum_name ).css('border-color', 'red');
+                alert('请填写标题!!!!');
+                return false;
+            }else{
+                $( f.ablum_name ).css('border-color', '#ccc');
+            }
+
+            if(f.introduce.value.length < 1){
+                $( f.introduce ).css('border-color', 'red');
+                alert('请填写简介！！！');
+                return false;
+            }else{
+                $( f.introduce ).css('border-color', '#ccc');
+            }
+
             if ( $(this).hasClass( 'disabled' ) ) {
                 return false;
             }

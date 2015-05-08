@@ -160,7 +160,7 @@ require([ "jquery", "webuploader" ], function($, WebUploader) {
                         alert("请填写标题!!!!"), !1;
                         if ($(f.ablum_name).css("border-color", "#ccc"), f.introduce.value.length < 1) return $(f.introduce).css("border-color", "red"), 
                         alert("请填写简介！！！"), !1;
-                        $(f.introduce).css("border-color", "#ccc"), f.submit();
+                        $(f.introduce).css("border-color", "#ccc"), $(".js-form_photo")[0].submit();
                     } else // 没有成功的图片，重设
                     state = "done", location.reload();
                 }
@@ -185,10 +185,12 @@ require([ "jquery", "webuploader" ], function($, WebUploader) {
         }();
         // 实例化
         uploader = WebUploader.create({
-            pick: {
-                id: "#filePicker",
-                label: "点击选择图片"
-            },
+            pick: function() {
+                return {
+                    id: "#filePicker",
+                    label: "点击选择图片"
+                };
+            }(),
             dnd: "#dndArea",
             paste: "#uploader",
             swf: "../public/complexPlugin/webuploader/dist/Uploader.swf",
@@ -232,7 +234,11 @@ require([ "jquery", "webuploader" ], function($, WebUploader) {
         }), uploader.onError = function(code) {
             alert("Eroor: " + code);
         }, $upload.on("click", function() {
-            return $(this).hasClass("disabled") ? !1 : void ("ready" === state ? uploader.upload() : "paused" === state ? uploader.upload() : "uploading" === state && uploader.stop());
+            alert(5426);
+            var f = $(".js-form_photo")[0];
+            return f.ablum_name.value.length < 1 ? ($(f.ablum_name).css("border-color", "red"), 
+            alert("请填写标题!!!!"), !1) : ($(f.ablum_name).css("border-color", "#ccc"), f.introduce.value.length < 1 ? ($(f.introduce).css("border-color", "red"), 
+            alert("请填写简介！！！"), !1) : ($(f.introduce).css("border-color", "#ccc"), $(this).hasClass("disabled") ? !1 : void ("ready" === state ? uploader.upload() : "paused" === state ? uploader.upload() : "uploading" === state && uploader.stop())));
         }), $info.on("click", ".retry", function() {
             uploader.retry();
         }), $info.on("click", ".ignore", function() {
