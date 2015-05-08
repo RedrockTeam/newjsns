@@ -11,7 +11,6 @@ require.config({
     paths: {
         jquery: "jquery",
         port: "../template/uploads/port",
-        uploadify: "../../complexPlugin/uploadify/jquery.uploadify",
         upload_photo: "../widget/upload_photo/upload_photo",
         upload_movie: "../widget/upload_movie/upload_movie",
         webuploader: "../../complexPlugin/webuploader/dist/webuploader.flashonly",
@@ -21,7 +20,7 @@ require.config({
         upload_ori: "../widget/upload_ori/upload_ori"
     }
 }), //加载依赖项
-define([ "jquery", "upload_photo", "upload_passage", "bootstrap", "summernote", "upload_ori" ], function($) {
+define([ "jquery", "upload_photo", "upload_passage", "bootstrap", "summernote", "upload_ori", "upload_movie" ], function($) {
     $(function() {
         function switchTab(ev, btn) {
             ev.preventDefault();

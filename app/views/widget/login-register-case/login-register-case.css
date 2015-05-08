@@ -1,7 +1,7 @@
 /*created by redrock*/
 .m-login-register-case {
     width: 502px;
-    height: 302px;
+    /*height: 302px;*/
     margin: 0 auto;
     background: #fff;
     border-radius: 10px;
@@ -35,6 +35,7 @@
 .s-form{
     display: block;
     width: 330px;
+    padding-bottom: 5px;
     margin: 20px auto;
 }
 .s-form .s-error {
@@ -96,4 +97,16 @@
 .u-register{
     display: none;
 }
+.alert-warning{
+    color: red;
+}
+.s-find_pwd{
+    margin-top: 10px;
+    float: right;
+    color: #006600;
+}
 
+.s-err_info{
+    text-align: center;
+    margin-top: 10px;
+}
