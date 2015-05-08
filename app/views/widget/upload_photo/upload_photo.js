@@ -117,7 +117,7 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
             chunked: true,
             // runtimeOrder: 'flash',
             sendAsBinary: true,
-            server: 'public/complexPlugin/webuploader/server/fileupload.php',
+            server: '../public/complexPlugin/webuploader/server/fileupload.php',
             // server: 'http://liaoxuezhi.fe.baidu.com/webupload/fileupload.php',
             // server: 'http://www.2betop.net/fileupload.php',
             fileNumLimit: 300,
