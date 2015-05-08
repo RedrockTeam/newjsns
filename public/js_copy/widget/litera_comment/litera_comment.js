@@ -1,0 +1,1 @@
+define(["jquery"],function(){console.log("litera_comment init")});

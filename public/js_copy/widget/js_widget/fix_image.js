@@ -1,0 +1,1 @@
+define(["jquery"],function(A){A(function(){function C(){var E=A(this),H=E.width(),J=E.height(),F=H/J,D=E.parent(".js-fix_image_parent"),K=D.width(),I=D.height(),G=K/F,L=I*F;G>=I?(alert(1),E.css({width:K,height:G})):L>=K?(alert(2),E.css({width:L,height:I})):alert(3)}var B=A(".js-fix_image");B.each(function(D,E){E.complete?C.call(A(E)):E.onload=C})})});

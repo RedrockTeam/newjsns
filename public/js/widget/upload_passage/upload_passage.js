@@ -1,1 +1,1 @@
-define(["jquery"],function(A){A(function(){A(".js-form_passage").on("submit",function(B){B.preventDefault(),A(".js-hidden_content").text(A(".note-editable").html()),A(this)[0].submit()})})});
+define(["jquery"],function(B){B(function(){B(".js-form_passage").on("submit",function(A){A.preventDefault(),B(".js-hidden_content").text(B(".note-editable").html()),B(this)[0].submit()})})});

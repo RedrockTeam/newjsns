@@ -1,0 +1,1 @@
+define({get_img:"get_photos",praise:"praise"});

@@ -1,11 +1,1 @@
-/**
- * Created by redrock on 2015/4/22.
- */
-define([ "jquery" ], function($) {
-    $(function() {
-        $(".js-ori_type").on("change", function() {
-            17 == this.value ? ($(".js-type_work label").text("请上传作品"), $(".js-type_link").hide()) : ($(".js-type_work label").text("请上传封面"), 
-            $(".js-type_link").show());
-        });
-    });
-});
+define(["jquery"],function(A){A(function(){A(".js-ori_type").on("change",function(){17==this.value?(A(".js-type_work label").text("请上传作品"),A(".js-type_link").hide()):(A(".js-type_work label").text("请上传封面"),A(".js-type_link").show())})})});

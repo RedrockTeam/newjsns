@@ -1,1 +1,1 @@
-define(["jquery"],function(C){function B(){A()}function A(){C("html, body").css({})}C(".js-reply_btn").on("click",B)});
+define(["jquery"],function(E){function D(){F()}function F(){E("html, body").css({})}E(".js-reply_btn").on("click",D)});

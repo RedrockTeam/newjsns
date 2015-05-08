@@ -1,1 +1,1 @@
-define(["jquery"],function(A){A(function(){A(".js-stop_copy").on("copy",function(B){B.preventDefault()})})});
+define(["jquery"],function(B){B(function(){B(".js-stop_copy").on("copy",function(A){A.preventDefault()})})});
