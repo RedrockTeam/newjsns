@@ -7,7 +7,7 @@
                 <article class="s-article">
                     <a class="s-content_wrap" href="{{route('litera_sub')}}?passage_id={{$work['id']}}&type_id={{$work['type_id']}}">
                         <h2 class="s-title">{{$work['title']}}</h2>
-                        <p class="s-content">{{strip_tags($work['content'])}}</p>
+                        <p class="s-content">{{str_limit(strip_tags($work['content']), 100, '...')}}</p>
                     </a>
                 </article>
             </div>
@@ -51,7 +51,7 @@
                         <article class="s-article">
                             <a href="{{route('litera_sub')}}?passage_id={{$collection['id']}}&type_id={{$collection['type_id']}}" class="s-content_wrap">
                                 <h2 class="s-title">{{{$collection['title']}}}</h2>
-                                <p class="s-content">{{strip_tags(str_limit($collection['content'], 300))}}</p>
+                                <p class="s-content">{{str_limit(strip_tags($collection['content']), 100)}}</p>
                             </a>
                         </article>
                     </div>
