@@ -7,8 +7,6 @@ define(['jquery'], function($){
             ev.preventDefault();
             var $self = $(this);
             var c;
-
-            console.log();
             if($self[0].title.value.length < 1){
                 $( $self[0].title ).css('border-color', 'red');
                 alert('请填写标题!!!');
@@ -16,6 +14,12 @@ define(['jquery'], function($){
             }else{
                 $( $self[0].title ).css('border-color', '#ccc');
             }
+
+            if($self[0].cover.value.length < 1){
+                alert('请上传封面!!!');
+                return false;
+            }
+
             if( (c = $('.note-editable').html().replace(/\s/gi, '') ).length < 1  ){
                 alert('请填写内容塞！！！');
                 return false;

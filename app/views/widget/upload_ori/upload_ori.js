@@ -25,6 +25,11 @@ define(['jquery'], function($){
                 $( $self[0].title ).css('border-color', '#ccc');
             }
 
+            if($self[0].cover.value.length < 1){
+                alert('请上传封面!!!!');
+                return false;
+            }
+
             if($self[0].cover.length < 1){
                 alert('上传封面!!!!!');
                 return false;
