@@ -84,8 +84,8 @@ class PersonalController extends BaseController {
     //裁剪头像
     public function uploadHeadCut() {
         $data = Input::all();
-        $data['width'] = $data['width'] > 400? $data['width'] : 400;
-        $data['height'] = $data['height'] > 400? $data['height'] : 400;
+        $data['width'] = $data['width'] < 400? $data['width'] : 400;
+        $data['height'] = $data['height'] < 400? $data['height'] : 400;
         $img = Image::make(Session::get('headpath'));
         $img->crop($data['width'], $data['height'], $data['x1'], $data['y1']);
         $img->save(Session::get('headpath'));
