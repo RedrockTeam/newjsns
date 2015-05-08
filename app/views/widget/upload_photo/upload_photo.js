@@ -464,7 +464,6 @@ require([ 'jquery','webuploader' ], function( $,WebUploader ) {
         };
 
         $upload.on('click', function() {
-            alert(5426);
             var f = $('.js-form_photo')[0];
             if(f.ablum_name.value.length < 1){
                 $(  f.ablum_name ).css('border-color', 'red');

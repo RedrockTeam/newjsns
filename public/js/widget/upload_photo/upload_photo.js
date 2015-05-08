@@ -234,7 +234,6 @@ require([ "jquery", "webuploader" ], function($, WebUploader) {
         }), uploader.onError = function(code) {
             alert("Eroor: " + code);
         }, $upload.on("click", function() {
-            alert(5426);
             var f = $(".js-form_photo")[0];
             return f.ablum_name.value.length < 1 ? ($(f.ablum_name).css("border-color", "red"), 
             alert("请填写标题!!!!"), !1) : ($(f.ablum_name).css("border-color", "#ccc"), f.introduce.value.length < 1 ? ($(f.introduce).css("border-color", "red"), 
