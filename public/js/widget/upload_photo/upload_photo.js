@@ -197,7 +197,7 @@ require([ "jquery", "webuploader" ], function($, WebUploader) {
             chunked: !0,
             // runtimeOrder: 'flash',
             sendAsBinary: !0,
-            server: "/updateAlbum",
+            server: uploadpath,
             // server: 'http://liaoxuezhi.fe.baidu.com/webupload/fileupload.php',
             // server: 'http://www.2betop.net/fileupload.php',
             fileNumLimit: 300,
