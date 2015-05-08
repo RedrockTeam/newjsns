@@ -8,10 +8,10 @@ define([ "jqueryPack", "imageSelect" ], function() {
             $ele.imgAreaSelect({
                 aspectRatio: "1:1",
                 resizable: !0,
-                maxHeight: "94",
-                maxWidth: "94",
-                minWidth: "94",
-                minHeight: "94",
+                //maxHeight : '94',
+                //maxWidth : '94',
+                //minWidth : '94',
+                //minHeight : '94',
                 onSelectChange: preview
             });
         }
