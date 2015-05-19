@@ -91,7 +91,7 @@ class PersonalController extends BaseController {
         $img->save(Session::get('headpath'));
         $update = array('head'=>Session::get('headpath'));
         User::where('id', '=',  Session::get('uid'))->update($update);
-        return Redirect::back();
+        return Redirect::to('personal');
     }
     //修改资料
     public function editPersonalInfo(){
