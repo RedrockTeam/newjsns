@@ -55,7 +55,7 @@ class LoginController extends BaseController
              $nickname = User::where('uid', '=', $input['username'])->first();
              Session::put('nickname', $nickname['username']);
              Session::put('uid', $nickname['id']);
-             return Redirect::to('/')->withCookie(Cookie::forever('uid', $nickname['id']));
+             return Redirect::to('/');
          }
         else{
             $info = '用户名或密码错误';
@@ -69,7 +69,7 @@ class LoginController extends BaseController
         $this->password = $password;
         $this->rules = array(
             'username' => 'required',
-            'password' =>' required|min:6|max:18',
+            'password' =>' required',
         );
 
         $data = array(

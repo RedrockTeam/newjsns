@@ -31,7 +31,7 @@ class PhotosController extends BaseController {
         $data = Input::all();
         if(!isset($data['type'])) {
             $updateAlbum = array(
-                'album_name' => $data['ablum_name'],
+                'album_name' => e(strip_tags($data['ablum_name'])),
                 'type_id' => $data['photo_type'],
                 'album_cover' => Session::get('cover')
             );
