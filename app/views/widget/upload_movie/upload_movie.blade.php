@@ -26,6 +26,7 @@
     </div>
     <button type="submit" class="btn btn-default">确定</button>
 </form>
+
 @section("css")
     @parent
     {{HTML::style("public/css/widget/upload_movie/upload_movie.css")}}

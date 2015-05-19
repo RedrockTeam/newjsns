@@ -1,1 +1,1 @@
-define(["jquery"],function(A){A(function(){alert(3463)})});
+define(["jquery"],function(a){a(function(){alert(3463)})});

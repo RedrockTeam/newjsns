@@ -1,1 +1,1 @@
-define(["jquery","ueditorConfig","ueditorAll"],function(B){B(function(){var D=UE.getEditor("container"),A=B(".js-form_ueditor");A.on("click",function(C){C.preventDefault(),console.log(D.getContent())})})});
+define(["jquery","ueditorConfig","ueditorAll"],function(a){a(function(){var b=UE.getEditor("container"),c=a(".js-form_ueditor");c.on("click",function(a){a.preventDefault(),console.log(b.getContent())})})});

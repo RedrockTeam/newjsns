@@ -29,7 +29,8 @@ define(['photos_list', 'go_top', 'load_img', 'login_box', 'praise', 'footer'], f
     $('.js-open_login_box').on('click', openBox);                //打开登陆框
     $('.js-close_login_box, .js-login_box').on('click', closeBox);//关闭登陆框
     /*----------------------事件处理函数--------------------*/
-    function openBox(){
+    function openBox(ev){
+        ev.preventDefault();
         $('.js-login_box').css('display', 'block');
     }
 
