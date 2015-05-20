@@ -2,7 +2,7 @@
     <div class="g-orm f-fl">
         <div class="m-orc">
             <img src="" alt="" class="js-model_show"/>
-            <div class="m-ocb"><span class="text">怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的怀念高三苦逼的岁月</span><span class="love js-collect"><i class="fa fa-heart"></i>(<span class="js-love_num"></span>)</span></div>
+            <div class="m-ocb"><span class="text js-model_name"></span><span class="love js-collect"><i class="fa fa-heart"></i>(<span class="js-love_num"></span>)</span></div>
         </div>
         <a href="" class="s-m_link js-more_link">查看详情</a>
         <p class="u-ainfo">作者:<span class="js-author"></span>  <span class="js-introduce"></span> </p>

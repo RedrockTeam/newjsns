@@ -50,6 +50,8 @@
     bottom: 0;
     width: 112px;
     text-align: center;
+    height: 12px;
+    overflow: hidden;
 }
 .g-lists .u-list_item .u-img_show{
     width: 110px;
