@@ -3,12 +3,10 @@
  */
 define(['jquery'], function($){
     $(function(){
-        var type = 0;
         $('.js-ori_type').on('change', function(){
             if(this.value == 17 ){
                 $('.js-type_work label').text('请上传作品');
                 $('.js-type_link').hide();
-                type = 1;
             }else{
                 $('.js-type_work label').text('请上传封面');
                 $('.js-type_link').show();
@@ -35,14 +33,6 @@ define(['jquery'], function($){
             if($self[0].cover.length < 1){
                 alert('上传封面!!!!!');
                 return false;
-            }
-
-            if(type == 1 && $self[0].url.value.length < 1){
-                $( $self[0].url ).css('border-color', 'red');
-                alert('请填写链接!!!');
-                return false;
-            }else{
-                $( $self[0].url ).css('border-color', '#ccc');
             }
 
             if($self[0].introduce.value.length < 1){

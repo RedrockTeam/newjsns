@@ -6,6 +6,7 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    padding-bottom: 1px;
 }
 .u-tabs li{
     width: 50%;
@@ -103,7 +104,12 @@
 .s-find_pwd{
     margin-top: 10px;
     float: right;
-    color: #006600;
+    color: #6ae56d;
+    text-decoration: none;
+}
+
+.s-find_pwd:hover{
+    text-decoration: underline;
 }
 
 .s-err_info{
