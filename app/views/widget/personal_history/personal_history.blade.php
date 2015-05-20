@@ -82,7 +82,7 @@
                 {{--</a>--}}
             {{--</div>--}}
                 {{--@else--}}
-                @endif
+                {{--@endif--}}
         @endif
     @endforeach
         @else
