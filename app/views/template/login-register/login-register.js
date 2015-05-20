@@ -17,7 +17,7 @@ define(['login-register-case'], function(){
     /*----------------------打开与关闭登陆框-----------------*/
     $('.js-open_login_box').on('click', openBox);                //打开登陆框
     /*----------------------事件处理函数--------------------*/
-    function openBox(){
+    function openBox(ev){
         $('.js-login_box').css('display', 'block');
     }
 });

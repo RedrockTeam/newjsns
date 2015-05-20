@@ -1,9 +1,1 @@
-/**
- * Created by redrock on 2015/4/29.
- */
-define([ "jquery" ], function($) {
-    //console.log(document.body.clientHeight);
-    var h = document.documentElement.clientHeight;
-    h = h - $(".g-top_bar").height() - $(".g-header").height() - (parseFloat($(".g-container").css("margin-top")) + parseFloat($(".g-container").css("margin-bottom"))) - $(".g-footer")[0].offsetHeight, 
-    $(".g-container").css("min-height", h);
-});
+define(["jquery"],function(a){var b=document.documentElement.clientHeight;b=b-a(".g-top_bar").height()-a(".g-header").height()-(parseFloat(a(".g-container").css("margin-top"))+parseFloat(a(".g-container").css("margin-bottom")))-a(".g-footer")[0].offsetHeight,a(".g-container").css("min-height",b)});

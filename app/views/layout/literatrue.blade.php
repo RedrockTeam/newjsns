@@ -33,11 +33,6 @@
 <section class="g-go_top">
     @yield("go_top")
 </section>
-{{--widget 登陆框--}}
-<section class="g-login_box js-login_box">
-    @yield("login_box")
-</section>
-
 </body>
 @yield("script")
 </html>

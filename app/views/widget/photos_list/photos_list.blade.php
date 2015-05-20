@@ -4,7 +4,7 @@
 {{--template 模板--}}
 <script type="text/template" id="js-photo_temp">
      <div class="wf_item_inner">
-        <a href="<%= data.img_src%>" class="thumb js-open_box js-link" target="_blank" title="<%= data.img_desc%>" data-type="<%= data.img_type%>">
+        <a href="<%= data.img_src%>" class="thumb js-open_box" target="_blank" title="<%= data.img_desc%>" data-type="<%= data.img_type%>">
             <img class="thumb_img"  src="<%= data.img_src%>"/>
             <p class="u-name"><%= data.img_name ? data.img_name : 'unkown'%></p>
         </a>

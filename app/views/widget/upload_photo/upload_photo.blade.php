@@ -52,6 +52,7 @@
   </div>
 </form>
 <script>var uploadpath = "{{route('home/upload')}}";</script>
+
 @section("css")
     @parent
     {{HTML::style("public/css/widget/upload_photo/upload_photo.css")}}
