@@ -13,9 +13,6 @@
 /*-------------------------------------------------blade 测试---------------------*/
 #首页
 Route::get('jsns', array('as' => 'index', 'uses' => 'IndexController@index'));
-Route::get('test11', function(){
-   return Hash::make('1634300');
-});
 #原味
 Route::get('original', array('as' => 'original', 'uses' => 'OriginalController@originalIndex'));
 //原味标签搜索
