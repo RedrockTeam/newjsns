@@ -7,8 +7,8 @@
             <article class="u-content">
                 <div class="u-content_h">
                    <a href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}">
-                        <h5>{{{$value['title']}}}</h5>
-                        <span>文/{{{$value['user']['username']}}}</span>
+                     <h5>{{{$value['title']}}}</h5>
+                     <span>文/{{{$value['user']['username']}}}</span>
                    </a>
                 </div>
                 <div class="u-content-omit">
@@ -16,15 +16,9 @@
                        {{str_limit(strip_tags($value['content']), 250, '...')}}
                     </a>
                     <div class="u-litera_user_action f-cb">
-                        <div class="show_litera_love js-praise" data-type_id="{{$value['type_id']}}" data-passage_id="{{$value['id']}}">
-                             <a  href="javascript:void(0)" class="js-num">
-                                                     ({{$value['love_num']}})
-                             </a>
-                        </div>
+                        <div class="show_litera_love js-praise" data-type_id="{{$value['type_id']}}" data-passage_id="{{$value['id']}}"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$value['love_num']}})</span></div>
                         <div class="show_litera-comments">
-                                                    <a href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}">
-                                                        ({{$value['comment_num']}})
-                                                    </a>
+                                                    <a href="litera_sub?passage_id={{$value['id']}}&type_id={{$value['type_id']}}">({{$value['comment_num']}})</a>
                         </div>
                     </div>
                 </div>
