@@ -14,23 +14,22 @@ class LoginController extends BaseController
         return View::make("template.login-register.login-register");
     }
     //注册
-    public function register(){
-        $input = Input::all();
-        $num = User::where('uid', '=', $input['stu_id'])->count();
+    private function register($input){
+        $num = User::where('uid', '=', $input['username'])->count();
         if($num!=0){
             $error = '你已注册';
             return Redirect::back()->withErrors($error, 'register');
         }
-        $result = $this->get_register($input['stu_id'], $input['stu_pwd']);
-        if ($result == $input['stu_id']) {
-            $num = User::where('uid', '=', $input['stu_id'])->count();
+        $result = $this->get_register($input['username'], $input['password']);
+        if ($result == $input['username']) {
+            $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
                 return 'error';
             }
             $data = array(
-                'username' => $input['stu_nickname'],
-                'uid' => $input['stu_id'],
-                'password' => Hash::make($input['stu_pwd']),
+                'username' => $input['username'],
+                'uid' => $input['username'],
+                'password' => Hash::make($input['username']),
                 'status' => 1
             );
             $uid = User::create($data);
@@ -39,8 +38,7 @@ class LoginController extends BaseController
                 'type_id'=>'3',
             );
             DB::table('group')->insert($role);
-            $info = '注册成功';
-            return Redirect::back()->withErrors($info, 'login');
+            return true;
         }
         else{
             $info = '统一认证码或密码有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
@@ -50,13 +48,45 @@ class LoginController extends BaseController
 
     //登陆
     public function login(){
-        $input = Input::all();
-         if($this->verify($input['username'], $input['password'])){
-             $nickname = User::where('uid', '=', $input['username'])->first();
-             Session::put('nickname', $nickname['username']);
-             Session::put('uid', $nickname['id']);
-             return Redirect::to('/');
+         $input = Input::all();
+         $num = User::where('uid', '=', $input['username'])->count();
+         if($num > 0) {
+             $result = $this->get_register($input['username'], $input['password']);
+
+             if ($result == $input['username']) {
+                 if ($this->verify($input['username'], $input['username'])) {
+                     $nickname = User::where('uid', '=', $input['username'])->first();
+                     Session::put('nickname', $nickname['username']);
+                     Session::put('uid', $nickname['id']);
+                     return Redirect::to('/');
+                 }
+                 else{
+                     $info = '用户名或密码错误';
+                     return Redirect::back()->withInput()->withErrors($info, 'login');
+                 }
+             }
+             else{
+                 $info = '用户名或密码错误';
+                 return Redirect::back()->withInput()->withErrors($info, 'login');
+             }
          }
+         elseif($num <= 0){
+            if($this->register($input)){
+
+                if($this->verify($input['username'], $input['password'])){
+
+                    $nickname = User::where('uid', '=', $input['username'])->first();
+                    Session::put('nickname', $nickname['username']);
+                    Session::put('uid', $nickname['id']);
+                    return Redirect::to('/');
+                }
+                else{
+                    $info = '用户名或密码错误';
+                    return Redirect::back()->withInput()->withErrors($info, 'login');
+                }
+            }
+
+        }
         else{
             $info = '用户名或密码错误';
             return Redirect::back()->withInput()->withErrors($info, 'login');
@@ -78,16 +108,13 @@ class LoginController extends BaseController
         );
 
         $validator = Validator::make($data, $this->rules);
-
         if($validator->fails())
         {
-            return Redirect::to('/')
-                ->withErrors($validator);
+           return $validator;
         }
-        else
-        {
+        else {
 
-            if(Auth::attempt(array('uid'=>$data['username'], 'password'=>$data['password']), true)) {
+            if(Auth::attempt(array('uid'=>$data['username'], 'password'=>$data['username']), true)) {
                 return true;
             }
             else {

@@ -85,6 +85,8 @@ class Comment extends Eloquent {
         else{
             $id = Comment::create($data);
             if($id) {
+                $father = Navigation::find($type_id);
+                DB::table($father['table_name'])->where('id', '=', $work_id)->increment('comment_num');
                 $id['success'] = true;
                 $success = $id;
                 return $success;
