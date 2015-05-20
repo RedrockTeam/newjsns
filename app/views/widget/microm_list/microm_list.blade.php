@@ -29,7 +29,7 @@
                     </p>
                 </a>
                 <div class="u-m_user_action">
-                    <div class="show_movie-comments">({{$micromovie['comment_num']}})</div>
+                    <div class="show_movie-comments"><a href="{{route('microm_sub')}}?type_id={{$micromovie['type_id']}}&passage_id={{$micromovie['id']}}">({{$micromovie['comment_num']}})</a></div>
                     <div class="show_movie_love js-praise" data-type_id="{{$micromovie['type_id']}}" data-passage_id="{{$micromovie['id']}}"><i class="fa fa-heart js-show_love"></i><span class="js-num">({{$micromovie['love_num']}})</span></div>
                 </div>
             </aside>
