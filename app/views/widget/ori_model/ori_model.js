@@ -6,7 +6,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
         //打开弹框
         $('.js-open_model').on('click', function(ev){
-            var $self = $(this);
+            var $self = $(this), $mL = $('.js-more_link');
             $self.data('pIndex', 0);
             $cL = $(this);
             typeId = $self.attr('data-type_id');
@@ -15,7 +15,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             $('.js-control_model').show();
             $('.js-wrap').show();
             $('.js-model').show();
-            $('.js-more_link').attr('href', $self.attr('data-url'));
+            $self.attr('data-url').length == 0 ?  $mL.hide() : (  $mL.attr('href', $self.attr('data-url')),  $mL.show());
             $('.js-model_name').text( $self.find('.js-list_name').text() );
             getComments({'type_id' :typeId, 'passage_id' : passageId, 'page' : 0});
             showImg.call($self);
