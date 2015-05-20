@@ -69,19 +69,19 @@
                         </div>
                     </div>
         @else
-            @if(isset($collection['updated_at']))
-            <div class="u-work_item s-item">
-                <a href="{{route('photos')}}">
-                    <h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>
-                    <div class="s-article">
-                        <h2 class="s-title">{{{$collection['album_name']}}}</h2>
-                        <p class="s-content">
+            {{--@if(isset($collection['updated_at']))--}}
+            {{--<div class="u-work_item s-item">--}}
+                {{--<a href="{{route('photos')}}">--}}
+                    {{--<h6 class="u-work_date s-date">{{$collection['updated_at']}}</h6>--}}
+                    {{--<div class="s-article">--}}
+                        {{--<h2 class="s-title">{{{$collection['album_name']}}}</h2>--}}
+                        {{--<p class="s-content">--}}
                             {{--<img src="{{$collection['url']}}" alt=""/>--}}
-                        </p>
-                    </div>
-                </a>
-            </div>
-                @else
+                        {{--</p>--}}
+                    {{--</div>--}}
+                {{--</a>--}}
+            {{--</div>--}}
+                {{--@else--}}
                 @endif
         @endif
     @endforeach
