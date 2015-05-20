@@ -6,8 +6,8 @@ define(['jquery', 'port'], function($, port){
         /*阻止事件冒泡*/
         $('.m-login-register-case').on('click', function(ev){ ev.stopPropagation() });
         /*tab切换*/
-        openBox( $('.js-open-register'), $( '.u-register') );
-        openBox( $('.js-open-login'), $('.u-login') );
+        //openBox( $('.js-open-register'), $( '.u-register') );
+        //openBox( $('.js-open-login'), $('.u-login') );
         /*表单提交*/
         $('.js-login-form, .js-register-form').on('submit', checkForm);
 

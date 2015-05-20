@@ -1,7 +1,7 @@
 <div class="m-login-register-case">
     {{--tab切换--}}
     <menu class="u-tabs f-cb">
-        <li class="s-active f-fl js-open-login">登陆</li><li class="f-fl js-open-register">注册</li>
+        <li class="js-open-login">登陆</li>
     </menu>
     <div class="s-err_info">
         @if($errors)

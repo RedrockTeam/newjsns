@@ -9,7 +9,7 @@
     padding-bottom: 1px;
 }
 .u-tabs li{
-    width: 50%;
+    width: 100%;
     list-style: none;
     height: 50px;
     line-height: 50px;
@@ -20,18 +20,18 @@
     color: #dddddd;
     font-family: "microsoft yahei";
     text-decoration: none;
-    cursor: pointer;
+    border-radius: 7px 7px 0 0;
 }
 .u-tabs li.s-active{
     background: #ffffff;
     color: #333333;
 }
-.u-tabs li:nth-child(1){
-    border-radius: 7px 0 0 0;
-}
-.u-tabs li:nth-child(2){
-    border-radius: 0 7px 0 0;
-}
+/*.u-tabs li:nth-child(1){*/
+    /*border-radius: 7px 0 0 0;*/
+/*}*/
+/*.u-tabs li:nth-child(2){*/
+    /*border-radius: 0 7px 0 0;*/
+/*}*/
 
 .s-form{
     display: block;
