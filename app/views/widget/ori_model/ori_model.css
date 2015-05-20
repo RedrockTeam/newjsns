@@ -43,10 +43,11 @@
 }
 
 .u-ainfo {
+    width: 440px;
     color: #333;
     font-size: 14px;
     padding-top: 12px;
-
+    word-break: break-word;
 }
 .g-ors{
     padding-left: 20px;

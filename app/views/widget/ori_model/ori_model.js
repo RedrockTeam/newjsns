@@ -16,6 +16,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             $('.js-wrap').show();
             $('.js-model').show();
             $('.js-more_link').attr('href', $self.attr('data-url'));
+            $('.js-model_name').text( $self.find('.js-list_name').text() );
             getComments({'type_id' :typeId, 'passage_id' : passageId, 'page' : 0});
             showImg.call($self);
             $('.js-love_num').text( $self.attr('data-love_num') );
@@ -44,7 +45,6 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         //评论上一页
         $('.js-prev').on('click', function(){
             var index = parseInt( $cL.data('pIndex') ) - 1;
-            console.log(index);
             index >= 0 &&  getComments({'type_id' : typeId, 'passage_id' : passageId, 'page' : index});
             $cL.data('pIndex', index < 0 ? 0 :  index);
         });

@@ -35,15 +35,6 @@ define(['jquery'], function($){
                 return false;
             }
 
-            if($self[0].url.value.length < 1){
-                $( $self[0].url ).css('border-color', 'red');
-                alert('请填写链接!!!');
-                return false;
-            }else{
-                $( $self[0].url ).css('border-color', '#ccc');
-            }
-
-            console.log( $self[0].introduce.length );
             if($self[0].introduce.value.length < 1){
                 $( $self[0].introduce ).css('border-color', 'red');
                 alert('请填写简介!!!!!');
