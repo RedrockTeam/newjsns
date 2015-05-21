@@ -11,7 +11,7 @@
         <%for(var i = 0; i < data.img_detail.length; i++){%>
             <a class="js-link" style="display: none" href="<%= data.img_detail[i].img_src %>" title="<%= data.img_detail[i].img_desc%>"></a>
         <%}%>
-        <div class="u-action"><div class="show_count">(<%= data.img_detail.length%>)张图片</div> <div class="u-show_love js-praise" data-type_id="<%= data.type_id%>" data-passage_id="<%= data.passage_id%>"><i class="fa fa-heart js-show_love"></i><span class="js-num">(<%= data.love_count%>)</span></div></div>
+        <div class="u-action"><div class="show_count">(<%= data.img_detail.length%>)张</div> <div class="u-show_love js-praise" data-type_id="<%= data.type_id%>" data-passage_id="<%= data.passage_id%>"><i class="fa fa-heart js-show_love"></i><span class="js-num">(<%= data.love_count%>)</span></div></div>
      </div>
 </script>
 @section("css")
