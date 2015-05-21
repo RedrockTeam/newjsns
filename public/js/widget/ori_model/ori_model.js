@@ -15,8 +15,9 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 var temp = _.template($initTemp.html())({
                     data: [ data ]
                 });
-                $loading.before(temp), $loading.fadeOut(), alert("评论成功!!!!"), data = null, $dI.val("").attr("placeholder", "评论："), 
-                type = 0;
+                //$loading.before(temp);
+                $(".js-w_comments").html(temp), $loading.fadeOut(), alert("评论成功!!!!"), data = null, 
+                $dI.val("").attr("placeholder", "评论："), type = 0;
             });
         }
         function reply() {

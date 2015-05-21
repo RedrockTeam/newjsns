@@ -62,7 +62,8 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 data.uid = $('.js-user_own_info').attr('data-user_id');
                 data.id = res.id;
                 var temp = _.template( $initTemp.html() )({data : [data]});
-                $loading.before(temp);
+                //$loading.before(temp);
+                $('.js-w_comments').html(temp);
                 $loading.fadeOut();
                 alert('评论成功!!!!');
                 data = null;
