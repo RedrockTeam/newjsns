@@ -171,3 +171,10 @@
     vertical-align: top;
 }
 
+.u-action .show_count{
+    float: left;
+    margin-right: 22px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #666666;
+}
