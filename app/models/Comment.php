@@ -19,7 +19,7 @@ class Comment extends Eloquent {
 
 	//获取评论 TODO:users表中id为该应用的uid, users表里的uid为学号
 	public static function findComment($type_id, $work_id, $page){
-		$skip = 2*($page-1);
+		$skip = 10 *($page-1);
 		$data['cz'] = Comment::where('comment.type_id', '=', $type_id)
 				->where('comment.work_id', '=', $work_id)
                 ->where('comment.father_id', '=', 0)

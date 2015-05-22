@@ -47,29 +47,29 @@ class LiteratureController extends BaseController{
         if(!isset($cover))
             return Redirect::back();
             $data = Input::all();
-            $pattern = '/base64,(.*?)"/';
-            preg_match_all($pattern, $data['content'], $match, PREG_PATTERN_ORDER);
-        if($match[1]){
-            foreach($match[1] as $v) {
-            $img = base64_decode($v);
-            file_put_contents('public/uploads/tmp.jpg', $img);
-            $name = 'public/uploads/tmp.jpg';
-            $image = Image::make($name);
-            $time = md5(microtime(true));
-            $path =  'public/uploads/'.$time.'.jpg';
-            $newimg = $image->resize(100, null, function ($constraint) {
-              $constraint->aspectRatio();
-            });
-            $newimg->save($path);
-            $newimg->destroy();
-            $img_url[] = $path;
-            $replace[] = 'src="'.$path.'"';
-        }
-        $pattern1 = '/src="data:(.*?)"/';
-            foreach($replace as $r){
-                $data = preg_replace($pattern1, $r, $data,1);
-            }
-        }
+//            $pattern = '/base64,(.*?)"/';
+//            preg_match_all($pattern, $data['content'], $match, PREG_PATTERN_ORDER);
+//        if($match[1]){
+//            foreach($match[1] as $v) {
+//            $img = base64_decode($v);
+//            file_put_contents('public/uploads/tmp.jpg', $img);
+//            $name = 'public/uploads/tmp.jpg';
+//            $image = Image::make($name);
+//            $time = md5(microtime(true));
+//            $path =  'public/uploads/'.$time.'.jpg';
+//            $newimg = $image->resize(100, null, function ($constraint) {
+//              $constraint->aspectRatio();
+//            });
+//            $newimg->save($path);
+//            $newimg->destroy();
+//            $img_url[] = $path;
+//            $replace[] = 'src="'.$path.'"';
+//        }
+//        $pattern1 = '/src="data:(.*?)"/';
+//            foreach($replace as $r){
+//                $data = preg_replace($pattern1, $r, $data,1);
+//            }
+//        }
 
             $passage['uid'] = Session::get('uid');
             $passage['comment_num'] = 0;

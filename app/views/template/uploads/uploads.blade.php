@@ -21,6 +21,5 @@
     </script>
 @stop
 @section("script")
-{{--    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/personal/personal.js")])}}--}}
     {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/uploads/uploads.js")])}}
 @stop
