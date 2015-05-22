@@ -167,7 +167,7 @@
             ev.preventDefault();
             // Build the list of images that will be displayed
             //links = self.find('.js-link');
-            var filteredLinks, length, link = /*this*/ ev.currentTarget, startIndex = 0, i = 0;
+            var filteredLinks, length, link = /*this*/ $(ev.currentTarget), startIndex = 0, i = 0;
             // We cannot use jQuery.map() because it flattens the returned array
             for (console.log(link), links = link.siblings(".js-link"), filteredLinks = $.grep(links, function(el, i) {
                 return linksFilter.call(link, el, i);
