@@ -3,7 +3,7 @@
  */
 define(['jquery', 'underscore', 'port'], function($, _,port){
     $(function(){
-        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
+        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null, cP = 1, $cE, typeId = 0, passageId = 0, $cL;
         //打开弹框
         $('.js-open_model').on('click', function(ev){
             var $self = $(this), $mL = $('.js-more_link');
@@ -51,7 +51,6 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         //评论下一页
         $('.js-next').on('click', function(){
             var index = parseInt( $cL.data('pIndex') ) + 1;
-            console.log(index);
             $cL.data('pIndex', index);
             getComments({'type_id' : typeId, 'passage_id' : passageId, 'page' : index  });
         });
@@ -129,7 +128,7 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 data :data,
                 success : function(res){
                     if( ! ( res = checkJson(res) ) ) return;
-                    if( res.success){
+                    if( res.success && res.cz.length > 0){
                         res.cz.forEach(function(piece, i){
                             piece.reply = res.lzl[i];
                         });

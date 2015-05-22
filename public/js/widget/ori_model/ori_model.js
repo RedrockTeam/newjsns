@@ -53,7 +53,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 type: "POST",
                 data: data,
                 success: function(res) {
-                    if (res = checkJson(res)) if (res.success) {
+                    if (res = checkJson(res)) if (res.success && res.cz.length > 0) {
                         res.cz.forEach(function(piece, i) {
                             piece.reply = res.lzl[i];
                         });
@@ -135,7 +135,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         }), //评论下一页
         $(".js-next").on("click", function() {
             var index = parseInt($cL.data("pIndex")) + 1;
-            console.log(index), $cL.data("pIndex", index), getComments({
+            $cL.data("pIndex", index), getComments({
                 type_id: typeId,
                 passage_id: passageId,
                 page: index

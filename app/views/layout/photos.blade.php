@@ -28,10 +28,10 @@
 <footer class="g-footer">
     @yield("footer")
 </footer>
-{{--widget 登陆框--}}
+{{--widget 登陆框--}}{{--
 <section class="g-login_box js-login_box">
     @yield("login_box")
-</section>
+</section>--}}
 <section class="g-go g-go_top">
     @yield("go_top")
 </section>

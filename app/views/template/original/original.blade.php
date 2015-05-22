@@ -15,9 +15,9 @@
 @stop
 
 {{--login_box--}}
-@section("login_box")
+{{--@section("login_box")
     @include("widget.login-register-case.login-register-case")
-@stop
+@stop--}}
 {{--container--}}
 @section("container")
     <h4 class="u-original_title"><span>原味</span></h4>

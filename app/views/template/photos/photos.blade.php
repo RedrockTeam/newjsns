@@ -31,11 +31,6 @@
     @include("widget.go_top.go_top")
 @stop
 
-{{--login_box--}}
-@section("login_box")
-    @include("widget.login-register-case.login-register-case")
-@stop
-
 {{--css--}}
 @section("css")
     {{HTML::style("public/css/lib/base.css")}}
