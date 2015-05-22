@@ -3,11 +3,11 @@
  */
 define(['jquery', 'underscore', 'port'], function($, _,port){
     $(function(){
-        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null, cP = 1, $cE, typeId = 0, passageId = 0, $cL;
+        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null,$cE, typeId = 0, passageId = 0, $cL;
         //打开弹框
         $('.js-open_model').on('click', function(ev){
             var $self = $(this), $mL = $('.js-more_link');
-            $self.data('pIndex', 0);
+            $self.data('pIndex', 1);
             $cL = $(this);
             typeId = $self.attr('data-type_id');
             passageId = $self.attr('data-passage_id');
@@ -128,15 +128,17 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 data :data,
                 success : function(res){
                     if( ! ( res = checkJson(res) ) ) return;
-                    if( res.success && res.cz.length > 0){
-                        res.cz.forEach(function(piece, i){
-                            piece.reply = res.lzl[i];
-                        });
-                        var temp = _.template( $initTemp.html() )({data : res.cz});
-                        //$loading.before(temp);
-                        console.log(res.cz);
-                        $('.js-w_comments').html(temp);
-                        $loading.fadeOut();
+                    if( res.success){
+                        if(res.cz.length > 0){
+                            res.cz.forEach(function(piece, i){
+                                piece.reply = res.lzl[i];
+                            });
+                            var temp = _.template( $initTemp.html() )({data : res.cz});
+                            //$loading.before(temp);
+                            console.log(res.cz);
+                            $('.js-w_comments').html(temp);
+                            $loading.fadeOut();
+                        }
                     }else{
                         alert('数据获取失败，请稍后再试!!!');
                         if(res.err){

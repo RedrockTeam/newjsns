@@ -53,15 +53,17 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
                 type: "POST",
                 data: data,
                 success: function(res) {
-                    if (res = checkJson(res)) if (res.success && res.cz.length > 0) {
-                        res.cz.forEach(function(piece, i) {
-                            piece.reply = res.lzl[i];
-                        });
-                        var temp = _.template($initTemp.html())({
-                            data: res.cz
-                        });
-                        //$loading.before(temp);
-                        console.log(res.cz), $(".js-w_comments").html(temp), $loading.fadeOut();
+                    if (res = checkJson(res)) if (res.success) {
+                        if (res.cz.length > 0) {
+                            res.cz.forEach(function(piece, i) {
+                                piece.reply = res.lzl[i];
+                            });
+                            var temp = _.template($initTemp.html())({
+                                data: res.cz
+                            });
+                            //$loading.before(temp);
+                            console.log(res.cz), $(".js-w_comments").html(temp), $loading.fadeOut();
+                        }
                     } else alert("数据获取失败，请稍后再试!!!"), res.err && alert(res.err);
                 },
                 error: function(err) {
@@ -105,7 +107,7 @@ define([ "jquery", "underscore", "port" ], function($, _, port) {
         //打开弹框
         $(".js-open_model").on("click", function(ev) {
             var $self = $(this), $mL = $(".js-more_link");
-            $self.data("pIndex", 0), $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
+            $self.data("pIndex", 1), $cL = $(this), typeId = $self.attr("data-type_id"), passageId = $self.attr("data-passage_id"), 
             ev.preventDefault(), $(".js-control_model").show(), $(".js-wrap").show(), $(".js-model").show(), 
             0 == $self.attr("data-url").length ? $mL.hide() : ($mL.attr("href", $self.attr("data-url")), 
             $mL.show()), $(".js-model_name").text($self.find(".js-list_name").text()), getComments({
