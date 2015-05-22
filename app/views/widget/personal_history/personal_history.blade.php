@@ -91,31 +91,35 @@
 <div class="m-his_comments js-his_comments">   {{--我的评论 默认关闭--}}
     <div class="u-sort_comments js-reply_tabs"><a href="javascript:void(0)" class="s-active">收到的评论</a>/<a href="javascript:void(0)">发出的评论</a></div>
     {{--收到的评论--}}
+    <div class="js-get_reply">
     @foreach($data['to'] as $post)
-        <div class="u-comments_item s-item js-get_reply">
-            <h6 class="s-date">{{$post['updated_at']}}</h6>
-            <div class="u-show_comments">
-                <div class="u-img_show" style="background-image: url('{{$post['head']}}')"></div>
-                <aside class="u-comments_aside">
-                    <h3 class="u-user_nickname">{{{$post['username']}}}</h3>
-                    <p class="u-content">{{{$post['content']}}}</p>
-                </aside>
+            <div class="u-comments_item s-item">
+                <h6 class="s-date">{{$post['updated_at']}}</h6>
+                <div class="u-show_comments">
+                    <div class="u-img_show" style="background-image: url('{{$post['head']}}')"></div>
+                    <aside class="u-comments_aside">
+                        <h3 class="u-user_nickname">{{{$post['username']}}}</h3>
+                        <p class="u-content">{{{$post['content']}}}</p>
+                    </aside>
+                </div>
             </div>
-        </div>
-    @endforeach
-    {{--发出的评论--}}
-    @foreach($data['from'] as $get)
-    <div class="u-comments_item s-item js-post_reply">
-            <h6 class="s-date">{{$get['updated_at']}}</h6>
-            <div class="u-show_comments">
-                <div class="u-img_show" style="background-image: url('{{$get['head']}}')"></div>
-                <aside class="u-comments_aside">
-                    <h3 class="u-user_nickname">{{{$get['username']}}}</h3>
-                    <p class="u-content">{{{$get['content']}}}</p>
-                </aside>
-            </div>
+        @endforeach
     </div>
-    @endforeach
+    {{--发出的评论--}}
+    <div class="f-dn js-post_reply">
+    @foreach($data['from'] as $get)
+        <div class="u-comments_item s-item">
+                <h6 class="s-date">{{$get['updated_at']}}</h6>
+                <div class="u-show_comments">
+                    <div class="u-img_show" style="background-image: url('{{$get['head']}}')"></div>
+                    <aside class="u-comments_aside">
+                        <h3 class="u-user_nickname">{{{$get['username']}}}</h3>
+                        <p class="u-content">{{{$get['content']}}}</p>
+                    </aside>
+                </div>
+        </div>
+        @endforeach
+    </div>
 </div>
 @section("css")
     @parent
