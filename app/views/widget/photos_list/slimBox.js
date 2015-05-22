@@ -110,8 +110,10 @@
         return self.on('click', '.js-open_box',function(ev) {
             ev.preventDefault();
             // Build the list of images that will be displayed
-            links = self.find('.js-link');
-            var link = this, startIndex = 0, filteredLinks, i = 0, length;
+            //links = self.find('.js-link');
+            var link = /*this*/ev.currentTarget, startIndex = 0, filteredLinks, i = 0, length;
+            console.log(link);
+            links = link.siblings('.js-link');
             filteredLinks = $.grep(links, function(el, i) {
                 return linksFilter.call(link, el, i);
             });
