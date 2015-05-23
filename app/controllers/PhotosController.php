@@ -65,9 +65,10 @@ class PhotosController extends BaseController {
             $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
             $img = Image::make($file);
             $img0 = Image::make($file);
-            $originalimg = $img0->resize(1366, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+            $originalimg = $img0;
+//        ->resize(1366, null, function ($constraint) {
+//                $constraint->aspectRatio();
+//            });
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
