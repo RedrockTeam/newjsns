@@ -25,12 +25,12 @@
 
 <script type="text/template" id="temp_comment">
     <% data.forEach(function(f){%>
-             <div class="item f-cb js-father" data-fn="<%=f.username%>" data-fi="<%=f.uid%>" data-ffi="<%=f.id%>">
-                 <span class="author u-name"><%=f.username%>：</span>
-                 <span class="content u-content"><%=f.content%></span>
+             <div class="item f-cb js-father" data-fn="<%-f.username%>" data-fi="<%-f.uid%>" data-ffi="<%-f.id%>">
+                 <span class="author u-name"><%-f.username%>：</span>
+                 <span class="content u-content"><%-f.content%></span>
                  <div class="m-reply_lists js-reply_lists">
                      <%f.reply.forEach(function (s){%>
-                        <span class="from u-name"><%=s.from_name%></span>回复<span class="to u-name"><%=s.to_name%>：</span> <span class="reply_cotent u-content"><%=s.content%></span>
+                        <span class="from u-name"><%-s.from_name%></span>回复<span class="to u-name"><%-s.to_name%>：</span> <span class="reply_cotent u-content"><%-s.content%></span>
                         <br/>
                      <%})%>
                  </div>

@@ -2,8 +2,8 @@
 .g-container{
     width: 960px;
     margin: 30px auto 0;
+    overflow-x: hidden; 
 }
-
 /*登陆框遮罩*/
 .g-login_box {
     width: 100%;

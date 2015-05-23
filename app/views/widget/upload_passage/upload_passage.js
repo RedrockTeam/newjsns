@@ -20,7 +20,7 @@ define(['jquery'], function($){
                 return false;
             }
 
-            if( (c = $('.note-editable').html().replace(/\s/gi, '') ).length < 1  ){
+            if( (c = $('.note-editable').html().trim()).length < 1  ){
                 alert('请填写内容塞！！！');
                 return false;
             }

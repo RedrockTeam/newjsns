@@ -4,6 +4,7 @@
      width: 920px;
      margin: 20px auto 0;
      position: relative;
+     overflow-x:hidden; 
  }
 .m-litera_recom{
     margin-bottom: 29px;
