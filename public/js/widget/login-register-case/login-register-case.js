@@ -6,7 +6,7 @@ define([ "jquery", "port" ], function($, port) {
         function checkForm(ev) {
             var $self = $(this), map = {
                 stu_id: /^.+$/gi,
-                stu_pwd: /^[\s\S]{6,20}$/g,
+                stu_pwd: /^.+$/gi,
                 stu_nickname: /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[\w])+$/gi
             };
             check.call($self, map) || ev.preventDefault();
