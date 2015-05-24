@@ -4,15 +4,18 @@
  * @Author Lich
  * 登陆注册模块
  */
-
+require_once "uc_client/config.inc.php";
+require_once "uc_client/client.php";
 class LoginController extends BaseController
 {
     private $username;
     private $password;
     private $rules;
+
     public function index() {
         return View::make("template.login-register.login-register");
     }
+
     //注册
     private function register($input){
         $num = User::where('uid', '=', $input['username'])->count();
@@ -20,8 +23,9 @@ class LoginController extends BaseController
             $error = '你已注册';
             return Redirect::back()->withErrors($error, 'register');
         }
-        $result = $this->get_register($input['username'], $input['password']);
-        if ($result == $input['username']) {
+//        $result = $this->get_register($input['username'], $input['password']);
+        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+        if ($result >0) {
             $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
                 return 'error';
@@ -51,9 +55,9 @@ class LoginController extends BaseController
          $input = Input::all();
          $num = User::where('uid', '=', $input['username'])->count();
          if($num > 0) {
-             $result = $this->get_register($input['username'], $input['password']);
-
-             if ($result == $input['username']) {
+//              $result = $this->get_register($input['username'], $input['password']);
+                $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+             if ($result>0) {
                  if ($this->verify($input['username'], $input['username'])) {
                      $nickname = User::where('uid', '=', $input['username'])->first();
                      Session::put('nickname', $nickname['username']);
