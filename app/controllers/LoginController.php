@@ -4,8 +4,6 @@
  * @Author Lich
  * 登陆注册模块
  */
-require_once "uc_client/config.inc.php";
-require_once "uc_client/client.php";
 class LoginController extends BaseController
 {
     private $username;
