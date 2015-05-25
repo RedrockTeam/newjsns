@@ -27,7 +27,7 @@ class PersonalController extends BaseController {
             $collection = null;
         $from = Comment::where('from', '=', $uid)->join('users', 'comment.from', '=', 'users.id')->get();//我的评论
         Comment::where('to', '=', $uid)->update(array('read_status' => '1'));//更新为已读评论
-        $to = Comment::where('to', '=', $uid)->join('users', 'comment.to', '=', 'users.id')->get();//评论我的
+        $to = Comment::where('to', '=', $uid)->join('users', 'comment.from', '=', 'users.id')->get();//评论我的
 
         $data = array(
             'user_info' => $user_info,
@@ -84,12 +84,14 @@ class PersonalController extends BaseController {
     //裁剪头像
     public function uploadHeadCut() {
         $data = Input::all();
+        $data['width'] = $data['width'] < 400? $data['width'] : 400;
+        $data['height'] = $data['height'] < 400? $data['height'] : 400;
         $img = Image::make(Session::get('headpath'));
-        $img->crop(94, 94, $data['x1'], $data['y1']);
+        $img->crop($data['width'], $data['height'], $data['x1'], $data['y1']);
         $img->save(Session::get('headpath'));
         $update = array('head'=>Session::get('headpath'));
         User::where('id', '=',  Session::get('uid'))->update($update);
-        return Redirect::back();
+        return Redirect::to('personal');
     }
     //修改资料
     public function editPersonalInfo(){

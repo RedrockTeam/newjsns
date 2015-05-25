@@ -1,0 +1,1 @@
+define({praise:"home/praise",thread:"home/thread",comment:"home/comment/micromovie"});

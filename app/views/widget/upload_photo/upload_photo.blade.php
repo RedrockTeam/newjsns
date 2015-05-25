@@ -23,7 +23,7 @@
   </div>
   <div class="form-group">
     <label for="photo_desc">请输入图片描述</label>
-    <input type="text" class="form-control" id="photo_desc" placeholder="图片描述"/>
+    <input type="text" class="form-control" name="introduce"  id="photo_desc" placeholder="图片描述"/>
   </div>
   <div class="form-group">
       <label for="photo_file">选择文件</label>
@@ -52,6 +52,7 @@
   </div>
 </form>
 <script>var uploadpath = "{{route('home/upload')}}";</script>
+
 @section("css")
     @parent
     {{HTML::style("public/css/widget/upload_photo/upload_photo.css")}}

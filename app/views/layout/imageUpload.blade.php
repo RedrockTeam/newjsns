@@ -11,8 +11,9 @@
 <body>
 <section class="container">
     {{--header--}}
-    <div class="page-header f-pr">
+    <div class="page-header f-pr f-cb">
       <h1>上传图片<small>Upload Images</small></h1>
+      <a href="{{route('personal')}}" class="f-fr">返回个人中心</a>
       @if($imgExists)
       <button class="u-submit-form btn btn-default js-save-form">保存</button>
       @endif

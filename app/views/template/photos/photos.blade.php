@@ -21,7 +21,7 @@
         @foreach($data as $nav)
             <li {{$nav['active'] ? 's-active' : ''}}><a href="photos?type_id={{$nav['id']}}">{{$nav['type']}}</a></li>
         @endforeach
-        <li><a href="">我要上传</a></li>
+        <li><a href="{{route('home/uploads')}}">我要上传</a></li>
     </ul>
     @include("widget.photos_list.photos_list")
 @stop
@@ -29,11 +29,6 @@
 {{--go_top--}}
 @section("go_top")
     @include("widget.go_top.go_top")
-@stop
-
-{{--login_box--}}
-@section("login_box")
-    @include("widget.login-register-case.login-register-case")
 @stop
 
 {{--css--}}

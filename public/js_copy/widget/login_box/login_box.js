@@ -1,0 +1,1 @@
+define(["jquery"],function(){$(function(){function A(){$(".js-login_box").css("display","block")}function C(){$(".js-login_box").css("display","none")}function B(D){D.stopPropagation()}$(".js-open_login_box").on("click",A),$(".js-close_login_box, .js-login_box").on("click",C),$(".js-stop_click_close").on("click",B)})});

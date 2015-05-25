@@ -18,12 +18,13 @@ require.config({
         'jquery.sliderBox' : './jquery.sliderBox',
         'slider' : '../widget/litera_recom_slider/litera_recom_slider',
         'praise' : '../widget/js_widget/praise' ,  //收藏
-        'stop_copy' : '../widget/js_widget/stopCopy'
+        'stop_copy' : '../widget/js_widget/stopCopy',
+        'footer' : '../widget/footer/footer'
     }
 });
 
 //加载依赖项
-define(['jquery','litera_list', 'go_top', 'slider', 'praise', 'stop_copy'], function($){
+define(['jquery','litera_list', 'go_top', 'slider', 'praise', 'stop_copy', 'footer'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';

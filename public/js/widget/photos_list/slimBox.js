@@ -164,11 +164,12 @@
         };
         var links, self = this;
         return self.on("click", ".js-open_box", function(ev) {
-            ev.preventDefault(), // Build the list of images that will be displayed
-            links = self.find(".js-link");
-            var filteredLinks, length, link = this, startIndex = 0, i = 0;
+            ev.preventDefault();
+            // Build the list of images that will be displayed
+            //links = self.find('.js-link');
+            var filteredLinks, length, link = /*this*/ $(ev.currentTarget), startIndex = 0, i = 0;
             // We cannot use jQuery.map() because it flattens the returned array
-            for (filteredLinks = $.grep(links, function(el, i) {
+            for (console.log(link), links = link.siblings(".js-link"), filteredLinks = $.grep(links, function(el, i) {
                 return linksFilter.call(link, el, i);
             }), length = filteredLinks.length; length > i; ++i) filteredLinks[i] == link && (startIndex = i), 
             filteredLinks[i] = linkMapper(filteredLinks[i], i);

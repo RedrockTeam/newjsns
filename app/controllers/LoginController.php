@@ -4,33 +4,34 @@
  * @Author Lich
  * 登陆注册模块
  */
-
 class LoginController extends BaseController
 {
     private $username;
     private $password;
     private $rules;
+
     public function index() {
         return View::make("template.login-register.login-register");
     }
+
     //注册
-    public function register(){
-        $input = Input::all();
-        $num = User::where('uid', '=', $input['stu_id'])->count();
+    private function register($input){
+        $num = User::where('uid', '=', $input['username'])->count();
         if($num!=0){
             $error = '你已注册';
-            return Redirect::back()->withErrors($error);
+            return Redirect::back()->withErrors($error, 'register');
         }
-        $result = $this->get_register($input['stu_id'], $input['stu_pwd']);
-        if ($result == $input['stu_id']) {
-            $num = User::where('uid', '=', $input['stu_id'])->count();
+//        $result = $this->get_register($input['username'], $input['password']);
+        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+        if ($result >0) {
+            $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
                 return 'error';
             }
             $data = array(
-                'username' => $input['stu_nickname'],
-                'uid' => $input['stu_id'],
-                'password' => Hash::make($input['stu_pwd']),
+                'username' => $input['username'],
+                'uid' => $input['username'],
+                'password' => Hash::make($input['username']),
                 'status' => 1
             );
             $uid = User::create($data);
@@ -39,25 +40,58 @@ class LoginController extends BaseController
                 'type_id'=>'3',
             );
             DB::table('group')->insert($role);
-            return Redirect::to('/');
+            return true;
         }
         else{
-            $info = '用户名或密码错误';
-            return  Redirect::back()->withInput()->withErrors($info);
+            $info = '统一认证码或密码有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
+            return  Redirect::back()->withInput()->withErrors($info, 'register');
         }
     }
 
     //登陆
     public function login(){
-        $input = Input::all();
-         if($this->verify($input['username'], $input['password'])){
-             $nickname = User::where('uid', '=', $input['username'])->first();
-             Session::put('nickname', $nickname['username']);
-             Session::put('uid', $nickname['id']);
-             return Redirect::to('/')->withCookie(Cookie::forever('uid', $nickname['id']));
+         $input = Input::all();
+         $num = User::where('uid', '=', $input['username'])->count();
+         if($num > 0) {
+//              $result = $this->get_register($input['username'], $input['password']);
+                $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+             if ($result>0) {
+                 if ($this->verify($input['username'], $input['username'])) {
+                     $nickname = User::where('uid', '=', $input['username'])->first();
+                     Session::put('nickname', $nickname['username']);
+                     Session::put('uid', $nickname['id']);
+                     return Redirect::to('/');
+                 }
+                 else{
+                     $info = '用户名或密码错误';
+                     return Redirect::back()->withInput()->withErrors($info, 'login');
+                 }
+             }
+             else{
+                 $info = '用户名或密码错误';
+                 return Redirect::back()->withInput()->withErrors($info, 'login');
+             }
          }
+         elseif($num <= 0){
+            if($this->register($input)){
+
+                if($this->verify($input['username'], $input['password'])){
+
+                    $nickname = User::where('uid', '=', $input['username'])->first();
+                    Session::put('nickname', $nickname['username']);
+                    Session::put('uid', $nickname['id']);
+                    return Redirect::to('/');
+                }
+                else{
+                    $info = '用户名或密码错误';
+                    return Redirect::back()->withInput()->withErrors($info, 'login');
+                }
+            }
+
+        }
         else{
-            return 'error';
+            $info = '用户名或密码错误';
+            return Redirect::back()->withInput()->withErrors($info, 'login');
         }
     }
 
@@ -67,7 +101,7 @@ class LoginController extends BaseController
         $this->password = $password;
         $this->rules = array(
             'username' => 'required',
-            'password' =>' required|min:6|max:18',
+            'password' =>' required',
         );
 
         $data = array(
@@ -76,16 +110,13 @@ class LoginController extends BaseController
         );
 
         $validator = Validator::make($data, $this->rules);
-
         if($validator->fails())
         {
-            return Redirect::to('/')
-                ->withErrors($validator);
+           return $validator;
         }
-        else
-        {
+        else {
 
-            if(Auth::attempt(array('uid'=>$data['username'], 'password'=>$data['password']), true)) {
+            if(Auth::attempt(array('uid'=>$data['username'], 'password'=>$data['username']), true)) {
                 return true;
             }
             else {

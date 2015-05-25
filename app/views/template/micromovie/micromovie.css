@@ -1,9 +1,10 @@
 /*created by redrock*/
 .g-container{
     width: 920px;
-    margin: 20px auto 0;
+    margin: 30px auto;
     position: relative;
 }
+
 .u-micro_title{
     width: 100%;
     border-bottom: 1px solid #efefef;

@@ -1,1 +1,1 @@
-define(["jquery"],function(B){var A=B(".js-share_title").text()+"\n"+B(".js-share_content").text();window._bd_share_config={common:{bdText:A,bdDesc:A,bdUrl:location.href},share:[{bdSize:16}]}});
+define(["jquery"],function(a){var b=a(".js-share_title").text()+"\n"+a(".js-share_content").text();window._bd_share_config={common:{bdText:b,bdDesc:b,bdUrl:location.href},share:[{bdSize:16}]}});

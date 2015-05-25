@@ -3,11 +3,11 @@
  */
 define(['jquery', 'underscore', 'port'], function($, _,port){
     $(function(){
-        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null, cP = 0, $cE, typeId = 0, passageId = 0, $cL;
+        var $initTemp = $('#temp_comment'), $loading = $('.js-loading'), $dI = $('.js-data_input'), type = 0, userN = $('.js-user_name').text(),data = null,$cE, typeId = 0, passageId = 0, $cL;
         //打开弹框
         $('.js-open_model').on('click', function(ev){
-            var $self = $(this);
-            $self.data('pIndex', 0);
+            var $self = $(this), $mL = $('.js-more_link');
+            $self.data('pIndex', 1);
             $cL = $(this);
             typeId = $self.attr('data-type_id');
             passageId = $self.attr('data-passage_id');
@@ -15,7 +15,8 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
             $('.js-control_model').show();
             $('.js-wrap').show();
             $('.js-model').show();
-            $('.js-more_link').attr('href', $self.attr('data-url'));
+            $self.attr('data-url').length == 0 ?  $mL.hide() : (  $mL.attr('href', $self.attr('data-url')),  $mL.show());
+            $('.js-model_name').text( $self.find('.js-list_name').text() );
             getComments({'type_id' :typeId, 'passage_id' : passageId, 'page' : 0});
             showImg.call($self);
             $('.js-love_num').text( $self.attr('data-love_num') );
@@ -44,14 +45,12 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
         //评论上一页
         $('.js-prev').on('click', function(){
             var index = parseInt( $cL.data('pIndex') ) - 1;
-            console.log(index);
             index >= 0 &&  getComments({'type_id' : typeId, 'passage_id' : passageId, 'page' : index});
             $cL.data('pIndex', index < 0 ? 0 :  index);
         });
         //评论下一页
         $('.js-next').on('click', function(){
             var index = parseInt( $cL.data('pIndex') ) + 1;
-            console.log(index);
             $cL.data('pIndex', index);
             getComments({'type_id' : typeId, 'passage_id' : passageId, 'page' : index  });
         });
@@ -62,7 +61,8 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 data.uid = $('.js-user_own_info').attr('data-user_id');
                 data.id = res.id;
                 var temp = _.template( $initTemp.html() )({data : [data]});
-                $loading.before(temp);
+                //$loading.before(temp);
+                $('.js-w_comments').append(temp);
                 $loading.fadeOut();
                 alert('评论成功!!!!');
                 data = null;
@@ -129,14 +129,16 @@ define(['jquery', 'underscore', 'port'], function($, _,port){
                 success : function(res){
                     if( ! ( res = checkJson(res) ) ) return;
                     if( res.success){
-                        res.cz.forEach(function(piece, i){
-                            piece.reply = res.lzl[i];
-                        });
-                        var temp = _.template( $initTemp.html() )({data : res.cz});
-                        //$loading.before(temp);
-                        console.log(res.cz);
-                        $('.js-w_comments').html(temp);
-                        $loading.fadeOut();
+                        if(res.cz.length > 0){
+                            res.cz.forEach(function(piece, i){
+                                piece.reply = res.lzl[i];
+                            });
+                            var temp = _.template( $initTemp.html() )({data : res.cz});
+                            //$loading.before(temp);
+                            console.log(res.cz);
+                            $('.js-w_comments').html(temp);
+                            $loading.fadeOut();
+                        }
                     }else{
                         alert('数据获取失败，请稍后再试!!!');
                         if(res.err){

@@ -17,11 +17,12 @@ require.config({
         go_top : '../widget/go_top/go_top',
         bdshare : '../widget/bdshare/bdshare',
         share : '../widget/bdshare/share',
-        comment : '../widget/comment/comment'
+        comment : '../widget/comment/comment',
+        footer : '../widget/footer/footer'
     }
 });
 //加载依赖项
-define(['jquery' ,'bkmv_sub_comment', 'go_top', 'share', 'bdshare', 'comment'], function($){
+define(['jquery' ,'bkmv_sub_comment', 'go_top', 'share', 'bdshare', 'comment', 'footer'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';

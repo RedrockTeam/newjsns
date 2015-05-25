@@ -10,7 +10,7 @@
 Event::listen('auth.login', function($result){
     $event = array(
         'uid' => $result->id,
-        'action' => '登陆, 于'.Request::getClientIp(),
+        'action' => '登陆, 于cilentIp'.Request::getClientIp().'ip'.Request::ip(),
     );
     Logget::create($event);
 });

@@ -36,10 +36,10 @@
 <script type="text/template" id="temp_reply">
     <div class="s-reply_items f-cb js-reply_item">
             <div class="s-content_wrap js-user_info">
-                <span class="u-user_name js-user_from" data-value="<%= data.from%>"><%= data.from_name%></span>
+                <span class="u-user_name js-user_from" data-value="<%- data.from%>"><%- data.from_name%></span>
                 <span class="u-reply_tag">回复</span>
-             <span class="u-user_name js-user_to" data-value="<%= data.to%>"><%= data.to_name%> :</span>
-                <span class="u-reply_content js-user_content"><%= data.content%></span>
+             <span class="u-user_name js-user_to" data-value="<%- data.to%>"><%- data.to_name%> :</span>
+                <span class="u-reply_content js-user_content"><%- data.content%></span>
                 {{--<span class="u-reply_content">信息，并说明如何使用所提供的各种数据输入技术。</span>--}}
             </div>
             <button class="u-reply_btn js-reply_btn">我要回复</button>

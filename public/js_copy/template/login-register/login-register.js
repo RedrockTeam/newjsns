@@ -1,0 +1,1 @@
+require.config({baseUrl:"public/js/lib",paths:{jquery:"jquery",port:"../template/login-register/port","login-register-case":"../widget/login-register-case/login-register-case"}}),define(["login-register-case"],function(){function A(){$(".js-login_box").css("display","block")}console.log("login-register init"),$(".js-open_login_box").on("click",A)});

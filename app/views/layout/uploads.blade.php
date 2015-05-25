@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>上传图片</title>
+<title>作品上传</title>
 <!--[if lt IE 9]>
 @yield("html5js")
 <![endif]-->

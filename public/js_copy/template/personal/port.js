@@ -1,0 +1,1 @@
+define({url:"/ajax_change_info"});

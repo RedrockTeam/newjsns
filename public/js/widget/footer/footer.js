@@ -1,4 +1,1 @@
-/**
- * Created by redrock on 2015/4/29.
- */
-define([ "jquery" ], function($) {});
+define(["jquery"],function(a){var b=document.documentElement.clientHeight;b=b-a(".g-top_bar").height()-a(".g-header").height()-(parseFloat(a(".g-container").css("margin-top"))+parseFloat(a(".g-container").css("margin-bottom")))-a(".g-footer")[0].offsetHeight,a(".g-container").css("min-height",b)});

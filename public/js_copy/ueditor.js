@@ -1,0 +1,1 @@
+define(["jquery","ueditorConfig","ueditorAll"],function(A){A(function(){alert(246),console.log(UE)})});

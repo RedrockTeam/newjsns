@@ -1,4 +1,4 @@
-<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage">
+<form action="{{route('home/literature/createpassage')}}" method="POST" enctype="multipart/form-data" class="@if( $data['page_pos'] != 2 ){{'f-dn'}}@endif m-passage_form js-form_passage" id="upload_passage">
     <div class="form-group">
         <label for="passage_name">请输入文章标题</label>
         <br/>

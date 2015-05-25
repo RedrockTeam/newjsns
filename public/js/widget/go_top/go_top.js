@@ -1,1 +1,1 @@
-define(["jquery"],function(B){function A(){B("html, body").animate({scrollTop:0})}B(".js-go_top").on("click",A)});
+define(["jquery"],function(a){function b(){a("html, body").animate({scrollTop:0})}a(".js-go_top").on("click",b)});

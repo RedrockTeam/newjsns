@@ -1,0 +1,1 @@
+define(["jquery"],function(a){a(function(){a(".js-ori_type").on("change",function(){17==this.value?(a(".js-type_work label").text("请上传作品"),a(".js-type_link").hide()):(a(".js-type_work label").text("请上传封面"),a(".js-type_link").show())})})});

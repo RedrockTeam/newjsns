@@ -1,0 +1,1 @@
+require.config({baseUrl:"public/js/lib",shim:{underscore:{exports:"_"}},paths:{jquery:"jquery",port:"../template/bkmv_sub/port",bkmv_sub_comment:"../widget/bkmv_sub_comment/bkmv_sub_comment)",go_top:"../widget/go_top/go_top",login_box:"../widget/login_box/login_box"}}),define(["bkmv_sub_comment","go_top"],function(){console.log("bkmv_sub init")});

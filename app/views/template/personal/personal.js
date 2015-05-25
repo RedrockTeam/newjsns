@@ -18,11 +18,12 @@ require.config({
         personal_tabs : '../widget/personal_tabs/personal_tabs',
         personal_info : '../widget/personal_info/personal_info',
         imgSelectPlugin : 'jquery.imgareaselect.min',
-        imageSelect : '../widget/imageSelect/imageSelect'
+        imageSelect : '../widget/imageSelect/imageSelect',
+        personal_history : '../widget/personal_history/personal_history'
     }
 });
 //加载依赖项
-define(['jquery', 'go_top', 'personal_info', 'imageSelect', 'personal_tabs'], function($){
+define(['jquery', 'go_top', 'personal_info', 'imageSelect', 'personal_tabs', 'personal_history'], function($){
     $(function(){
         $('.js-open_login_box').on('click', function(){
             location.href = '/login-register';

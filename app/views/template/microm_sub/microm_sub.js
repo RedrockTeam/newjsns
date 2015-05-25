@@ -19,11 +19,12 @@ require.config({
         microm_intro : '../widget/microm_intro/microm_intro',
         bdshare : '../widget/bdshare/bdshare',
         share : '../widget/bdshare/share',
-        comment : '../widget/comment/comment'
+        comment : '../widget/comment/comment',
+        footer : '../widget/footer/footer'
     }
 });
 
 //加载依赖项
-define(['microm_play','microm_comment','go_top', 'login_box', 'microm_intro',  'share','bdshare', 'comment'], function(){
+define(['microm_play','microm_comment','go_top', 'login_box', 'microm_intro',  'share','bdshare', 'comment', 'footer'], function(){
     console.log('microm_sub init');
 });

@@ -14,22 +14,24 @@ require.config({
         go_top : '../widget/go_top/go_top',
         login_box : '../widget/login-register-case/login-register-case',
         ori_model : '../widget/ori_model/ori_model',
-        underscore : 'underscore'
+        underscore : 'underscore',
+        footer : '../widget/footer/footer'
     }
 });
 //加载依赖项
-define(['go_top', 'login_box', 'ori_model', 'underscore'], function(){
+define(['go_top',/* 'login_box', */'ori_model', 'underscore', 'footer'], function(){
     $(function(){
         /*----------------------打开与关闭登陆框-----------------*/
-        $('.js-open_login_box').on('click', openBox);                //打开登陆框
+        /*$('.js-open_login_box').on('click', openBox);                //打开登陆框
         $('.js-close_login_box, .js-login_box').on('click', closeBox);//关闭登陆框
-        /*----------------------事件处理函数--------------------*/
-        function openBox(){
+        *//*----------------------事件处理函数--------------------*//*
+        function openBox(ev){
+            ev.preventDefault();
             $('.js-login_box').css('display', 'block');
         }
 
         function closeBox(){
             $('.js-login_box').css('display', 'none');
-        }
+        }*/
     });
 });

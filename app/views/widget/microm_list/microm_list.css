@@ -79,7 +79,7 @@
 .m-movie_lists .u-m_info .show_movie-comments a{
     text-decoration: none;
 }
-.m-movie_lists .u-m_info .show_movie_love,.m-movie_lists .u-m_info .show_movie-comments{
+.m-movie_lists .u-m_info .show_movie_love,.m-movie_lists .u-m_info .show_movie-comments a{
     color: #666666;
     text-decoration: none;
     font-size: 12px;
@@ -91,6 +91,12 @@
     cursor: pointer;
     margin-left: 13px;
 }
+
+/*.show_movie-comments a{*/
+    /*font-size: 12px;*/
+    /*padding-left: 20px;*/
+    /*color: #666666;*/
+/*}*/
 /*.m-movie_lists .u-m_info .u-share {
     padding-left: 0;
     background: none;

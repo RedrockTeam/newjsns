@@ -1,1 +1,1 @@
-define(["jquery","ueditorConfig","ueditorAll"],function(A){A(function(){alert(246),console.log(UE)})});
+define(["jquery","ueditorConfig","ueditorAll"],function(a){a(function(){alert(246),console.log(UE)})});

@@ -41,6 +41,6 @@ class Album extends Eloquent {
     public function imgDetail(){
         return $this->hasMany('Photos', 'album_id', 'id')
                     ->where('photos.status', '=', '1')
-                    ->select('photos.original_url as img_src', 'photos.id as img_id', 'photos.introduce as img_desc');
+                    ->select('album_id', 'photos.original_url as img_src', 'photos.id as img_id', 'photos.introduce as img_desc');
     }
 }

@@ -1,0 +1,1 @@
+define({praise:"/praise"});

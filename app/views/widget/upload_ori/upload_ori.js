@@ -12,5 +12,37 @@ define(['jquery'], function($){
                 $('.js-type_link').show();
             }
         });
+
+        $('.js-form_ori').on('submit', function(ev){
+            ev.preventDefault();
+            var $self = $(this);
+
+            if($self[0].title.value.length < 1){
+                $( $self[0].title ).css('border-color', 'red');
+                alert('请填写标题');
+                return false;
+            }else{
+                $( $self[0].title ).css('border-color', '#ccc');
+            }
+
+            if($self[0].cover.value.length < 1){
+                alert('请上传封面!!!!');
+                return false;
+            }
+
+            if($self[0].cover.length < 1){
+                alert('上传封面!!!!!');
+                return false;
+            }
+
+            if($self[0].introduce.value.length < 1){
+                $( $self[0].introduce ).css('border-color', 'red');
+                alert('请填写简介!!!!!');
+                return false;
+            }else{
+               $(  $self[0].introduce ).css('border-color', '#ccc');
+            }
+            $self[0].submit();
+        });
     });
 });

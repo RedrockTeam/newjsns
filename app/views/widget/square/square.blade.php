@@ -47,15 +47,22 @@
                 </a>
             </p>
         </li>
-        <li class="u-square_item">
-            <a href="{{route('personal')}}" class="s-wrap"></a>
-            <p class="u-title">
-                <a href="{{route('personal')}}">
-                    <span>个人中心</span>
-                    <span>Personal</span>
-                </a>
-            </p>
-        </li>
+        {{--<li class="u-square_item">--}}
+            {{--<a href="{{route('personal')}}" class="s-wrap"></a>--}}
+            {{--<a href="http://hongyan.cqupt.edu.cn" class="s-wrap"></a>--}}
+            {{--<p class="u-title">--}}
+                {{--<a href="{{route('home/uploads')}}">--}}
+                    {{--<span>红岩</span>--}}
+                    {{--<span>redrock</span>--}}
+                {{--</a>--}}
+            {{--</p>--}}
+            {{--<p class="u-title">--}}
+                            {{--<a href="http://hongyan.cqupt.edu.cn">--}}
+                                {{--<span>发表</span>--}}
+                                {{--<span>Release</span>--}}
+                            {{--</a>--}}
+             {{--</p>--}}
+        {{--</li>--}}
 
         <li class="u-square_item">
             <p class="u-title">

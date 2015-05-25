@@ -1,14 +1,15 @@
 /*created by redrock*/
 .m-login-register-case {
     width: 502px;
-    height: 302px;
+    /*height: 302px;*/
     margin: 0 auto;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    padding-bottom: 1px;
 }
 .u-tabs li{
-    width: 50%;
+    width: 100%;
     list-style: none;
     height: 50px;
     line-height: 50px;
@@ -19,22 +20,23 @@
     color: #dddddd;
     font-family: "microsoft yahei";
     text-decoration: none;
-    cursor: pointer;
+    border-radius: 7px 7px 0 0;
 }
 .u-tabs li.s-active{
     background: #ffffff;
     color: #333333;
 }
-.u-tabs li:nth-child(1){
-    border-radius: 7px 0 0 0;
-}
-.u-tabs li:nth-child(2){
-    border-radius: 0 7px 0 0;
-}
+/*.u-tabs li:nth-child(1){*/
+    /*border-radius: 7px 0 0 0;*/
+/*}*/
+/*.u-tabs li:nth-child(2){*/
+    /*border-radius: 0 7px 0 0;*/
+/*}*/
 
 .s-form{
     display: block;
     width: 330px;
+    padding-bottom: 5px;
     margin: 20px auto;
 }
 .s-form .s-error {
@@ -96,4 +98,21 @@
 .u-register{
     display: none;
 }
+.alert-warning{
+    color: red;
+}
+.s-find_pwd{
+    margin-top: 10px;
+    float: right;
+    color: #6ae56d;
+    text-decoration: none;
+}
 
+.s-find_pwd:hover{
+    text-decoration: underline;
+}
+
+.s-err_info{
+    text-align: center;
+    margin-top: 10px;
+}

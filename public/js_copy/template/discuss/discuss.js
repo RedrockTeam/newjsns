@@ -1,0 +1,1 @@
+require.config({baseUrl:"public/js/lib",shim:{underscore:{exports:"_"}},paths:{jquery:"jquery",port:"../template/discuss/port",discuss_list:"../widget/discuss_list/discuss_list",go_top:"../widget/go_top/go_top"}}),define(["discuss_list","go_top"],function(){console.log("discuss init")});
