@@ -259,7 +259,9 @@
         // 当执行成功回调函数时，传入返回的JSON数据作为参数
         ajaxFunc: null,
         // (function)
-        createHtml: null
+        createHtml: null,
+        // 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串(function)
+        colNum: 5
     };
     /*****************一些全局函数*********************/
     /**

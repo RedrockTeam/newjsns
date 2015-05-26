@@ -366,8 +366,8 @@
         // 自定义异步函数, 第一个参数为成功回调函数，第二个参数为失败回调函数
         // 当执行成功回调函数时，传入返回的JSON数据作为参数
         ajaxFunc: null,		// (function)
-        createHtml: null	// 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串(function)
-
+        createHtml: null,	// 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串(function)
+        colNum : 5
     };
 
 
