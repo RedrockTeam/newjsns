@@ -18,8 +18,8 @@
     {{--登陆 默认关闭--}}
     <form action="{{route('home/login')}}" novalidate method="POST"  class="u-login s-form f-cb js-login-form">
 
-        <div class="f-pr"><input type="text" class="u-stu_id js-check" name="username" data-check_type="stu_id"  placeholder="重邮通行证"/><span class="s-error">+</span></div>
-        <div class="f-pr"><input type="password" class="u-stu_pwd js-check" name="password" data-check_type="stu_pwd" placeholder="密码（你懂得!!!!）"/><span class="s-error">+</span></div>
+        <div class="f-pr"><input type="text" class="u-stu_id js-check" name="username" data-check_type="stu_id"  placeholder="重邮通行证/学号/注册邮箱"/><span class="s-error">+</span></div>
+        <div class="f-pr"><input type="password" class="u-stu_pwd js-check" name="password" data-check_type="stu_pwd" placeholder="密码"/><span class="s-error">+</span></div>
         <input type="submit" value="登陆"/>
         <a href="http://hongyan.cqupt.edu.cn/user/resetpassword" class="s-find_pwd">找回密码</a>
     </form>

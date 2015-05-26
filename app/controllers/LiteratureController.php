@@ -57,9 +57,10 @@ class LiteratureController extends BaseController{
            $image = Image::make($name);
            $time = md5(microtime(true));
            $path =  'public/uploads/'.$time.'.jpg';
-           $newimg = $image->resize(100, null, function ($constraint) {
-             $constraint->aspectRatio();
-           });
+           $newimg = $image;
+//               ->resize(, null, function ($constraint) {
+//             $constraint->aspectRatio();
+//           });
            $newimg->save($path);
            $newimg->destroy();
            $img_url[] = $path;
