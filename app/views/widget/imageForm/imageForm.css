@@ -5,6 +5,7 @@
 }
 .u-show-img{
     overflow-x: scroll;
+    margin-top: 10px;
 }
 .u-crop-img{
     display: block;
