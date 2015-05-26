@@ -152,7 +152,6 @@
                 if(colsHeight.minHeight + wf_box_top < $(window).height() + $(window).scrollTop()){
                     // 如果缓存还有数据，直接处理数据
                     if(jsonCache.length > 0){
-                        //alert('asefgre');
                         dealData();
                     }else{
                         if(opts.ajaxTimes === 'infinite' || ajaxTimes < opts.ajaxTimes){
@@ -161,12 +160,11 @@
                             opts.params.ajax = ++ajaxTimes;
                             ajaxFunc(
                                 function(jsonData) {
-                                    //alert('erstgr');
                                     try {
                                         if (typeof jsonData === 'string') jsonData = $.parseJSON(jsonData);
-                                        console.log(jsonData);
                                         if (jsonData.current_page == jsonData.last_page) {
                                             jsonCache = jsonCache.concat(jsonData.data).reverse();
+                                            console.log( jsonCache );
                                             dealData();
                                             showMsg('finish');
                                         } else {
@@ -198,6 +196,7 @@
                 data = null,
                 wf_col_height = $wf_col.height(),
                 $wf_item, $wf_img, htmlStr;
+            console.log('perNum:' + perNum);
             // 确保所有图片都已知宽高
             loadImg(jsonCache, opts.imgUrlName, function(){
                 while(perNum-- > 0 && (data = jsonCache.pop())){
@@ -235,7 +234,6 @@
 
                 // 保证浏览器有效滚动
                 getJSONData();
-
             });
         }
 
@@ -368,8 +366,8 @@
         // 自定义异步函数, 第一个参数为成功回调函数，第二个参数为失败回调函数
         // 当执行成功回调函数时，传入返回的JSON数据作为参数
         ajaxFunc: null,		// (function)
-        createHtml: null	// 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串(function)
-
+        createHtml: null,	// 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串(function)
+        colNum : 5
     };
 
 

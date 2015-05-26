@@ -44,11 +44,14 @@
     -ms-transition: bottom 0.5s;
     -moz-transition: bottom 0.5s;
 }
-.m-bkmv_lists .u-bkmv_item .u-bkmv_info .u-bkmv_name{
+.m-bkmv_lists .u-bkmv_item .u-bkmv_name{
     font-size: 12px;
     color: #ffffff;
     text-align: center;
-    margin: 16px 10px;
+    padding: 16px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .m-bkmv_lists .u-bkmv_item .u-user_action{

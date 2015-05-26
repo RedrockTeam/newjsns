@@ -4,7 +4,7 @@
     <input type="text" class="form-control" name="ablum_name" id="ablum_name" placeholder="相册名称"/>
   </div>
     <div class="form-group">
-        <label for="passage_name">请选择视频类别</label>
+        <label for="passage_name">请选择图片类别</label>
         <br/>
         <select name="photo_type" id="">
             @foreach($data['photo_type'] as $type)

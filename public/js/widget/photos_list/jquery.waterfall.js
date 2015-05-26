@@ -1,1 +1,307 @@
-!function(a,b,c){function d(a,b,c){var d=0,e=0,f=null,h=null;for(done=function(){d===a.length&&(clearInterval(f),c&&c())};e<a.length;e++)h=a[e],h.height=parseInt(h.height),h.width=parseInt(h.width),h.height>=0&&h.width>=0?++d:!function(a){g(a[b],function(b,c){a.width=b,a.height=c,++d},null,function(){a.width=208,a.height=240,a.imgSrc="images/default.jpg",++d})}(h);f=setInterval(done,40)}function e(a,b){clearTimeout(a.tid),b=b||null,a.tid=setTimeout(function(){a.call(b)},100)}function f(a){var b,c,d,e=a.slice(),f=[],g=a.length;for(b=0;g>b;b++)f[b]=b;for(b=0;g>b;b++)for(c=b;g>c;c++)e[c]<e[b]&&(d=e[b],e[b]=e[c],e[c]=d,d=f[b],f[b]=f[c],f[c]=d);return a.minHeight=a[f[0]],a.maxHeight=a[f[f.length-1]],f}a.fn.waterfall=function(g){function h(){u||t||v.minHeight+y<a(b).height()+a(b).scrollTop()&&(x.length>0?i():"infinite"===q.ajaxTimes||s<q.ajaxTimes?(k("loading"),q.params.ajax=++s,B(function(b){try{"string"==typeof b&&(b=a.parseJSON(b)),console.log(b),b.current_page==b.last_page?(x=x.concat(b.data).reverse(),i(),k("finish")):(x=x.concat(b.data).reverse(),i())}catch(c){k("error")}},function(){k("error")})):k("finish"))}function i(){var b,c,e,g="number"==typeof q.perNum?q.perNum:q.colNum,i=null;m.height(),d(x,q.imgUrlName,function(){for(;g-->0&&(i=x.pop());)w=f(v)[0],A=w*(q.colWidth+q.marginLeft),z=v[w]+q.marginTop,e=C(i),b=a("<div>").addClass(q.itemClass).html(e).css({left:A,top:z}).appendTo(m),c=b.find("."+q.imgClass),c.width("200px"),c.height(c.width()*(i.height/i.width)),q.isAnimation&&b.css({opacity:0}).animate({opacity:1},800),v[w]=z+b.outerHeight(),v[w]>v.maxHeight&&(v.maxHeight=v[w]),m.height(v.maxHeight);t=!1,o.hide(),h()})}function j(){var b=0,c=0,d=0,e=0;if(b=Math.floor((l.width()+q.marginLeft)/(q.colWidth+q.marginLeft)),b>0&&b!==q.colNum){for(q.colNum=b,m.width((q.colWidth+q.marginLeft)*q.colNum-q.marginLeft),c=0;c<q.colNum;c++)v[c]=0;v.length=q.colNum,n=m.children(".wf_item"),n.each(function(b,c){w=f(v)[0],z=v[w]+q.marginTop,A=w*(q.colWidth+q.marginLeft),q.isAnimation&&(e=300),a(this).width(q.colWidth).animate({left:A,top:z},e),v[w]=z+a(this).outerHeight()}),f(v),m.height(v.maxHeight),h()}d=m.offset().left+(m.width()+l.width())/2-p.width(),D(p[0],{left:d,bottom:0})}function k(a){switch(a){case"loading":t=!0,o.html("").addClass("wf_loading").show();break;case"error":o.removeClass("wf_loading").show().html("数据格式错误，请返回标准的Json数据或Json格式字符串！"),u=!0;break;case"finish":o.removeClass("wf_loading").show().html("已加载完毕，没有更多了！"),u=!0}}var l,m,n,o,p,q=a.extend({},a.fn.waterfall.defaults,g),r=!-[1]&&!b.XMLHttpRequest,s=0,t=!1,u=!1,v=[],w=0,x=[],y=0,z=0,A=0,B=a.isFunction(q.ajaxFunc)?q.ajaxFunc:function(b,c){a.ajax({type:"GET",url:q.url,cache:!1,data:q.params,dataType:"json",timeout:6e4,success:b,error:c})},C=a.isFunction(q.createHtml)?q.createHtml:function(a){return'<div class="wf_item_inner"><a href="'+a.href+'" class="thumb" target="_blank"><img class="'+q.imgClass+'"  src="'+a.imgSrc+'" /></a><h3 class="title"><a href="'+a.href+'" target="_blank">'+a.title+'</a></h3><p class="desc">'+a.describe+"</p></div>"},D=function(){var a=c.getElementsByTagName("html")[0],b=c.documentElement,d=c.body,e=b||d;return r&&"fixed"!==d.currentStyle.backgroundAttachment&&(a.style.backgroundImage="url(about:blank)",a.style.backgroundAttachment="fixed"),r?function(a,b){var c=a.style,d="(document.documentElement || document.body)";"number"!=typeof b.left&&(b.left=e.clientWidth-b.right-a.offsetWidth),"number"!=typeof b.top&&(b.top=e.clientHeight-b.bottom-a.offsetHeight),a.style.position="absolute",c.removeExpression("left"),c.removeExpression("top"),c.setExpression("left","eval("+d+".scrollLeft + "+b.left+') + "px"'),c.setExpression("top","eval("+d+".scrollTop + "+b.top+') + "px"')}:function(a,b){var c=a.style;c.position="fixed","number"==typeof b.left?c.left=b.left+"px":(c.left="auto",c.right=b.right+"px"),"number"==typeof b.top?c.top=b.top+"px":(c.top="auto",c.bottom=b.bottom+"px")}}();return this.each(function(){return a(this).data("_wf_is_done_")?!0:(l=a(this).addClass("waterfall").data("_wf_is_done_",!0),y=l.offset().top,m=l.children(".wf_col"),0===m.length&&(m=a("<div>").addClass("wf_col").appendTo(l)),o=a("<div>").addClass("wf_result").appendTo(l),p=a("<a></a>").attr("id","backTop").attr("title","返回顶部").appendTo(c.body),p.css("opacity",0).bind("click",function(){a("body,html").stop(!0).animate({scrollTop:y},500)}),a(c.body).css("overflow","scroll"),j(),a(c.body).css("overflow","auto"),h(),void a(b).bind("scroll",function(){a(b).scrollTop()>y?p.stop(!0).animate({opacity:1},500):p.stop(!0).animate({opacity:0},500),h()}).bind("resize",function(){e(j)}))})},a.fn.waterfall.defaults={itemClass:"wf_item",imgClass:"thumb_img",colWidth:235,marginLeft:15,marginTop:15,perNum:"auto",isAnimation:!0,ajaxTimes:"infinite",imgUrlName:"img_src",params:{},url:"",ajaxFunc:null,createHtml:null};var g=function(){var a=[],b=null,c=function(){for(var b=0;b<a.length;b++)a[b].end?a.splice(b--,1):a[b]();!a.length&&d()},d=function(){clearInterval(b),b=null};return function(d,e,f,g){var h,i,j,k,l,m=new Image;return d?(m.src=d,m.complete?(e(m.width,m.height),void(f&&f(m.width,m.height))):(i=m.width,j=m.height,h=function(){k=m.width,l=m.height,(k!==i||l!==j||k*l>1024)&&(e(k,l),h.end=!0)},h(),m.onerror=function(){alert("图片加载错误"),g&&g(),h.end=!0,m=m.onload=m.onerror=null},m.onload=function(){f&&f(m.width,m.height),!h.end&&h(),m=m.onload=m.onerror=null},void(h.end||(a.push(h),null===b&&(b=setInterval(c,40)))))):void(g&&g())}}()}(jQuery,window,document);
+/*!
+ * jQuery Waterfall v1.2
+ * 
+ * Author		: LeoLai
+ * Blog			: http://leolai.cnblogs.com/
+ * Mail 		: leolai.mail@qq.com
+ * QQ 			: 657448678 
+ * Date 		: 2013-4-19 
+ * Last Update 	: 2013-5-23
+ *
+ **************************************************************
+ * 1. 根据页面大小自动排列
+ * 2. 自定义异步请求函数（返回JSON，json格式与html模板对应即可，默认格式请看demo json.js）
+ * 3. 自定义html模板
+ * 4. 图片自动按比例缩放
+ * 5. 是否显示分页(未完成)
+ * usage: url必填，其它不传将使用默认配置
+ $('#id').waterfall({
+ itemClass: 'wf_item',	// 砖块类名
+ imgClass: 'thumb_img',	// 图片类名
+ colWidth: 235,			// 列宽
+ marginLeft: 15,			// 每列的左间宽
+ marginTop: 15,			// 每列的上间宽
+ perNum: 'auto',			// 每次下拉时显示多少个(默认是列数)
+ isAnimation: true,		// 是否使用动画效果
+ ajaxTimes: 'infinite',	// 限制加载的次数(int) 字符串'infinite'表示无限加载
+ url: null,				// 数据来源(ajax加载，返回json格式)，传入了ajaxFunc参数，此参数将无效
+ ajaxFunc: null,			// 自定义异步函数, 第一个参数为成功回调函数，第二个参数为失败回调函数
+ // 当执行成功回调函数时，传入返回的JSON数据作为参数
+ createHtml: null		// 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串
+ });
+ *
+ */
+//alert('eswjubhfuserg');
+!function($, window, document) {
+    // 快速获取图片头数据，加载就绪后执行回调函数
+    function loadImg(jsonData, imgUrlName, callback) {
+        var count = 0, i = 0, intervalId = null, data = null;
+        for (done = function() {
+            count === jsonData.length && (clearInterval(intervalId), callback && callback());
+        }; i < jsonData.length; i++) data = jsonData[i], data.height = parseInt(data.height), 
+        data.width = parseInt(data.width), // 如果已知图片的高度，则跳过
+        data.height >= 0 && data.width >= 0 ? ++count : !function(data) {
+            imgReady(data[imgUrlName], function(width, height) {
+                // 图片头数据加载就绪，保存宽高
+                data.width = width, data.height = height, ++count;
+            }, null, function() {
+                // 图片加载失败，替换成默认图片
+                data.width = 208, data.height = 240, data.imgSrc = "images/default.jpg", ++count;
+            });
+        }(data);
+        intervalId = setInterval(done, 40);
+    }
+    /*
+     * 函数节流：避免因为高频率的更改导致浏览器挂起或崩溃，如onresize事件处理程序尝试复杂的DOM操作
+     * 思路：在一定时间内重复执行某操作只执行一次。
+     */
+    function throttle(method, context) {
+        clearTimeout(method.tid), context = context || null, method.tid = setTimeout(function() {
+            method.call(context);
+        }, 100);
+    }
+    // 返回从小到大排序的数组的下标的数组
+    // e.g. 传入数组[300,200,250,400] 返回[1,2,0,3]
+    function getColsIndex(arr) {
+        var i, j, temp, clone = arr.slice(), // 数组副本，避免改变原数组
+        ret = [], // 对应下标数组
+        len = arr.length;
+        for (i = 0; len > i; i++) ret[i] = i;
+        //外层循环(冒泡排序法：从小到大)
+        for (i = 0; len > i; i++) //内层循环
+        for (j = i; len > j; j++) clone[j] < clone[i] && (//交换两个元素的位置
+        temp = clone[i], clone[i] = clone[j], clone[j] = temp, temp = ret[i], ret[i] = ret[j], 
+        ret[j] = temp);
+        return arr.minHeight = arr[ret[0]], arr.maxHeight = arr[ret[ret.length - 1]], ret;
+    }
+    $.fn.waterfall = function(options) {
+        // 异步获取数据
+        function getJSONData() {
+            isFinish || isLoading || // 确保上一次加载完毕才发送新的请求
+            // 滚动条下拉时判断是否需要向服务器请求数据或者是处理缓存数据
+            colsHeight.minHeight + wf_box_top < $(window).height() + $(window).scrollTop() && (// 如果缓存还有数据，直接处理数据
+            jsonCache.length > 0 ? dealData() : "infinite" === opts.ajaxTimes || ajaxTimes < opts.ajaxTimes ? (showMsg("loading"), 
+            // 传参给服务器
+            opts.params.ajax = ++ajaxTimes, ajaxFunc(function(jsonData) {
+                try {
+                    "string" == typeof jsonData && (jsonData = $.parseJSON(jsonData)), jsonData.current_page == jsonData.last_page ? (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
+                    console.log(jsonCache), dealData(), showMsg("finish")) : (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
+                    dealData());
+                } catch (e) {
+                    showMsg("error");
+                }
+            }, function() {
+                showMsg("error");
+            })) : showMsg("finish"));
+        }
+        // 处理返回的数据
+        function dealData() {
+            {
+                var $wf_item, $wf_img, htmlStr, perNum = "number" == typeof opts.perNum ? opts.perNum : opts.colNum, data = null;
+                $wf_col.height();
+            }
+            console.log("perNum:" + perNum), // 确保所有图片都已知宽高
+            loadImg(jsonCache, opts.imgUrlName, function() {
+                for (;perNum-- > 0 && (data = jsonCache.pop()); ) minColsIndex = getColsIndex(colsHeight)[0], 
+                wf_item_left = minColsIndex * (opts.colWidth + opts.marginLeft), wf_item_top = colsHeight[minColsIndex] + opts.marginTop, 
+                htmlStr = createHtml(data), $wf_item = $("<div>").addClass(opts.itemClass).html(htmlStr).css({
+                    left: wf_item_left,
+                    top: wf_item_top
+                }).appendTo($wf_col), $wf_img = $wf_item.find("." + opts.imgClass), $wf_img.width("200px"), 
+                $wf_img.height($wf_img.width() * (data.height / data.width)), opts.isAnimation && $wf_item.css({
+                    opacity: 0
+                }).animate({
+                    opacity: 1
+                }, 800), // 更新每列的高度
+                colsHeight[minColsIndex] = wf_item_top + $wf_item.outerHeight(), colsHeight[minColsIndex] > colsHeight.maxHeight && (colsHeight.maxHeight = colsHeight[minColsIndex]), 
+                $wf_col.height(colsHeight.maxHeight);
+                isLoading = !1, $wf_result.hide(), // 保证浏览器有效滚动
+                getJSONData();
+            });
+        }
+        // 排列瀑布流的块
+        function realign() {
+            var colNum = 0, i = 0, backTop_left = 0, speed = 0;
+            if (// 计算出当前屏幕可以排多少列
+            colNum = Math.floor(($wf_box.width() + opts.marginLeft) / (opts.colWidth + opts.marginLeft)), 
+            colNum > 0 && colNum !== opts.colNum) {
+                // 重新调整存储列
+                for (opts.colNum = colNum, $wf_col.width((opts.colWidth + opts.marginLeft) * opts.colNum - opts.marginLeft), 
+                i = 0; i < opts.colNum; i++) colsHeight[i] = 0;
+                colsHeight.length = opts.colNum, $wf_col_items = $wf_col.children(".wf_item"), $wf_col_items.each(function(num, value) {
+                    minColsIndex = getColsIndex(colsHeight)[0], wf_item_top = colsHeight[minColsIndex] + opts.marginTop, 
+                    wf_item_left = minColsIndex * (opts.colWidth + opts.marginLeft), opts.isAnimation && (speed = 300), 
+                    $(this).width(opts.colWidth).animate({
+                        left: wf_item_left,
+                        top: wf_item_top
+                    }, speed), colsHeight[minColsIndex] = wf_item_top + $(this).outerHeight();
+                }), getColsIndex(colsHeight), $wf_col.height(colsHeight.maxHeight), getJSONData();
+            }
+            // 返回顶部按钮位置
+            backTop_left = $wf_col.offset().left + ($wf_col.width() + $wf_box.width()) / 2 - $backTop.width(), 
+            fixedPosition($backTop[0], {
+                left: backTop_left,
+                bottom: 0
+            });
+        }
+        // 显示结果信息
+        function showMsg(type) {
+            switch (type) {
+              case "loading":
+                isLoading = !0, $wf_result.html("").addClass("wf_loading").show();
+                break;
+
+              case "error":
+                $wf_result.removeClass("wf_loading").show().html("数据格式错误，请返回标准的Json数据或Json格式字符串！"), 
+                isFinish = !0;
+                break;
+
+              case "finish":
+                $wf_result.removeClass("wf_loading").show().html("已加载完毕，没有更多了！"), isFinish = !0;
+            }
+        }
+        var // 一些jQ对象
+        $wf_box, $wf_col, $wf_col_items, $wf_result, $backTop, // 配置信息
+        opts = $.extend({}, $.fn.waterfall.defaults, options), isIE6 = !-[ 1 ] && !window.XMLHttpRequest, ajaxTimes = 0, // 已向服务器请求的次数
+        isLoading = !1, // 是否正在加载数据
+        isFinish = !1, // true时不再向服务器发送请求
+        colsHeight = [], // 用于存储每列的高度
+        minColsIndex = 0, // 最低那列的下标
+        jsonCache = [], // 服务器返回的JSON缓存数据
+        wf_box_top = 0, // $wf_box 的相对视图的位置高度
+        wf_item_top = 0, // 瀑布流块的top, left值
+        wf_item_left = 0, // 异步请求函数
+        ajaxFunc = $.isFunction(opts.ajaxFunc) ? opts.ajaxFunc : function(success, error) {
+            $.ajax({
+                type: "GET",
+                url: opts.url,
+                cache: !1,
+                data: opts.params,
+                dataType: "json",
+                timeout: 6e4,
+                success: success,
+                error: error
+            });
+        }, // 生成html字符串函数
+        createHtml = $.isFunction(opts.createHtml) ? opts.createHtml : function(data) {
+            return '<div class="wf_item_inner"><a href="' + data.href + '" class="thumb" target="_blank"><img class="' + opts.imgClass + '"  src="' + data.imgSrc + '" /></a><h3 class="title"><a href="' + data.href + '" target="_blank">' + data.title + '</a></h3><p class="desc">' + data.describe + "</p></div>";
+        }, fixedPosition = function() {
+            var html = document.getElementsByTagName("html")[0], dd = document.documentElement, db = document.body, doc = dd || db;
+            // pos = {top:0, right:0, bottom:0, left:0}
+            // 给IE6 fixed 提供一个"不抖动的环境"
+            // 只需要 html 与 body 标签其一使用背景静止定位即可让IE6下滚动条拖动元素也不会抖动
+            // 注意：IE6如果 body 已经设置了背景图像静止定位后还给 html 标签设置会让 body 设置的背景静止(fixed)失效
+            return isIE6 && "fixed" !== db.currentStyle.backgroundAttachment && (html.style.backgroundImage = "url(about:blank)", 
+            html.style.backgroundAttachment = "fixed"), isIE6 ? function(elem, pos) {
+                var style = elem.style, dom = "(document.documentElement || document.body)";
+                "number" != typeof pos.left && (pos.left = doc.clientWidth - pos.right - elem.offsetWidth), 
+                "number" != typeof pos.top && (pos.top = doc.clientHeight - pos.bottom - elem.offsetHeight), 
+                elem.style.position = "absolute", style.removeExpression("left"), style.removeExpression("top"), 
+                style.setExpression("left", "eval(" + dom + ".scrollLeft + " + pos.left + ') + "px"'), 
+                style.setExpression("top", "eval(" + dom + ".scrollTop + " + pos.top + ') + "px"');
+            } : function(elem, pos) {
+                var style = elem.style;
+                style.position = "fixed", "number" == typeof pos.left ? style.left = pos.left + "px" : (style.left = "auto", 
+                style.right = pos.right + "px"), "number" == typeof pos.top ? style.top = pos.top + "px" : (style.top = "auto", 
+                style.bottom = pos.bottom + "px");
+            };
+        }();
+        return this.each(function() {
+            // 保存 $wf_box 的相对视图的位置高度
+            // 增加返回顶部按钮
+            // 排列已经存在的瀑布流块
+            // 第一次拉取图片时，保证图片能填满窗出现滚动
+            // 注册滚动条事件
+            return $(this).data("_wf_is_done_") ? !0 : ($wf_box = $(this).addClass("waterfall").data("_wf_is_done_", !0), 
+            wf_box_top = $wf_box.offset().top, $wf_col = $wf_box.children(".wf_col"), 0 === $wf_col.length && ($wf_col = $("<div>").addClass("wf_col").appendTo($wf_box)), 
+            $wf_result = $("<div>").addClass("wf_result").appendTo($wf_box), $backTop = $("<a></a>").attr("id", "backTop").attr("title", "返回顶部").appendTo(document.body), 
+            $backTop.css("opacity", 0).bind("click", function() {
+                $("body,html").stop(!0).animate({
+                    scrollTop: wf_box_top
+                }, 500);
+            }), $(document.body).css("overflow", "scroll"), realign(), $(document.body).css("overflow", "auto"), 
+            getJSONData(), void $(window).bind("scroll", function() {
+                $(window).scrollTop() > wf_box_top ? $backTop.stop(!0).animate({
+                    opacity: 1
+                }, 500) : $backTop.stop(!0).animate({
+                    opacity: 0
+                }, 500), getJSONData();
+            }).bind("resize", function() {
+                throttle(realign);
+            }));
+        });
+    }, // 默认配置
+    $.fn.waterfall.defaults = {
+        itemClass: "wf_item",
+        // 砖块类名
+        imgClass: "thumb_img",
+        // 图片类名
+        colWidth: 235,
+        // 列宽(int)
+        marginLeft: 15,
+        // 每列的左间宽(int)
+        marginTop: 15,
+        // 每列的上间宽(int)
+        perNum: "auto",
+        // 每次下拉时显示多少个(默认是列数)
+        isAnimation: !0,
+        // 是否使用动画效果
+        ajaxTimes: "infinite",
+        // 限制异步请求的次数(int) 字符串'infinite'表示无限加载
+        imgUrlName: "img_src",
+        // 在json里表示图片路径的属性名称(用于预加载图片获取高宽)
+        params: {},
+        // 键值对，发送到服务器的数据。将自动转换为请求字符串格式。
+        // 如 {foo:["bar1", "bar2"]} 转换为 "&foo=bar1&foo=bar2"。
+        url: "",
+        // 数据来源(ajax加载，返回json格式)，传入了ajaxFunc参数，此参数可省略(string)
+        // 自定义异步函数, 第一个参数为成功回调函数，第二个参数为失败回调函数
+        // 当执行成功回调函数时，传入返回的JSON数据作为参数
+        ajaxFunc: null,
+        // (function)
+        createHtml: null,
+        // 自定义生成html字符串函数,参数为一个信息集合，返回一个html字符串(function)
+        colNum: 5
+    };
+    /*****************一些全局函数*********************/
+    /**
+     * 图片头数据加载就绪事件
+     * @参考 	http://www.planeart.cn/?p=1121
+     * @param	{String}	图片路径
+     * @param	{Function}	尺寸就绪 (参数1接收width; 参数2接收height)
+     * @param	{Function}	加载完毕 (可选. 参数1接收width; 参数2接收height)
+     * @param	{Function}	加载错误 (可选)
+     */
+    var imgReady = function() {
+        var list = [], intervalId = null, // 用来执行队列
+        tick = function() {
+            for (var i = 0; i < list.length; i++) list[i].end ? list.splice(i--, 1) : list[i]();
+            !list.length && stop();
+        }, // 停止所有定时器队列
+        stop = function() {
+            clearInterval(intervalId), intervalId = null;
+        };
+        //console.log('haha');
+        return function(url, ready, load, error) {
+            //alert('return');
+            var check, width, height, newWidth, newHeight, img = new Image();
+            //console.log(src);
+            // 如果图片被缓存，则直接返回缓存数据
+            // 检测图片大小的改变
+            // 加载错误后的事件
+            // 完全加载完毕的事件
+            // 加入队列中定期执行
+            // 无论何时只允许出现一个定时器，减少浏览器性能损耗
+            return url ? (img.src = url, img.complete ? (ready(img.width, img.height), void (load && load(img.width, img.height))) : (width = img.width, 
+            height = img.height, check = function() {
+                newWidth = img.width, newHeight = img.height, (newWidth !== width || newHeight !== height || // 如果图片已经在其他地方加载可使用面积检测
+                newWidth * newHeight > 1024) && (ready(newWidth, newHeight), check.end = !0);
+            }, check(), img.onerror = function() {
+                alert("图片加载错误"), error && error(), check.end = !0, img = img.onload = img.onerror = null;
+            }, img.onload = function() {
+                load && load(img.width, img.height), !check.end && check(), // IE gif动画会循环执行onload，置空onload即可
+                img = img.onload = img.onerror = null;
+            }, void (check.end || (list.push(check), null === intervalId && (intervalId = setInterval(tick, 40)))))) : void (error && error());
+        };
+    }();
+}(jQuery, window, document);
