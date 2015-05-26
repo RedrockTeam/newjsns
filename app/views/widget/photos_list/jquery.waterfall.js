@@ -152,7 +152,6 @@
                 if(colsHeight.minHeight + wf_box_top < $(window).height() + $(window).scrollTop()){
                     // 如果缓存还有数据，直接处理数据
                     if(jsonCache.length > 0){
-                        //alert('asefgre');
                         dealData();
                     }else{
                         if(opts.ajaxTimes === 'infinite' || ajaxTimes < opts.ajaxTimes){
@@ -165,6 +164,7 @@
                                         if (typeof jsonData === 'string') jsonData = $.parseJSON(jsonData);
                                         if (jsonData.current_page == jsonData.last_page) {
                                             jsonCache = jsonCache.concat(jsonData.data).reverse();
+                                            console.log( jsonCache );
                                             dealData();
                                             showMsg('finish');
                                         } else {
@@ -196,6 +196,7 @@
                 data = null,
                 wf_col_height = $wf_col.height(),
                 $wf_item, $wf_img, htmlStr;
+            console.log('perNum:' + perNum);
             // 确保所有图片都已知宽高
             loadImg(jsonCache, opts.imgUrlName, function(){
                 while(perNum-- > 0 && (data = jsonCache.pop())){

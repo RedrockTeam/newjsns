@@ -80,13 +80,12 @@
             isFinish || isLoading || // 确保上一次加载完毕才发送新的请求
             // 滚动条下拉时判断是否需要向服务器请求数据或者是处理缓存数据
             colsHeight.minHeight + wf_box_top < $(window).height() + $(window).scrollTop() && (// 如果缓存还有数据，直接处理数据
-            jsonCache.length > 0 ? //alert('asefgre');
-            dealData() : "infinite" === opts.ajaxTimes || ajaxTimes < opts.ajaxTimes ? (showMsg("loading"), 
+            jsonCache.length > 0 ? dealData() : "infinite" === opts.ajaxTimes || ajaxTimes < opts.ajaxTimes ? (showMsg("loading"), 
             // 传参给服务器
             opts.params.ajax = ++ajaxTimes, ajaxFunc(function(jsonData) {
                 try {
                     "string" == typeof jsonData && (jsonData = $.parseJSON(jsonData)), jsonData.current_page == jsonData.last_page ? (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
-                    dealData(), showMsg("finish")) : (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
+                    console.log(jsonCache), dealData(), showMsg("finish")) : (jsonCache = jsonCache.concat(jsonData.data).reverse(), 
                     dealData());
                 } catch (e) {
                     showMsg("error");
@@ -101,7 +100,7 @@
                 var $wf_item, $wf_img, htmlStr, perNum = "number" == typeof opts.perNum ? opts.perNum : opts.colNum, data = null;
                 $wf_col.height();
             }
-            // 确保所有图片都已知宽高
+            console.log("perNum:" + perNum), // 确保所有图片都已知宽高
             loadImg(jsonCache, opts.imgUrlName, function() {
                 for (;perNum-- > 0 && (data = jsonCache.pop()); ) minColsIndex = getColsIndex(colsHeight)[0], 
                 wf_item_left = minColsIndex * (opts.colWidth + opts.marginLeft), wf_item_top = colsHeight[minColsIndex] + opts.marginTop, 
