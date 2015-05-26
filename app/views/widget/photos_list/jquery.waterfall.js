@@ -161,10 +161,8 @@
                             opts.params.ajax = ++ajaxTimes;
                             ajaxFunc(
                                 function(jsonData) {
-                                    //alert('erstgr');
                                     try {
                                         if (typeof jsonData === 'string') jsonData = $.parseJSON(jsonData);
-                                        console.log(jsonData);
                                         if (jsonData.current_page == jsonData.last_page) {
                                             jsonCache = jsonCache.concat(jsonData.data).reverse();
                                             dealData();
@@ -235,7 +233,6 @@
 
                 // 保证浏览器有效滚动
                 getJSONData();
-
             });
         }
 
