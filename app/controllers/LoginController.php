@@ -9,7 +9,7 @@ class LoginController extends BaseController
     private $username;
     private $password;
     private $rules;
-
+    private $url = 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login';
     public function index() {
         return View::make("template.login-register.login-register");
     }
@@ -22,8 +22,9 @@ class LoginController extends BaseController
             return Redirect::back()->withErrors($error, 'register');
         }
 //        $result = $this->get_register($input['username'], $input['password']);
-        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
-        if ($result >0) {
+//        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+        $result = $this->curl($input);
+        if ($result->status == 200) {
             $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
                 return 'error';
@@ -43,7 +44,7 @@ class LoginController extends BaseController
             return true;
         }
         else{
-            $info = '统一认证码或密码有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
+            $info = '身份认证有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
             return  Redirect::back()->withInput()->withErrors($info, 'register');
         }
     }
@@ -53,9 +54,9 @@ class LoginController extends BaseController
          $input = Input::all();
          $num = User::where('uid', '=', $input['username'])->count();
          if($num > 0) {
-//              $result = $this->get_register($input['username'], $input['password']);
-                $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
-             if ($result>0) {
+              $result = $this->curl($input);
+//                $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+             if ($result->status == 200) {
                  if ($this->verify($input['username'], $input['username'])) {
                      $nickname = User::where('uid', '=', $input['username'])->first();
                      Session::put('nickname', $nickname['username']);
@@ -158,6 +159,26 @@ class LoginController extends BaseController
         Session::flush();
         return Redirect::to('/');
 
+    }
+
+    //curl
+    private function curl($data0 = []){
+        $data = [
+            'user'=>$data0['username'],
+            'password'=>$data0['password']
+        ];
+        // 初始化一个curl对象
+        $ch = curl_init();
+        curl_setopt ( $ch, CURLOPT_URL, $this->url );
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+        // 运行curl，获取网页。
+        $contents = json_decode(curl_exec($ch));
+        // 关闭请求
+        curl_close($ch);
+        return $contents;
     }
 
 }
