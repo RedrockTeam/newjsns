@@ -5,5 +5,5 @@
 </form>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/comment/comment.css")}}
+    {{HTML::style("css/widget/comment/comment.css")}}
 @stop

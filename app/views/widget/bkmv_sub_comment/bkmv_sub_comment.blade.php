@@ -46,5 +46,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/bkmv_sub_comment/bkmv_sub_comment.css")}}
+    {{HTML::style("css/widget/bkmv_sub_comment/bkmv_sub_comment.css")}}
 @stop
