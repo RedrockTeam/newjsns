@@ -2,7 +2,7 @@
 <div class="m-bkmv_lists">
     <ul class="f-cb">
     @foreach($data['recommendlist'] as $recommend)
-            <li class="u-bkmv_item f-pr" style="background-image: url('{{$recommend["cover_url"]}}')">
+            <li class="u-bkmv_item f-pr" style="background-image: url('{{substr($recommend["cover_url"], 7)}}')">
                 <div class="u-bkmv_info f-cb">
                     <h5 class="u-bkmv_name">{{$recommend['title']}}</h5>
                     <div class="u-user_action f-cb">
