@@ -7,11 +7,11 @@
 
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/lib/bootstrap.min.css")}}
-    {{HTML::style("public/css/lib/bootstrap-theme.min.css")}}
-    {{HTML::style("public/css/template/imageUpload/imageUpload.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/lib/bootstrap.min.css")}}
+    {{HTML::style("css/lib/bootstrap-theme.min.css")}}
+    {{HTML::style("css/template/imageUpload/imageUpload.css")}}
 @stop
 
 {{--script--}}
@@ -22,5 +22,5 @@
         </script>
 @stop
 @section("script")
-    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/imageUpload/imageUpload.js")])}}
+    {{HTML::script(URL::asset("js/lib/require.js"), ["data-main" => URL::asset("js/template/imageUpload/imageUpload.js")])}}
 @stop

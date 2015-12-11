@@ -41,9 +41,9 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/template/bookmovie/bookmovie.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/template/bookmovie/bookmovie.css")}}
 @stop
 {{--script--}}
 @section("html5js")
@@ -53,5 +53,5 @@
         </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/bookmovie/bookmovie.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/bookmovie/bookmovie.js")])}}
 @stop

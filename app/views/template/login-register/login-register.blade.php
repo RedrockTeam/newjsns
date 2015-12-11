@@ -8,9 +8,9 @@
 
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/template/login-register/login-register.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/template/login-register/login-register.css")}}
 @stop
 
 {{--script--}}
@@ -21,5 +21,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/login-register/login-register.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/login-register/login-register.js")])}}
 @stop

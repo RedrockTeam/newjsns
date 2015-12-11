@@ -34,9 +34,9 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/template/litera_sub/litera_sub.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/template/litera_sub/litera_sub.css")}}
 @stop
 
 {{--script--}}
@@ -47,5 +47,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/litera_sub/litera_sub.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/litera_sub/litera_sub.js")])}}
 @stop

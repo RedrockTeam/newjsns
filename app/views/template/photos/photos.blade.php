@@ -33,9 +33,9 @@
 
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/template/photos/photos.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/template/photos/photos.css")}}
 @stop
 
 {{--script--}}
@@ -46,5 +46,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/photos/photos.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/photos/photos.js")])}}
 @stop

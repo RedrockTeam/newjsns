@@ -31,9 +31,9 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/template/personal/personal.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/template/personal/personal.css")}}
 @stop
 
 {{--script--}}
@@ -44,5 +44,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script(URL::asset("public/js/lib/require.js"), ["data-main" => URL::asset("public/js/template/personal/personal.js")])}}
+    {{HTML::script(URL::asset("js/lib/require.js"), ["data-main" => URL::asset("js/template/personal/personal.js")])}}
 @stop

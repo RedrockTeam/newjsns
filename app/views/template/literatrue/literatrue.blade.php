@@ -43,9 +43,9 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("public/css/lib/base.css")}}
-    {{HTML::style("public/css/lib/function.css")}}
-    {{HTML::style("public/css/template/literatrue/literatrue.css")}}
+    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/function.css")}}
+    {{HTML::style("css/template/literatrue/literatrue.css")}}
 @stop
 
 {{--script--}}
@@ -56,5 +56,5 @@
         </script>
 @stop
 @section("script")
-    {{HTML::script("public/js/lib/require.js", ["data-main" => url("public/js/template/literatrue/literatrue.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/literatrue/literatrue.js")])}}
 @stop
