@@ -22,6 +22,7 @@ class PhotosController extends BaseController {
         $type_id = Input::get('type_id')? Input::get('type_id'):'%';
         $data = Album::where('album.status', '=', '1')->where('type_id', 'like',$type_id)->join('photos', 'album.album_cover', '=', 'photos.id')->select('album.id', 'photos.url as img_src', 'album.album_name as img_name', 'album.comment_num as comment_count', 'album.love_num as love_count', 'album.id as passage_id', 'album.type_id')->paginate(5);
         foreach($data as $v){
+            $v['img_src'] = substr($v['img_src'], 7);
             $v->imgDetail;
         }
         return $data;
