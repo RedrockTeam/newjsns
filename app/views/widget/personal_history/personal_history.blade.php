@@ -123,5 +123,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/personal_history/personal_history.css")}}
+    {{HTML::style("css/widget/personal_history/personal_history.css")}}
 @stop

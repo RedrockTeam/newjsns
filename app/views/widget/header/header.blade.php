@@ -14,5 +14,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/header/header.css")}}
+    {{HTML::style("css/widget/header/header.css")}}
 @stop

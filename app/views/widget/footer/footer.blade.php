@@ -23,5 +23,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/footer/footer.css")}}
+    {{HTML::style("css/widget/footer/footer.css")}}
 @stop

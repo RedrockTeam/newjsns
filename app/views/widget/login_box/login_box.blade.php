@@ -2,5 +2,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/login_box/login_box.css")}}
+    {{HTML::style("css/widget/login_box/login_box.css")}}
 @stop

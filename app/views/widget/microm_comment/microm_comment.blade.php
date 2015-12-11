@@ -47,5 +47,5 @@
 </script>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/microm_comment/microm_comment.css")}}
+    {{HTML::style("css/widget/microm_comment/microm_comment.css")}}
 @stop

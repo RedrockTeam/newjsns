@@ -21,5 +21,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/imageForm/imageForm.css")}}
+    {{HTML::style("css/widget/imageForm/imageForm.css")}}
 @stop

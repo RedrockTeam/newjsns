@@ -5,5 +5,5 @@
 </ul>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/litera_recom_list/litera_recom_list.css")}}
+    {{HTML::style("css/widget/litera_recom_list/litera_recom_list.css")}}
 @stop

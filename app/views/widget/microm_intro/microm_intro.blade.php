@@ -34,5 +34,5 @@
 </article>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/microm_intro/microm_intro.css")}}
+    {{HTML::style("css/widget/microm_intro/microm_intro.css")}}
 @stop

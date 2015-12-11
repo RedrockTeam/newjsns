@@ -31,6 +31,6 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/litera_list/litera_list.css")}}
+    {{HTML::style("css/widget/litera_list/litera_list.css")}}
     {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")}}
 @stop

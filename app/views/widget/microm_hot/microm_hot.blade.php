@@ -12,5 +12,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/microm_hot/microm_hot.css")}}
+    {{HTML::style("css/widget/microm_hot/microm_hot.css")}}
 @stop

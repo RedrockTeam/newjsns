@@ -29,5 +29,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/upload_movie/upload_movie.css")}}
+    {{HTML::style("css/widget/upload_movie/upload_movie.css")}}
 @stop

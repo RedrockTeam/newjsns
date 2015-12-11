@@ -55,7 +55,7 @@
 
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/upload_photo/upload_photo.css")}}
-    {{HTML::style("public/complexPlugin/webuploader/css/webuploader.css")}}
-    {{HTML::style("public/complexPlugin/webuploader/imguploader/style.css")}}
+    {{HTML::style("css/widget/upload_photo/upload_photo.css")}}
+    {{HTML::style("complexPlugin/webuploader/css/webuploader.css")}}
+    {{HTML::style("complexPlugin/webuploader/imguploader/style.css")}}
 @stop

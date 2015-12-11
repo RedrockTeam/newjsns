@@ -15,5 +15,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/litera_content/litera_content.css")}}
+    {{HTML::style("css/widget/litera_content/litera_content.css")}}
 @stop

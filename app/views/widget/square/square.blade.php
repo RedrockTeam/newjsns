@@ -77,5 +77,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("public/css/widget/square/square.css")}}
+    {{HTML::style("css/widget/square/square.css")}}
 @stop
