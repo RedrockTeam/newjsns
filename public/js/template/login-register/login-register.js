@@ -3,7 +3,7 @@
  */
 //配置require.config
 require.config({
-    baseUrl: "public/js/lib",
+    baseUrl: "js/lib",
     paths: {
         jquery: "jquery",
         port: "../template/login-register/port",

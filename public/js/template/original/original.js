@@ -2,7 +2,7 @@
  * Created by redrock on 2015/2/16.
  */
 require.config({
-    baseUrl: "public/js/lib",
+    baseUrl: "js/lib",
     shim: {
         underscore: {
             exports: "_"
