@@ -7,11 +7,11 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("css/lib/base.css")}}
-    {{HTML::style("css/lib/function.css")}}
-    {{HTML::style("css/template/uploads/uploads.css")}}
-    {{HTML::style("css/lib/bootstrap.min.css")}}
-    {{HTML::style("complexPlugin/uploadify/uploadify.css")}}
+    {{HTML::style("css/lib/base.css", [], true)}}
+    {{HTML::style("css/lib/function.css", [], true)}}
+    {{HTML::style("css/template/uploads/uploads.css", [], true)}}
+    {{HTML::style("css/lib/bootstrap.min.css", [], true)}}
+    {{HTML::style("complexPlugin/uploadify/uploadify.css", [], true)}}
 @stop
 {{--script--}}
 @section("html5js")
@@ -21,5 +21,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script(URL::asset("js/lib/require.js"), ["data-main" => URL::asset("js/template/uploads/uploads.js")])}}
+    {{HTML::script(URL::asset("js/lib/require.js"), ["data-main" => URL::asset("js/template/uploads/uploads.js", true)], true)}}
 @stop
