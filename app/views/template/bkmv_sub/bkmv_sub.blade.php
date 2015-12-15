@@ -48,5 +48,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/bkmv_sub/bkmv_sub.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/bkmv_sub/bkmv_sub.js", [], true)], true)}}
 @stop
