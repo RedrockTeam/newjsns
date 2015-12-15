@@ -55,9 +55,10 @@ class LoginController extends BaseController
          $num = User::where('uid', '=', $input['username'])->count();
          if($num > 0) {
 //              $result = $this->get_register($input['username'], $input['password']);
-             return $input;
+             var_dump($input);
                 $result = $this->__CurlPost(['user' => $input['username'], 'password' => $input['password']], 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login');
-                return $result;
+                var_dump($result);
+             return;
              if ($result['status'] == 200) {
                  if ($this->verify($input['username'], $input['username'])) {
                      $nickname = User::where('uid', '=', $input['username'])->first();
