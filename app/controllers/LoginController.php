@@ -22,7 +22,7 @@ class LoginController extends BaseController
             return Redirect::back()->withErrors($error, 'register');
         }
 //        $result = $this->get_register($input['username'], $input['password']);
-        http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login
+//        http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login
         $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
         if ($result >0) {
             $num = User::where('uid', '=', $input['username'])->count();
@@ -55,11 +55,8 @@ class LoginController extends BaseController
          $num = User::where('uid', '=', $input['username'])->count();
          if($num > 0) {
 //              $result = $this->get_register($input['username'], $input['password']);
-             var_dump($input);
                 $result = $this->__CurlPost(['user' => $input['username'], 'password' => $input['password']], 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login');
-                var_dump($result);
-             return;
-             if ($result['status'] == 200) {
+             if ($result->status == 200) {
                  if ($this->verify($input['username'], $input['username'])) {
                      $nickname = User::where('uid', '=', $input['username'])->first();
                      Session::put('nickname', $nickname['username']);
