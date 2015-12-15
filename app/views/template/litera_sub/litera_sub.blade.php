@@ -34,7 +34,7 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("css/lib/base.css")}}
+    {{HTML::style("css/lib/base.css", [], true)}}
     {{HTML::style("css/lib/function.css")}}
     {{HTML::style("css/template/litera_sub/litera_sub.css")}}
 @stop
