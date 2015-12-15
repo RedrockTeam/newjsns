@@ -182,7 +182,7 @@ class LoginController extends BaseController
         $res = json_decode(curl_exec($ch));
         // 关闭请求
         curl_close($ch);
-        return json_decode($res, true);
+        return $res;
     }
 
 
