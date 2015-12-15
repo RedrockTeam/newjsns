@@ -33,7 +33,7 @@
 
 @section("css")
     @parent
-    {{HTML::style("css/widget/upload_passage/upload_passage.css")}}
-    {{HTML::style("http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css")}}
-    {{HTML::style("http://cdn.gbtags.com/summernote/0.5.2/summernote.css")}}
+    {{HTML::style("css/widget/upload_passage/upload_passage.css", [], true)}}
+    {{HTML::style("http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css", [], true)}}
+    {{HTML::style("http://cdn.gbtags.com/summernote/0.5.2/summernote.css", [], true)}}
 @stop

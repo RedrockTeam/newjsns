@@ -19,5 +19,5 @@
 </form>
 @section("css")
     @parent
-    {{HTML::style("css/widget/book_tag_side/book_tag_side.css")}}
+    {{HTML::style("css/widget/book_tag_side/book_tag_side.css", [], true)}}
 @stop

@@ -37,5 +37,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("css/widget/login-register-case/login-register-case.css")}}
+    {{HTML::style("css/widget/login-register-case/login-register-case.css", [], true)}}
 @stop

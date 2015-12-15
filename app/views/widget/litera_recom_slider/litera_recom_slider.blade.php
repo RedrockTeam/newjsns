@@ -10,5 +10,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("css/widget/litera_recom_slider/litera_recom_slider.css")}}
+    {{HTML::style("css/widget/litera_recom_slider/litera_recom_slider.css", [], true)}}
 @stop

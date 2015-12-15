@@ -46,5 +46,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/photos/photos.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/photos/photos.js", [], true)], true)}}
 @stop

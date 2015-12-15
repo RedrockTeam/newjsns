@@ -35,5 +35,5 @@
 @endfor
 @section("css")
     @parent
-    {{HTML::style("css/widget/book_tags_lists/book_tags_lists.css")}}
+    {{HTML::style("css/widget/book_tags_lists/book_tags_lists.css", [], true)}}
 @stop

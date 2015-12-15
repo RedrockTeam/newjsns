@@ -54,5 +54,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("css/widget/personal_info/personal_info.css")}}
+    {{HTML::style("css/widget/personal_info/personal_info.css", [], true)}}
 @stop

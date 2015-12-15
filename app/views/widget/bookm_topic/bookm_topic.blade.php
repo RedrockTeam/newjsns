@@ -11,5 +11,5 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("css/widget/bookm_topic/bookm_topic.css")}}
+    {{HTML::style("css/widget/bookm_topic/bookm_topic.css", [], true)}}
 @stop

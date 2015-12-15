@@ -12,5 +12,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("css/widget/microm_topic/microm_topic.css")}}
+    {{HTML::style("css/widget/microm_topic/microm_topic.css", [], true)}}
 @stop

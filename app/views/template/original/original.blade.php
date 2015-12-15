@@ -42,10 +42,10 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("css/lib/base.css")}}
-    {{HTML::style("css/lib/function.css")}}
-    {{HTML::style("css/template/original/original.css")}}
-    {{HTML::style("css/lib/font-awesome.min.css")}}
+    {{HTML::style("css/lib/base.css", [], true)}}
+    {{HTML::style("css/lib/function.css", [], true)}}
+    {{HTML::style("css/template/original/original.css", [], true)}}
+    {{HTML::style("css/lib/font-awesome.min.css", [], true)}}
 @stop
 
 {{--script--}}
@@ -56,5 +56,5 @@
         </script>
 @stop
 @section("script")
-    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/original/original.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/original/original.js", [], true)], true)}}
 @stop

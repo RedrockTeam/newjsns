@@ -19,5 +19,5 @@
 @endforeach
 @section("css")
     @parent
-    {{HTML::style("css/widget/original_lists/original_lists.css")}}
+    {{HTML::style("css/widget/original_lists/original_lists.css", [], true)}}
 @stop

@@ -12,5 +12,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("css/widget/original_tags/original_tags.css")}}
+    {{HTML::style("css/widget/original_tags/original_tags.css", [], true)}}
 @stop

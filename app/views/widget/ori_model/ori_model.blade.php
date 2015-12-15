@@ -41,5 +41,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("css/widget/ori_model/ori_model.css")}}
+    {{HTML::style("css/widget/ori_model/ori_model.css", [], true)}}
 @stop

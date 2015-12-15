@@ -36,9 +36,9 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("css/lib/base.css")}}
-    {{HTML::style("css/lib/function.css")}}
-    {{HTML::style("css/template/bkmv_sub/bkmv_sub.css")}}
+    {{HTML::style("css/lib/base.css", [], true)}}
+    {{HTML::style("css/lib/function.css", [], true)}}
+    {{HTML::style("css/template/bkmv_sub/bkmv_sub.css", [], true)}}
 @stop
 {{--script--}}
 @section("html5js")

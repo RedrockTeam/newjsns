@@ -44,9 +44,9 @@
 @stop
 {{--css--}}
 @section("css")
-    {{HTML::style("css/lib/base.css")}}
-    {{HTML::style("css/lib/function.css")}}
-    {{HTML::style("css/template/micromovie/micromovie.css")}}
+    {{HTML::style("css/lib/base.css", [], true)}}
+    {{HTML::style("css/lib/function.css", [], true)}}
+    {{HTML::style("css/template/micromovie/micromovie.css", [], true)}}
 @stop
 
 {{--script--}}
@@ -57,5 +57,5 @@
         </script>
 @stop
 @section("script")
-    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/micromovie/micromovie.js")])}}
+    {{HTML::script("js/lib/require.js", ["data-main" => url("js/template/micromovie/micromovie.js", [], true)], true)}}
 @stop

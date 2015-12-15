@@ -4,5 +4,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("css/widget/personal_tabs/personal_tabs.css")}}
+    {{HTML::style("css/widget/personal_tabs/personal_tabs.css", [], true)}}
 @stop

@@ -40,6 +40,6 @@
 </div>
 @section("css")
     @parent
-    {{HTML::style("css/widget/microm_list/microm_list.css")}}
-    {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")}}
+    {{HTML::style("css/widget/microm_list/microm_list.css", [], true)}}
+    {{HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", [], true)}}
 @stop

@@ -16,5 +16,5 @@
 
 @section("css")
     @parent
-    {{HTML::style("css/widget/bkmv_sub_recom/bkmv_sub_recom.css")}}
+    {{HTML::style("css/widget/bkmv_sub_recom/bkmv_sub_recom.css", [], true)}}
 @stop
