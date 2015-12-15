@@ -168,7 +168,7 @@ class LoginController extends BaseController
      * @param array $data
      * @return array|mixed
      */
-    private function __CurlPost($url, $data = array()){
+    private function __CurlPost($data = array(), $url){
         $ch = curl_init();
         //设置超时
         curl_setopt($ch, CURLOPT_URL, $url);
