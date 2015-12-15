@@ -24,7 +24,7 @@
                 <h3 class="panel-title">服务器/PHP</h3>
             </div>
             <div class="panel-body">
-                <p>{{apache_get_version()}}</p>
+                <p>没了</p>
             </div>
         </div>
     </div><div class="col-md-4">
