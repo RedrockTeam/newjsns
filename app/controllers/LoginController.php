@@ -173,15 +173,15 @@ class LoginController extends BaseController
      */
     private function __CurlPost($data = array(), $url){
         $ch = curl_init();
-        //设置超时
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-        curl_setopt($ch, CURLOPT_POST, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        //运行curl，结果以json形式返回
-        $res = curl_exec($ch);
+        curl_setopt ( $ch, CURLOPT_URL, $url );
+        curl_setopt ( $ch, CURLOPT_POST, 1 );
+        curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+        curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+        // 运行curl，获取网页。
+        $res = json_decode(curl_exec($ch));
+        // 关闭请求
         curl_close($ch);
-        //取出openid
         return json_decode($res, true);
     }
 
