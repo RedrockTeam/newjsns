@@ -8,6 +8,7 @@
 class CommentmanageController extends BaseController{
     //评论管理首页
     public function index(){
+        URL::action()
         $data = Comment::orderBy('created_at', 'desc')->paginate(20);
         foreach($data as $v){
             $v->user;
