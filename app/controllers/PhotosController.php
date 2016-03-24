@@ -63,7 +63,7 @@ class PhotosController extends BaseController {
             $file = file_get_contents("php://input");
             $type = str_replace('image/','',$data['type']);
             $name = 'public/uploads/'.md5(microtime()).'.'.$type;
-            $originalname = 'public/uploads/'.md5(microtime()).'_original.'.$type;
+            $originalname = 'uploads/'.md5(microtime()).'_original.'.$type;
             $img = Image::make($file);
             $img0 = Image::make($file);
             $originalimg = $img0;
