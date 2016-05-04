@@ -23,7 +23,9 @@ class LoginController extends BaseController
         }
 //        $result = $this->get_register($input['username'], $input['password']);
 //        http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login
-        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+        $info = '统一认证码或密码有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
+        return  Redirect::back()->withInput()->withErrors($info, 'register');
+//        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
         if ($result >0) {
             $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
