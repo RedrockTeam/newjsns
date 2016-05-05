@@ -235,7 +235,7 @@
             var button = $(this);
             var id = button.parent().parent().parent().children(":first").html();
             $.ajax({
-                url: "{{route('admin/user/manage')}}",
+                url: "{{secure_url(route('admin/user/manage'))}}",
 
                 type: 'post',
 
