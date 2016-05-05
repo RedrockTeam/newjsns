@@ -21,7 +21,7 @@
         <div class="f-pr"><input type="text" class="u-stu_id js-check" name="username" data-check_type="stu_id"  placeholder="学号"/><span class="s-error">+</span></div>
         <div class="f-pr"><input type="password" class="u-stu_pwd js-check" name="password" data-check_type="stu_pwd" placeholder="密码"/><span class="s-error">+</span></div>
         <input type="submit" value="登陆"/>
-        <a href="http://hongyan.cqupt.edu.cn/user/resetpassword" class="s-find_pwd">找回密码</a>
+        <a href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/" class="s-find_pwd">找回密码</a>
     </form>
     {{--注册 默认打开--}}
     <form action="{{route('home/register')}}" novalidate method="POST" class="u-register s-form f-cb js-login-form">
