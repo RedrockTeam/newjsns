@@ -30,7 +30,7 @@
         <div class="f-pr"><input type="password" class="u-stu_pwd js-check" name="stu_pwd" data-check_type="stu_pwd" placeholder="密码为统一认证码密码"/><span class="s-error">+</span></div>
         <div class="f-pr"><input type="text" class="u-stu_nickname js-check" name="stu_nickname" data-check_type="stu_nickname" placeholder="昵称"/><span class="s-error">+</span></div>
         <input type="submit" value="注册"/>
-        <a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html" class="s-find_pwd">找回密码</a>
+        <a href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/" class="s-find_pwd">找回密码</a>
     </form>
 
 
