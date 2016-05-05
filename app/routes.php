@@ -131,7 +131,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
 /**
  * 后台路由
  */
-Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), function()
+Route::group(array('prefix' => 'admin', 'before' => 'force.ssl|auth|verify_permission'), function()
 {
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
 
