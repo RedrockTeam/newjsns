@@ -65,7 +65,6 @@ Route::get('login-register', array('as' => 'login', 'uses'=>'LoginController@ind
 Route::group(array('prefix' => 'home'), function()
 {
     #上传图片,文章，微视
-    Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
 
     Route::get('literature/comment', array('as' => 'home/literature/comment','uses' => 'LiteratureController@test'));//ajax获取文章评论
 
@@ -90,7 +89,7 @@ Route::group(array('prefix' => 'home'), function()
 Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
-
+    Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
     Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
     Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
     Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
