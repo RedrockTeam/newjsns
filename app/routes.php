@@ -60,6 +60,7 @@ Route::get('login-register', array('as' => 'login', 'uses'=>'LoginController@ind
  */
 
 //Route::get('test', function () {});//test
+Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
@@ -90,7 +91,6 @@ Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'P
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
     Route::get('uploads', array('as' => 'home/uploads', 'uses' => 'PersonalController@uploads'));
-    Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
     Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
     Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
@@ -131,7 +131,7 @@ Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), fu
 /**
  * 后台路由
  */
-Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission', 'https'=>true), function()
+Route::group(array('prefix' => 'admin', 'before' => 'auth|verify_permission'), function()
 {
     Route::get('index', array('as' => 'admin/index','uses' => 'HomeController@index'));//仪表盘
 
