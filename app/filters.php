@@ -10,7 +10,13 @@
 | application. Here you may also register your custom route filters.
 |
 */
-
+Route::filter('force.ssl', function()
+{
+	if( ! Request::secure() && App::environment() !== 'local')
+	{
+		return Redirect::secure(Request::getRequestUri());
+	}
+});
 App::before(function($request)
 {
 	//
