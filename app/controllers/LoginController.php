@@ -26,7 +26,7 @@ class LoginController extends BaseController
 //        $info = '账号或密码有误, 点击<a href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/">找回密码</a>';
 //        return  Redirect::back()->withInput()->withErrors($info, 'register');
         $result = $this->__CurlPost(['user' => $input['username'], 'password' => $input['password']], 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login');
-        if ($result >0) {
+        if ($result->status == 200) {
             $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
                 return 'error';
