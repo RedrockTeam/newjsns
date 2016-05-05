@@ -44,5 +44,5 @@
     </script>
 @stop
 @section("script")
-    {{HTML::script(URL::asset("js/lib/require.js"), ["data-main" => url("js/template/personal/personal.js", true)], true)}}
+    {{HTML::script(url("js/lib/require.js", true), ["data-main" => url("js/template/personal/personal.js", true)], true)}}
 @stop
