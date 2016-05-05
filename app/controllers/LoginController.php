@@ -23,9 +23,9 @@ class LoginController extends BaseController
         }
 //        $result = $this->get_register($input['username'], $input['password']);
 //        http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login
-        $info = '账号或密码有误, 点击<a href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/">找回密码</a>';
-        return  Redirect::back()->withInput()->withErrors($info, 'register');
-//        $result = file_get_contents("http://hongyan.cqupt.edu.cn/online/interface.php?username=$input[username]&password=$input[password]");
+//        $info = '账号或密码有误, 点击<a href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/">找回密码</a>';
+//        return  Redirect::back()->withInput()->withErrors($info, 'register');
+        $result = $this->__CurlPost(['user' => $input['username'], 'password' => $input['password']], 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login');
         if ($result >0) {
             $num = User::where('uid', '=', $input['username'])->count();
             if($num!=0){
@@ -46,7 +46,7 @@ class LoginController extends BaseController
             return true;
         }
         else{
-            $info = '统一认证码或密码有误, 点击<a href="http://qxgl.cqupt.edu.cn/e2qPortalPub/security/user/userpwdrest.html">找回密码</a>';
+            $info = '账号或密码有误, 点击<a href="http://hongyan.cqupt.edu.cn/RedCenter/index.php/Home/ForgetPassword/">找回密码</a>';
             return  Redirect::back()->withInput()->withErrors($info, 'register');
         }
     }
@@ -59,7 +59,7 @@ class LoginController extends BaseController
 //              $result = $this->get_register($input['username'], $input['password']);
                 $result = $this->__CurlPost(['user' => $input['username'], 'password' => $input['password']], 'http://hongyan.cqupt.edu.cn/RedCenter/Api/Handle/login');
              if ($result->status == 200) {
-                 if ($this->verify($input['username'], $input['username'])) {
+                 if ($this->verify($input['username'], $input['username'])) { //todo 更新密码
                      $nickname = User::where('uid', '=', $input['username'])->first();
                      Session::put('nickname', $nickname['username']);
                      Session::put('uid', $nickname['id']);
