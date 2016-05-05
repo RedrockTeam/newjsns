@@ -66,7 +66,7 @@ class PersonalController extends BaseController {
                 continue;
             }
             $type = $v->getClientOriginalExtension();
-            $name = 'public/uploads/'.md5(microtime()).'.'.$type;
+            $name = 'uploads/'.md5(microtime()).'.'.$type;
             $img = Image::make($v);
             $newimg = $img->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
