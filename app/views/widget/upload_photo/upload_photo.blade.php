@@ -57,5 +57,5 @@
     @parent
     {{HTML::style("css/widget/upload_photo/upload_photo.css", [], true)}}
     {{HTML::style("complexPlugin/webuploader/css/webuploader.css", [], true)}}
-    {{HTML::style("complexPlugin/webuploader/imguploader/style.css"), [], true}}
+    {{HTML::style("complexPlugin/webuploader/imguploader/style.css", [], true)}}
 @stop
