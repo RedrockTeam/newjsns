@@ -55,14 +55,11 @@ Route::get('login-register', array('as' => 'login', 'uses'=>'LoginController@ind
 
 /*------------------------------ajax 测试---------------------------------*/
 //原味初始化评论
-Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
 /**
  * 前台功能性路由
  */
 
 //Route::get('test', function () {});//test
-Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
-Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
 
 //不需权限
 Route::group(array('prefix' => 'home'), function()
@@ -93,6 +90,11 @@ Route::group(array('prefix' => 'home'), function()
 Route::get('personal', array('as' => 'personal', 'before' => 'auth', 'uses' =>'PersonalController@personalIndex'));
 //需权限
 Route::group(array('prefix' => 'home', 'before' => 'auth|verify_permission'), function() {
+
+    Route::post('ori_get_comments', array('as' => 'ori_get_comments', 'uses' => 'CommentController@getComment'));
+    Route::post('upload',array('as'=>'home/upload', 'uses'=>'PhotosController@upload'));
+    Route::post('updateAlbum',array('as'=>'home/updateAlbum', 'uses'=>'PhotosController@updateAlbum'));
+
 
     #点赞
     Route::post('praise', array('as' => 'home/praise','uses' => 'CommentController@praise'));
